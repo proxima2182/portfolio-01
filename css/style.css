@@ -1,6 +1,18 @@
 @charset "utf-8";
 
-
+#section_00{
+    width: 100%;
+    height: 100%;
+}
+#section_00 .button_enter{
+    color: #fff;
+    font-size: 4vw;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    z-index: 102;
+    position: fixed;
+}
 #section_01{
     position: relative;
 }

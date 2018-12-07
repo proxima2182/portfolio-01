@@ -40,24 +40,15 @@ $(document).ready(function() {
 //    $("body").css({
 //        "transform":"rotate(-90deg)",
 //    })
-    resize();
-//    toggleFullScreen();
-//    $("body").css({
-//        "display": "fullscreen",
-//        "orientation": "landscape"
-//    })
-//    if(window.innerWidth<768) {
-//    }
     
+    
+//    $("html").click(function() {
+//        if (document.fullscreenEnabled) {
+//            console.log("true");
+////            document.documentElement.webkitRequestFullscreen();
+//            requestFullscreen($("html")[0]);
+//        }
+//    })
+    resize();
     window.addEventListener('resize', resize);
 })
-$(window).on('load',function() {
-    setTimeout(function(){
-        if (document.fullscreenEnabled) {
-            alert("fullscreen enabled true!");
-            requestFullscreen($("body")[0]);
-        } else {
-            alert("fullscreen enabled false!");
-        }
-    }, 2000);
-});

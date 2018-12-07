@@ -47,7 +47,81 @@ function mail_success(){
 function mail_fail(){
     alert("The email address is not valid!");
 }
-
+function add_enter() {
+    map_clear(1);
+    var container = $("<div id=\"section_enter\"></div>");
+    container.css({
+        "width": "100%",
+        "height": "100%",
+        "background": "#1c2e5f",
+        "top": 0,
+        "left": 0,
+        "z-index": 150,
+        "position": "fixed",
+    });
+    $("body").append(container);
+    var background = $("<div class=\"background\"></div>");
+    var css_value = {
+        "position": "absolute",
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0,
+        "margin": "auto",
+    };
+    background.css(css_value);
+    var colors=["#32004b", "#440e62", "#1c2e5f"];
+    var count = 3;
+    for(var i= 0; i< count; ++i ) {
+        let clone = background.clone();
+        clone.css({
+            "width":0,
+            "height":0,
+            "border-radius": "50%",
+            "background-color": colors[i],
+            "z-index":i,
+        })
+        container.append(clone);
+        setTimeout(function() {
+            clone.animate({
+                "width":AREA_HEIGHT*3,
+                "height":AREA_HEIGHT*3,
+            },600, function() {
+                count --;
+                if(count == 0){
+                    container.find(".background").remove();
+                }
+            });
+        }, 300 * i);
+    }
+//                    container.append(background);
+    var ul = $("<ul class=\"enter_ul\"></ul>")
+    var li = unit_nodata_li
+    (AREA_WIDTH*2, AREA_HEIGHT*2, WINDOW_WIDTH*-0.04, 1,
+     0, bg_image_nodata, ["./images/icon_enter_off.png", "./images/icon_enter_on.png"]);
+    li.css({
+        "line-height":"normal",
+    })
+    var data_li = unit_nodata_info_li
+    (AREA_WIDTH*2, BOX_SIZE*2, WINDOW_WIDTH*0.03,
+     0, AREA_HEIGHT*7/3, "Enter to the page!", function() {
+        requestFullscreen($("html")[0]);
+    })
+    ul.css(css_value);
+    ul.css({
+        "width": AREA_WIDTH*2,
+        "height": AREA_HEIGHT*4,
+        "display": "inline-block",
+        "vertical-align": "middle",
+        "z-index":4,
+    })
+    data_li.css({
+        "line-height":BOX_SIZE+"px",
+    })
+    ul.append(li);
+    ul.append(data_li);
+    container.append(ul);
+}
 $(document).ready(function(){
     //skill list load
     $.get("./meta/skill_list.xml", function(data) 
@@ -134,4 +208,7 @@ $(document).ready(function(){
             page_move($(this).index());
         }
     })
+    if(window.innerWidth<768 && document.fullscreenEnabled) {
+        add_enter();
+    }
 })
