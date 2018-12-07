@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lists>
+    <list name="language_list">
+        <element>
+            <name>HTML/CSS</name>
+            <level>2</level>
+        </element>
+        <element>
+            <name>JAVA SCRIPT</name>
+            <level>2</level>
+        </element>
+        <element>
+            <name>JAVA</name>
+            <level>2</level>
+        </element>
+        <element>
+            <name>SWIFT</name>
+            <level>2</level>
+        </element>
+        <element>
+            <name>PHP</name>
+            <level>2</level>
+        </element>
+        <element>
+            <name>PHP</name>
+            <level>2</level>
+        </element>
+    </list>
+    <list name="platform_list">
+        <element>
+            <name>Web</name>
+            <level>2</level>
+        </element>
+        <element>
+            <name>Android</name>
+            <level>2</level>
+        </element>
+        <element>
+            <name>IOS</name>
+            <level>2</level>
+        </element>
+        <element>
+            <name>IOS</name>
+            <level>2</level>
+        </element>
+    </list>
+    <list name="tool_list">
+        <element>
+            <name>Photo Shop</name>
+            <level>2</level>
+        </element>
+        <element>
+            <name>Illustrator</name>
+            <level>2</level>
+        </element>
+        <element>
+            <name>Illustrator</name>
+            <level>2</level>
+        </element>
+    </list>
+</lists>

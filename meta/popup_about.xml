@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<elements>
+    <element>
+        <title>About</title>
+        <type>plain</type>
+        <content>나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다나는 천재다</content>
+    </element>
+    <element>
+        <title>History</title>
+        <type>list</type>
+        <contents>
+            <content>
+                <icon>./images/icon_list_edu.png</icon>
+                <text>부산대학교 정보컴퓨터공학부 4년
+                </text>
+            </content>
+            <content>
+                <icon>./images/icon_list_job.png</icon>
+                <text>soosnagST 1년8개월</text>
+            </content>
+            <content>
+                <icon>./images/icon_list_job.png</icon>
+                <text>yedpay(HK) 1년8개월</text>
+            </content>
+            <content>
+                <icon>./images/icon_list_edu.png</icon>
+                <text>더조은 컴퓨터 학원 - 스마트(UI/UX)웹디자인 모바일콘텐츠개발 양성과정 수료예정 6개월</text>
+            </content>
+        </contents>
+    </element>
+    <element>
+        <title>License</title>
+        <type>list</type>
+        <contents>
+            <content>
+                <icon>./images/icon_list_license.png</icon>
+                <text>정보처리기사</text>
+            </content>
+            <content>
+                <icon>./images/icon_list_license.png</icon>
+                <text>토익 810점</text>
+            </content>
+        </contents>
+    </element>
+</elements>
