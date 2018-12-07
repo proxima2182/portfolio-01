@@ -24,9 +24,16 @@ function requestFullscreen(element) {
 		element.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
 	}
 }
-
+//$(window).bind("orientationchange", function(){
+//    var orientation = window.orientation;
+//    var new_orientation = (orientation) ? 0 : 180 + orientation;
+//    $('body').css({
+//        "-webkit-transform": "rotate(" + new_orientation + "deg)"
+//    });
+//});
 $(document).ready(function() {
     $(window).bind('orientationchange resize', function(event){
+        alert(window.orientation);
       if (event.orientation) {
         if (event.orientation == 'landscape') {
           if (window.rotation == 90) {
