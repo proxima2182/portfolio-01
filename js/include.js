@@ -105,7 +105,8 @@ function add_enter() {
     var data_li = unit_nodata_info_li
     (AREA_WIDTH*2, BOX_SIZE*2, WINDOW_WIDTH*0.03,
      0, AREA_HEIGHT*7/3, "Enter to the page!", function() {
-        requestFullscreen($("html")[0]);
+		screenfull.request();
+        container.remove();
     })
     ul.css(css_value);
     ul.css({
@@ -208,7 +209,12 @@ $(document).ready(function(){
             page_move($(this).index());
         }
     })
-    if(window.innerWidth<768 && document.fullscreenEnabled) {
+    if(IS_MOBILE && screenfull.enabled) {
+        screenfull.on("change", function() {
+            if(!screenfull.isFullscreen) {
+                add_enter();
+            }
+        })
         add_enter();
     }
 })
