@@ -52,10 +52,12 @@ $(document).ready(function() {
     window.addEventListener('resize', resize);
 })
 $(window).on('load',function() {
-    if (document.fullscreenEnabled) {
-        alert("fullscreen enabled true!");
-        requestFullscreen(document.documentElement);
-    } else {
-        alert("fullscreen enabled false!");
-    }
+    setTimeout(function(){
+        if (document.fullscreenEnabled) {
+            alert("fullscreen enabled true!");
+            requestFullscreen($("body")[0]);
+        } else {
+            alert("fullscreen enabled false!");
+        }
+    }, 2000);
 });
