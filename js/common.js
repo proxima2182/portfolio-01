@@ -57,7 +57,8 @@ function resize() {
         if(need_rotate == IS_ROTATED) {
             IS_ROTATED = need_rotate;
             return;
-        } else {
+        } else if(!need_rotate){
+            //when it landscape
             focus_out();
         }
     }
