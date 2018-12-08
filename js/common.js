@@ -7,6 +7,7 @@ var root = document.documentElement;
 
 function resize() {
     var need_resize = true;
+    var need_rotate = false;
    $('input').each(function() {
        if($(this).is(":focus")) {
            need_resize = false;
@@ -28,13 +29,18 @@ function resize() {
     console.log("resize");
     if(IS_MOBILE) {
         if(window.innerHeight > window.innerWidth) {
-            IS_ROTATED = true;
+            need_rotate = true;
         } else {
-            IS_ROTATED = false;
+            need_rotate = false;
         }
     } else {
-        IS_ROTATED = false;
+        need_rotate = false;
     }
+    if(need_rotate == IS_ROTATED && !need_resize) {
+        IS_ROTATED = need_rotate;
+        return;
+    }
+    IS_ROTATED = need_rotate;
     WINDOW_WIDTH = window.innerWidth;
     WINDOW_HEIGHT = window.innerHeight;
     if(IS_ROTATED) {
