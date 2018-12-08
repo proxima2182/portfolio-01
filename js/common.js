@@ -33,7 +33,9 @@ function resize() {
     })
     if(IS_MOBILE && IS_ROTATED) {
         $("body").css({
-            "transform":"rotate(90deg)",
+            "-webkit-transform": "rotate(90deg)",
+            "-ms-transform": "rotate(90deg)",
+            "transform": "rotate(90deg)",
             "top": "50%",
             "left": "50%",
             "margin-top": -1*WINDOW_HEIGHT/2,
@@ -42,7 +44,9 @@ function resize() {
         });
     } else {
         $("body").css({
-            "transform":"rotate(0deg)",
+            "-webkit-transform": "rotate(0deg)",
+            "-ms-transform": "rotate(0deg)",
+            "transform": "rotate(0deg)",
             "top": "0",
             "left": "0",
             "margin": 0,
@@ -60,50 +64,53 @@ function resize() {
         console.log("condition 03");
         CONTENT_WIDTH = WINDOW_WIDTH;
     }
-    root.style.setProperty('--content_wrap_width', CONTENT_WIDTH*0.8 + "px");
-    root.style.setProperty('--content_wrap_height', CONTENT_WIDTH*0.7 + "px");
-    root.style.setProperty('--content_wrap_margin_top', -1*CONTENT_WIDTH*0.35 + "px");
-    root.style.setProperty('--content_wrap_margin_left',  -1*CONTENT_WIDTH*0.4 + "px");
+    function floating_point(percent) {
+        return parseInt(CONTENT_WIDTH*percent * 100)/100;
+    }
+    root.style.setProperty('--content_wrap_width', floating_point(0.8) + "px");
+    root.style.setProperty('--content_wrap_height', floating_point(0.7) + "px");
+    root.style.setProperty('--content_wrap_margin_top', -1*floating_point(0.35) + "px");
+    root.style.setProperty('--content_wrap_margin_left',  -1*floating_point(0.4) + "px");
     
     root.style.setProperty('--header_height', WINDOW_HEIGHT + "px");
     root.style.setProperty('--header_bottom', -1* WINDOW_HEIGHT + "px");
     
-    root.style.setProperty('--section_01_rokcet_width', CONTENT_WIDTH*0.36 + "px");
-    root.style.setProperty('--section_01_rokcet_height', CONTENT_WIDTH*0.75 + "px");
-    root.style.setProperty('--section_01_rokcet_margin_left', -1*CONTENT_WIDTH*0.18 + "px");
-    root.style.setProperty('--section_01_effect_width', CONTENT_WIDTH*0.46 + "px");
-    root.style.setProperty('--section_01_effect_height', CONTENT_WIDTH*0.2 + "px");
-    root.style.setProperty('--section_01_effect_margin_left', -1*CONTENT_WIDTH*0.23 + "px");
+    root.style.setProperty('--section_01_rokcet_width', floating_point(0.36) + "px");
+    root.style.setProperty('--section_01_rokcet_height', floating_point(0.75) + "px");
+    root.style.setProperty('--section_01_rokcet_margin_left', -1*floating_point(0.18) + "px");
+    root.style.setProperty('--section_01_effect_width', floating_point(0.46) + "px");
+    root.style.setProperty('--section_01_effect_height', floating_point(0.2) + "px");
+    root.style.setProperty('--section_01_effect_margin_left', -1*floating_point(0.23) + "px");
     
-    root.style.setProperty('--section_02_tag_width', CONTENT_WIDTH*0.25 + "px");
-    root.style.setProperty('--section_02_button_width', CONTENT_WIDTH*0.55 + "px");
-    root.style.setProperty('--section_02_button_img_height', CONTENT_WIDTH*0.45 + "px");
+    root.style.setProperty('--section_02_tag_width', floating_point(0.25) + "px");
+    root.style.setProperty('--section_02_button_width', floating_point(0.55) + "px");
+    root.style.setProperty('--section_02_button_img_height', floating_point(0.45) + "px");
     
-    root.style.setProperty('--section_03_ul_height', CONTENT_WIDTH*0.18 + "px");
-    root.style.setProperty('--section_03_li_width', CONTENT_WIDTH*0.12 + "px");
-    root.style.setProperty('--section_03_li_height', CONTENT_WIDTH*0.16 + "px");
-    root.style.setProperty('--section_03_ball_size', CONTENT_WIDTH*0.11 + "px");
-    root.style.setProperty('--section_03_language_width', CONTENT_WIDTH*0.80 + "px");
-    root.style.setProperty('--section_03_platform_width', CONTENT_WIDTH*0.48 + "px");
-    root.style.setProperty('--section_03_tool_width', CONTENT_WIDTH*0.32 + "px");
+    root.style.setProperty('--section_03_ul_height', floating_point(0.18) + "px");
+    root.style.setProperty('--section_03_li_width', floating_point(0.12) + "px");
+    root.style.setProperty('--section_03_li_height', floating_point(0.16) + "px");
+    root.style.setProperty('--section_03_ball_size', floating_point(0.11) + "px");
+    root.style.setProperty('--section_03_language_width', floating_point(0.8) + "px");
+    root.style.setProperty('--section_03_platform_width', floating_point(0.48) + "px");
+    root.style.setProperty('--section_03_tool_width', floating_point(0.32) + "px");
     
-    root.style.setProperty('--section_05_text_wrap_width', CONTENT_WIDTH*0.7 + "px");
-    root.style.setProperty('--section_05_button_width', CONTENT_WIDTH*0.26 + "px");
-    root.style.setProperty('--section_05_button_margin_left', -1*CONTENT_WIDTH*0.13 + "px");
+    root.style.setProperty('--section_05_text_wrap_width', floating_point(0.7) + "px");
+    root.style.setProperty('--section_05_button_width', floating_point(0.26) + "px");
+    root.style.setProperty('--section_05_button_margin_left', -1*floating_point(0.13) + "px");
     
-    root.style.setProperty('--0_5',  CONTENT_WIDTH*0.005 + "px");
-    root.style.setProperty('--1',  CONTENT_WIDTH*0.01 + "px");
-    root.style.setProperty('--2',  CONTENT_WIDTH*0.02 + "px");
-    root.style.setProperty('--2_5',  CONTENT_WIDTH*0.025 + "px");
-    root.style.setProperty('--3',  CONTENT_WIDTH*0.03 + "px");
-    root.style.setProperty('--4',  CONTENT_WIDTH*0.04 + "px");
-    root.style.setProperty('--6',  CONTENT_WIDTH*0.06 + "px");
-    root.style.setProperty('--8',  CONTENT_WIDTH*0.08 + "px");
-    root.style.setProperty('--10',  CONTENT_WIDTH*0.1 + "px");
-    root.style.setProperty('--15',  CONTENT_WIDTH*0.15 + "px");
-    root.style.setProperty('--30',  CONTENT_WIDTH*0.3 + "px");
-    root.style.setProperty('--40',  CONTENT_WIDTH*0.4 + "px");
-    root.style.setProperty('--60',  CONTENT_WIDTH*0.6 + "px");
+    root.style.setProperty('--0_5',  floating_point(0.005) + "px");
+    root.style.setProperty('--1',  floating_point(0.01) + "px");
+    root.style.setProperty('--2',  floating_point(0.02) + "px");
+    root.style.setProperty('--2_5',  floating_point(0.025) + "px");
+    root.style.setProperty('--3',  floating_point(0.03) + "px");
+    root.style.setProperty('--4',  floating_point(0.04) + "px");
+    root.style.setProperty('--6',  floating_point(0.06) + "px");
+    root.style.setProperty('--8',  floating_point(0.08) + "px");
+    root.style.setProperty('--10',  floating_point(0.1) + "px");
+    root.style.setProperty('--15',  floating_point(0.15) + "px");
+    root.style.setProperty('--30',  floating_point(0.3) + "px");
+    root.style.setProperty('--40',  floating_point(0.4) + "px");
+    root.style.setProperty('--60',  floating_point(0.6) + "px");
     
 }
 

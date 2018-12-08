@@ -336,10 +336,12 @@
     z-index: -1;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
 }
 #section_05 .content_wrap{
-    line-height: 70vw;
+    line-height: var(--content_wrap_height);
 }
 #section_05 .text_wrap{
     width: var(--section_05_text_wrap_width);

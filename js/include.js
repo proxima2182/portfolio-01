@@ -215,14 +215,14 @@ $(document).ready(function(){
             page_move($(this).index());
         }
     })
-    if(IS_MOBILE && screenfull.enabled) {
-        screenfull.on("change", function() {
-            if(!screenfull.isFullscreen) {
-                add_enter();
-            }else {
-                resize();
-            }
-        })
-        add_enter();
-    }
+//    if(IS_MOBILE && screenfull.enabled) {
+//        screenfull.on("change", function() {
+//            if(!screenfull.isFullscreen) {
+//                add_enter();
+//            }else {
+//                resize();
+//            }
+//        })
+//        add_enter();
+//    }
 })
