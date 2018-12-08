@@ -91,9 +91,6 @@ function resize() {
         console.log("condition 03");
         CONTENT_WIDTH = WINDOW_WIDTH;
     }
-    function CONTENT_WIDTH*percent) {
-        return parseInt(CONTENT_WIDTH*percent * 100)/100;
-    }
     root.style.setProperty('--content_wrap_width', CONTENT_WIDTH*0.8 + "px");
     root.style.setProperty('--content_wrap_height', CONTENT_WIDTH*0.7 + "px");
     root.style.setProperty('--content_wrap_margin_top', -1*CONTENT_WIDTH*0.35 + "px");
