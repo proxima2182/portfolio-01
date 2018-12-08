@@ -39,7 +39,9 @@ function make_fullpage(sal, pal) {
             "left": 0,
             "position": "absolute",
         }).on("mousemove touchmove", function(event){
+            console.log("mousemove & touch move");
             if(IS_FULLPAGE_SCROLLABLE) {
+                console.log("IS_FULLPAGE_SCROLLABLE : true");
                 var y= 0;
                 if(event.type == "mousemove") {
                     //for web
@@ -51,6 +53,7 @@ function make_fullpage(sal, pal) {
                     }
                     y = IS_ROTATED? -1*event.targetTouches[0].pageX: event.targetTouches[0].pageY;
                 }
+                console.log(event.targetTouches);
                 if(mouse_in && !is_animating) {
                     if(starting_point == 0){
                         starting_point = y;
