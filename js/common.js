@@ -5,25 +5,35 @@ var IS_MOBILE = false;
 
 var root = document.documentElement;
 
-function focusout(){
+function focus_check(){
     var need_resize = true;
    $('input').each(function() {
        if($(this).is(":focus")) {
            need_resize = false;
-           $(this).blur();
        }
    })
    $('textarea').each(function() {
        if($(this).is(":focus")) {
            need_resize = false;
-           $(this).blur();
        }
    })
     return need_resize;
 }
+function focus_out() {
+   $('input').each(function() {
+       if($(this).is(":focus")) {
+           $(this).blur();
+       }
+   })
+   $('textarea').each(function() {
+       if($(this).is(":focus")) {
+           $(this).blur();
+       }
+   })
+}
 
 function resize() {
-    var need_resize = focusout();
+    var need_resize = focus_check();
     var need_rotate = false;
 //    if(!need_resize) {
 //        return false;
