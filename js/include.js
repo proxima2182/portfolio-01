@@ -26,10 +26,10 @@ function load_skills(data, list_name, background_color, slide_page) {
 //        "button_width":"25px",
 //        "button_height": "25px",
         button_flexible_width: function() {
-            return CONTENT_WIDTH* 0.025;
+            return CONTENT_WIDTH* 0.04;
         },
         button_flexible_height: function() {
-            return CONTENT_WIDTH* 0.025;
+            return CONTENT_WIDTH* 0.04;
         },
         
         "button_dispersion": "0",
