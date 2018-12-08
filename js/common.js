@@ -53,9 +53,13 @@ function resize() {
     } else {
         need_rotate = false;
     }
-    if(need_rotate == IS_ROTATED && !need_resize) {
-        IS_ROTATED = need_rotate;
-        return;
+    if(!need_resize) {
+        if(need_rotate == IS_ROTATED) {
+            IS_ROTATED = need_rotate;
+            return;
+        } else {
+            focus_out();
+        }
     }
     IS_ROTATED = need_rotate;
     WINDOW_WIDTH = window.innerWidth;
