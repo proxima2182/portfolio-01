@@ -26,10 +26,10 @@ function load_skills(data, list_name, background_color, slide_page) {
 //        "button_width":"25px",
 //        "button_height": "25px",
         button_flexible_width: function() {
-            return WINDOW_WIDTH* 0.025;
+            return CONTENT_WIDTH* 0.025;
         },
         button_flexible_height: function() {
-            return WINDOW_WIDTH* 0.025;
+            return CONTENT_WIDTH* 0.025;
         },
         
         "button_dispersion": "0",
@@ -60,7 +60,6 @@ function add_enter() {
         "position": "fixed",
     });
     $("body").append(container);
-    var background = $("<div class=\"background\"></div>");
     var css_value = {
         "position": "absolute",
         "top": 0,
@@ -69,45 +68,46 @@ function add_enter() {
         "left": 0,
         "margin": "auto",
     };
-    background.css(css_value);
-    var colors=["#32004b", "#440e62", "#1c2e5f"];
-    var count = 3;
-    for(var i= 0; i< count; ++i ) {
-        let clone = background.clone();
-        clone.css({
-            "width":0,
-            "height":0,
-            "border-radius": "50%",
-            "background-color": colors[i],
-            "z-index":i,
-        })
-        container.append(clone);
-        setTimeout(function() {
-            clone.animate({
-                "width":AREA_HEIGHT*3,
-                "height":AREA_HEIGHT*3,
-            },600, function() {
-                count --;
-                if(count == 0){
-                    container.find(".background").remove();
-                }
-            });
-        }, 300 * i);
+    function background_animate() {
+        var background = $("<div class=\"background\"></div>");
+        background.css(css_value);
+        var colors=["#32004b", "#440e62", "#1c2e5f"];
+        var count = 3;
+        for(var i= 0; i< count; ++i ) {
+            let clone = background.clone();
+            clone.css({
+                "width":0,
+                "height":0,
+                "border-radius": "50%",
+                "background-color": colors[i],
+                "z-index":i,
+            })
+            container.append(clone);
+            setTimeout(function() {
+                clone.animate({
+                    "width":AREA_HEIGHT*3,
+                    "height":AREA_HEIGHT*3,
+                },600, function() {
+                    count --;
+                    if(count == 0){
+                        container.find(".background").remove();
+                    }
+                });
+            }, 300 * i);
+        }
     }
-//                    container.append(background);
+    background_animate();
+    
     var ul = $("<ul class=\"enter_ul\"></ul>")
     var li = unit_nodata_li
-    (AREA_WIDTH*2, AREA_HEIGHT*2, WINDOW_WIDTH*-0.04, 1,
+    (AREA_WIDTH*2, AREA_HEIGHT*2, CONTENT_WIDTH*-0.04, 1,
      0, bg_image_nodata, ["./images/icon_enter_off.png", "./images/icon_enter_on.png"]);
     li.css({
         "line-height":"normal",
     })
     var data_li = unit_nodata_info_li
-    (AREA_WIDTH*2, BOX_SIZE*2, WINDOW_WIDTH*0.03,
-     0, AREA_HEIGHT*7/3, "Enter to the page!", function() {
-		screenfull.request();
-        container.remove();
-    })
+    (AREA_WIDTH*2, BOX_SIZE*2, CONTENT_WIDTH*0.03,
+     0, AREA_HEIGHT*7/3, "Enter to the page!")
     ul.css(css_value);
     ul.css({
         "width": AREA_WIDTH*2,
@@ -115,7 +115,13 @@ function add_enter() {
         "display": "inline-block",
         "vertical-align": "middle",
         "z-index":4,
+        "cursor": "pointer",
     })
+    ul.click(function() {
+        screenfull.request();
+        container.remove();
+        resize();
+    });
     data_li.css({
         "line-height":BOX_SIZE+"px",
     })
@@ -170,13 +176,13 @@ $(document).ready(function(){
         };
     function close_navigation(){
         $("#header").animate({
-            "bottom":"-100vh",
+            "bottom": -1 * WINDOW_HEIGHT,
         },600);
     }
     function open_navigation(){
         setTimeout(function(){
             $("#header").animate({
-                "bottom":"0",
+                "bottom": 0,
             },600);
         }, 200);
     }
@@ -209,12 +215,14 @@ $(document).ready(function(){
             page_move($(this).index());
         }
     })
-    if(IS_MOBILE && screenfull.enabled) {
-        screenfull.on("change", function() {
-            if(!screenfull.isFullscreen) {
-                add_enter();
-            }
-        })
-        add_enter();
-    }
+//    if(IS_MOBILE && screenfull.enabled) {
+//        screenfull.on("change", function() {
+//            if(!screenfull.isFullscreen) {
+//                add_enter();
+//            }else {
+//                resize();
+//            }
+//        })
+//        add_enter();
+//    }
 })

@@ -17,9 +17,9 @@ function make_fullpage(sal, pal) {
     $("#wrap").css({
         "overflow":"hidden",
         "position":"relative",
-        "height":"100vh",
+        "width" : "100%",
+        "height" : "100%",
     })
-    HEIGHT = window.innerHeight;
     var pages = $(".fullpage");
     var mouse_in = false;
     var starting_point = 0;
@@ -28,14 +28,14 @@ function make_fullpage(sal, pal) {
         page.wrap("<div class=\"fullpage_wrap\"></div>");
         page.css({
             "width" : "100%",
-            "height" : HEIGHT,
+            "height" : "100%",
             "position": "relative",
         })
         page.parent().css({
             "width": "100%",
-            "height": HEIGHT,
+            "height": "100%",
             "overflow": "hidden",
-            "top": i * HEIGHT+ "px",
+            "top": i * WINDOW_HEIGHT+ "px",
             "left": 0,
             "position": "absolute",
         }).on("mousemove touchmove", function(event){
@@ -43,20 +43,20 @@ function make_fullpage(sal, pal) {
                 var y= 0;
                 if(event.type == "mousemove") {
                     //for web
-                    y = event.pageY;
+                    y = IS_ROTATED? -1*event.pageX: event.pageY;
                 } else{
                     //for mobile
                     if(event.targetTouches.length>1) {
                         return;
                     }
-                    y = event.targetTouches[0].pageY;
+                    y = IS_ROTATED? -1*event.targetTouches[0].pageX: event.targetTouches[0].pageY;
                 }
                 if(mouse_in && !is_animating) {
                     if(starting_point == 0){
                         starting_point = y;
                     } 
                     var range = starting_point - y;
-                    if(Math.abs(range) > HEIGHT*0.2) {
+                    if(Math.abs(range) > WINDOW_HEIGHT*0.2) {
                         move(range<0?-1:+1);
                     }
                 }
@@ -102,7 +102,7 @@ function make_fullpage(sal, pal) {
 //        }).mouseleave(function(){
 //            mouse_in = false;
 //        });
-        if(page.has(".fullpage_scroll_wrap img")) {
+        if(page.find(".fullpage_scroll_wrap img").length>0) {
             var scroll_wrap = page.find(".fullpage_scroll_wrap");
             var scroll = scroll_wrap.find(".fullpage_scroll");
             var img = scroll_wrap.find("img");
@@ -112,7 +112,7 @@ function make_fullpage(sal, pal) {
             }
             scroll_wrap.css({
                 "width": "100%",
-                "height": HEIGHT,
+                "height": WINDOW_HEIGHT,
                 "left":"0",
                 "bottom":"0",
                 "z-index":"-1",
@@ -122,9 +122,13 @@ function make_fullpage(sal, pal) {
                 "width": "100%",
                 "draggable": false,
             })
+            console.log("fullpage height : " + WINDOW_HEIGHT);
+            console.log("fullpage img height : " + img.height());
+            console.log(img);
             scroll.css({
                 "width":"100%",
-                "height":img.height(),
+                //height will be set when img loaded
+                "height": img.height(),
                 "left":"0",
                 "bottom":"0",
                 "position":"absolute",
@@ -173,7 +177,7 @@ function make_fullpage(sal, pal) {
             }
             for(var i= 0; i< MAX_PAGE; ++i) {
                 page_wraps.eq(i).animate({
-                    "top": (i-page_num)*HEIGHT,
+                    "top": (i-page_num)*WINDOW_HEIGHT,
                 },SCROLL_ANIMATE_DELAY, function(){
                     if(is_animating) {
                         is_animating = false;
@@ -276,26 +280,24 @@ function make_fullpage(sal, pal) {
 }
 
 function fullpage_resize() {
-    HEIGHT = window.innerHeight;
+    console.log("fullpage_resize");
     var pages = $(".fullpage");
     var mouse_in = false;
     var starting_point = 0;
     for(var i= 0; i< pages.length; ++i) {
         var page = pages.eq(i);
-        page.css({
-            "height" : HEIGHT,
-        })
+//        page.css({
+//            "height" : WINDOW_HEIGHT,
+//        })
         page.parent().css({
-            "height": HEIGHT,
-            "top": (i-page_num)*HEIGHT+ "px",
+            "top": (i-page_num)*WINDOW_HEIGHT+ "px",
         })
         var scroll_wrap = page.find(".fullpage_scroll_wrap");
         if(scroll_wrap.length>0) {
             var scroll = scroll_wrap.find(".fullpage_scroll");
             var img = scroll_wrap.find("img");
-            console.log(img.height());
             scroll_wrap.css({
-                "height": HEIGHT,
+                "height": WINDOW_HEIGHT,
             })
             scroll.css({
                 "height": img.height(),
@@ -334,7 +336,7 @@ function page_move(index){
             }
             for(var i= 0; i< MAX_PAGE; ++i) {
                 page_wraps.eq(i).stop().animate({
-                    "top": (i-page_num)*HEIGHT,
+                    "top": (i-page_num)*WINDOW_HEIGHT,
                 },SCROLL_ANIMATE_DELAY, function(){
                     if(is_animating) {
                         is_animating = false;

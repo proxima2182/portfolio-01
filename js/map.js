@@ -216,7 +216,7 @@ function info_li(bottom, left, z_index, project){
     }).hover(function(){
         $(this).parent().css("z-index",100);
         $(this).animate({
-            "margin-top": WINDOW_WIDTH*-0.01,
+            "margin-top": CONTENT_WIDTH*-0.01,
             "opacity":1,
         }, 300);
     },function(){
@@ -239,8 +239,8 @@ function info_li(bottom, left, z_index, project){
     }
     title.css(css_value);
     title.css({
-        "font-size": WINDOW_WIDTH*0.014,
-        "line-height": WINDOW_WIDTH*0.02 + "px",
+        "font-size": CONTENT_WIDTH*0.014,
+        "line-height": CONTENT_WIDTH*0.02 + "px",
     })
     content.css({
         "bottom": BOX_SIZE*0.1,
@@ -250,14 +250,14 @@ function info_li(bottom, left, z_index, project){
     content.find("p").css(css_value);
     content.find("p").css({
         "width":BOX_SIZE,
-        "font-size": WINDOW_WIDTH*0.011,
-        "line-height": WINDOW_WIDTH*0.016 + "px",
+        "font-size": CONTENT_WIDTH*0.011,
+        "line-height": CONTENT_WIDTH*0.016 + "px",
         "font-weight": 200,
     })
     return li;
 }
 function nodata_li(left, bg_image_nodata, nodata_images){
-    return unit_nodata_li(AREA_WIDTH, AREA_HEIGHT, WINDOW_WIDTH*-0.02, 0, left, bg_image_nodata, nodata_images)
+    return unit_nodata_li(AREA_WIDTH, AREA_HEIGHT, CONTENT_WIDTH*-0.02, 0, left, bg_image_nodata, nodata_images)
 }
 
 function unit_nodata_li(area_width, area_height, moving_factor, interval_index, left, bg_image_nodata, nodata_images){
@@ -317,10 +317,10 @@ function unit_nodata_li(area_width, area_height, moving_factor, interval_index, 
     
     return li;
 }
-function nodata_info_li(left, bottom, text, function_click) {
-    return unit_nodata_info_li(AREA_WIDTH, BOX_SIZE, WINDOW_WIDTH*0.018, left, bottom, text, function_click);
+function nodata_info_li(left, bottom, text) {
+    return unit_nodata_info_li(AREA_WIDTH, BOX_SIZE, CONTENT_WIDTH*0.018, left, bottom, text, function_click);
 }
-function unit_nodata_info_li(area_width, box_size, font_size, left, bottom, text, function_click){
+function unit_nodata_info_li(area_width, box_size, font_size, left, bottom, text){
     var text_value = text==undefined?"Nothing to show..." : text;
     var li = $("<li><div class=\"info_box\"><p>"+text_value+"</p></div></li>");
     li.css({
@@ -342,22 +342,6 @@ function unit_nodata_info_li(area_width, box_size, font_size, left, bottom, text
         "background-color":"#000",
         "border":"1px solid #fff",
     })
-    if(function_click!=undefined) {
-        info_box.css("cursor","pointer");
-        info_box.hover(function(){
-            $(this).animate({
-                "margin-top": -1,
-                "opacity":1,
-            }, 300);
-        },function(){
-            $(this).animate({
-                "margin-top": 0,
-                "opacity":0.7,
-            }, 300);
-        }).click(function(){
-            function_click();
-        });
-    }
     
     p.css({
         "font-size": font_size,
@@ -394,7 +378,6 @@ var PROJECT_LENGTH = 0;
 
 var intervals = {0:[],1:[]};
 function map_clear(index) {
-    console.log("intervals : " + intervals[index].length);
     for(var i= 0; i< intervals[index].length; ++i) {
         clearInterval(intervals[index][i]);
     }
@@ -713,9 +696,9 @@ function page_init() {
     button_wrap.append(page_length_span);
     button_wrap.append(right_button);
     button_wrap.find("span").css({
-        "width":WINDOW_WIDTH*0.04,
-        "height":WINDOW_WIDTH*0.04,
-        "font-size":WINDOW_WIDTH*0.03,
+        "width":CONTENT_WIDTH*0.04,
+        "height":CONTENT_WIDTH*0.04,
+        "font-size":CONTENT_WIDTH*0.03,
         "text-align":"center",
         "display":"inline-block",
         "draggable":false,
@@ -725,8 +708,8 @@ function page_init() {
         "width":"100%",
         "text-align":"center",
         "left":0,
-        "bottom":WINDOW_WIDTH*0.01,
-        "z-index":WINDOW_WIDTH*0.01,
+        "bottom":CONTENT_WIDTH*0.01,
+        "z-index":10,
         "position":"absolute",
     })
     
@@ -735,9 +718,9 @@ function page_init() {
 
 function page_update(){
     button_wrap.find("span").css({
-        "width":WINDOW_WIDTH*0.04,
-        "height":WINDOW_WIDTH*0.04,
-        "font-size":WINDOW_WIDTH*0.03,
+        "width":CONTENT_WIDTH*0.04,
+        "height":CONTENT_WIDTH*0.04,
+        "font-size":CONTENT_WIDTH*0.03,
     })
     if(Object.keys(filtered_projects).length==0) {
         button_wrap.stop().animate({
@@ -780,16 +763,16 @@ function page_update(){
 
 function map_resize() {
 //    if(window.innerWidth>=1000) {
-//        WINDOW_WIDTH = 1000;
+//        CONTENT_WIDTH = 1000;
 //    } else {
-//        WINDOW_WIDTH = window.innerWidth;
+//        CONTENT_WIDTH = window.innerWidth;
 //    }
     //sizing
     console.log("map_resize");
-    AREA_WIDTH = WINDOW_WIDTH*0.2;
-    AREA_HEIGHT = WINDOW_WIDTH*0.17;
-    GROUND_HEIGHT = WINDOW_WIDTH*0.05;
-    BOX_SIZE = WINDOW_WIDTH*0.12;
+    AREA_WIDTH = CONTENT_WIDTH*0.2;
+    AREA_HEIGHT = CONTENT_WIDTH*0.17;
+    GROUND_HEIGHT = CONTENT_WIDTH*0.05;
+    BOX_SIZE = CONTENT_WIDTH*0.12;
     BOX_MARGIN = (AREA_WIDTH - BOX_SIZE)/2;
     X_LINE = container.height()/2-AREA_HEIGHT;
     quit_drawing = true;
@@ -809,10 +792,10 @@ $(document).ready(function(){
     
     resize();
     //sizing
-    AREA_WIDTH = WINDOW_WIDTH*0.2;
-    AREA_HEIGHT = WINDOW_WIDTH*0.17;
-    GROUND_HEIGHT = WINDOW_WIDTH*0.05;
-    BOX_SIZE = WINDOW_WIDTH*0.12;
+    AREA_WIDTH = CONTENT_WIDTH*0.2;
+    AREA_HEIGHT = CONTENT_WIDTH*0.17;
+    GROUND_HEIGHT = CONTENT_WIDTH*0.05;
+    BOX_SIZE = CONTENT_WIDTH*0.12;
     BOX_MARGIN = (AREA_WIDTH - BOX_SIZE)/2;
     X_LINE = container.height()/2-AREA_HEIGHT;
     
