@@ -53,15 +53,11 @@ function resize() {
     } else {
         need_rotate = false;
     }
-    if(!need_resize) {
-        if(need_rotate == IS_ROTATED) {
-            IS_ROTATED = need_rotate;
-            return;
-        } else if(need_rotate){
-            //when it landscape
-            focus_out();
-        }
+    if(!need_resize && need_rotate == IS_ROTATED) {
+        IS_ROTATED = need_rotate;
+        return;
     }
+    focus_out();
     IS_ROTATED = need_rotate;
     WINDOW_WIDTH = window.innerWidth;
     WINDOW_HEIGHT = window.innerHeight;
