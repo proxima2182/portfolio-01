@@ -57,7 +57,6 @@ function resize() {
         IS_ROTATED = need_rotate;
         return;
     }
-    focus_out();
     IS_ROTATED = need_rotate;
     WINDOW_WIDTH = window.innerWidth;
     WINDOW_HEIGHT = window.innerHeight;
