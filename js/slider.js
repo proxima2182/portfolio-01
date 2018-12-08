@@ -86,9 +86,6 @@ $.fn.make_slider = function(opt){
         });
     }
     
-    console.log("slider");
-    console.log(slider);
-    console.log("width : "+ slider_width +", height: "+ slider_height);
     /*attach navigation buttons*/
     var prev;
     var next;
@@ -143,11 +140,9 @@ $.fn.make_slider = function(opt){
         });
         
         prev.click(function(){
-            console.log("prev click");
             move_smoothly(now_pos_x + elem_width, 500);
         })
         next.click(function(){
-            console.log("next click");
             move_smoothly(now_pos_x - elem_width, 500);
         })
     }
@@ -312,8 +307,6 @@ $.fn.make_slider = function(opt){
     }
     function slider_resize() {
         width= 0;
-        console.log("slider_height : " + slider.height() +", slider_width : " + slider.width());
-        console.log("slider_height : " + slider.css("height") +", slider_width : " + slider.css("width"));
         slider_height= has_slider_flexible_width? 0 : $(slider).height();
 
         var slider_width = has_slider_flexible_width? option["slider_flexible_width"]() : $(slider).width();
@@ -348,9 +341,6 @@ $.fn.make_slider = function(opt){
             "width": slider_width,
             "height": slider_height,
         };
-        console.log("slider");
-        console.log(slider);
-        console.log("width : "+ slider_width +", height: "+ slider_height);
         if(list.length < PAGE_SIZE) {
             var additional_left = (slider_width - list.length*elem_width)/2;
             list.css({

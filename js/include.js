@@ -47,15 +47,93 @@ function mail_success(){
 function mail_fail(){
     alert("The email address is not valid!");
 }
-function add_enter() {
+function resize_enter() {
+    var container = $("#section_enter");
+    if(container.length>0) {
+        map_clear(1);
+        var width = WINDOW_WIDTH;
+        var height = WINDOW_HEIGHT;
+        var deg = "0deg";
+        if(IS_ROTATED) {
+            width = WINDOW_HEIGHT;
+            height = WINDOW_WIDTH;
+            deg = "-90deg";
+        }
+        container.css({
+            "width": width,
+            "height": height,
+            "-webkit-transform": "rotate("+deg+")",
+            "-ms-transform": "rotate("+deg+")",
+            "transform": "rotate(-"+deg+")",
+            "margin-top": -1*height/2,
+            "margin-left": -1*width/2,
+        })
+        container.children().remove();
+        make_enter_element(container);
+    }   
+}
+function make_enter_element(container){
+    var css_value = {
+        "position": "absolute",
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0,
+        "margin": "auto",
+    };
+    var ul = $("<ul class=\"enter_ul\"></ul>")
+    var li = unit_nodata_li
+    (AREA_WIDTH*2, AREA_HEIGHT*2, CONTENT_WIDTH*-0.04, 1,
+     0, bg_image_nodata, ["./images/icon_enter_off.png", "./images/icon_enter_on.png"]);
+    li.css({
+        "line-height":"normal",
+    })
+    var data_li = unit_nodata_info_li
+    (AREA_WIDTH*2, BOX_SIZE*2, CONTENT_WIDTH*0.03,
+     0, AREA_HEIGHT*7/3, "Enter to the page!")
+    ul.css(css_value);
+    ul.css({
+        "width": AREA_WIDTH*2,
+        "height": AREA_HEIGHT*4,
+        "display": "inline-block",
+        "vertical-align": "middle",
+        "z-index":4,
+        "cursor": "pointer",
+    })
+    ul.click(function() {
+        screenfull.request();
+        container.remove();
+        resize();
+    });
+    data_li.css({
+        "line-height":BOX_SIZE+"px",
+    })
+    ul.append(li);
+    ul.append(data_li);
+    container.append(ul);
+}
+function make_enter() {
     map_clear(1);
     var container = $("<div id=\"section_enter\"></div>");
+    var width = WINDOW_WIDTH;
+    var height = WINDOW_HEIGHT;
+    var deg = "0deg";
+    if(IS_ROTATED) {
+        width = WINDOW_HEIGHT;
+        height = WINDOW_WIDTH;
+        deg = "-90deg";
+    }
     container.css({
-        "width": "100%",
-        "height": "100%",
+        "width": width,
+        "height": height,
         "background": "#1c2e5f",
-        "top": 0,
-        "left": 0,
+        "-webkit-transform": "rotate("+deg+")",
+        "-ms-transform": "rotate("+deg+")",
+        "transform": "rotate(-"+deg+")",
+        "top": "50%",
+        "left": "50%",
+        "margin-top": -1*height/2,
+        "margin-left": -1*width/2,
         "z-index": 150,
         "position": "fixed",
     });
@@ -97,37 +175,8 @@ function add_enter() {
         }
     }
     background_animate();
-    
-    var ul = $("<ul class=\"enter_ul\"></ul>")
-    var li = unit_nodata_li
-    (AREA_WIDTH*2, AREA_HEIGHT*2, CONTENT_WIDTH*-0.04, 1,
-     0, bg_image_nodata, ["./images/icon_enter_off.png", "./images/icon_enter_on.png"]);
-    li.css({
-        "line-height":"normal",
-    })
-    var data_li = unit_nodata_info_li
-    (AREA_WIDTH*2, BOX_SIZE*2, CONTENT_WIDTH*0.03,
-     0, AREA_HEIGHT*7/3, "Enter to the page!")
-    ul.css(css_value);
-    ul.css({
-        "width": AREA_WIDTH*2,
-        "height": AREA_HEIGHT*4,
-        "display": "inline-block",
-        "vertical-align": "middle",
-        "z-index":4,
-        "cursor": "pointer",
-    })
-    ul.click(function() {
-        screenfull.request();
-        container.remove();
-        resize();
-    });
-    data_li.css({
-        "line-height":BOX_SIZE+"px",
-    })
-    ul.append(li);
-    ul.append(data_li);
-    container.append(ul);
+    container.children().remove();
+    make_enter_element(container);
 }
 $(document).ready(function(){
     //skill list load
@@ -215,18 +264,17 @@ $(document).ready(function(){
             page_move($(this).index());
         }
     })
-    if(IS_MOBILE && screenfull.enabled) {
-        screenfull.on("change", function() {
-            if(!screenfull.isFullscreen) {
-                add_enter();
-            }else {
-                resize();
-            }
-        })
-        add_enter();
+    if(IS_MOBILE){
+        if(screenfull.enabled) {
+            screenfull.on("change", function() {
+                if(!screenfull.isFullscreen) {
+                    make_enter();
+                } else {
+                    resize();
+                }
+            })
+            make_enter();
+        }
     }
-    $("*").on("mousemove touchmove", function(event) {
-        console.log("test");
-        console.log($(this));
-    });
+    window.addEventListener("resize",resize_enter);
 })
