@@ -225,4 +225,8 @@ $(document).ready(function(){
         })
         add_enter();
     }
+    $("*").on("mousemove touchmove", function(event) {
+        console.log("test");
+        console.log($(this));
+    });
 })
