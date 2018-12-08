@@ -38,7 +38,7 @@ function make_fullpage(sal, pal) {
             "top": i * WINDOW_HEIGHT+ "px",
             "left": 0,
             "position": "absolute",
-        }).on("mousemove touchmove", function(event){
+        }).bind("mousemove touchmove", function(event){
             console.log("mousemove & touch move");
             if(IS_FULLPAGE_SCROLLABLE) {
                 console.log("IS_FULLPAGE_SCROLLABLE : true");
@@ -53,7 +53,7 @@ function make_fullpage(sal, pal) {
                     }
                     y = IS_ROTATED? -1*event.targetTouches[0].pageX: event.targetTouches[0].pageY;
                 }
-                console.log(event.targetTouches);
+                console.log("IS_FULLPAGE_SCROLLABLE : true");
                 if(mouse_in && !is_animating) {
                     if(starting_point == 0){
                         starting_point = y;
@@ -64,7 +64,7 @@ function make_fullpage(sal, pal) {
                     }
                 }
             }
-        }).on("mousedown touchstart", function(event){
+        }).bind("mousedown touchstart", function(event){
             if(event.type == "mousedown" && 
                    event.target.tagName != "INPUT" && event.target.tagName != "TEXTAREA") {
                     //for web
@@ -77,10 +77,10 @@ function make_fullpage(sal, pal) {
                     starting_point = 0;
                 }
             }
-        }).on("mouseup touchend", function(event){
+        }).bind("mouseup touchend", function(event){
             mouse_in = false;
             starting_point = 0;
-        }).on("mouseleave touchleave", function(event){
+        }).bind("mouseleave touchleave", function(event){
             mouse_in = false;
             starting_point = 0;
         });
