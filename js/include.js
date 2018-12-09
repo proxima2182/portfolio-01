@@ -264,17 +264,17 @@ $(document).ready(function(){
             page_move($(this).index());
         }
     })
-    if(IS_MOBILE){
-        if(screenfull.enabled) {
-            screenfull.on("change", function() {
-                if(!screenfull.isFullscreen) {
-                    make_enter();
-                } else {
-                    resize();
-                }
-            })
-            make_enter();
-        }
-    }
+//    if(IS_MOBILE){
+//        if(screenfull.enabled) {
+//            screenfull.on("change", function() {
+//                if(!screenfull.isFullscreen) {
+//                    make_enter();
+//                } else {
+//                    resize();
+//                }
+//            })
+//            make_enter();
+//        }
+//    }
     window.addEventListener("resize",resize_enter);
 })
