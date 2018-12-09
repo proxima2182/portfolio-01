@@ -66,8 +66,8 @@ function resize() {
         console.log("add_focused");
         console.log(add_focused);
 
-       var width = IS_ROTATED? window.innerHeight : window.innerWidth;
-        var height = IS_ROTATED? window.innerWidth : window.innerHeight;
+       var width = window.innerWidth;
+        var height = window.innerHeight;
         console.log("is_rotated : " + IS_ROTATED);
         if(focused == undefined && !need_rotate) {
             $(".additional_text_area").remove();
@@ -107,8 +107,8 @@ function resize() {
             focused.blur();
             input.get(0).focus();
             input.onEnterKey(function() {
-                console.log("submit : "+ $(this).html());
-                focused.html($(this).html());
+                console.log("submit : "+ $(this).val());
+                focused.val($(this).val());
                 input_wrap.remove();
             })
             return;
