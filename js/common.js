@@ -35,10 +35,7 @@ function focus_out() {
            $(this).blur();
        }
     })
-    var input_wrap = $(".additional_text_area");
-    if(input_wrap.length>0) {
-        input_wrap.remove();
-    }
+    $(".additional_text_area").remove();
 }
 
 var IS_PORTRAIT_FOCUSED = true;
@@ -48,6 +45,7 @@ function resize() {
     } else {
         IS_MOBILE = false;
     }
+    var need_rotate = IS_ROTATED;
     console.log("resize");
     if(IS_MOBILE) {
         if(window.innerHeight > window.innerWidth) {
@@ -58,7 +56,7 @@ function resize() {
     } else {
         IS_ROTATED = false;
     }
-                   
+    need_rotate &= IS_ROTATED;
     if(IS_MOBILE) {
         var input = $('#wrap input');
         var textarea = $('#wrap textarea');
@@ -73,7 +71,7 @@ function resize() {
         console.log("add_focused");
         console.log(add_focused);
         
-        if(focused == undefined && add_focused != undefined) {
+        if(focused == undefined && !need_rotate) {
             $(".additional_text_area").remove();
         }
         if($(".additional_text_area").length>0) {
@@ -111,6 +109,8 @@ function resize() {
             return;
         }
     }
+    
+    console.log("resize_not_returned");
     
     WINDOW_WIDTH = window.innerWidth;
     WINDOW_HEIGHT = window.innerHeight;
