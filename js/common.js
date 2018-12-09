@@ -71,9 +71,7 @@ function resize() {
         console.log("is_rotated : " + IS_ROTATED);
         if(add_focused != undefined) {
             focus_out();
-            $(".additional_text_area").remove();
-        }
-        if(focused != undefined) {
+        } else if(focused != undefined) {
             var input_wrap = $("<div class=\"additional_text_area\"></div>")
             var input = $("<input type=\"text\"></input>");
             input_wrap.append(input);
