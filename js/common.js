@@ -77,6 +77,12 @@ function resize() {
             $(".additional_text_area").remove();
         }
         if($(".additional_text_area").length>0) {
+            var width = IS_ROTATED? window.innerHeight : window.innerWidth;
+            var height = IS_ROTATED? window.innerWidth : window.innerHeight;
+            $(".additional_text_area").css({
+                "width" : width,
+                "height" : height,
+            })
            return;
         }
         if(focused != undefined) {
