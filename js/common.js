@@ -6,16 +6,16 @@ var IS_MOBILE = false;
 var root = document.documentElement;
 
 function focus_check(bulr){
-    var need_resize = true;
+    var need_resize = false;
    $('input').each(function() {
        if($(this).is(":focus")) {
-           need_resize = false;
+           need_resize = true;
            if(bulr) $(this).blur();
        }
    })
    $('textarea').each(function() {
        if($(this).is(":focus")) {
-           need_resize = false;
+           need_resize = true;
            if(bulr) $(this).blur();
        }
    })
@@ -57,10 +57,10 @@ function resize() {
     }
     var focused = focus_check();
     console.log("need_rotate : " + need_rotate +", IS_ROTATED : " + IS_ROTATED+ ", focused : "+ focused);
-    if(focused && IS_ROTATED && need_rotate != IS_ROTATED) {
-    } else if(focused && !IS_ROTATED && need_rotate != IS_ROTATED) {
+    if(!focused && IS_ROTATED && need_rotate != IS_ROTATED) {
+    } else if(!focused && !IS_ROTATED && need_rotate != IS_ROTATED) {
         focus_out();
-    } else if(focused && !IS_ROTATED && need_rotate == IS_ROTATED) {
+    } else if(!focused && !IS_ROTATED && need_rotate == IS_ROTATED) {
         return;
     }
     IS_ROTATED = need_rotate;
