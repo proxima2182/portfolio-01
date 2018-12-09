@@ -6,7 +6,6 @@ var IS_MOBILE = false;
 var root = document.documentElement;
 
 function focus_check(){
-    var focused = false;
    $('input').each(function() {
        if($(this).is(":focus")) {
            return $(this);
@@ -17,7 +16,7 @@ function focus_check(){
            return $(this);
        }
    })
-    return undefined;
+    return ;
 }
 function focus_out() {
    $('input').each(function() {
