@@ -57,7 +57,8 @@ function resize() {
         
         console.log("focused");
         console.log(focused);
-        if(!focus_check($(".additional_text_area input"))) {
+        
+        if(focus_check($(".additional_text_area input")) == undefined) {
             $(".additional_text_area").remove();
         }
         if($(".additional_text_area").length>0) {
@@ -81,7 +82,7 @@ function resize() {
             $("body").append(input_wrap);
             focused.blur();
             input.get(0).focus();
-            input.submit(function() {
+            input.get(0).submit(function() {
                 console.log("submit : "+ $(this).text());
                 focused.text($(this).text());
                 input_wrap.remove();
