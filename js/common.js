@@ -4,7 +4,18 @@ var IS_ROTATED = false;
 var IS_MOBILE = false;
 
 var root = document.documentElement;
+.fn.onEnterKey =
+    function( closure ) {
+        $(this).keypress(
+            function( event ) {
+                var code = event.keyCode ? event.keyCode : event.which;
 
+                if (code == 13) {
+                    closure();
+                    return false;
+                }
+            } );
+    }
 function focus_check(list){
     for(var i= 0; i< list.length; ++i) {
         if(list.eq(i).is(":focus")){
@@ -86,7 +97,7 @@ function resize() {
             $("body").append(input_wrap);
             focused.blur();
             input.get(0).focus();
-            input.get(0).submit(function() {
+            input.onEnterKey(function() {
                 console.log("submit : "+ $(this).text());
                 focused.text($(this).text());
                 input_wrap.remove();
