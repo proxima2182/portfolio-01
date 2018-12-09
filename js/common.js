@@ -16,7 +16,7 @@ function focus_check(){
            return $(this);
        }
    })
-    return ;
+    return undefined;
 }
 function focus_out() {
    $('input').each(function() {
@@ -51,7 +51,7 @@ function resize() {
                    
    if(IS_MOBILE) {
         var focused = focus_check();
-        if(focused) {
+        if(focused != undefined) {
 //            focus_out();
             var input_wrap = $("<div></div>")
             var input = $("<input type=\"text\"></input>");
