@@ -53,6 +53,7 @@ function resize() {
     } else {
         need_rotate = false;
     }
+    console.log("need_rotate : " + need_rotate +"IS_ROTATED : " + IS_ROTATED+ "need_resize : "+ need_resize);
     if(!need_resize && need_rotate == IS_ROTATED) {
         IS_ROTATED = need_rotate;
         return;
