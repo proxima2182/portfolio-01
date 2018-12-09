@@ -6,8 +6,8 @@ var IS_MOBILE = false;
 var root = document.documentElement;
 
 function focus_check(){
-    var input = $('input');
-    var textarea = $('textarea');
+    var input = $('#wrap input');
+    var textarea = $('#wrap textarea');
     function check(list) {
         for(var i= 0; i< list.length; ++i) {
             if(list.eq(i).is(":focus")){
@@ -51,13 +51,16 @@ function resize() {
         IS_ROTATED = false;
     }
                    
-   if(IS_MOBILE) {
-       var focused = focus_check();
-       console.log("focused");
-       console.log(focused);
+    if(IS_MOBILE) {
+        var focused = focus_check();
+        console.log("focused");
+        console.log(focused);
+        if($(".additional_text_area").length>0) {
+           return;
+        }
         if(focused != undefined) {
         //            focus_out();
-            var input_wrap = $("<div></div>")
+            var input_wrap = $("<div class=\"additional_text_area\"></div>")
             var input = $("<input type=\"text\"></input>");
             input_wrap.append(input);
             var width = IS_ROTATED? window.innerHeight : window.innerWidth;
