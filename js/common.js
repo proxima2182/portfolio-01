@@ -56,8 +56,7 @@ function resize() {
         need_rotate = false;
     }
     console.log("need_rotate : " + need_rotate +", IS_ROTATED : " + IS_ROTATED+ ", need_resize : "+ need_resize);
-    if(need_rotate == IS_ROTATED) {
-        IS_ROTATED = need_rotate;
+    if(need_rotate && need_rotate == IS_ROTATED || !need_rotate && need_rotate != IS_ROTATED) {
         focus_check(true);
 //        return;
     }
