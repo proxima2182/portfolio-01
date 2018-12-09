@@ -50,9 +50,11 @@ function resize() {
     }
                    
    if(IS_MOBILE) {
-        var focused = focus_check();
+       var focused = focus_check();
+       console.log("focused");
+       console.log(focused);
         if(focused != undefined) {
-//            focus_out();
+        //            focus_out();
             var input_wrap = $("<div></div>")
             var input = $("<input type=\"text\"></input>");
             input_wrap.append(input);
