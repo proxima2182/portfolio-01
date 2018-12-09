@@ -4,7 +4,7 @@ var IS_ROTATED = false;
 var IS_MOBILE = false;
 
 var root = document.documentElement;
-fn.onEnterKey =
+$.fn.onEnterKey =
     function( closure ) {
         $(this).keypress(
             function( event ) {
