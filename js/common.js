@@ -32,6 +32,7 @@ function focus_out() {
    })
 }
 
+var IS_PORTRAIT_FOCUSED = true;
 function resize() {
 //    var need_resize = focus_check();
     var need_rotate = false;
@@ -56,10 +57,15 @@ function resize() {
     var focused = focus_check();
     console.log("need_rotate : " + need_rotate +", IS_ROTATED : " + IS_ROTATED+ ", focused : "+ focused);
     if(focused && IS_ROTATED && need_rotate != IS_ROTATED) {
-    } else if(focused && !IS_ROTATED && need_rotate != IS_ROTATED) {
-        focus_out();
+    } else if(focused && IS_ROTATED && need_rotate != IS_ROTATED) {
+        IS_PORTRAIT_FOCUSED = true;
     } else if(focused && !IS_ROTATED && need_rotate == IS_ROTATED) {
-        return;
+        if(IS_PORTRAIT_FOCUSED) {
+            focus_out();
+        } else {
+            //don't resize for landscape
+            return;
+        }
     }
     IS_ROTATED = need_rotate;
     WINDOW_WIDTH = window.innerWidth;
