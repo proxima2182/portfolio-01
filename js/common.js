@@ -69,15 +69,9 @@ function resize() {
        var width = window.innerWidth;
         var height = window.innerHeight;
         console.log("is_rotated : " + IS_ROTATED);
-        if(add_focused != undefined && !need_rotate) {
+        if(add_focused != undefined) {
+            focus_out();
             $(".additional_text_area").remove();
-        }
-        if($(".additional_text_area").length>0) {
-            $(".additional_text_area").css({
-                "width" : width,
-                "height" : height,
-            })
-           return;
         }
         if(focused != undefined) {
             var input_wrap = $("<div class=\"additional_text_area\"></div>")
