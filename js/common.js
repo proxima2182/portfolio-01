@@ -67,6 +67,7 @@ function resize() {
             return;
         }
     }
+    IS_PORTRAIT_FOCUSED = false;
     IS_ROTATED = need_rotate;
     WINDOW_WIDTH = window.innerWidth;
     WINDOW_HEIGHT = window.innerHeight;
