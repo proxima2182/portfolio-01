@@ -5,34 +5,28 @@ var IS_MOBILE = false;
 
 var root = document.documentElement;
 
-function focus_check(){
-    var input = $('#wrap input');
-    var textarea = $('#wrap textarea');
-    function check(list) {
-        for(var i= 0; i< list.length; ++i) {
-            if(list.eq(i).is(":focus")){
-                return list.eq(i);
-            }
+function focus_check(list){
+    for(var i= 0; i< list.length; ++i) {
+        if(list.eq(i).is(":focus")){
+            return list.eq(i);
         }
-        return undefined;
     }
-    var input_checked = check(input);
-    var textarea_checked = check(textarea);
-    return input_checked != undefined ? input_checked : textarea_checked;
+    return undefined;
 }
 function focus_out() {
-   $('input').each(function() {
+    $('input').each(function() {
        if($(this).is(":focus")) {
            $(this).blur();
        }
-   })
-   $('textarea').each(function() {
+    })
+    $('textarea').each(function() {
        if($(this).is(":focus")) {
            $(this).blur();
        }
-   })
-    if($(".additional_text_area").length>0) {
-        $(".additional_text_area").remove();
+    })
+    var input_wrap = $(".additional_text_area");
+    if(input_wrap.length>0) {
+        input_wrap.remove();
     }
 }
 
@@ -55,9 +49,17 @@ function resize() {
     }
                    
     if(IS_MOBILE) {
-        var focused = focus_check();
+        var input = $('#wrap input');
+        var textarea = $('#wrap textarea');
+        var input_checked = focus_check(input);
+        var textarea_checked = focus_check(textarea);
+        var focused = input_checked != undefined ? input_checked : textarea_checked;
+        
         console.log("focused");
         console.log(focused);
+        if(!focus_check($(".additional_text_area input"))) {
+            $(".additional_text_area").remove();
+        }
         if($(".additional_text_area").length>0) {
            return;
         }
