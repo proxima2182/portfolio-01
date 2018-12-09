@@ -55,7 +55,7 @@ function resize() {
         need_rotate = false;
     }
     var focused = focus_check();
-    console.log("need_rotate : " + need_rotate +", IS_ROTATED : " + IS_ROTATED+ ", focused : "+ focused);
+    console.log("focused : "+ focused + ", IS_ROTATED : " + IS_ROTATED + ", need_rotate : " + need_rotate +", IS_PORTRAIT_FOCUSED : "+ IS_PORTRAIT_FOCUSED);
     if(focused && IS_ROTATED && need_rotate != IS_ROTATED) {
     } else if(focused && IS_ROTATED && need_rotate != IS_ROTATED) {
         IS_PORTRAIT_FOCUSED = true;
