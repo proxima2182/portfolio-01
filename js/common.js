@@ -17,7 +17,7 @@ function focus_check(){
         return undefined;
     }
     var input_checked = check(input);
-    var textarea_checked = check(input);
+    var textarea_checked = check(textarea);
     return input_checked != undefined ? input_checked : textarea_checked;
 }
 function focus_out() {
