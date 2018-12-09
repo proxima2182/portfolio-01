@@ -61,13 +61,13 @@ function resize() {
         IS_PORTRAIT_FOCUSED = true;
     } else if(focused && !IS_ROTATED && need_rotate == IS_ROTATED) {
         if(IS_PORTRAIT_FOCUSED) {
+            IS_PORTRAIT_FOCUSED = false;
             focus_out();
         } else {
             //don't resize for landscape
             return;
         }
     }
-    IS_PORTRAIT_FOCUSED = false;
     IS_ROTATED = need_rotate;
     WINDOW_WIDTH = window.innerWidth;
     WINDOW_HEIGHT = window.innerHeight;
