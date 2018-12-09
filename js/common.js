@@ -55,10 +55,13 @@ function resize() {
     } else {
         need_rotate = false;
     }
+    var focused = focus_check();
     console.log("need_rotate : " + need_rotate +", IS_ROTATED : " + IS_ROTATED+ ", need_resize : "+ need_resize);
-    if(need_rotate != IS_ROTATED) {
-        focus_check(IS_ROTATED);
+    if(focused && IS_ROTATED && need_rotate != IS_ROTATED) {
+        focus_out();
 //        return;
+    } else if(focused && !IS_ROTATED) {
+        return;
     }
     IS_ROTATED = need_rotate;
     WINDOW_WIDTH = window.innerWidth;
