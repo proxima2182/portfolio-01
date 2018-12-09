@@ -87,8 +87,8 @@ function resize() {
             var input_wrap = $("<div class=\"additional_text_area\"></div>")
             var input = $("<input type=\"text\"></input>");
             input_wrap.append(input);
-            var width = window.innerWidth;
-            var height = window.innerHeight;
+            var width = IS_ROTATED? window.innerHeight : window.innerWidth;
+            var height = IS_ROTATED? window.innerWidth : window.innerHeight;
             input_wrap.css({
                 "width" : width,
                 "height" : height,
@@ -105,9 +105,8 @@ function resize() {
                     "transform": "rotate(-90deg)",
                     "top": "50%",
                     "left": "50%",
-                    "margin-top": -1*height/2,
-                    "margin-left": -1*width/2,
-                    position:"absolute",
+                    "margin-top": -1*width/2,
+                    "margin-left": -1*height/2,
                 })
             }
             $("body").append(input_wrap);
