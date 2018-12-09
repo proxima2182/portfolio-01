@@ -57,10 +57,10 @@ function resize() {
     }
     var focused = focus_check();
     console.log("need_rotate : " + need_rotate +", IS_ROTATED : " + IS_ROTATED+ ", focused : "+ focused);
-    if(!focused && IS_ROTATED && need_rotate != IS_ROTATED) {
-    } else if(!focused && !IS_ROTATED && need_rotate != IS_ROTATED) {
+    if(focused && IS_ROTATED && need_rotate != IS_ROTATED) {
+    } else if(focused && !IS_ROTATED && need_rotate != IS_ROTATED) {
         focus_out();
-    } else if(!focused && !IS_ROTATED && need_rotate == IS_ROTATED) {
+    } else if(focused && !IS_ROTATED && need_rotate == IS_ROTATED) {
         return;
     }
     IS_ROTATED = need_rotate;
