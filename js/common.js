@@ -11,7 +11,7 @@ function focus_check(){
     function check(list) {
         for(var i= 0; i< list.length; ++i) {
             if(list.eq(i).is(":focus")){
-                return focused;
+                return list.eq(i);
             }
         }
         return undefined;
