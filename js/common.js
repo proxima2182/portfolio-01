@@ -48,16 +48,11 @@ function resize() {
     var need_rotate = IS_ROTATED;
     console.log("resize");
     if(IS_MOBILE) {
-        if(window.matchMedia("(orientation: portrait)").matches) {
+        if(screen.orientation.angle == 0) {
             IS_ROTATED = true;
         } else {
             IS_ROTATED = false;
         }
-    } else {
-        IS_ROTATED = false;
-    }
-    need_rotate &= IS_ROTATED;
-    if(IS_MOBILE) {
         var input = $('#wrap input');
         var textarea = $('#wrap textarea');
         var input_checked = focus_check(input);
@@ -70,8 +65,8 @@ function resize() {
         var add_focused = focus_check($(".additional_text_area input"));
         console.log("add_focused");
         console.log(add_focused);
-        
-        var width = IS_ROTATED? window.innerHeight : window.innerWidth;
+
+       var width = IS_ROTATED? window.innerHeight : window.innerWidth;
         var height = IS_ROTATED? window.innerWidth : window.innerHeight;
         console.log("is_rotated : " + IS_ROTATED);
         if(focused == undefined && !need_rotate) {
@@ -91,7 +86,7 @@ function resize() {
             input_wrap.css({
                 "width" : width,
                 "height" : height,
-                "line-height" : height,
+                "line-height" : height + "px",
                 "background" : "#000",
                 "position" : "fixed",
                 "top": 0,
@@ -118,7 +113,72 @@ function resize() {
             })
             return;
         }
+    } else {
+        IS_ROTATED = false;
     }
+    need_rotate &= IS_ROTATED;
+//    if(IS_MOBILE) {
+//        var input = $('#wrap input');
+//        var textarea = $('#wrap textarea');
+//        var input_checked = focus_check(input);
+//        var textarea_checked = focus_check(textarea);
+//        var focused = input_checked != undefined ? input_checked : textarea_checked;
+//        
+//        console.log("focused");
+//        console.log(focused);
+//        
+//        var add_focused = focus_check($(".additional_text_area input"));
+//        console.log("add_focused");
+//        console.log(add_focused);
+//        
+//        var width = IS_ROTATED? window.innerHeight : window.innerWidth;
+//        var height = IS_ROTATED? window.innerWidth : window.innerHeight;
+//        console.log("is_rotated : " + IS_ROTATED);
+//        if(focused == undefined && !need_rotate) {
+//            $(".additional_text_area").remove();
+//        }
+//        if($(".additional_text_area").length>0) {
+//            $(".additional_text_area").css({
+//                "width" : width,
+//                "height" : height,
+//            })
+//           return;
+//        }
+//        if(focused != undefined) {
+//            var input_wrap = $("<div class=\"additional_text_area\"></div>")
+//            var input = $("<input type=\"text\"></input>");
+//            input_wrap.append(input);
+//            input_wrap.css({
+//                "width" : width,
+//                "height" : height,
+//                "line-height" : height + "px",
+//                "background" : "#000",
+//                "position" : "fixed",
+//                "top": 0,
+//                "left": 0,
+//            })
+//            if(IS_ROTATED) {
+//                input_wrap.css({
+//                    "-webkit-transform": "rotate(-90deg)",
+//                    "-ms-transform": "rotate(-90deg)",
+//                    "transform": "rotate(-90deg)",
+//                    "top": "50%",
+//                    "left": "50%",
+//                    "margin-top": -1*width/2,
+//                    "margin-left": -1*height/2,
+//                })
+//            }
+//            $("body").append(input_wrap);
+//            focused.blur();
+//            input.get(0).focus();
+//            input.onEnterKey(function() {
+//                console.log("submit : "+ $(this).text());
+//                focused.text($(this).text());
+//                input_wrap.remove();
+//            })
+//            return;
+//        }
+//    }
     
     console.log("resize_not_returned");
     
