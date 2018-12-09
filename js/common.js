@@ -76,14 +76,14 @@ function resize() {
                 "top": 0,
                 "left": 0,
             })
+            $("body").append(input_wrap);
             focused.blur();
-            input[0].focus();
+            input.focus();
             input.submit(function() {
                 console.log("submit : "+ $(this).text());
                 focused.text($(this).text());
                 input_wrap.remove();
             })
-            $("body").append(input_wrap);
             return;
         }
     }
