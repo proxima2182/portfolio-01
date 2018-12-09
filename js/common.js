@@ -5,21 +5,19 @@ var IS_MOBILE = false;
 
 var root = document.documentElement;
 
-function focus_check(bulr){
-    var need_resize = false;
+function focus_check(){
+    var focused = false;
    $('input').each(function() {
        if($(this).is(":focus")) {
-           need_resize = true;
-           if(bulr) $(this).blur();
+           focused = true;
        }
    })
    $('textarea').each(function() {
        if($(this).is(":focus")) {
-           need_resize = true;
-           if(bulr) $(this).blur();
+           focused = true;
        }
    })
-    return need_resize;
+    return focused;
 }
 function focus_out() {
    $('input').each(function() {
