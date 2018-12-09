@@ -71,12 +71,13 @@ function resize() {
         console.log("add_focused");
         console.log(add_focused);
         
+        var width = IS_ROTATED? window.innerHeight : window.innerWidth;
+        var height = IS_ROTATED? window.innerWidth : window.innerHeight;
+        console.log("is_rotated : " + IS_ROTATED);
         if(focused == undefined && !need_rotate) {
             $(".additional_text_area").remove();
         }
         if($(".additional_text_area").length>0) {
-            var width = IS_ROTATED? window.innerHeight : window.innerWidth;
-            var height = IS_ROTATED? window.innerWidth : window.innerHeight;
             $(".additional_text_area").css({
                 "width" : width,
                 "height" : height,
@@ -87,8 +88,6 @@ function resize() {
             var input_wrap = $("<div class=\"additional_text_area\"></div>")
             var input = $("<input type=\"text\"></input>");
             input_wrap.append(input);
-            var width = IS_ROTATED? window.innerHeight : window.innerWidth;
-            var height = IS_ROTATED? window.innerWidth : window.innerHeight;
             input_wrap.css({
                 "width" : width,
                 "height" : height,
