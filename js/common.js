@@ -73,7 +73,7 @@ function resize() {
         console.log("add_focused");
         console.log(add_focused);
         
-        if(add_focused == undefined) {
+        if(focused == undefined && add_focused != undefined) {
             $(".additional_text_area").remove();
         }
         if($(".additional_text_area").length>0) {
