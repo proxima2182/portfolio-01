@@ -99,16 +99,16 @@ function resize() {
                     "transform": "rotate(-90deg)",
                     "top": "50%",
                     "left": "50%",
-                    "margin-top": -1*width/2,
-                    "margin-left": -1*height/2,
+                    "margin-top": -1*height/2,
+                    "margin-left": -1*width/2,
                 })
             }
             $("body").append(input_wrap);
             focused.blur();
             input.get(0).focus();
             input.onEnterKey(function() {
-                console.log("submit : "+ $(this).text());
-                focused.text($(this).text());
+                console.log("submit : "+ $(this).html());
+                focused.html($(this).html());
                 input_wrap.remove();
             })
             return;
