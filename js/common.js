@@ -5,16 +5,18 @@ var IS_MOBILE = false;
 
 var root = document.documentElement;
 
-function focus_check(){
+function focus_check(bulr){
     var need_resize = true;
    $('input').each(function() {
        if($(this).is(":focus")) {
            need_resize = false;
+           if(bulr) $(this).blur();
        }
    })
    $('textarea').each(function() {
        if($(this).is(":focus")) {
            need_resize = false;
+           if(bulr) $(this).blur();
        }
    })
     return need_resize;
@@ -53,10 +55,11 @@ function resize() {
     } else {
         need_rotate = false;
     }
-    console.log("need_rotate : " + need_rotate +"IS_ROTATED : " + IS_ROTATED+ "need_resize : "+ need_resize);
-    if(!need_resize && need_rotate == IS_ROTATED) {
+    console.log("need_rotate : " + need_rotate +", IS_ROTATED : " + IS_ROTATED+ ", need_resize : "+ need_resize);
+    if(need_rotate == IS_ROTATED) {
         IS_ROTATED = need_rotate;
-        return;
+        focus_check(true);
+//        return;
     }
     IS_ROTATED = need_rotate;
     WINDOW_WIDTH = window.innerWidth;
