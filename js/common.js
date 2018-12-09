@@ -47,9 +47,8 @@ function resize() {
     }
     var need_rotate = IS_ROTATED;
     console.log("resize");
-    console.log("width : "+ window.outerWidth + ", height : "+ window.outerWidth);
     if(IS_MOBILE) {
-        if(window.outerHeight > window.outerWidth) {
+        if(window.matchMedia("(orientation: portrait)").matches) {
             IS_ROTATED = true;
         } else {
             IS_ROTATED = false;
