@@ -58,7 +58,11 @@ function resize() {
         console.log("focused");
         console.log(focused);
         
-        if(focus_check($(".additional_text_area input")) == undefined) {
+        var add_focused = focus_check($(".additional_text_area input"));
+        console.log("add_focused");
+        console.log(add_focused);
+        
+        if(add_focused == undefined) {
             $(".additional_text_area").remove();
         }
         if($(".additional_text_area").length>0) {
