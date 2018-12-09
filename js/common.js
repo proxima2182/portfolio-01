@@ -31,6 +31,9 @@ function focus_out() {
            $(this).blur();
        }
    })
+    if($(".additional_text_area").length>0) {
+        $(".additional_text_area").remove();
+    }
 }
 
 var IS_PORTRAIT_FOCUSED = true;
@@ -59,7 +62,6 @@ function resize() {
            return;
         }
         if(focused != undefined) {
-        //            focus_out();
             var input_wrap = $("<div class=\"additional_text_area\"></div>")
             var input = $("<input type=\"text\"></input>");
             input_wrap.append(input);
@@ -77,7 +79,8 @@ function resize() {
             focused.blur();
             input.focus();
             input.submit(function() {
-                focused.html(input.text());
+                console.log("submit : "+ $(this).text());
+                focused.text($(this).text());
                 input_wrap.remove();
             })
             $("body").append(input_wrap);
