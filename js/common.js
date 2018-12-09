@@ -77,7 +77,7 @@ function resize() {
                 "left": 0,
             })
             focused.blur();
-            input.focus();
+            input[0].focus();
             input.submit(function() {
                 console.log("submit : "+ $(this).text());
                 focused.text($(this).text());
