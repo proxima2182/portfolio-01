@@ -107,8 +107,7 @@ function resize() {
             focused.blur();
             input.get(0).focus();
             input.onEnterKey(function() {
-                console.log("submit : "+ $(this).val());
-                focused.val($(this).val());
+                focused.val(input.val());
                 input_wrap.remove();
             })
             return;
