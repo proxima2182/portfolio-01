@@ -6,17 +6,19 @@ var IS_MOBILE = false;
 var root = document.documentElement;
 
 function focus_check(){
-   $('input').each(function() {
-       if($(this).is(":focus")) {
-           return $(this);
-       }
-   })
-   $('textarea').each(function() {
-       if($(this).is(":focus")) {
-           return $(this);
-       }
-   })
-    return undefined;
+    var input = $('input');
+    var textarea = $('textarea');
+    function check(list) {
+        for(var i= 0; i< list.length; ++i) {
+            if(list.eq(i).is(":focus")){
+                return focused;
+            }
+        }
+        return undefined;
+    }
+    var input_checked = check(input);
+    var textarea_checked = check(input);
+    return input_checked != undefined ? input_checked : textarea_checked;
 }
 function focus_out() {
    $('input').each(function() {
