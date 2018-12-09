@@ -48,7 +48,7 @@ function resize() {
     var need_rotate = IS_ROTATED;
     console.log("resize");
     if(IS_MOBILE) {
-        if(window.innerHeight > window.innerWidth) {
+        if($("body").height() > $("body").width()) {
             IS_ROTATED = true;
         } else {
             IS_ROTATED = false;
