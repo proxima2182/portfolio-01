@@ -1,5 +1,5 @@
 @charset "utf-8";
-:root{
+body{
     --content_wrap_width: 80vw;
     --content_wrap_height: 70vw;
     --content_wrap_margin_top: -35vw;
