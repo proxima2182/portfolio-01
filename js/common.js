@@ -73,7 +73,11 @@ function resize() {
         var width = window.innerWidth;
         var height = window.innerHeight;
 //        console.log("is_rotated : " + IS_ROTATED);
-        if(focused == undefined && add_focused != undefined) {
+        if(IS_FOCUSED_OUT) {
+            IS_FOCUSED_OUT = false;
+            return;
+        }
+        if(add_focused == undefined) {
             focus_out();
             return;
         } else if(focused != undefined && add_focused == undefined) {
