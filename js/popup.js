@@ -360,10 +360,10 @@ function popup(meta) {
                 "right": CONTENT_WIDTH*0.02,
                 "position": "absolute",
             }).click(function() {
-                popup.animate({
-                    "bottom":-1*popup.outerHeight(),
+                $(".popup").animate({
+                    "bottom":-1*$(this).outerHeight(),
                 },400,function(){
-                    popup.remove();
+                    $(".popup").remove();
                     IS_FULLPAGE_SCROLLABLE = true;
                 })
             });
