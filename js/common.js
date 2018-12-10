@@ -37,8 +37,8 @@ function focus_out() {
     })
     if($(".additional_text_area").length>0) {
         IS_FOCUSED_OUT = true;
-        $(".additional_text_area").remove();
     }
+    $(".additional_text_area").remove();
 }
 
 var IS_FOCUSED_OUT = false;
