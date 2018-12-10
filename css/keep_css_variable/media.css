@@ -1,0 +1,366 @@
+@charset "utf-8";
+
+@media (min-width:800px) and (min-height: 1000px) {
+    /*include.css*/
+/*
+    #wrap .content_wrap{
+        width: 800px;
+        height: 700px;
+        margin-top: -350px;
+        margin-left: -400px;
+    }
+*/
+    .section_title{
+        color: #fff;
+        font-size: 40px;
+        line-height: 60px;
+    }
+    .gnb #home{
+        width: 100px;
+        height: 100px;
+    }
+    .gnb ul{
+        width: 100px;
+        line-height: 100px;
+    }
+    .gnb ul li{
+        margin-top: 40px;
+    }
+    .gnb ul li a{
+        font-size: 20px;
+    }
+    
+    /* width */
+    ::-webkit-scrollbar {
+        width: 15px;
+    }
+    
+    /*style.css*/
+    #section_01 .section_title{
+        line-height: 150px;
+        text-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+    }
+    #section_01 .icon_rocket{
+        width: 360px;
+        height: 750px;
+
+        bottom: 150px;
+        margin-left: -180px;
+    }
+    #section_01 .icon_rocekt_place{
+        width: 360px;
+        height: 750px;
+
+        bottom: 150px;
+        margin-left: -180px;
+    }
+    #section_01 .icon_effect{
+        width: 460px;
+        height: 200px;
+
+        bottom: 150px;
+        margin-left: -230px;
+    }
+    #section_02 .tag_list{
+        width: 250px;
+    }
+    #section_02 .tag_list li{
+        margin: 20px 0;
+    }
+    #section_02 .tag_list li div{
+        padding: 10px;
+        font-size: 25px;
+    }
+    #section_02 .button{
+        width: 550px;
+    }
+    #section_02 .button .background,
+    #section_02 .button .background:after{
+        width: 400px;
+        height: 400px;
+    }
+    #section_02 .button .background:after{
+        width: 300px;
+        height: 300px;
+    }
+    #section_02 .button .button_profile{
+        width: 300px;
+        height: 450px;
+    }
+
+    #section_03{
+    }
+    #section_03 .subject_wrap{
+        margin: 40px 20px;
+    }
+    #section_03 .subject_wrap div{
+        width: 30px;
+        height: 30px;
+        margin: 0 20px;
+    }
+    #section_03 ul{
+        height: 180px;
+    }
+    #section_03 ul li{
+        width: 120px;
+        height: 160px;
+    }
+    #section_03 .subject_wrap p{
+        font-size: 20px;
+    }
+    #section_03 ul li div{
+        width: 110px;
+        height: 110px;
+        padding: 10px;
+        line-height: 110px;
+        font-size: 20px;
+    }
+    #section_03 .level_list{
+        margin: 20px 0 10px 0;
+    }
+    #section_03 .level_list li{
+        width: 20px;
+        height: 20px;
+        margin: 0 10px;
+    }
+    #section_03 .language_list{
+        width: 800px;
+    }
+    #section_03 .platform_list{
+        width: 480px;
+    }
+    #section_03 .tool_list{
+        width: 320px;
+    }
+    
+    
+    #section_04 .work_wrap{
+        height: 600px;
+    }
+    #section_04 .button_wrap{
+        height: 40px;
+        line-height: 40px;
+    }
+    #section_04 .button_wrap li{
+        font-size: 20px;
+        margin: 0 10px;
+    }
+    #section_04 .button_wrap li div{
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+    }
+
+    
+    #section_05 .content_wrap{
+        line-height: 700px;
+    }
+    #section_05 .text_wrap{
+        width: 700px;
+        height: 600px;
+        border-radius: 30px;
+    }
+    #section_05 form {
+        padding: 0 40px;
+    }
+    #section_05 form p{
+        font-size: 25px;
+        line-height: 40px;
+        margin: 20px 0;
+    }
+    #section_05 form textarea, #section_05 form input{
+        font-size: 20px;
+        line-height: 25px;
+    }
+    #section_05 form input[type=submit] {
+        width: 260px;
+        padding: 15px;
+        font-size: 25px;
+
+        bottom: 20px;
+        margin-left: -130px;
+    }
+}
+@media (max-height: 800px) and (min-aspect-ratio:10/8) {
+    /*include.css*/
+/*
+    #wrap .content_wrap{
+        width: 100vh;
+        height: 87.5vh;
+        margin-top: -43.75vh;
+        margin-left: -50vh;
+    }
+*/
+    .section_title{
+        color: #fff;
+        font-size: 5vh;
+        line-height: 7.5vh;
+    }
+    .gnb #home{
+        width: 12.5vh;
+        height: 12.5vh;
+    }
+    .gnb ul{
+        width: 12.5vh;
+        line-height: 12.5vh;
+    }
+    .gnb ul li{
+        margin-top: 5vh;
+    }
+    .gnb ul li a{
+        font-size: 2.5vh;
+    }
+    
+    /* width */
+    ::-webkit-scrollbar {
+        width: 1.875vh;
+    }
+    
+    
+    /*style.css*/
+    #section_01 .section_title{
+        line-height: 18.75vh;
+        text-shadow: 1.25vh 1.25vh 1.25vh rgba(0,0,0,0.5);
+    }
+    #section_01 .icon_rocket{
+        width: 45vh;
+        height: 93.75vh;
+
+        bottom: 18.75vh;
+        margin-left: -22.5vh;
+    }
+    #section_01 .icon_rocekt_place{
+        width: 45vh;
+        height: 93.75vh;
+
+        bottom: 18.75vh;
+        margin-left: -22.5vh;
+    }
+    #section_01 .icon_effect{
+        width: 57.5vh;
+        height: 25vh;
+
+        bottom: 18.75vh;
+        margin-left: -28.75vh;
+    }
+
+    #section_02 .tag_list{
+        width: 31.25vh;
+    }
+    #section_02 .tag_list li{
+        margin: 2.5vh 0;
+    }
+    #section_02 .tag_list li div{
+        padding: 1.25vh;
+        font-size: 3.125vh;
+    }
+    #section_02 .button{
+        width: 68.75vh;
+    }
+    #section_02 .button .background,
+    #section_02 .button .background:after{
+        width: 50vh;
+        height: 50vh;
+    }
+    #section_02 .button .background:after{
+        width: 37.5vh;
+        height: 37.5vh;
+    }
+    #section_02 .button .button_profile{
+        width: 37.5vh;
+        height: 56.25vh;
+    }
+
+    #section_03{
+    }
+    #section_03 .subject_wrap{
+        margin: 5vh 2.5vh;
+    }
+    #section_03 .subject_wrap div{
+        width: 3.75vh;
+        height: 3.75vh;
+        margin: 0 2.5vh;
+    }
+    #section_03 ul{
+        height: 22.5vh;
+    }
+    #section_03 ul li{
+        width: 15vh;
+        height: 20vh;
+    }
+    #section_03 .subject_wrap p{
+        font-size: 2.5vh;
+    }
+    #section_03 ul li div{
+        width: 13.75vh;
+        height: 13.75vh;
+        padding: 1.25vh;
+        line-height: 13.75vh;
+        font-size: 2.5vh;
+    }
+    #section_03 .level_list{
+        margin: 2.5vh 0 1.25vh 0;
+    }
+    #section_03 .level_list li{
+        width: 2.5vh;
+        height: 2.5vh;
+        margin: 0 1.25vh;
+    }
+    #section_03 .language_list{
+        width: 100vh;
+    }
+    #section_03 .platform_list{
+        width: 60vh;
+    }
+    #section_03 .tool_list{
+        width: 40vh;
+    }
+    
+    
+    #section_04 .work_wrap{
+        height: 75vh;
+    }
+    #section_04 .button_wrap{
+        height: 5vh;
+        line-height: 5vh;
+    }
+    #section_04 .button_wrap li{
+        font-size: 2.5vh;
+        margin: 0 1.25vh;
+    }
+    #section_04 .button_wrap li div{
+        width: 1.25vh;
+        height: 1.25vh;
+        margin: 0 0.625vh;
+    }
+
+    
+    #section_05 .content_wrap{
+        line-height: 87.5vh;
+    }
+    #section_05 .text_wrap{
+        width: 87.5vh;
+        height: 75vh;
+        border-radius: 3.75vh;
+    }
+    #section_05 form {
+        padding: 0 5vh;
+    }
+    #section_05 form p{
+        font-size: 3.125vh;
+        line-height: 5vh;
+        margin: 2.5vh 0;
+    }
+    #section_05 form textarea, #section_05 form input{
+        font-size: 2.5vh;
+        line-height: 3.125vh;
+    }
+    #section_05 form input[type=submit] {
+        width: 32.5vh;
+        padding: 1.875vh;
+        font-size: 3.125vh;
+
+        bottom: 2.5vh;
+        margin-left: -16.25vh;
+    }
+}
