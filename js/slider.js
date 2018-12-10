@@ -312,7 +312,7 @@ $.fn.make_slider = function(opt){
         var slider_width = has_slider_flexible_width? option["slider_flexible_width"]() : $(slider).width();
         var index = parseInt(now_pos_x/elem_width);
         elem_width = parseInt(slider_width/PAGE_SIZE*100)/100;
-        
+        console.log(slider_width + ", "+ slider_height);
         now_pos_x = index * elem_width;
 
         var list= $(slider).find('>li');
@@ -367,5 +367,6 @@ $.fn.make_slider = function(opt){
         MIN_POS_X= elem_width*(list.length - PAGE_SIZE)*-1;
         MAX_POS_X= 0;
     }
+    
     window.addEventListener('resize', slider_resize);
 }

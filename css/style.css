@@ -15,7 +15,7 @@
 #section_01{
     position: relative;
 }
-#section_01 .content_wrap{
+#wrap #section_01 .content_wrap{
     top: auto;
     margin-top: 0;
     bottom: 0;

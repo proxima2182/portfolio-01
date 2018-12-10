@@ -2,14 +2,12 @@
 
 @media (min-width:1000px) and (min-height: 800px) {
     /*include.css*/
-/*
     #wrap .content_wrap{
         width: 800px;
         height: 700px;
         margin-top: -350px;
         margin-left: -400px;
     }
-*/
     .section_title{
         color: #fff;
         font-size: 40px;
@@ -183,14 +181,12 @@
 }
 @media (max-height: 800px) and (min-aspect-ratio:10/8) {
     /*include.css*/
-/*
     #wrap .content_wrap{
         width: 100vh;
         height: 87.5vh;
         margin-top: -43.75vh;
         margin-left: -50vh;
     }
-*/
     .section_title{
         color: #fff;
         font-size: 5vh;
