@@ -278,4 +278,7 @@ $(document).ready(function(){
         }
     }
     window.addEventListener("resize",resize_enter);
+//    window.addEventListener("resize",function() {
+//        var video = $("#section_05 video");
+//    });
 })

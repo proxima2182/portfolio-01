@@ -63,12 +63,12 @@ function resize() {
         var textarea_checked = focus_check(textarea);
         var focused = input_checked != undefined ? input_checked : textarea_checked;
         
-//        console.log("focused");
-//        console.log(focused);
+        console.log("focused");
+        console.log(focused);
         
         var add_focused = focus_check($(".additional_text_area input"));
-//        console.log("add_focused");
-//        console.log(add_focused);
+        console.log("add_focused");
+        console.log(add_focused);
 
         var width = window.innerWidth;
         var height = window.innerHeight;
