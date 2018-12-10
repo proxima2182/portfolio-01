@@ -77,10 +77,11 @@ function resize() {
             IS_FOCUSED_OUT = false;
             return;
         }
-        if(add_focused == undefined) {
+        if($(".additional_text_area").length>0 && add_focused != undefined) {
             focus_out();
             return;
-        } else if(focused != undefined && add_focused == undefined) {
+        }
+        if(focused != undefined) {
             var input_wrap = $("<div class=\"additional_text_area\"></div>")
             var input = $("<input type=\"text\"></input>");
             input_wrap.append(input);
