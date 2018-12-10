@@ -177,11 +177,11 @@ function resize() {
     
     WINDOW_WIDTH = window.innerWidth;
     WINDOW_HEIGHT = window.innerHeight;
-    $('link[href="media_rotated.css"]').attr('href','media.css');
+    $('link[href="./css/media_rotated.css"]').attr('href','./css/media.css');
     if(IS_ROTATED) {
         WINDOW_WIDTH = window.innerHeight;
         WINDOW_HEIGHT = window.innerWidth;
-        $('link[href="media.css"]').attr('href','media_rotated.css');
+        $('link[href="./css/media.css"]').attr('href','./css/media_rotated.css');
     }
                    
     $("body").css({
