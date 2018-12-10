@@ -59,16 +59,16 @@ function resize() {
         var textarea_checked = focus_check(textarea);
         var focused = input_checked != undefined ? input_checked : textarea_checked;
         
-        console.log("focused");
-        console.log(focused);
+//        console.log("focused");
+//        console.log(focused);
         
         var add_focused = focus_check($(".additional_text_area input"));
-        console.log("add_focused");
-        console.log(add_focused);
+//        console.log("add_focused");
+//        console.log(add_focused);
 
        var width = window.innerWidth;
         var height = window.innerHeight;
-        console.log("is_rotated : " + IS_ROTATED);
+//        console.log("is_rotated : " + IS_ROTATED);
         if(focused == undefined && add_focused != undefined) {
             focus_out();
             return;
@@ -177,11 +177,9 @@ function resize() {
     
     WINDOW_WIDTH = window.innerWidth;
     WINDOW_HEIGHT = window.innerHeight;
-    $('link[href="./css/media_rotated.css"]').attr('href','./css/media.css');
     if(IS_ROTATED) {
         WINDOW_WIDTH = window.innerHeight;
         WINDOW_HEIGHT = window.innerWidth;
-        $('link[href="./css/media.css"]').attr('href','./css/media_rotated.css');
     }
                    
     $("body").css({
@@ -210,15 +208,12 @@ function resize() {
             position:"absolute",
         });
     }
-    console.log("height : " + WINDOW_HEIGHT + ", width : "+ WINDOW_WIDTH);
+//    console.log("height : " + WINDOW_HEIGHT + ", width : "+ WINDOW_WIDTH);
     if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
-        console.log("condition 01");
         CONTENT_WIDTH = 1000;
     }else if(WINDOW_HEIGHT<800 && WINDOW_WIDTH/WINDOW_HEIGHT>1.25) {
-        console.log("condition 02");
         CONTENT_WIDTH = WINDOW_HEIGHT* 1.25;
     }else {
-        console.log("condition 03");
         CONTENT_WIDTH = WINDOW_WIDTH;
     }
 //    root.style.setProperty('--content_wrap_width', CONTENT_WIDTH*0.8 + "px");

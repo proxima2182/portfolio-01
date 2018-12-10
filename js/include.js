@@ -215,7 +215,6 @@ $(document).ready(function(){
                     },300);
                 },
                 callback: function(){
-                    console.log("callback");
                     $("#section_01 .icon_rocket img.off").css("display","block");
                     $("#section_01 .icon_rocket img.on").css("display","none");
                 },
