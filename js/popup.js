@@ -360,8 +360,9 @@ function popup(meta) {
                 "right": CONTENT_WIDTH*0.02,
                 "position": "absolute",
             }).click(function() {
-                $(".popup").animate({
-                    "bottom":-1*$(this).outerHeight(),
+                var popup = $(".popup");
+                popup.animate({
+                    "bottom":-1*popup.outerHeight(),
                 },400,function(){
                     $(".popup").remove();
                     IS_FULLPAGE_SCROLLABLE = true;

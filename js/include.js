@@ -113,6 +113,8 @@ function make_enter_element(container){
     container.append(ul);
 }
 function make_enter() {
+    $(".popup").remove();
+    IS_FULLPAGE_SCROLLABLE = true;
     map_clear(1);
     var container = $("<div id=\"section_enter\"></div>");
     var width = WINDOW_WIDTH;
