@@ -50,12 +50,33 @@ function resize() {
         IS_MOBILE = false;
     }
     var need_rotate = IS_ROTATED;
+    var previous_width = WINDOW_WIDTH;
+    var previous_height = WINDOW_HEIGHT;
     console.log("resize");
     if(IS_MOBILE) {
         if(screen.orientation.angle == 0 || screen.orientation.angle == 180) {
             IS_ROTATED = true;
         } else {
             IS_ROTATED = false;
+        }
+    } else {
+        IS_ROTATED = false;
+    }
+    need_rotate &= IS_ROTATED;
+    
+    console.log("resize_not_returned");
+    
+    WINDOW_WIDTH = window.innerWidth;
+    WINDOW_HEIGHT = window.innerHeight;
+    if(IS_ROTATED) {
+        WINDOW_WIDTH = window.innerHeight;
+        WINDOW_HEIGHT = window.innerWidth;
+    }
+    
+    if(IS_MOBILE) {
+        if(previous_width == WINDOW_WIDTH && previous_height < WINDOW_HEIGHT) {
+            focus_out();
+            return;
         }
         var input = $('#wrap input');
         var textarea = $('#wrap textarea');
@@ -115,20 +136,8 @@ function resize() {
             })
             return;
         }
-    } else {
-        IS_ROTATED = false;
     }
-    need_rotate &= IS_ROTATED;
     
-    console.log("resize_not_returned");
-    
-    WINDOW_WIDTH = window.innerWidth;
-    WINDOW_HEIGHT = window.innerHeight;
-    if(IS_ROTATED) {
-        WINDOW_WIDTH = window.innerHeight;
-        WINDOW_HEIGHT = window.innerWidth;
-    }
-                   
     $("body").css({
         "width": WINDOW_WIDTH,
         "height": WINDOW_HEIGHT,
@@ -166,8 +175,3 @@ function resize() {
 
 resize();
 window.addEventListener('resize', resize);
-if(IS_MOBILE) {
-    window.addEventListener('android:back', function(e){
-        focus_out();
-    });
-}
