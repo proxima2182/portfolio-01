@@ -35,10 +35,10 @@ function focus_out() {
            $(this).blur();
        }
     })
-    if($(".additional_text_area").length>0) {
-        console.log("remove called");
-        IS_FOCUSED_OUT = true;
-    }
+//    if($(".additional_text_area").length>0) {
+//        console.log("remove called");
+//        IS_FOCUSED_OUT = true;
+//    }
     $(".additional_text_area").remove();
 }
 
@@ -72,11 +72,6 @@ function resize() {
 
         var width = window.innerWidth;
         var height = window.innerHeight;
-//        console.log("is_rotated : " + IS_ROTATED);
-        if(IS_FOCUSED_OUT) {
-            IS_FOCUSED_OUT = false;
-            return;
-        }
         if(add_focused != undefined) {
             focus_out();
             return;
@@ -119,68 +114,6 @@ function resize() {
         IS_ROTATED = false;
     }
     need_rotate &= IS_ROTATED;
-//    if(IS_MOBILE) {
-//        var input = $('#wrap input');
-//        var textarea = $('#wrap textarea');
-//        var input_checked = focus_check(input);
-//        var textarea_checked = focus_check(textarea);
-//        var focused = input_checked != undefined ? input_checked : textarea_checked;
-//        
-//        console.log("focused");
-//        console.log(focused);
-//        
-//        var add_focused = focus_check($(".additional_text_area input"));
-//        console.log("add_focused");
-//        console.log(add_focused);
-//        
-//        var width = IS_ROTATED? window.innerHeight : window.innerWidth;
-//        var height = IS_ROTATED? window.innerWidth : window.innerHeight;
-//        console.log("is_rotated : " + IS_ROTATED);
-//        if(focused == undefined && !need_rotate) {
-//            $(".additional_text_area").remove();
-//        }
-//        if($(".additional_text_area").length>0) {
-//            $(".additional_text_area").css({
-//                "width" : width,
-//                "height" : height,
-//            })
-//           return;
-//        }
-//        if(focused != undefined) {
-//            var input_wrap = $("<div class=\"additional_text_area\"></div>")
-//            var input = $("<input type=\"text\"></input>");
-//            input_wrap.append(input);
-//            input_wrap.css({
-//                "width" : width,
-//                "height" : height,
-//                "line-height" : height + "px",
-//                "background" : "#000",
-//                "position" : "fixed",
-//                "top": 0,
-//                "left": 0,
-//            })
-//            if(IS_ROTATED) {
-//                input_wrap.css({
-//                    "-webkit-transform": "rotate(-90deg)",
-//                    "-ms-transform": "rotate(-90deg)",
-//                    "transform": "rotate(-90deg)",
-//                    "top": "50%",
-//                    "left": "50%",
-//                    "margin-top": -1*width/2,
-//                    "margin-left": -1*height/2,
-//                })
-//            }
-//            $("body").append(input_wrap);
-//            focused.blur();
-//            input.get(0).focus();
-//            input.onEnterKey(function() {
-//                console.log("submit : "+ $(this).text());
-//                focused.text($(this).text());
-//                input_wrap.remove();
-//            })
-//            return;
-//        }
-//    }
     
     console.log("resize_not_returned");
     
@@ -217,7 +150,6 @@ function resize() {
             position:"absolute",
         });
     }
-//    console.log("height : " + WINDOW_HEIGHT + ", width : "+ WINDOW_WIDTH);
     if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
         CONTENT_WIDTH = 1000;
     }else if(WINDOW_HEIGHT<800 && WINDOW_WIDTH/WINDOW_HEIGHT>1.25) {
@@ -225,51 +157,6 @@ function resize() {
     }else {
         CONTENT_WIDTH = WINDOW_WIDTH;
     }
-//    root.style.setProperty('--content_wrap_width', CONTENT_WIDTH*0.8 + "px");
-//    root.style.setProperty('--content_wrap_height', CONTENT_WIDTH*0.7 + "px");
-//    root.style.setProperty('--content_wrap_margin_top', -1*CONTENT_WIDTH*0.35 + "px");
-//    root.style.setProperty('--content_wrap_margin_left',  -1*CONTENT_WIDTH*0.4 + "px");
-//    
-//    root.style.setProperty('--header_height', WINDOW_HEIGHT + "px");
-//    root.style.setProperty('--header_bottom', -1* WINDOW_HEIGHT + "px");
-//    
-//    root.style.setProperty('--section_01_rokcet_width', CONTENT_WIDTH*0.36 + "px");
-//    root.style.setProperty('--section_01_rokcet_height', CONTENT_WIDTH*0.75 + "px");
-//    root.style.setProperty('--section_01_rokcet_margin_left', -1*CONTENT_WIDTH*0.18 + "px");
-//    root.style.setProperty('--section_01_effect_width', CONTENT_WIDTH*0.46 + "px");
-//    root.style.setProperty('--section_01_effect_height', CONTENT_WIDTH*0.2 + "px");
-//    root.style.setProperty('--section_01_effect_margin_left', -1*CONTENT_WIDTH*0.23 + "px");
-//    
-//    root.style.setProperty('--section_02_tag_width', CONTENT_WIDTH*0.25 + "px");
-//    root.style.setProperty('--section_02_button_width', CONTENT_WIDTH*0.55 + "px");
-//    root.style.setProperty('--section_02_button_img_height', CONTENT_WIDTH*0.45 + "px");
-//    
-//    root.style.setProperty('--section_03_ul_height', CONTENT_WIDTH*0.18 + "px");
-//    root.style.setProperty('--section_03_li_width', CONTENT_WIDTH*0.12 + "px");
-//    root.style.setProperty('--section_03_li_height', CONTENT_WIDTH*0.16 + "px");
-//    root.style.setProperty('--section_03_ball_size', CONTENT_WIDTH*0.11 + "px");
-//    root.style.setProperty('--section_03_language_width', CONTENT_WIDTH*0.8 + "px");
-//    root.style.setProperty('--section_03_platform_width', CONTENT_WIDTH*0.48 + "px");
-//    root.style.setProperty('--section_03_tool_width', CONTENT_WIDTH*0.32 + "px");
-//    
-//    root.style.setProperty('--section_05_text_wrap_width', CONTENT_WIDTH*0.7 + "px");
-//    root.style.setProperty('--section_05_button_width', CONTENT_WIDTH*0.26 + "px");
-//    root.style.setProperty('--section_05_button_margin_left', -1*CONTENT_WIDTH*0.13 + "px");
-//    
-//    root.style.setProperty('--0_5',  CONTENT_WIDTH*0.005 + "px");
-//    root.style.setProperty('--1',  CONTENT_WIDTH*0.01 + "px");
-//    root.style.setProperty('--2',  CONTENT_WIDTH*0.02 + "px");
-//    root.style.setProperty('--2_5',  CONTENT_WIDTH*0.025 + "px");
-//    root.style.setProperty('--3',  CONTENT_WIDTH*0.03 + "px");
-//    root.style.setProperty('--4',  CONTENT_WIDTH*0.04 + "px");
-//    root.style.setProperty('--6',  CONTENT_WIDTH*0.06 + "px");
-//    root.style.setProperty('--8',  CONTENT_WIDTH*0.08 + "px");
-//    root.style.setProperty('--10',  CONTENT_WIDTH*0.1 + "px");
-//    root.style.setProperty('--15',  CONTENT_WIDTH*0.15 + "px");
-//    root.style.setProperty('--30',  CONTENT_WIDTH*0.3 + "px");
-//    root.style.setProperty('--40',  CONTENT_WIDTH*0.4 + "px");
-//    root.style.setProperty('--60',  CONTENT_WIDTH*0.6 + "px");
-    
 }
 
 resize();
