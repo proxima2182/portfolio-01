@@ -77,7 +77,7 @@ function resize() {
             IS_FOCUSED_OUT = false;
             return;
         }
-        if($(".additional_text_area").length>0 && add_focused != undefined) {
+        if(add_focused != undefined) {
             focus_out();
             return;
         }
