@@ -92,7 +92,7 @@ function resize() {
         if(add_focused !=undefined && previous_width == WINDOW_WIDTH && previous_height < WINDOW_HEIGHT) {
             focus_out();
             return;
-        })
+        }
         if(focused == undefined && add_focused == undefined && $(".additional_text_area").length > 0) {
             $(".additional_text_area").remove();
             return;
