@@ -93,15 +93,11 @@ function resize() {
             focus_out();
             return;
         }
-//        if(need_rotate != IS_ROTATED && add_focused != undefined) {
-//            focus_out();
-//            return;
-//        }
         var input_wrap = $(".additional_text_area");
         if(add_focused == undefined && focused == undefined) {
             input_wrap.remove();
         }
-z        if(input_wrap.length > 0){
+        if(input_wrap.length > 0){
             input_wrap.css({
                 "width" : width,
                 "height" : height,
