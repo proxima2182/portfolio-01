@@ -89,9 +89,6 @@ function resize() {
 
         var width = window.innerWidth;
         var height = window.innerHeight;
-        if(add_focused == undefined && focused == undefined) {
-            $(".additional_text_area").remove();
-        }
         if(add_focused != undefined && need_rotate == IS_ROTATED) {
             focus_out();
             return;
@@ -101,7 +98,10 @@ function resize() {
 //            return;
 //        }
         var input_wrap = $(".additional_text_area");
-        if(input_wrap.length > 0){
+        if(add_focused == undefined && focused == undefined) {
+            input_wrap.remove();
+        }
+z        if(input_wrap.length > 0){
             input_wrap.css({
                 "width" : width,
                 "height" : height,
@@ -110,6 +110,7 @@ function resize() {
                 "position" : "fixed",
                 "top": 0,
                 "left": 0,
+                "margin": 0,
             })
             if(IS_ROTATED) {
                 input_wrap.css({
