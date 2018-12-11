@@ -74,10 +74,6 @@ function resize() {
     }
     
     if(IS_MOBILE) {
-        if(previous_width == WINDOW_WIDTH && previous_height < WINDOW_HEIGHT) {
-            focus_out();
-            return;
-        }
         var input = $('#wrap input');
         var textarea = $('#wrap textarea');
         var input_checked = focus_check(input);
@@ -93,6 +89,10 @@ function resize() {
 
         var width = window.innerWidth;
         var height = window.innerHeight;
+        if(add_focused !=undefined && previous_width == WINDOW_WIDTH && previous_height < WINDOW_HEIGHT) {
+            focus_out();
+            return;
+        })
         if(focused == undefined && add_focused == undefined && $(".additional_text_area").length > 0) {
             $(".additional_text_area").remove();
             return;
