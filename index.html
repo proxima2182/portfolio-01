@@ -23,7 +23,7 @@
 		
         <script type="text/javascript">
             $(document).ready(function(){
-                page_move(4);
+                page_move(0);
                 $(".button_profile").click(function() {
                     $.get("./meta/popup_about.xml", function(data) {
                         var meta = $(data);
@@ -35,6 +35,12 @@
         <script data-cfasync="false" type="text/javascript" src="./js/form-submission-handler.js"></script>
     </head>
     <body>
+<!--
+        <div id="section_loading">
+            <div class="left_circle circle"></div>
+            <div class="right_circle circle"></div>
+        </div>
+-->
         <div id="wrap">
             <header id="header">
                 <nav class="gnb">

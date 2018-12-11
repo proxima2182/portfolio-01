@@ -17,6 +17,31 @@ body{
     cursor: inherit;
 }
 
+/*
+#section_loading{
+    width: 400px;
+    height: 400px;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    background: #000;
+    position: fixed;
+}
+#section_loading .circle{
+    width: 100px;
+    height: 100px;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+}
+#section_loading .left_circle{
+    clip: rect(0, 54px, 108px, 0);
+}
+#section_loading .right_circle{
+    clip: rect(0, 108px, 108px, 54px);
+}
+*/
+
 .content_wrap{
     width: 80vw;
     height: 70vw;

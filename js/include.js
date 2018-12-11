@@ -281,4 +281,62 @@ $(document).ready(function(){
 //    window.addEventListener("resize",function() {
 //        var video = $("#section_05 video");
 //    });
+    
+//    var container = $("<div id=\"section_loading\">");
+//    var width = WINDOW_WIDTH;
+//    var height = WINDOW_HEIGHT;
+//    var background_color = "#1c2e5f";
+//    var point_color = "#fff";
+//    var deg = "0deg";
+//    if(IS_ROTATED) {
+//        width = WINDOW_HEIGHT;
+//        height = WINDOW_WIDTH;
+//        deg = "-90deg";
+//    }
+//    container.css({
+//        "width": width,
+//        "height": height,
+//        "background": background_color,
+//        "-webkit-transform": "rotate("+deg+")",
+//        "-ms-transform": "rotate("+deg+")",
+//        "transform": "rotate(-"+deg+")",
+//        "top": "50%",
+//        "left": "50%",
+//        "margin-top": -1*height/2,
+//        "margin-left": -1*width/2,
+//        "z-index": 151,
+//        "position": "fixed",
+//    });
+//    var circle_css = {
+//        "width": CONTENT_WIDTH*0.08,
+//        "height": CONTENT_WIDTH*0.08,
+//        "border": CONTENT_WIDTH*0.01+"px solid "+point_color,
+//        "border-radius": "50%",
+//        "position": "absolute",
+//    };
+//    var circle_width = CONTENT_WIDTH*0.1;
+//    var circle_half_width = CONTENT_WIDTH*0.05;
+//    var left_circle = $("<div class=\"circle left_circle\"><div>");
+//    var right_circle = $("<div class=\"circle right_circle\"><div>");
+//    left_circle.css(circle_css);
+//    left_circle.css({
+//        "clip": "rect(0, "+circle_width+"px, "+circle_width+"px, "+circle_half_width+"px)",
+////        "clip": "rect(0, "+circle_half_width+"px, "+circle_width+"px, 0)",
+//        "z-index":1,
+//    })
+//    right_circle.css(circle_css);
+//    right_circle.css({
+//        "clip": "rect(0, "+circle_width+"px, "+circle_width+"px, "+circle_half_width+"px)",
+//        "z-index":0,
+//    })
+//    var progress = 10;
+//    if(progress<=50) {
+//        left_circle.css({
+//            "border-color" : background_color,
+//            "transform" :"rotate("+(progress)*3.6+"deg)",
+//        })
+//    }
+//    container.append(left_circle);
+//    container.append(right_circle);
+//    $("body").append(container);
 })

@@ -93,9 +93,10 @@ function resize() {
             focus_out();
             return;
         }
+        //집에가서 왜 안되는지 다시보자
         var input_wrap = $(".additional_text_area");
-        if(need_rotate == IS_ROTATED) {
-            input_wrap.remove();
+        if(add_focused == undefined && focused == undefined) {
+            $(".additional_text_area").remove();
         }
         if(input_wrap.length > 0){
             input_wrap.css({
