@@ -35,10 +35,6 @@ function focus_out() {
            $(this).blur();
        }
     })
-    if($(".additional_text_area").length>0) {
-        console.log("remove called");
-        IS_FOCUSED_OUT = true;
-    }
     $(".additional_text_area").remove();
 }
 
@@ -73,11 +69,7 @@ function resize() {
         var width = window.innerWidth;
         var height = window.innerHeight;
 //        console.log("is_rotated : " + IS_ROTATED);
-        if(IS_FOCUSED_OUT) {
-            IS_FOCUSED_OUT = false;
-            return;
-        }
-        if($(".additional_text_area").length>0 && add_focused != undefined) {
+        if(add_focused != undefined) {
             focus_out();
             return;
         }
