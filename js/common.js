@@ -94,7 +94,7 @@ function resize() {
             return;
         }
         var input_wrap = $(".additional_text_area");
-        if(need_rotate != IS_ROTATED) {
+        if(need_rotate == IS_ROTATED) {
             input_wrap.remove();
         }
         if(input_wrap.length > 0){
