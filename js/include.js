@@ -183,10 +183,6 @@ function make_enter() {
 $(document).ready(function(){
     //skill list load
     
-    if(WINDOW_HEIGHT == undefined || WINDOW_WIDTH == undefined) {
-        resize();
-    }
-    
     $.get("./meta/skill_list.xml", function(data) 
     {
         var list_names = ["language_list", "platform_list", "tool_list"];
