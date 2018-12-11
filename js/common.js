@@ -89,7 +89,6 @@ function resize() {
 
         var width = window.innerWidth;
         var height = window.innerHeight;
-        alert("add_focus : "+ add_focused !=undefined + "focus : "+ focused !=undefined + "need_rotate : " + need_rotate +", IS_ROTATED : "+ IS_ROTATED);
         if(add_focused != undefined && need_rotate == IS_ROTATED) {
             focus_out();
             return;
