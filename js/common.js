@@ -16,6 +16,7 @@ $.fn.onEnterKey =
                 }
             } );
     }
+
 function focus_check(list){
     for(var i= 0; i< list.length; ++i) {
         if(list.eq(i).is(":focus")){
@@ -25,6 +26,7 @@ function focus_check(list){
     return undefined;
 }
 function focus_out() {
+    $(".additional_text_area").remove();
     $('input').each(function() {
        if($(this).is(":focus")) {
            $(this).blur();
@@ -39,7 +41,6 @@ function focus_out() {
 //        console.log("remove called");
 //        IS_FOCUSED_OUT = true;
 //    }
-    $(".additional_text_area").remove();
 }
 
 var IS_FOCUSED_OUT = false;
@@ -72,7 +73,7 @@ function resize() {
 
         var width = window.innerWidth;
         var height = window.innerHeight;
-        if(add_focused != undefined) {
+        if(need_rotate != IS_ROTATED && add_focused != undefined) {
             focus_out();
             return;
         }
