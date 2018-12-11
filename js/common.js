@@ -26,7 +26,6 @@ function focus_check(list){
     return undefined;
 }
 function focus_out() {
-    $(".additional_text_area").remove();
     $('input').each(function() {
        if($(this).is(":focus")) {
            $(this).blur();
@@ -53,7 +52,7 @@ function resize() {
     var need_rotate = IS_ROTATED;
     console.log("resize");
     if(IS_MOBILE) {
-        if(screen.orientation.angle == 0) {
+        if(screen.orientation.angle == 0 || screen.orientation.angle == 180) {
             IS_ROTATED = true;
         } else {
             IS_ROTATED = false;
@@ -73,6 +72,9 @@ function resize() {
 
         var width = window.innerWidth;
         var height = window.innerHeight;
+        if(focused == undefined && add_focused == undefined && $(".additional_text_area").length > 0) {
+            $(".additional_text_area").remove();
+        }
         if(need_rotate != IS_ROTATED && add_focused != undefined) {
             focus_out();
             return;
@@ -107,7 +109,8 @@ function resize() {
             input.get(0).focus();
             input.onEnterKey(function() {
                 focused.val(input.val());
-                input_wrap.remove();
+                focus_out();
+//                input_wrap.remove();
             })
             return;
         }
