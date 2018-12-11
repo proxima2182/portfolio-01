@@ -91,11 +91,10 @@ function resize() {
         var height = window.innerHeight;
         if(add_focused != undefined && need_rotate == IS_ROTATED) {
             focus_out();
-            $(".additional_text_area input").remove();
             return;
         }
         var input_wrap = $(".additional_text_area");
-        if(add_focused == undefined && focused == undefined) {
+        if(need_rotate != IS_ROTATED) {
             input_wrap.remove();
         }
         if(input_wrap.length > 0){
