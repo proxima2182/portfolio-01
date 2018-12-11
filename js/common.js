@@ -76,10 +76,10 @@ function resize() {
             $(".additional_text_area").remove();
             return;
         }
-        if(need_rotate != IS_ROTATED && add_focused != undefined) {
-            focus_out();
-            return;
-        }
+//        if(need_rotate != IS_ROTATED && add_focused != undefined) {
+//            focus_out();
+//            return;
+//        }
         if(focused != undefined) {
             var input_wrap = $("<div class=\"additional_text_area\"></div>")
             var input = $("<input type=\"text\"></input>");
@@ -167,14 +167,7 @@ function resize() {
 resize();
 window.addEventListener('resize', resize);
 if(IS_MOBILE) {
-    $(window).on("navigate", function (event, data) {
-        var direction = data.state.direction;
-        if (direction == 'back') {
-        // do something
-            focus_out();
-        }
-        if (direction == 'forward') {
-        // do something else
-        }
+    window.addEventListener('android:back', function(e){
+        focus_out();
     });
 }
