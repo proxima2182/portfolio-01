@@ -89,8 +89,11 @@ function resize() {
 
         var width = window.innerWidth;
         var height = window.innerHeight;
-        if(add_focused != undefined && need_rotate == IS_ROTATED) {
+        if(add_focused == undefined && focused == undefined) {
             $(".additional_text_area").remove();
+        }
+        if(add_focused != undefined && need_rotate == IS_ROTATED) {
+            focus_out();
             return;
         }
 //        if(need_rotate != IS_ROTATED && add_focused != undefined) {
