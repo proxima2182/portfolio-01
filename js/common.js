@@ -91,6 +91,7 @@ function resize() {
         var height = window.innerHeight;
         if(add_focused != undefined && need_rotate == IS_ROTATED) {
             focus_out();
+            $(".additional_text_area input").remove();
             return;
         }
         var input_wrap = $(".additional_text_area");
