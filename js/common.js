@@ -74,6 +74,7 @@ function resize() {
         var height = window.innerHeight;
         if(focused == undefined && add_focused == undefined && $(".additional_text_area").length > 0) {
             $(".additional_text_area").remove();
+            return;
         }
         if(need_rotate != IS_ROTATED && add_focused != undefined) {
             focus_out();
@@ -165,3 +166,15 @@ function resize() {
 
 resize();
 window.addEventListener('resize', resize);
+if(IS_MOBILE) {
+    $(window).on("navigate", function (event, data) {
+        var direction = data.state.direction;
+        if (direction == 'back') {
+        // do something
+            focus_out();
+        }
+        if (direction == 'forward') {
+        // do something else
+        }
+    });
+}
