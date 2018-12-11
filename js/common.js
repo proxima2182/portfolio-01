@@ -89,11 +89,7 @@ function resize() {
 
         var width = window.innerWidth;
         var height = window.innerHeight;
-        if(add_focused !=undefined && previous_width == WINDOW_WIDTH && previous_height < WINDOW_HEIGHT) {
-            focus_out();
-            return;
-        }
-        if(focused == undefined && add_focused == undefined && $(".additional_text_area").length > 0) {
+        if(add_focused != undefined && need_rotate == IS_ROTATED) {
             $(".additional_text_area").remove();
             return;
         }
@@ -101,6 +97,29 @@ function resize() {
 //            focus_out();
 //            return;
 //        }
+        var input_wrap = $(".additional_text_area");
+        if(input_wrap.length > 0){
+            input_wrap.css({
+                "width" : width,
+                "height" : height,
+                "line-height" : height + "px",
+                "background" : "#000",
+                "position" : "fixed",
+                "top": 0,
+                "left": 0,
+            })
+            if(IS_ROTATED) {
+                input_wrap.css({
+                    "-webkit-transform": "rotate(-90deg)",
+                    "-ms-transform": "rotate(-90deg)",
+                    "transform": "rotate(-90deg)",
+                    "top": "50%",
+                    "left": "50%",
+                    "margin-top": -1*height/2,
+                    "margin-left": -1*width/2,
+                })
+            }
+        }
         if(focused != undefined) {
             var input_wrap = $("<div class=\"additional_text_area\"></div>")
             var input = $("<input type=\"text\"></input>");
