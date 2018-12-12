@@ -54,9 +54,7 @@ function resize() {
     var previous_height = WINDOW_HEIGHT;
     console.log("resize");
     if(IS_MOBILE) {
-        console.log(screen.orientation);
-        if(screen.orientation != undefined && 
-           (screen.orientation.angle == 0 || screen.orientation.angle == 180)) {
+        if(window.orientation == 0 || window.orientation == 180) {
             IS_ROTATED = true;
         } else {
             IS_ROTATED = false;
