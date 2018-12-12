@@ -1,3 +1,173 @@
+
+$(window).on("load",function() {
+    console.log("now2 : "+new Date().getTime());
+})
+
+function resource_loading() {
+    var perfData = window.performance.timing, // The PerformanceTiming interface
+    EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart), // Calculated Estimated Time of Page Load which returns negative value.
+    time = parseInt((EstimatedTime/1000)%60)*100;
+    console.log("now1 : "+new Date().getTime());
+    console.log("start : " + perfData.navigationStart);
+    console.log("end : " + perfData.loadEventEnd);
+    console.log("time : " + time);
+    
+    var range = 100,
+      current = 0,
+      stepTime = Math.abs(Math.floor(time / range));
+    
+    var loadTime = (window.performance.timing.domComplete- window.performance.timing.navigationStart)/1000;
+    console.log(loadTime);
+    
+    var container = $("<div id=\"section_loading\">");
+    var width = WINDOW_WIDTH;
+    var height = WINDOW_HEIGHT;
+    var background_color = "#1c2e5f";
+    var deg = "0deg";
+    if(IS_ROTATED) {
+        width = WINDOW_HEIGHT;
+        height = WINDOW_WIDTH;
+        deg = "-90deg";
+    }
+    container.css({
+        "width": width,
+        "height": height,
+        "background": background_color,
+        "-webkit-transform": "rotate("+deg+")",
+        "-ms-transform": "rotate("+deg+")",
+        "transform": "rotate(-"+deg+")",
+        "top": "50%",
+        "left": "50%",
+        "margin-top": -1*height/2,
+        "margin-left": -1*width/2,
+        "z-index": 151,
+        "position": "fixed",
+    });
+    
+    var width = parseInt(CONTENT_WIDTH*0.12);
+    var border_width = parseInt(CONTENT_WIDTH*0.01);
+    var font_size = parseInt(CONTENT_WIDTH*0.03);
+    var progress = make_progress_loading(width, border_width, font_size, background_color, "#fff");
+    container.append(progress);
+    $("body").append(container);
+    progress.update_progress(0);
+    var interval = setInterval(function() {
+        current ++;
+        
+        if(current > 100) {
+            container.animate({
+                opacity: 0,
+            }, 500, function() {
+                clearInterval(interval);
+                container.remove();
+            });
+        } else {
+            progress.update_progress(current);
+        }
+    }, stepTime);
+}
+function make_progress_loading(width, border_width, font_size, background_color, point_color) {
+    var absolute_center_css = {
+        "top": 0,
+        "right": 0,
+        "left": 0,
+        "bottom": 0,
+        "margin": "auto",
+        "position": "absolute",
+    };
+    
+    var circle_width = width + border_width*2;
+    var circle_half_width = circle_width/2;
+    var big_circle_width = circle_width + 10;
+    var big_circle_half_width = big_circle_width/2;
+    var progress_wrap = $("<div class=\"progress_wrap\"></div>");
+    var corver_circle = $("<div class=\"circle corver_circle\"></div>");
+    var circle_wrap = $("<div class=\"circle_wrap\"></div>")
+    var radius_circle = $("<div class=\"circle radius_circle\"></div>");
+    var text = $("<p class=\"text_wrap\"></p>");
+    progress_wrap.css({
+        "width": big_circle_width,
+        "height": big_circle_width,
+        "position": "relative",
+        "display": "inline-block",
+        "vertical-align": "middle",
+    })
+    corver_circle.css(absolute_center_css);
+    corver_circle.css({
+        "width": big_circle_width,
+        "height": big_circle_width,
+        "border-radius": "50%",
+        "background" : background_color,
+        "clip": "rect(0, "+big_circle_width+"px, "+big_circle_width+"px, "+big_circle_half_width+"px)",
+        "z-index":1,
+    });
+    text.css({
+        "width": big_circle_width,
+        "height": big_circle_width,
+        "line-height": big_circle_width + "px",
+        "font-size": font_size,
+        "color": point_color,
+        "top": 0,
+        "left": 0,
+        "z-index": 2,
+        "position": "absolute",
+    })
+    circle_wrap.css(absolute_center_css);
+    circle_wrap.css({
+        "width": circle_width,
+        "height": circle_width,
+    })
+    
+    radius_circle.css(absolute_center_css);
+    radius_circle.css({
+        "width": width,
+        "height": width,
+        "border-radius": "50%",
+        "border": border_width+"px solid "+point_color,
+    });
+    var radius_circle_clone = radius_circle.clone();
+    radius_circle_clone.css({
+        "display": "none",
+        "clip": "rect(0, "+circle_half_width+"px, "+circle_width+"px, 0)",
+    })
+    radius_circle.css({
+        "clip": "rect(0, "+circle_width+"px, "+circle_width+"px, "+circle_half_width+"px)",
+    })
+    $.fn.update_progress = function(progress) {
+        text.html(progress +"%");
+        if(progress<=50) {
+            corver_circle.css({
+                "border-color" : background_color,
+                "transform" :"rotate("+(progress)*3.6+"deg)",
+                "display": "block",
+            })
+            radius_circle_clone.css({
+                "display": "none",
+            })
+            if(progress == 50) {
+                corver_circle.css({
+                    "display": "none",
+                })
+            }
+        }
+        if(progress>50) {
+            corver_circle.css({
+                "display": "none",
+            })
+            radius_circle_clone.css({
+                "transform" :"rotate("+progress*3.6+"deg)",
+                "display": "block",
+            })
+        }
+    }
+    progress_wrap.append(text);
+    progress_wrap.append(corver_circle);
+    progress_wrap.append(circle_wrap);
+    circle_wrap.append(radius_circle);
+    circle_wrap.append(radius_circle_clone);
+    return progress_wrap;
+}
+
 function load_skills(data, list_name, background_color, slide_page) {
     var meta = $(data);
     var list = meta.find("list[name=\""+list_name+"\"]"+" element");
@@ -26,10 +196,10 @@ function load_skills(data, list_name, background_color, slide_page) {
 //        "button_width":"25px",
 //        "button_height": "25px",
         button_flexible_width: function() {
-            return CONTENT_WIDTH* 0.04;
+            return IS_MOBILE? CONTENT_WIDTH* 0.04 :CONTENT_WIDTH* 0.03;
         },
         button_flexible_height: function() {
-            return CONTENT_WIDTH* 0.04;
+            return IS_MOBILE? CONTENT_WIDTH* 0.04 :CONTENT_WIDTH* 0.03;
         },
         
         "button_dispersion": "0",
@@ -182,7 +352,6 @@ function make_enter() {
 }
 $(document).ready(function(){
     //skill list load
-    
     $.get("./meta/skill_list.xml", function(data) 
     {
         var list_names = ["language_list", "platform_list", "tool_list"];
@@ -279,65 +448,7 @@ $(document).ready(function(){
         }
     }
     window.addEventListener("resize",resize_enter);
-//    window.addEventListener("resize",function() {
-//        var video = $("#section_05 video");
-//    });
-    
-//    var container = $("<div id=\"section_loading\">");
-//    var width = WINDOW_WIDTH;
-//    var height = WINDOW_HEIGHT;
-//    var background_color = "#1c2e5f";
-//    var point_color = "#fff";
-//    var deg = "0deg";
-//    if(IS_ROTATED) {
-//        width = WINDOW_HEIGHT;
-//        height = WINDOW_WIDTH;
-//        deg = "-90deg";
-//    }
-//    container.css({
-//        "width": width,
-//        "height": height,
-//        "background": background_color,
-//        "-webkit-transform": "rotate("+deg+")",
-//        "-ms-transform": "rotate("+deg+")",
-//        "transform": "rotate(-"+deg+")",
-//        "top": "50%",
-//        "left": "50%",
-//        "margin-top": -1*height/2,
-//        "margin-left": -1*width/2,
-//        "z-index": 151,
-//        "position": "fixed",
-//    });
-//    var circle_css = {
-//        "width": CONTENT_WIDTH*0.08,
-//        "height": CONTENT_WIDTH*0.08,
-//        "border": CONTENT_WIDTH*0.01+"px solid "+point_color,
-//        "border-radius": "50%",
-//        "position": "absolute",
-//    };
-//    var circle_width = CONTENT_WIDTH*0.1;
-//    var circle_half_width = CONTENT_WIDTH*0.05;
-//    var left_circle = $("<div class=\"circle left_circle\"><div>");
-//    var right_circle = $("<div class=\"circle right_circle\"><div>");
-//    left_circle.css(circle_css);
-//    left_circle.css({
-//        "clip": "rect(0, "+circle_width+"px, "+circle_width+"px, "+circle_half_width+"px)",
-////        "clip": "rect(0, "+circle_half_width+"px, "+circle_width+"px, 0)",
-//        "z-index":1,
-//    })
-//    right_circle.css(circle_css);
-//    right_circle.css({
-//        "clip": "rect(0, "+circle_width+"px, "+circle_width+"px, "+circle_half_width+"px)",
-//        "z-index":0,
-//    })
-//    var progress = 10;
-//    if(progress<=50) {
-//        left_circle.css({
-//            "border-color" : background_color,
-//            "transform" :"rotate("+(progress)*3.6+"deg)",
-//        })
-//    }
-//    container.append(left_circle);
-//    container.append(right_circle);
-//    $("body").append(container);
+    window.addEventListener("resize",function() {
+        var video = $("#section_05 video");
+    });
 })
