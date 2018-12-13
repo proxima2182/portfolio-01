@@ -95,8 +95,6 @@ function make_enter_element(container){
     ul.css({
         "width": AREA_WIDTH*2,
         "height": AREA_HEIGHT*4,
-        "display": "inline-block",
-        "vertical-align": "middle",
         "z-index":4,
         "cursor": "pointer",
     })
@@ -125,6 +123,9 @@ function make_enter() {
         height = WINDOW_WIDTH;
         deg = "-90deg";
     }
+    console.log("width : "+ width);
+    console.log("height : "+ height);
+    console.log("content : "+ CONTENT_WIDTH);
     container.css({
         "width": width,
         "height": height,

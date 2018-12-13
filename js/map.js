@@ -808,8 +808,7 @@ function map_resize() {
         draw(Object.keys(filtered_projects));
     }
 }
-
-function load_map(callback){
+$(document).ready(function() {
     //map first load
     var container_value = "#section_04 .work_wrap";
     container = $(container_value);
@@ -820,6 +819,9 @@ function load_map(callback){
     BOX_SIZE = CONTENT_WIDTH*0.12;
     BOX_MARGIN = (AREA_WIDTH - BOX_SIZE)/2;
     X_LINE = container.height()/2-AREA_HEIGHT;
+})
+
+function load_map(callback){
     
     initialize_map("./meta/project_list.xml", function(){
         window.addEventListener('resize', map_resize);

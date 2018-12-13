@@ -61,8 +61,6 @@ function resize() {
     }
     need_rotate &= IS_ROTATED;
     
-    console.log("resize_not_returned");
-    
     WINDOW_WIDTH = window.innerWidth;
     WINDOW_HEIGHT = window.innerHeight;
     if(IS_ROTATED) {
@@ -155,6 +153,8 @@ function resize() {
         }
     }
     
+    console.log("resize_not_returned");
+    console.log($("body"));
     $("body").css({
         "width": WINDOW_WIDTH,
         "height": WINDOW_HEIGHT,
@@ -190,8 +190,10 @@ function resize() {
     }
 }
 
-resize();
-window.addEventListener('resize', resize);
+$(document).ready(function(){
+    resize();
+    window.addEventListener('resize', resize);
+})
 
 //additional functions
 
