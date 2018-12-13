@@ -33,6 +33,7 @@ var project_titles = {
     name: "Project Name",
     position: "Position",
     platform: "Platform",
+    keyword: "Keyword",
     company: "Company",
     description: "Description",
 };
@@ -40,10 +41,11 @@ var project_text_types = {
     name: "half_plain",
     position: "half_plain",
     platform: "half_plain",
+    keyword: "half_plain",
     company: "half_plain",
     description: "plain",
 };
-var KEY_VALUES = ["work", "type", "name", "platform","position", "company", "description"];
+var KEY_VALUES = ["work", "type", "name", "platform","position", "keyword", "year", "company", "description"];
 var EXTRA_KEY_VALUES = ["url", "resources"];
 function parseProject(data) {
     var result = {};
@@ -55,7 +57,7 @@ function parseProject(data) {
         var key = EXTRA_KEY_VALUES[i];
         result[key] = $(data).find(">"+key);
     }
-    result["content"] =  ["*" + result["work"], "*" + result["type"], result["platform"], result["position"]];
+    result["content"] =  ["*" + result["work"], "*" + result["type"], result["year"]];
     result["popup_data"] = function(){
         var elements = $("<elements></elements>");
         var keys = Object.keys(project_titles);
@@ -64,11 +66,13 @@ function parseProject(data) {
         elements.append(this.url);
         for(var i= 0; i< keys.length; ++i) {
             var key = keys[i];
-            var element = $("<element></element>");
-            element.append("<title>"+project_titles[key]+"</title>");
-            element.append("<type>"+project_text_types[key]+"</type>");
-            element.append("<content>"+this[key]+"</content>");
-            elements.append(element);
+            if(this[key].length > 0) {
+                var element = $("<element></element>");
+                element.append("<title>"+project_titles[key]+"</title>");
+                element.append("<type>"+project_text_types[key]+"</type>");
+                element.append("<content>"+this[key]+"</content>");
+                elements.append(element);
+            }
         }
         return elements;
     }
@@ -233,14 +237,14 @@ function info_li(bottom, left, z_index, project){
     var css_value = {
         "text-align": "left",
         "color": "#fff",
-        "text-overflow": "ellipsis",
         "overflow": "hidden",
-        "white-space": "nowrap",
+        "text-overflow": "ellipsis",
     }
     title.css(css_value);
     title.css({
-        "font-size": CONTENT_WIDTH*0.014,
-        "line-height": CONTENT_WIDTH*0.02 + "px",
+        "font-size": CONTENT_WIDTH*0.02,
+        "line-height": CONTENT_WIDTH*0.025 + "px",
+        "max-height": CONTENT_WIDTH*0.4,
     })
     content.css({
         "bottom": BOX_SIZE*0.1,
@@ -250,8 +254,9 @@ function info_li(bottom, left, z_index, project){
     content.find("p").css(css_value);
     content.find("p").css({
         "width":BOX_SIZE,
-        "font-size": CONTENT_WIDTH*0.011,
-        "line-height": CONTENT_WIDTH*0.016 + "px",
+        "font-size": CONTENT_WIDTH*0.015,
+        "line-height": CONTENT_WIDTH*0.02 + "px",
+        "white-space": "nowrap",
         "font-weight": 200,
     })
     return li;
@@ -440,7 +445,7 @@ function initialize_map(file_path, callback) {
             "position":"absolute",
             "z-index":"3",
         })
-        draw(Object.keys(filtered_projects));
+//        draw(Object.keys(filtered_projects));
         callback();
     });
 }
@@ -657,7 +662,7 @@ function draw(filtered_key, callback) {
         project_ul.append(nodata_li(left, bg_image_nodata, nodata_images));
         project_info_ul.append(nodata_info_li(left, bottom));
     }
-    if(container!=undefined && container.length>0) {
+    if(container!=undefined) {
         var imgs = container.find("ul").find("img");
         var load_count = 0;
         imgs.each(function() {
@@ -669,13 +674,13 @@ function draw(filtered_key, callback) {
             page_update();
             return;
         } else {
-            make_loading("#section_04 .work_wrap",false, 0.08, 0.012);
+            make_loading(container, false, 0.08, 0.012, "#1c2e5f", "#fff", 0.08, 0.012);
         }
         imgs.on("load",function() {
             load_count++;
             if(load_count >= imgs.length-1) {
-                load_count = 0;
                 container.finish_loading();
+                load_count = 0;
             }
         })
     }
@@ -804,7 +809,7 @@ function map_resize() {
     }
 }
 
-function load_map(){
+function load_map(callback){
     //map first load
     var container_value = "#section_04 .work_wrap";
     container = $(container_value);
@@ -819,6 +824,9 @@ function load_map(){
     initialize_map("./meta/project_list.xml", function(){
         window.addEventListener('resize', map_resize);
         page_init();
+        if(callback !=undefined) {
+            callback();
+        }
     });
     
     var selection = {

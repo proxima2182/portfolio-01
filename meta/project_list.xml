@@ -2,29 +2,14 @@
 <projects>
     <project>
         <work>Affair</work>
-        <type>Artwork</type>
-        <name>Yedpay Business</name>
-        <platform>Poster</platform>
-        <position>Design 100%</position>
-        <company>yedpay(HK)</company>
-        <description>testtesttest</description>
-        <resources>
-            <page>2</page>
-            <resource>
-                <thumb>./images/projects/thumb/yedpay_poster_04.png</thumb>
-                <path>./images/projects/yedpay_poster_04.png</path>
-                <type>image</type>
-                <media>png</media>
-            </resource>
-        </resources>
-<!--        <url>https://github.com/hongkong-pig?tab=repositories</url>-->
-    </project>
-    <project>
-        <work>Practice</work>
-        <type>Artwork</type>
-        <name>Yedpay Businesssgdgwetwttsdggsdgsdgsdgw</name>
-        <platform>Art</platform>
-        <position>Design 100% Developement 100%</position>
+        <type>Development</type>
+        <name>모피의 영어동산</name>
+        <platform>Android</platform>
+        <position>
+            Developement 100%
+        </position>
+        <year>2018</year>
+        <keyword>Java, SQLite, Unity3D</keyword>
         <company>
             yedpay(HK)
         </company>
@@ -35,6 +20,33 @@
             알려주고 사용자 선택에 따라 지급된 미니 프린터로 프린트 요청을 보내도록 하였다.
             또한 프린터가 장착된 모바일 포스 SUNMI 에도 앱을 적용시켜 배포하였고 그 후 전반적인 유지보수도 담당하였다.
         </description>
+        <resources>
+            <page>3</page>
+            <resource>
+                <thumb>./images/projects/yedpay_android_01_01.png</thumb>
+                <path>./images/projects/yedpay_android_01_01.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./images/projects/yedpay_android_01_02.png</thumb>
+                <path>./images/projects/yedpay_android_01_02.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./images/projects/yedpay_android_01_03.png</thumb>
+                <path>./images/projects/yedpay_android_01_03.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./images/projects/yedpay_android_01_04.png</thumb>
+                <path>./images/projects/yedpay_android_01_04.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+        </resources>
     </project>
     <project>
         <work>Affair</work>
@@ -44,6 +56,8 @@
         <position>
             Design 100% Developement 100%
         </position>
+        <keyword>Java, SQLite, Retrofit</keyword>
+        <year>2018</year>
         <company>
             yedpay(HK)
         </company>
@@ -91,6 +105,97 @@
         <company>yedpay(HK)</company>
         <description>testtesttest</description>
         <resources>
+            <page>2</page>
+            <resource>
+                <thumb>./images/projects/thumb/yedpay_poster_04.png</thumb>
+                <path>./images/projects/yedpay_poster_04.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+        </resources>
+<!--        <url>https://github.com/hongkong-pig?tab=repositories</url>-->
+    </project>
+    <project>
+        <work>Affair</work>
+        <type>Artwork</type>
+        <name>Promotional Video 01</name>
+        <platform>Video</platform>
+        <position>
+            Design 100%
+        </position>
+        <keyword>Illustrator, GIF</keyword>
+        <year>2017</year>
+        <company>
+            yedpay(HK)
+        </company>
+        <description>
+            시스템 사용법 포스터 제작 후 회사에서 요청해서 만들게 되었다.\n
+            시스템 홍보 때 고객들이 회사 시스템이 정확히 어떤역할을 하는지 이해가 힘들어 추가적으로 미디어 제작을 요청했는데,\n
+            스톱모션을 이용해 GIF로 만들어 보았다.
+        </description>
+        <resources>
+            <page>2</page>
+            <resource>
+                <thumb>./images/projects/thumb/yedpay_video_01.png</thumb>
+                <path>./images/projects/yedpay_video_01.mp4</path>
+                <type>video</type>
+                <media>mp4</media>
+            </resource>
+        </resources>
+    </project>
+    <project>
+        <work>Affair</work>
+        <type>Artwork</type>
+        <name>Promotional Video 02</name>
+        <platform>Video</platform>
+        <position>
+            Design 100%
+        </position>
+        <keyword>Illustrator, Sony Vegas</keyword>
+        <year>2018</year>
+        <company>
+            yedpay(HK)
+        </company>
+        <description>
+            중국 선전에서 진행하는 박람회에 참가하게 되어 부스에서 연속적으로 틀어 둘 영상이 필요해서 제작하게 되었다.\n
+            일러스트레이터를 이용해서 각 요소들을 만들고 소니 베가스를 이용하여 영상을 만들었다.
+        </description>
+        <resources>
+            <page>2</page>
+            <resource>
+                <thumb>./images/projects/thumb/yedpay_video_02.png</thumb>
+                <path>./images/projects/yedpay_video_02.mp4</path>
+                <type>video</type>
+                <media>mp4</media>
+            </resource>
+        </resources>
+    </project>
+    <project>
+        <work>Practice</work>
+        <type>Artwork</type>
+        <name>Yedpay Businesssgdgwetwttsdggsdgsdgsdgw</name>
+        <platform>Art</platform>
+        <position>Design 100% Developement 100%</position>
+        <company>
+            yedpay(HK)
+        </company>
+        <description>
+            회사의 알리페이 결제, 관리 API를 기반으로 안드로이드 앱을 개발 하였다. 회사에 디자이너가 없었기 때문에
+            아이콘, 색상, 레이아웃 배치 등의 디자인 역시 담당하게 되었다.
+            서버 요청은 Retrofit 라이브러리를 이용하였고 주 기능은 QR CODE 스캔 혹은 생성 후 푸시 알람으로
+            알려주고 사용자 선택에 따라 지급된 미니 프린터로 프린트 요청을 보내도록 하였다.
+            또한 프린터가 장착된 모바일 포스 SUNMI 에도 앱을 적용시켜 배포하였고 그 후 전반적인 유지보수도 담당하였다.
+        </description>
+    </project>
+    <project>
+        <work>Affair</work>
+        <type>Artwork</type>
+        <name>Yedpay Business</name>
+        <platform>Poster</platform>
+        <position>Design 100%</position>
+        <company>yedpay(HK)</company>
+        <description>testtesttest</description>
+        <resources>
             <resource>
                 <thumb>./images/projects/thumb/yedpay_poster_04.png</thumb>
                 <path>./images/projects/yedpay_poster_04.png</path>
@@ -105,34 +210,6 @@
                 <media>png</media>
             </resource>
 -->
-        </resources>
-    </project>
-    <project>
-        <work>Affair</work>
-        <type>Artwork</type>
-        <name>Yedpay Business</name>
-        <platform>Video</platform>
-        <position>
-            Design 100% Developement 100%
-        </position>
-        <company>
-            yedpay(HK)
-        </company>
-        <description>
-            회사의 알리페이 결제, 관리 API를 기반으로 안드로이드 앱을 개발 하였다. 회사에 디자이너가 없었기 때문에
-            아이콘, 색상, 레이아웃 배치 등의 디자인 역시 담당하게 되었다.
-            서버 요청은 Retrofit 라이브러리를 이용하였고 주 기능은 QR CODE 스캔 혹은 생성 후 푸시 알람으로
-            알려주고 사용자 선택에 따라 지급된 미니 프린터로 프린트 요청을 보내도록 하였다.
-            또한 프린터가 장착된 모바일 포스 SUNMI 에도 앱을 적용시켜 배포하였고 그 후 전반적인 유지보수도 담당하였다.
-        </description>
-        <resources>
-            <page>2</page>
-            <resource>
-                <thumb>./images/projects/thumb/yedpay_video_01.png</thumb>
-                <path>./images/projects/yedpay_video_01.mp4</path>
-                <type>video</type>
-                <media>mp4</media>
-            </resource>
         </resources>
     </project>
     <project>

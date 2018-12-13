@@ -2,6 +2,10 @@
 <lists>
     <list name="language_list">
         <element>
+            <name>JAVA</name>
+            <level>3</level>
+        </element>
+        <element>
             <name>HTML/CSS</name>
             <level>2</level>
         </element>
@@ -10,20 +14,12 @@
             <level>2</level>
         </element>
         <element>
-            <name>JAVA</name>
-            <level>2</level>
-        </element>
-        <element>
             <name>SWIFT</name>
             <level>2</level>
         </element>
         <element>
             <name>PHP</name>
-            <level>2</level>
-        </element>
-        <element>
-            <name>PHP</name>
-            <level>2</level>
+            <level>1</level>
         </element>
     </list>
     <list name="platform_list">
@@ -33,15 +29,11 @@
         </element>
         <element>
             <name>Android</name>
-            <level>2</level>
+            <level>3</level>
         </element>
         <element>
             <name>IOS</name>
-            <level>2</level>
-        </element>
-        <element>
-            <name>IOS</name>
-            <level>2</level>
+            <level>1</level>
         </element>
     </list>
     <list name="tool_list">
@@ -51,11 +43,11 @@
         </element>
         <element>
             <name>Illustrator</name>
-            <level>2</level>
+            <level>3</level>
         </element>
         <element>
-            <name>Illustrator</name>
-            <level>2</level>
+            <name>Vegas</name>
+            <level>1</level>
         </element>
     </list>
 </lists>

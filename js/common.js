@@ -195,12 +195,9 @@ window.addEventListener('resize', resize);
 
 //additional functions
 
-function make_loading(target, is_fullscreen, width_ratio, border_ratio, text) {
-    var target_container = $(target);
-    if(target_container.length==0) return;
-    var container = $("<div class=\"section_loading\">");
-    var background_color = "#1c2e5f";
-    var point_color = "#fff";
+function make_loading(target, is_fullscreen, width_ratio, border_ratio, background_color, point_color, text) {
+    if(target.length==0) return;
+    var container = $("<div class=\"section_loading\"></div>");
     container.css({
         "background": background_color,
         "top": "50%",
@@ -216,28 +213,22 @@ function make_loading(target, is_fullscreen, width_ratio, border_ratio, text) {
         "margin" : "auto",
         "position" : "absolute",
     };
-    var loading_wrap = $("<div class=\"loading_wrap rotate\"><div>");
+    var loading_wrap = $("<div class=\"loading_wrap rotate\"></div>");
     loading_wrap.css({
         "display": "inline-block",
         "vertical-align": "middle",
         "position":"relative",
     });
     
-    function generate_square(class_name, index, color) {
-        var result = $("<div class=\""+class_name+"\"></div>");
-        result.css(common_css);
-        result.css({
-            "background-color": color,
-            "z-index": index,
-        });
-        return result;
-    }
-    var square_classes=["outer_square", "middle_square", "inner_square","moving_square"];
-    var squares = [];
-    for(var i= 0; i< square_classes.length; ++i) {
-        squares[i] = generate_square(square_classes[i],i,i%2==0?point_color:background_color);
-        loading_wrap.append(squares[i]);
-    }
+    var outer_square = $("<div class=\"outer_square\"></div>");
+    var inner_square = $("<div class=\"inner_square scaling\"></div>");
+    outer_square.css(common_css);
+    inner_square.css(common_css);
+    inner_square.css({
+        "background-color": point_color,
+    });
+    loading_wrap.append(outer_square);
+    loading_wrap.append(inner_square);
     
     if(text!=undefined && text.length>0) {
         var text = $("<p class=\"loading_text\">"+text+"</p>");
@@ -254,14 +245,14 @@ function make_loading(target, is_fullscreen, width_ratio, border_ratio, text) {
     $.fn.resize_loading = function(){
         var deg = IS_ROTATED?"-90deg":"0deg";
         $(this).css({
-            "width": is_fullscreen? IS_ROTATED?"100vh":"100vw" : target_container.width(),
-            "height": is_fullscreen? IS_ROTATED?"100vw":"100vh": target_container.height(),
-            "line-height": is_fullscreen? IS_ROTATED?"100vw":"100vh": target_container.height()+"px",
+            "width": is_fullscreen? IS_ROTATED?"100vh":"100vw" : $(target).width(),
+            "height": is_fullscreen? IS_ROTATED?"100vw":"100vh": $(target).height(),
+            "line-height": is_fullscreen? IS_ROTATED?"100vw":"100vh": $(target).height()+"px",
             "-webkit-transform": "rotate("+deg+")",
             "-ms-transform": "rotate("+deg+")",
             "transform": "rotate(-"+deg+")",
-            "margin-top": is_fullscreen? IS_ROTATED?"-50vw":"-50vh": -(target_container.height()/2),
-            "margin-left":  is_fullscreen? IS_ROTATED?"-50vh":"-50vw": -(target_container.width()/2),
+            "margin-top": is_fullscreen? IS_ROTATED?"-50vw":"-50vh": -($(target).height()/2),
+            "margin-left":  is_fullscreen? IS_ROTATED?"-50vh":"-50vw": -($(target).width()/2),
         });
         var width = parseInt(CONTENT_WIDTH*width_ratio);
         var border_width = parseInt(CONTENT_WIDTH*border_ratio);
@@ -270,13 +261,17 @@ function make_loading(target, is_fullscreen, width_ratio, border_ratio, text) {
             "height": width,
         });
 
-        var square_classes=["outer_square", "middle_square", "inner_square","moving_square"];
-        for(var i= 0; i< square_classes.length; ++i) {
-            $(this).find("."+square_classes[i]).css({
-                "width": width - i*border_width,
-                "height": width - i*border_width,
-            })
-        }
+        var this_width = width - 2*border_width;
+        $(this).find(".outer_square").css({
+            "width": this_width,
+            "height": this_width,
+            "border": border_width+"px solid "+point_color,
+        })
+        $(this).find(".inner_square").css({
+            "width": this_width - 2*border_width,
+            "height": this_width - 2*border_width,
+            
+        })
         $(this).find(".loading_text").css({
             "margin-top": width,
             "font-size": CONTENT_WIDTH*0.03,
@@ -290,5 +285,5 @@ function make_loading(target, is_fullscreen, width_ratio, border_ratio, text) {
         });
     }
     container.resize_loading();
-    target_container.append(container);
+    $(target).append(container);
 }

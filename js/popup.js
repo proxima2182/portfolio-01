@@ -55,6 +55,12 @@ function show_detail_view(index) {
             content.click(function(e) {
                 e.stopPropagation();
             })
+            if(!content.complete) {
+                make_loading($("body"), false, 0.08, 0.012, "#1c2e5f", "#fff");
+            }
+            content.on("load loadeddata" ,function() {
+                $("body").finish_loading();
+            })
         }
         detail_view.click(function(e) {
             detail_view.remove();
@@ -72,7 +78,7 @@ function popup_resize(){
             "margin-left": -1*CONTENT_WIDTH*0.32,
         });
         popup.find(".popup_content_wrap").css({
-            "max-height": CONTENT_WIDTH*0.6,
+            "max-height": IS_ROTATED? WINDOW_WIDTH*0.6 : WINDOW_HEIGHT*0.6,
         });
         popup.find(".button_close").css({
             "width": CONTENT_WIDTH*0.04,
@@ -133,7 +139,6 @@ function popup(meta) {
             "width": CONTENT_WIDTH*0.6,
             "padding": CONTENT_WIDTH*0.08 + "px " + CONTENT_WIDTH*0.04 + "px",
             "border-radius": CONTENT_WIDTH*0.03,
-            "text-align": "left",
             "line-height":"normal",
             "background-color": "#002157",
             "border": "1px solid #fff",
@@ -141,15 +146,15 @@ function popup(meta) {
         });
         popup_content_wrap.css({
             "width":"100%",
-            "max-height":CONTENT_WIDTH*0.6,
-            "text-align":"center",
+            "max-height": IS_ROTATED? WINDOW_WIDTH*0.6 : WINDOW_HEIGHT*0.6,
+            "text-align":"left",
             "overflow-y":"scroll",
         });
         resource_wrap.css({
 //            "width": "100%",
             "width": CONTENT_WIDTH*0.6,
 //            "max-height": CONTENT_WIDTH*0.2,
-            "display":"inline-block",
+            "margin": "0 auto",
             "overflow":"hidden",
             "text-align":"center",
         })
@@ -300,9 +305,15 @@ function popup(meta) {
 //                    button_width:"25px",
 //                    button_height: "25px",
                     button_flexible_width: function() {
+                        if(IS_MOBILE) {
+                            return CONTENT_WIDTH* 0.04;
+                        }
                         return CONTENT_WIDTH* 0.03;
                     },
                     button_flexible_height: function() {
+                        if(IS_MOBILE) {
+                            return CONTENT_WIDTH* 0.04;
+                        }
                         return CONTENT_WIDTH* 0.03;
                     },
                     button_dispersion: "0",

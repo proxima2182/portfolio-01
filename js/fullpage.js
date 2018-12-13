@@ -140,10 +140,6 @@ function make_fullpage(sal, pal) {
             //so need to check 'is_available' before
             page_num +=direction;
             is_animating = true;
-            var page_action = page_action_list[page_num];
-            if(page_action !=undefined) {
-                page_action["action"]();
-            }
             if(navigation.length>0) {
                 var lists = $(navigation).find("li");
                 
@@ -179,6 +175,10 @@ function make_fullpage(sal, pal) {
                     }
                     page_wraps.eq(i).clearQueue();
                 });
+            }
+            var page_action = page_action_list[page_num];
+            if(page_action !=undefined) {
+                page_action["action"]();
             }
         } else if(is_scrollable_down || is_scrollable_up){
             var action = scroll_action_list[page_num];
@@ -271,10 +271,6 @@ function page_move(index){
         if(is_available) {
             page_num = index;
             is_animating = true;
-            var page_action = page_action_list[page_num];
-            if(page_action !=undefined) {
-                page_action["action"]();
-            }
             if(navigation.length>0) {
                 var lists = $(navigation).find("li");
 
@@ -309,6 +305,10 @@ function page_move(index){
                     }
                     page_wraps.eq(i).clearQueue();
                 });
+            }
+            var page_action = page_action_list[page_num];
+            if(page_action !=undefined) {
+                page_action["action"]();
             }
         }
     }
