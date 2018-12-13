@@ -674,12 +674,12 @@ function draw(filtered_key, callback) {
             page_update();
             return;
         } else {
-            make_loading(container, false, 0.08, 0.012, "#1c2e5f", "#fff", 0.08, 0.012);
+            make_loading(container,false, 0.08, 0.012, "#1c2e5f", "#fff", 0.08, 0.012);
         }
         imgs.on("load",function() {
             load_count++;
             if(load_count >= imgs.length-1) {
-                container.finish_loading();
+                container.find(">.section_loading").finish_loading();
                 load_count = 0;
             }
         })

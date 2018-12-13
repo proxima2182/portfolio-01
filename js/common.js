@@ -154,7 +154,6 @@ function resize() {
     }
     
     console.log("resize_not_returned");
-    console.log($("body"));
     $("body").css({
         "width": WINDOW_WIDTH,
         "height": WINDOW_HEIGHT,
@@ -190,10 +189,8 @@ function resize() {
     }
 }
 
-$(document).ready(function(){
-    resize();
-    window.addEventListener('resize', resize);
-})
+resize();
+window.addEventListener('resize', resize);
 
 //additional functions
 
@@ -246,15 +243,22 @@ function make_loading(target, is_fullscreen, width_ratio, border_ratio, backgrou
     container.append(text);
     $.fn.resize_loading = function(){
         var deg = IS_ROTATED?"-90deg":"0deg";
+        console.log("is_fullscreen : " + is_fullscreen );
+        console.log($(this).parent());
         $(this).css({
-            "width": is_fullscreen? IS_ROTATED?"100vh":"100vw" : $(target).width(),
-            "height": is_fullscreen? IS_ROTATED?"100vw":"100vh": $(target).height(),
-            "line-height": is_fullscreen? IS_ROTATED?"100vw":"100vh": $(target).height()+"px",
+            "width": is_fullscreen? (IS_ROTATED?"100vh":"100vw") : $(target).width(),
+            "height": is_fullscreen? (IS_ROTATED?"100vw":"100vh") : $(target).height(),
+            "line-height": is_fullscreen? (IS_ROTATED?"100vw":"100vh") : $(target).height()+"px",
+//            "width": IS_ROTATED?$(this).parent().height():$(this).parent().width(),
+//            "height": IS_ROTATED?$$(this).parent().width():(this).parent().height(),
+//            "line-height": (IS_ROTATED?$$(this).parent().width():(this).parent().height()) + "px",
             "-webkit-transform": "rotate("+deg+")",
             "-ms-transform": "rotate("+deg+")",
             "transform": "rotate(-"+deg+")",
-            "margin-top": is_fullscreen? IS_ROTATED?"-50vw":"-50vh": -($(target).height()/2),
-            "margin-left":  is_fullscreen? IS_ROTATED?"-50vh":"-50vw": -($(target).width()/2),
+            "margin-top": is_fullscreen? (IS_ROTATED?"-50vw":"-50vh"): -($(target).height()/2),
+            "margin-left":  is_fullscreen? (IS_ROTATED?"-50vh":"-50vw"): -($(target).width()/2),
+//            "margin-top": IS_ROTATED?$(this).parent().width()/2:(this).parent().height()/2,
+//            "margin-left":  IS_ROTATED?$(this).parent().height()/2:$(this).parent().width()/2,
         });
         var width = parseInt(CONTENT_WIDTH*width_ratio);
         var border_width = parseInt(CONTENT_WIDTH*border_ratio);
