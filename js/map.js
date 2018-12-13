@@ -387,7 +387,7 @@ function project_index(i) {
     return page * PAGE_COUNT + i;
 }
 
-function load_map(file_path, callback) {
+function initialize_map(file_path, callback) {
     $.get(file_path, function(data){
         var meta = $(data);
         var projects_meta = meta.find("project");
@@ -657,6 +657,29 @@ function draw(filtered_key, callback) {
         project_ul.append(nodata_li(left, bg_image_nodata, nodata_images));
         project_info_ul.append(nodata_info_li(left, bottom));
     }
+    if(container!=undefined && container.length>0) {
+        var imgs = container.find("ul").find("img");
+        var load_count = 0;
+        imgs.each(function() {
+            if($(this).get(0).complete){
+                console.log($(this));
+                load_count++;
+            }
+        })
+        if(load_count >= imgs.length-1) {
+            page_update();
+            return;
+        } else {
+            make_loading("#section_04 .work_wrap",false, 0.08, 0.012);
+        }
+        imgs.on("load",function() {
+            load_count++;
+            if(load_count >= imgs.length-1) {
+                load_count = 0;
+                container.finish_loading();
+            }
+        })
+    }
     page_update();
 }
 
@@ -778,20 +801,12 @@ function map_resize() {
     quit_drawing = true;
     draw(Object.keys(filtered_projects));
 }
-//var doit;
-//window.onresize = function(){
-//  clearTimeout(doit);
-//  doit = setTimeout(function(){
-//      resize();
-//  }, 100);
-//};
 
-$(document).ready(function(){
+function load_map(){
+    //map first load
     var container_value = "#section_04 .work_wrap";
     container = $(container_value);
     
-    resize();
-    //sizing
     AREA_WIDTH = CONTENT_WIDTH*0.2;
     AREA_HEIGHT = CONTENT_WIDTH*0.17;
     GROUND_HEIGHT = CONTENT_WIDTH*0.05;
@@ -799,7 +814,7 @@ $(document).ready(function(){
     BOX_MARGIN = (AREA_WIDTH - BOX_SIZE)/2;
     X_LINE = container.height()/2-AREA_HEIGHT;
     
-    load_map("./meta/project_list.xml", function(){
+    initialize_map("./meta/project_list.xml", function(){
         window.addEventListener('resize', map_resize);
         page_init();
     });
@@ -901,4 +916,4 @@ $(document).ready(function(){
             }
         }
     })
-})
+}
