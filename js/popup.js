@@ -55,12 +55,12 @@ function show_detail_view(index) {
             content.click(function(e) {
                 e.stopPropagation();
             })
-            if(!content.complete) {
-                make_loading($("body"), false, 0.08, 0.012, "#1c2e5f", "#fff");
-            }
-            content.on("load loadeddata" ,function() {
-                $("body").finish_loading();
-            })
+//            if(!content.complete) {
+//                make_loading($("body"), false, 0.08, 0.012, "#1c2e5f", "#fff");
+//            }
+//            content.on("load loadeddata" ,function() {
+//                $("body").finish_loading();
+//            })
         }
         detail_view.click(function(e) {
             detail_view.remove();
