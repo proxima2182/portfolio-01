@@ -90,24 +90,24 @@ function popup_resize(){
             "width":CONTENT_WIDTH*0.3,
         })
         popup.find(".title").css({
-            "font-size": CONTENT_WIDTH*0.02,
+            "font-size": CONTENT_WIDTH*0.025,
             "line-height": CONTENT_WIDTH*0.03 + "px",
             "margin-top": CONTENT_WIDTH*0.015,
         })
         popup.find(".content").css({
-            "font-size": CONTENT_WIDTH*0.018,
+            "font-size": CONTENT_WIDTH*0.02,
             "padding":CONTENT_WIDTH*0.005,
         })
-        var icon_width = CONTENT_WIDTH*0.03;
-        var text_width = popup.find(".popup_content_wrap").width() - icon_width*5/3 - CONTENT_WIDTH*0.01;
+        var icon_width = CONTENT_WIDTH*0.04;
+        var text_width = popup.find(".popup_content_wrap").width() - icon_width*6/4 - CONTENT_WIDTH*0.01;
         popup.find(".content .icon").css({
             "width" : icon_width,
             "height" : icon_width,
-            "margin" : "0 " + icon_width/3 + "px",
+            "margin" : "0 " + icon_width/4 + "px",
         })
         popup.find(".content .text").css({
             "width": text_width,
-            "font-size": CONTENT_WIDTH*0.018,
+            "font-size": CONTENT_WIDTH*0.02,
         })
         popup.css({
             "bottom": (WINDOW_HEIGHT-popup.outerHeight())/2 + "px",
@@ -174,7 +174,7 @@ function popup(meta) {
             var title = $("<p class=\"title\"></p>");
             title.html(title_value);
             title.css({
-                "font-size": CONTENT_WIDTH*0.02,
+                "font-size": CONTENT_WIDTH*0.025,
                 "line-height": CONTENT_WIDTH*0.03 + "px",
                 "margin-top": CONTENT_WIDTH*0.015,
             });
@@ -190,6 +190,7 @@ function popup(meta) {
             if(type_value == "plain" || type_value == "half_plain") {
                 var content_text_value = elements.eq(i).find("content").text();
                 var content = $("<p class=\"content\"></p>");
+                content_text_value = content_text_value.replace(/\\n/gi,"<br/>");
                 content.html(content_text_value);
                 content.css(content_css_value);
                 row.append(content);
@@ -201,13 +202,14 @@ function popup(meta) {
                     var text_value = content_value.eq(j).find("text").text();
                     var icon = $("<div class=\"icon\"></div>");
                     var text = $("<p class=\"text\"></p>");
+                    text_value = text_value.replace(/\\n/gi,"<br/>");
                     var li = $("<li></li>");
-                    var icon_width = CONTENT_WIDTH*0.03;
-                    var text_width = popup_content_wrap.width() - icon_width*5/3 - CONTENT_WIDTH*0.01;
+                    var icon_width = CONTENT_WIDTH*0.04;
+                    var text_width = popup_content_wrap.width() - icon_width*6/4 - CONTENT_WIDTH*0.01;
                     icon.css({
                         "width" : icon_width,
                         "height" : icon_width,
-                        "margin" : "0 " + icon_width/3 + "px",
+                        "margin" : "0 " + icon_width/4 + "px",
                         "background" : "url("+icon_value+") no-repeat",
                         "background-size" : "100%",
                         "display":"inline-block",
@@ -216,7 +218,7 @@ function popup(meta) {
                     text.html(text_value);
                     text.css({
                         "width": text_width,
-                        "font-size": CONTENT_WIDTH*0.018,
+                        "font-size": CONTENT_WIDTH*0.02,
                         "display":"inline-block",
                         "vertical-align":"top",
                     });

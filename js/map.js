@@ -662,7 +662,6 @@ function draw(filtered_key, callback) {
         var load_count = 0;
         imgs.each(function() {
             if($(this).get(0).complete){
-                console.log($(this));
                 load_count++;
             }
         })
@@ -791,15 +790,18 @@ function map_resize() {
 //        CONTENT_WIDTH = window.innerWidth;
 //    }
     //sizing
-    console.log("map_resize");
-    AREA_WIDTH = CONTENT_WIDTH*0.2;
-    AREA_HEIGHT = CONTENT_WIDTH*0.17;
-    GROUND_HEIGHT = CONTENT_WIDTH*0.05;
-    BOX_SIZE = CONTENT_WIDTH*0.12;
-    BOX_MARGIN = (AREA_WIDTH - BOX_SIZE)/2;
-    X_LINE = container.height()/2-AREA_HEIGHT;
-    quit_drawing = true;
-    draw(Object.keys(filtered_projects));
+    if(container.parents(".fullpage_active").length>0) {
+        console.log("map_resize");
+        AREA_WIDTH = CONTENT_WIDTH*0.2;
+        AREA_HEIGHT = CONTENT_WIDTH*0.17;
+        GROUND_HEIGHT = CONTENT_WIDTH*0.05;
+        BOX_SIZE = CONTENT_WIDTH*0.12;
+        BOX_MARGIN = (AREA_WIDTH - BOX_SIZE)/2;
+        X_LINE = container.height()/2-AREA_HEIGHT;
+        quit_drawing = true;
+    //    if(container!=undefined && container.parents("."))
+        draw(Object.keys(filtered_projects));
+    }
 }
 
 function load_map(){
