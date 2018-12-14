@@ -58,8 +58,8 @@ function show_detail_view(index) {
             content.click(function(e) {
                 e.stopPropagation();
             })
-        content.off("load");
-        $("body").finish_loading();
+//        content.off("load");
+//        $("body").finish_loading();
 //            if(!content.complete) {
 //                make_loading($("body"), true, 0.08, 0.012, "#1c2e5f", "#fff");
 //            }

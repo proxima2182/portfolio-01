@@ -183,17 +183,20 @@ function make_enter() {
 }
 
 $(document).ready(function() {
-    window.addEventListener("resize",function() {
-        resize_enter();
-        var container = $(".section_loading");
-        if(container.length>0) {
-            container.resize_loading();
-        }
-    });
+    window.addEventListener("resize",include_resize);
 })
+function include_resize() {
+    resize_enter();
+    var containers = $(".section_loading");
+    if(containers.length>0) {
+        console.log(containers.length);
+        containers.each(function() {
+            $(this).resize();
+        })
+    }
+}
 
 $(window).on("load",function() {
-    
     //skill list load
     $.get("./meta/skill_list.xml", function(data) 
     {
@@ -292,7 +295,6 @@ $(window).on("load",function() {
             make_enter();
         }
     }
-    window.addEventListener("resize",resize_enter);
     window.addEventListener("resize",function() {
         var video = $("#section_05 video");
     });
@@ -308,8 +310,10 @@ $(window).on("load",function() {
             popup(data);
         });
     })
+    resize();
+    include_resize();
     var container = $("body>.section_loading");
     if(container.length>0) {
-        container.finish_loading();
+        container.remove();
     }
 })

@@ -665,13 +665,11 @@ function draw(filtered_key, callback) {
     if(container!=undefined) {
         var imgs = container.find("ul").find("img");
         imgs.off("load");
-        container.find(">.section_loading").finish_loading();
+        container.find(">.section_loading").remove();
         var load_count = 0;
-        console.log("image length : "+ imgs.length);
         imgs.each(function() {
             if($(this).get(0).complete){
                 load_count++;
-                console.log("image complete : "+ load_count);
             }
         })
         if(load_count >= imgs.length) {
@@ -682,9 +680,8 @@ function draw(filtered_key, callback) {
         }
         imgs.on("load",function() {
             load_count++;
-            console.log("image load : "+ load_count);
             if(load_count >= imgs.length) {
-                container.find(">.section_loading").finish_loading();
+                container.find(">.section_loading").remove();
                 load_count = 0;
             }
         })
@@ -800,30 +797,28 @@ function map_resize() {
 //        CONTENT_WIDTH = window.innerWidth;
 //    }
     //sizing
+    map_value_init();
     if(container.parents(".fullpage_active").length>0) {
         console.log("map_resize");
-        AREA_WIDTH = CONTENT_WIDTH*0.2;
-        AREA_HEIGHT = CONTENT_WIDTH*0.17;
-        GROUND_HEIGHT = CONTENT_WIDTH*0.05;
-        BOX_SIZE = CONTENT_WIDTH*0.12;
-        BOX_MARGIN = (AREA_WIDTH - BOX_SIZE)/2;
-        X_LINE = container.height()/2-AREA_HEIGHT;
         quit_drawing = true;
     //    if(container!=undefined && container.parents("."))
         draw(Object.keys(filtered_projects));
     }
 }
-$(document).ready(function() {
-    //map first load
-    var container_value = "#section_04 .work_wrap";
-    container = $(container_value);
-    
+function map_value_init() {
     AREA_WIDTH = CONTENT_WIDTH*0.2;
     AREA_HEIGHT = CONTENT_WIDTH*0.17;
     GROUND_HEIGHT = CONTENT_WIDTH*0.05;
     BOX_SIZE = CONTENT_WIDTH*0.12;
     BOX_MARGIN = (AREA_WIDTH - BOX_SIZE)/2;
     X_LINE = container.height()/2-AREA_HEIGHT;
+}
+$(document).ready(function() {
+    //map first load
+    var container_value = "#section_04 .work_wrap";
+    container = $(container_value);
+    
+    map_value_init();
 })
 
 function load_map(callback){
