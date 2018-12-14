@@ -41,6 +41,10 @@
                 <icon>./images/icon_list_license.png</icon>
                 <text>토익 810점</text>
             </content>
+            <content>
+                <icon>./images/icon_list_license.png</icon>
+                <text>GTQ 1</text>
+            </content>
         </contents>
     </element>
 </elements>

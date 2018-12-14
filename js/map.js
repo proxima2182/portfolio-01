@@ -664,13 +664,17 @@ function draw(filtered_key, callback) {
     }
     if(container!=undefined) {
         var imgs = container.find("ul").find("img");
+        imgs.off("load");
+        container.find(">.section_loading").finish_loading();
         var load_count = 0;
+        console.log("image length : "+ imgs.length);
         imgs.each(function() {
             if($(this).get(0).complete){
                 load_count++;
+                console.log("image complete : "+ load_count);
             }
         })
-        if(load_count >= imgs.length-1) {
+        if(load_count >= imgs.length) {
             page_update();
             return;
         } else {
@@ -678,7 +682,8 @@ function draw(filtered_key, callback) {
         }
         imgs.on("load",function() {
             load_count++;
-            if(load_count >= imgs.length-1) {
+            console.log("image load : "+ load_count);
+            if(load_count >= imgs.length) {
                 container.find(">.section_loading").finish_loading();
                 load_count = 0;
             }

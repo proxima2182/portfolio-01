@@ -49,12 +49,17 @@ function show_detail_view(index) {
         } else if(type == "video") {
             content = $("<video class=\"detail_content\" muted=\"true\" controls autoplay><source src=\""+path+"\" type=\"video/"+media+"\"/></video>");
             content.css(content_css_value);
+            $('video source').last().on('error', function(event) {
+                alert(event);
+            });
         }
         if(content!=undefined) {
             detail_view.append(content);
             content.click(function(e) {
                 e.stopPropagation();
             })
+        content.off("load");
+        $("body").finish_loading();
 //            if(!content.complete) {
 //                make_loading($("body"), true, 0.08, 0.012, "#1c2e5f", "#fff");
 //            }
@@ -67,7 +72,6 @@ function show_detail_view(index) {
         })
     }
 }
-
 function popup_resize(){
     var popup = $(".popup");
     if(popup.length>0){
