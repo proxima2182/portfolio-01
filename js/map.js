@@ -799,7 +799,6 @@ function map_resize() {
     //sizing
     map_value_init();
     if(container.parents(".fullpage_active").length>0) {
-        console.log("map_resize");
         quit_drawing = true;
     //    if(container!=undefined && container.parents("."))
         draw(Object.keys(filtered_projects));
@@ -824,7 +823,6 @@ $(document).ready(function() {
 function load_map(callback){
     
     initialize_map("./meta/project_list.xml", function(){
-        window.addEventListener('resize', map_resize);
         page_init();
         if(callback !=undefined) {
             callback();

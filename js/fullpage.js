@@ -313,6 +313,3 @@ function page_move(index){
         }
     }
 }
-$(document).ready(function() {
-    window.addEventListener('resize', fullpage_resize);
-})

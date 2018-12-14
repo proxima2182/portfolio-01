@@ -47,6 +47,7 @@ function mail_success(){
 function mail_fail(){
     alert("The email address is not valid!");
 }
+
 function resize_enter() {
     var container = $("#section_enter");
     if(container.length>0) {
@@ -101,7 +102,6 @@ function make_enter_element(container){
     ul.click(function() {
         screenfull.request();
         container.remove();
-        resize();
     });
     data_li.css({
         "line-height":BOX_SIZE+"px",
@@ -182,19 +182,28 @@ function make_enter() {
     make_enter_element(container);
 }
 
-$(document).ready(function() {
-    window.addEventListener("resize",include_resize);
-})
 function include_resize() {
     resize_enter();
-    var containers = $(".section_loading");
-    if(containers.length>0) {
-        console.log(containers.length);
-        containers.each(function() {
+    var loading = $(".section_loading");
+    if(loading.length>0) {
+        loading.each(function() {
             $(this).resize();
         })
     }
 }
+
+check_device();
+var RESIZE_ID;
+$(document).ready(function(){
+    IS_DOCUMENT_LOADED = true;
+    window.addEventListener("resize", function() {
+        resize_standard();
+        fullpage_resize();
+        map_resize();
+        include_resize();
+        popup_resize();
+    });
+})
 
 $(window).on("load",function() {
     //skill list load
@@ -289,15 +298,12 @@ $(window).on("load",function() {
                 if(!screenfull.isFullscreen) {
                     make_enter();
                 } else {
-                    resize();
+                    resize_standard();
                 }
             })
             make_enter();
         }
     }
-    window.addEventListener("resize",function() {
-        var video = $("#section_05 video");
-    });
     
     
     load_map(function() {
@@ -310,10 +316,10 @@ $(window).on("load",function() {
             popup(data);
         });
     })
-    resize();
+    resize_standard();
     include_resize();
-    var container = $("body>.section_loading");
-    if(container.length>0) {
-        container.remove();
+    var loading = $("body>.section_loading");
+    if(loading.length>0) {
+        loading.remove();
     }
 })
