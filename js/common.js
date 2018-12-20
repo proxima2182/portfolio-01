@@ -157,17 +157,17 @@ function resize_standard() {
                 "left": 0,
                 "margin": 0,
             })
-            if(IS_ROTATED) {
-                input_wrap.css({
-                    "-webkit-transform": "rotate(-90deg)",
-                    "-ms-transform": "rotate(-90deg)",
-                    "transform": "rotate(-90deg)",
-                    "top": "50%",
-                    "left": "50%",
-                    "margin-top": -1*height/2,
-                    "margin-left": -1*width/2,
-                })
-            }
+//            if(IS_ROTATED) {
+//                input_wrap.css({
+//                    "-webkit-transform": "rotate(-90deg)",
+//                    "-ms-transform": "rotate(-90deg)",
+//                    "transform": "rotate(-90deg)",
+//                    "top": "50%",
+//                    "left": "50%",
+//                    "margin-top": -1*height/2,
+//                    "margin-left": -1*width/2,
+//                })
+//            }
         }
     }
     
