@@ -76,7 +76,7 @@ function check_device() {
     }
 }
 var IS_FOCUSED_OUT = false;
-console.log("몇번째 ? 1");
+console.log("몇번째 ? 2");
 function resize_standard() {
     var need_rotate = IS_ROTATED;
     check_device();
@@ -100,7 +100,7 @@ function resize_standard() {
         
         console.log("need rotate" + need_rotate);
         var input_wrap = $(".additional_text_area");
-        if(focused == undefined && (add_focused==undefined || need_rotate)) {
+        if(focused == undefined && !need_rotate) {
             $(".additional_text_area").remove();
         }
         //집에가서 왜 안되는지 다시보자
