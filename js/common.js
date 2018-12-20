@@ -104,7 +104,7 @@ function resize_standard() {
         }
         //집에가서 왜 안되는지 다시보자
         var input_wrap = $(".additional_text_area");
-        if(add_focused == undefined && focused != undefined) {
+        if(focused == undefined) {
             $(".additional_text_area").remove();
         }
         if(input_wrap.length > 0){
