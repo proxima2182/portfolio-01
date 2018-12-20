@@ -100,11 +100,11 @@ function resize_standard() {
         var height = window.innerHeight;
         
         console.log("need rotate" + need_rotate);
-        var input_wrap = $(".additional_text_area");
         if(focused == undefined && (need_rotate || add_focused==undefined)) {
             $(".additional_text_area").remove();
         }
         //집에가서 왜 안되는지 다시보자
+        var input_wrap = $(".additional_text_area");
         if(input_wrap.length > 0){
             input_wrap.css({
                 "width" : width,
@@ -127,8 +127,8 @@ function resize_standard() {
                     "margin-left": -1*width/2,
                 })
             }
-        }
-        if(focused != undefined) {
+            return;
+        } else if(focused != undefined) {
             var input_wrap = $("<div class=\"additional_text_area\"></div>")
             var input = $("<input type=\"text\"></input>");
             input_wrap.append(input);
