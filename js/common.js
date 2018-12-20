@@ -80,7 +80,8 @@ console.log("몇번째 ? 2");
 function resize_standard() {
     var need_rotate = IS_ROTATED;
     check_device();
-    need_rotate &= IS_ROTATED;
+    console.log("need rotate : " + need_rotate+", IS ROTATE : " + IS_ROTATED);
+    need_rotate = need_rotate && IS_ROTATED;
     if(IS_MOBILE) {
         var input = $('#wrap input');
         var textarea = $('#wrap textarea');
