@@ -76,12 +76,12 @@ function check_device() {
     }
 }
 var IS_FOCUSED_OUT = false;
-console.log("몇번째 ? 2");
+console.log("몇번째 ? 3");
 function resize_standard() {
     var need_rotate = IS_ROTATED;
     check_device();
     console.log("need rotate : " + need_rotate+", IS ROTATE : " + IS_ROTATED);
-    need_rotate = need_rotate && IS_ROTATED;
+    need_rotate = need_rotate == IS_ROTATED;
     if(IS_MOBILE) {
         var input = $('#wrap input');
         var textarea = $('#wrap textarea');
