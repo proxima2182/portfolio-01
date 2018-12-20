@@ -82,6 +82,8 @@ function resize_standard() {
     console.log("need rotate : " + need_rotate+", IS ROTATE : " + IS_ROTATED);
     need_rotate = need_rotate != IS_ROTATED;
     if(IS_MOBILE) {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
         console.log("test_count : " + test_count);
         if(!need_rotate && test_count==-1 || test_count >=0) {
         var input = $('#wrap input');
@@ -97,9 +99,6 @@ function resize_standard() {
         console.log("add_focused");
         console.log(add_focused);
 
-        var width = window.innerWidth;
-        var height = window.innerHeight;
-        
         if(focused == undefined && test_count!=0) {
             console.log("remove!");
             $(".additional_text_area").remove();
