@@ -2,7 +2,6 @@ var resources;
 function show_detail_view(index) {
     if(resources!=undefined && resources.length>0) {
         var resource = resources.eq(index);
-        console.log(index);
         var type = resource.find("type").text();
         var media = resource.find("media").text();
         var path = resource.find("path").text();
@@ -11,34 +10,25 @@ function show_detail_view(index) {
         var notice_wrap = $("<div class\"notice_wrap\">Tap outside to close</div>");
 
         detail_view.css({
-            "width": WINDOW_WIDTH,
-            "height": WINDOW_HEIGHT,
-            "line-height": WINDOW_HEIGHT + "px",
             "text-align": "center",
             "z-index": 101,
-            "top": "0",
-            "left": "0",
+            "top": "50%",
+            "left": "50%",
             "position": "fixed",
             "cursor":"pointer",
             "background": "rgba(0,0,0,0.5)",
         });
         notice_wrap.css({
-            "height": WINDOW_HEIGHT*0.04,
             "width": "100%",
             "text-align": "center",
-            "font-size": "2vh",
-            "line-height": "4vh",
             "color": "#fff",
-            
-            "top": "4vh",
-            "left": "0",
+            "left": 0,
+            "top": 0,
             "position": "absolute",
         })
         detail_view.append(notice_wrap);
         
         var content_css_value ={
-            "max-width": "80vw",
-            "max-height": "80vh",
             "display": "inline-block",
             "vertical-align": "middle",
             "cursor":"auto",
@@ -70,7 +60,30 @@ function show_detail_view(index) {
         }
         detail_view.click(function(e) {
             detail_view.remove();
+            e.stopPropagation();
         })
+        detail_view.on("resize", function() {
+            detail_view.css({
+                "width": WINDOW_WIDTH,
+                "height": WINDOW_HEIGHT,
+                "line-height": WINDOW_HEIGHT + "px",
+                "margin-top": -1*WINDOW_HEIGHT/2,
+                "margin-left": -1*WINDOW_WIDTH/2,
+            });
+            notice_wrap.css({
+                "height": IS_MOBILE ? WINDOW_HEIGHT*0.1 : WINDOW_HEIGHT*0.1,
+                "font-size": IS_MOBILE ? WINDOW_HEIGHT*0.05:WINDOW_HEIGHT*0.03,
+                "line-height": (IS_MOBILE ? WINDOW_HEIGHT*0.1:WINDOW_HEIGHT*0.1) +"px",
+            })
+
+            var content_css_value ={
+                "margin-top":IS_MOBILE? WINDOW_HEIGHT*0.05: 0,
+                "max-width": WINDOW_WIDTH*0.8,
+                "max-height": WINDOW_HEIGHT*0.8,
+            }
+            content.css(content_css_value);
+        });
+        detail_view.resize();
     }
 }
 function popup_resize(){
@@ -136,6 +149,11 @@ function popup_resize(){
         popup.css({
             "bottom": (WINDOW_HEIGHT-popup.outerHeight())/2 + "px",
         });
+    }
+    var detail_view = $(".detail_view");
+    console.log(detail_view);
+    if(detail_view.length>0) {
+        detail_view.resize();
     }
 }
 function popup(meta) {
@@ -416,9 +434,24 @@ function popup(meta) {
                     "bottom":-1*popup.outerHeight(),
                 },400,function(){
                     $(".popup").remove();
+                    $("body").off("click");
                     IS_FULLPAGE_SCROLLABLE = true;
                 })
             });
+            
+            popup.click(function(e) {
+                e.stopPropagation();
+            })
+            $("body").click(function(e) {
+                var popup = $(".popup");
+                popup.animate({
+                    "bottom":-1*popup.outerHeight(),
+                },400,function(){
+                    $(".popup").remove();
+                    $("body").off("click");
+                    IS_FULLPAGE_SCROLLABLE = true;
+                })
+            })
             popup.css({
                 "bottom":-1*popup.outerHeight(),
                 "left": "50%",

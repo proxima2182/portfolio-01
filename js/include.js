@@ -65,7 +65,7 @@ function resize_enter() {
             "height": height,
             "-webkit-transform": "rotate("+deg+")",
             "-ms-transform": "rotate("+deg+")",
-            "transform": "rotate(-"+deg+")",
+            "transform": "rotate("+deg+")",
             "margin-top": -1*height/2,
             "margin-left": -1*width/2,
         })
@@ -132,7 +132,7 @@ function make_enter() {
         "background": "#1c2e5f",
         "-webkit-transform": "rotate("+deg+")",
         "-ms-transform": "rotate("+deg+")",
-        "transform": "rotate(-"+deg+")",
+        "transform": "rotate("+deg+")",
         "top": "50%",
         "left": "50%",
         "margin-top": -1*height/2,
