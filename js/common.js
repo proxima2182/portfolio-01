@@ -76,7 +76,7 @@ function check_device() {
     }
 }
 var IS_FOCUSED_OUT = false;
-console.log("몇번째 ? 3");
+console.log("몇번째 ? 4");
 function resize_standard() {
     var need_rotate = IS_ROTATED;
     check_device();
@@ -103,8 +103,11 @@ function resize_standard() {
 //        if(!need_rotate && add_focused !=undefined) {
 //            return;
 //        }
-        if(focused == undefined) {
+        if(focused == undefined && (need_rotate || add_focused==undefined)) {
+            console.log("remove!");
             $(".additional_text_area").remove();
+        }else {
+            console.log("not remove!");
         }
         //집에가서 왜 안되는지 다시보자
         var input_wrap = $(".additional_text_area");
