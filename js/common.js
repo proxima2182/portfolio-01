@@ -100,7 +100,7 @@ function resize_standard() {
         
         console.log("need rotate" + need_rotate);
         var input_wrap = $(".additional_text_area");
-        if(focused == undefined && !need_rotate) {
+        if(focused == undefined && (need_rotate || add_focused==undefined)) {
             $(".additional_text_area").remove();
         }
         //집에가서 왜 안되는지 다시보자
