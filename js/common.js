@@ -100,7 +100,7 @@ function resize_standard() {
         var height = window.innerHeight;
         
         console.log("need rotate" + need_rotate);
-        if(need_rotate && add_focused !=undefined) {
+        if(!need_rotate && add_focused !=undefined) {
             return;
         }
         if(focused == undefined && (need_rotate || add_focused==undefined)) {
