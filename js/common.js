@@ -83,90 +83,90 @@ function check_device() {
 var IS_FOCUSED_OUT = false;
 function resize_standard() {
     check_device();
-//    if(IS_MOBILE) {
-//        var input = $('#wrap input');
-//        var textarea = $('#wrap textarea');
-//        var input_checked = focus_check(input);
-//        var textarea_checked = focus_check(textarea);
-//        var focused = input_checked != undefined ? input_checked : textarea_checked;
-//        
-//        console.log("focused");
-//        console.log(focused);
-//        
-//        var add_focused = focus_check($(".additional_text_area input"));
-//        console.log("add_focused");
-//        console.log(add_focused);
-//
-//        var width = window.innerWidth;
-//        var height = window.innerHeight;
-//        if(add_focused != undefined && need_rotate == IS_ROTATED) {
-//            focus_out();
-//            return;
-//        }
-//        //집에가서 왜 안되는지 다시보자
-//        var input_wrap = $(".additional_text_area");
-//        if(add_focused == undefined && focused == undefined) {
-//            $(".additional_text_area").remove();
-//        }
-//        if(input_wrap.length > 0){
-//            input_wrap.css({
-//                "width" : width,
-//                "height" : height,
-//                "line-height" : height + "px",
-//                "background" : "#000",
-//                "position" : "fixed",
-//                "top": 0,
-//                "left": 0,
-//                "margin": 0,
-//            })
-//            if(IS_ROTATED) {
-//                input_wrap.css({
-//                    "-webkit-transform": "rotate(-90deg)",
-//                    "-ms-transform": "rotate(-90deg)",
-//                    "transform": "rotate(-90deg)",
-//                    "top": "50%",
-//                    "left": "50%",
-//                    "margin-top": -1*height/2,
-//                    "margin-left": -1*width/2,
-//                })
-//            }
-//        }
-//        if(focused != undefined) {
-//            var input_wrap = $("<div class=\"additional_text_area\"></div>")
-//            var input = $("<input type=\"text\"></input>");
-//            input_wrap.append(input);
-//            input_wrap.css({
-//                "width" : width,
-//                "height" : height,
-//                "line-height" : height + "px",
-//                "background" : "#000",
-//                "position" : "fixed",
-//                "top": 0,
-//                "left": 0,
-//            })
-//            if(IS_ROTATED) {
-//                input_wrap.css({
-//                    "-webkit-transform": "rotate(-90deg)",
-//                    "-ms-transform": "rotate(-90deg)",
-//                    "transform": "rotate(-90deg)",
-//                    "top": "50%",
-//                    "left": "50%",
-//                    "margin-top": -1*height/2,
-//                    "margin-left": -1*width/2,
-//                })
-//            }
-//            $("body").append(input_wrap);
-//            focused.blur();
-//            input.val(focused.val());
-//            input.get(0).focus();
-//            input.onEnterKey(function() {
-//                focused.val(input.val());
-//                focus_out();
-////                input_wrap.remove();
-//            })
-//            return;
-//        }
-//    }
+    if(IS_MOBILE) {
+        var input = $('#wrap input');
+        var textarea = $('#wrap textarea');
+        var input_checked = focus_check(input);
+        var textarea_checked = focus_check(textarea);
+        var focused = input_checked != undefined ? input_checked : textarea_checked;
+        
+        console.log("focused");
+        console.log(focused);
+        
+        var add_focused = focus_check($(".additional_text_area input"));
+        console.log("add_focused");
+        console.log(add_focused);
+
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        if(add_focused != undefined && need_rotate == IS_ROTATED) {
+            focus_out();
+            return;
+        }
+        //집에가서 왜 안되는지 다시보자
+        var input_wrap = $(".additional_text_area");
+        if(add_focused == undefined && focused == undefined) {
+            $(".additional_text_area").remove();
+        }
+        if(input_wrap.length > 0){
+            input_wrap.css({
+                "width" : width,
+                "height" : height,
+                "line-height" : height + "px",
+                "background" : "#000",
+                "position" : "fixed",
+                "top": 0,
+                "left": 0,
+                "margin": 0,
+            })
+            if(IS_ROTATED) {
+                input_wrap.css({
+                    "-webkit-transform": "rotate(-90deg)",
+                    "-ms-transform": "rotate(-90deg)",
+                    "transform": "rotate(-90deg)",
+                    "top": "50%",
+                    "left": "50%",
+                    "margin-top": -1*height/2,
+                    "margin-left": -1*width/2,
+                })
+            }
+        }
+        if(focused != undefined) {
+            var input_wrap = $("<div class=\"additional_text_area\"></div>")
+            var input = $("<input type=\"text\"></input>");
+            input_wrap.append(input);
+            input_wrap.css({
+                "width" : width,
+                "height" : height,
+                "line-height" : height + "px",
+                "background" : "#000",
+                "position" : "fixed",
+                "top": 0,
+                "left": 0,
+            })
+            if(IS_ROTATED) {
+                input_wrap.css({
+                    "-webkit-transform": "rotate(-90deg)",
+                    "-ms-transform": "rotate(-90deg)",
+                    "transform": "rotate(-90deg)",
+                    "top": "50%",
+                    "left": "50%",
+                    "margin-top": -1*height/2,
+                    "margin-left": -1*width/2,
+                })
+            }
+            $("body").append(input_wrap);
+            focused.blur();
+            input.val(focused.val());
+            input.get(0).focus();
+            input.onEnterKey(function() {
+                focused.val(input.val());
+                focus_out();
+//                input_wrap.remove();
+            })
+            return;
+        }
+    }
     
     console.log("resize_not_returned");
     $("body").css({
