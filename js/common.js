@@ -97,8 +97,9 @@ function resize_standard() {
         var width = window.innerWidth;
         var height = window.innerHeight;
         
+        console.log("need rotate" + need_rotate);
         if(add_focused != undefined && need_rotate) {
-            focus_out();
+//            focus_out();
         }
         var input_wrap = $(".additional_text_area");
         if(focused == undefined) {
