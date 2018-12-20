@@ -83,7 +83,7 @@ function resize_standard() {
     need_rotate = need_rotate != IS_ROTATED;
     if(IS_MOBILE) {
         console.log("test_count : " + test_count);
-        if(!need_rotate && test_count==-1 || test_count >=1) {
+        if(!need_rotate && test_count==-1 || test_count >=0) {
         var input = $('#wrap input');
         var textarea = $('#wrap textarea');
         var input_checked = focus_check(input);
@@ -100,7 +100,7 @@ function resize_standard() {
         var width = window.innerWidth;
         var height = window.innerHeight;
         
-        if(focused == undefined && test_count!=1) {
+        if(focused == undefined && test_count!=0) {
             console.log("remove!");
             $(".additional_text_area").remove();
         }else {
