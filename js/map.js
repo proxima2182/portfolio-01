@@ -18,6 +18,7 @@ var platform_images = [
     "./images/icon_platform_04.png",
     "./images/icon_platform_05.png",
     "./images/icon_platform_06.png",
+    "./images/icon_platform_07.png",
 ];
 var deco_images = [
     "./images/icon_deco_00.png",
@@ -30,7 +31,7 @@ var deco_images = [
 
 
 var project_titles = {
-    name: "Project Name",
+//    name: "Project Name",
     position: "Position",
     platform: "Platform",
     keyword: "Keyword",
@@ -38,7 +39,7 @@ var project_titles = {
     description: "Description",
 };
 var project_text_types = {
-    name: "half_plain",
+//    name: "half_plain",
     position: "half_plain",
     platform: "half_plain",
     keyword: "half_plain",
@@ -64,6 +65,7 @@ function parseProject(data) {
         
         elements.append(this.resources);
         elements.append(this.url);
+        elements.append("<name>" + this.name + "</name>");
         for(var i= 0; i< keys.length; ++i) {
             var key = keys[i];
             if(this[key].length > 0) {
@@ -132,6 +134,8 @@ function platform_selector(platform) {
             return 5;
         case "Poster":
             return 6;
+        case "Unity3D":
+            return 7;
         default:
             return 0;
     }
@@ -244,7 +248,10 @@ function info_li(bottom, left, z_index, project){
     title.css({
         "font-size": CONTENT_WIDTH*0.02,
         "line-height": CONTENT_WIDTH*0.025 + "px",
-        "max-height": CONTENT_WIDTH*0.4,
+        "max-height": CONTENT_WIDTH*0.05,
+        "display": "-webkit-box",
+        "-webkit-line-clamp": "2",
+        "-webkit-box-orient": "vertical",
     })
     content.css({
         "bottom": BOX_SIZE*0.1,
@@ -323,7 +330,7 @@ function unit_nodata_li(area_width, area_height, moving_factor, interval_index, 
     return li;
 }
 function nodata_info_li(left, bottom, text) {
-    return unit_nodata_info_li(AREA_WIDTH, BOX_SIZE, CONTENT_WIDTH*0.018, left, bottom, text, function_click);
+    return unit_nodata_info_li(AREA_WIDTH, BOX_SIZE, CONTENT_WIDTH*0.018, left, bottom, text);
 }
 function unit_nodata_info_li(area_width, box_size, font_size, left, bottom, text){
     var text_value = text==undefined?"Nothing to show..." : text;
@@ -661,6 +668,8 @@ function draw(filtered_key, callback) {
         var left = AREA_WIDTH*1.5;
         project_ul.append(nodata_li(left, bg_image_nodata, nodata_images));
         project_info_ul.append(nodata_info_li(left, bottom));
+        page_update();
+        return;
     }
     if(container!=undefined) {
         var imgs = container.find("ul").find("img");

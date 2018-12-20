@@ -78,6 +78,7 @@ function popup_resize(){
     if(popup.length>0){
         popup.css({
             "width": CONTENT_WIDTH*0.6,
+            "max-height": WINDOW_HEIGHT*0.8,
             "padding": CONTENT_WIDTH*0.08 + "px " + CONTENT_WIDTH*0.04 + "px",
             "border-radius": CONTENT_WIDTH*0.03,
             "margin-left": -1*CONTENT_WIDTH*0.32,
@@ -92,9 +93,17 @@ function popup_resize(){
             "right": CONTENT_WIDTH*0.02,
         })
         popup.find(".button_url").css({
-            "width": CONTENT_WIDTH*0.1,
+            "width": CONTENT_WIDTH*0.15,
             "font-size": CONTENT_WIDTH*0.02,
             "bottom": CONTENT_WIDTH*0.02,
+        })
+        popup.find(".project_title").css({
+            "width": CONTENT_WIDTH*0.56,
+            "font-size": CONTENT_WIDTH*0.025,
+            "height": CONTENT_WIDTH*0.04,
+            "line-height": CONTENT_WIDTH*0.04+"px",
+            "top": CONTENT_WIDTH*0.02,
+            "left": CONTENT_WIDTH*0.04,
         })
         
         popup.find(".half_plain").css({
@@ -105,7 +114,7 @@ function popup_resize(){
             "line-height": CONTENT_WIDTH*0.03 + "px",
             "margin-top": CONTENT_WIDTH*0.015,
         })
-        popup.find(".content").css({
+        popup.find("content").css({
             "font-size": CONTENT_WIDTH*0.02,
             "padding":CONTENT_WIDTH*0.005,
         })
@@ -119,6 +128,10 @@ function popup_resize(){
         popup.find(".content .text").css({
             "width": text_width,
             "font-size": CONTENT_WIDTH*0.02,
+        })
+        popup.find("ul.content li").css({
+            "padding":0,
+            "margin-top": CONTENT_WIDTH*0.01,
         })
         popup.css({
             "bottom": (WINDOW_HEIGHT-popup.outerHeight())/2 + "px",
@@ -142,6 +155,7 @@ function popup(meta) {
 
         popup.css({
             "width": CONTENT_WIDTH*0.6,
+            "max-height": WINDOW_HEIGHT*0.8,
             "padding": CONTENT_WIDTH*0.08 + "px " + CONTENT_WIDTH*0.04 + "px",
             "border-radius": CONTENT_WIDTH*0.03,
             "line-height":"normal",
@@ -191,7 +205,7 @@ function popup(meta) {
             row.append(title);
 
             var content_css_value = {
-                "font-size": CONTENT_WIDTH*0.018,
+                "font-size": CONTENT_WIDTH*0.02,
                 "padding":CONTENT_WIDTH*0.005,
                 "line-height": "normal",
                 "word-wrap":"break-word",
@@ -233,7 +247,10 @@ function popup(meta) {
                         "vertical-align":"top",
                     });
                     li.css(content_css_value);
-                    li.css("padding",0);
+                    li.css({
+                        "padding":0,
+                        "margin-top": CONTENT_WIDTH*0.01,
+                    });
                     li.append(icon);
                     li.append(text);
                     content.append(li);
@@ -306,8 +323,6 @@ function popup(meta) {
                     button_image_left: "./images/icon_button_left_small.png",
                     button_image_right: "./images/icon_button_right_small.png",
                     button_background:"rgba(155,155,155,0)",
-//                    button_width:"25px",
-//                    button_height: "25px",
                     button_flexible_width: function() {
                         if(IS_MOBILE) {
                             return CONTENT_WIDTH* 0.04;
@@ -339,10 +354,29 @@ function popup(meta) {
         });
         function show_popup() {
             var url = $(meta).find("url");
+            var name = $(meta).find("name");
+            if(name.length>0) {
+                var title = $("<p class=\"project_title\">"+name.text()+"</p>")
+                title.css({
+                    "width": CONTENT_WIDTH*0.56,
+                    "font-size": CONTENT_WIDTH*0.025,
+                    "height": CONTENT_WIDTH*0.04,
+                    "line-height": CONTENT_WIDTH*0.04+"px",
+                    "font-weight": 700,
+                    "text-align": "left",
+                    "overflow": "hidden",
+                    "text-overflow": "ellipsis",
+                    "white-space": "nowrap",
+                    "top": CONTENT_WIDTH*0.02,
+                    "left": CONTENT_WIDTH*0.04,
+                    "position": "absolute",
+                })
+                popup.append(title);
+            }
             if(url.length>0) {
                 var button_url = $("<div class=\"button_url\">Go to link!</div>")
                 button_url.css({
-                    "width": CONTENT_WIDTH*0.1,
+                    "width": CONTENT_WIDTH*0.15,
                     "font-size": CONTENT_WIDTH*0.02,
                     "text-align":"center",
                     "cursor": "pointer",
