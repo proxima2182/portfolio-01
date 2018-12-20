@@ -83,7 +83,7 @@ function resize_standard() {
     need_rotate = need_rotate != IS_ROTATED;
     if(IS_MOBILE) {
         console.log("test_count : " + test_count);
-        if(!need_rotate || test_count >=1) {
+        if(!need_rotate && test_count==-1 || test_count >=1) {
         var input = $('#wrap input');
         var textarea = $('#wrap textarea');
         var input_checked = focus_check(input);
