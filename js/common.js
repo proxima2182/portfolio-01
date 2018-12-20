@@ -1,5 +1,6 @@
 var CONTENT_WIDTH;
 var WINDOW_WIDTH, WINDOW_HEIGHT;
+var SCREEN_DEGREE = 0;
 var IS_ROTATED = false;
 var IS_MOBILE = false;
 var IS_DOCUMENT_LOADED = false;
@@ -47,8 +48,8 @@ function check_device() {
     
     console.log("resize");
     if(IS_MOBILE) {
-        if(screen.orientation!= undefined && (screen.orientation.angle == 0 || screen.orientation.angle == 180) ||
-           window.orientation == 0 || window.orientation == 180) {
+        SCREEN_DEGREE = screen.orientation!= undefined?screen.orientation.angle:window.orientation;
+        if(SCREEN_DEGREE == 0 || SCREEN_DEGREE == 180) {
             IS_ROTATED = true;
         } else {
             IS_ROTATED = false;
@@ -75,75 +76,63 @@ function check_device() {
     }
 }
 console.log("몇번째 ? 4");
-var test_count = -1;
+var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
-    var need_rotate = IS_ROTATED;
+    var need_rotate = SCREEN_DEGREE;
     check_device();
     console.log("need rotate : " + need_rotate+", IS ROTATE : " + IS_ROTATED);
-    need_rotate = need_rotate != IS_ROTATED;
+    need_rotate = need_rotate != SCREEN_DEGREE;
     if(IS_MOBILE) {
         var width = window.innerWidth;
         var height = window.innerHeight;
-        console.log("test_count : " + test_count);
-        if(!need_rotate && test_count==-1 || test_count >=0) {
-        var input = $('#wrap input');
-        var textarea = $('#wrap textarea');
-        var input_checked = focus_check(input);
-        var textarea_checked = focus_check(textarea);
-        var focused = input_checked != undefined ? input_checked : textarea_checked;
-        
-        console.log("focused");
-        console.log(focused);
-        
-        var add_focused = focus_check($(".additional_text_area input"));
-        console.log("add_focused");
-        console.log(add_focused);
+        if(!need_rotate && !ROTATE_WITH_KEYBOARD || ROTATE_WITH_KEYBOARD) {
+            var input = $('#wrap input');
+            var textarea = $('#wrap textarea');
+            var input_checked = focus_check(input);
+            var textarea_checked = focus_check(textarea);
+            var focused = input_checked != undefined ? input_checked : textarea_checked;
 
-        if(focused == undefined && test_count!=0) {
-            console.log("remove!");
-            $(".additional_text_area").remove();
-        }else {
-            console.log("not remove!");
-        }
-        test_count = -1;
-        //집에가서 왜 안되는지 다시보자
-        if(focused != undefined) {
-            var input_wrap = $("<div class=\"additional_text_area\"></div>")
-            var input = $("<input type=\"text\"></input>");
-            input_wrap.append(input);
-            input_wrap.css({
-                "width" : width,
-                "height" : height,
-                "line-height" : height + "px",
-                "background" : "#000",
-                "position" : "fixed",
-                "top": 0,
-                "left": 0,
-            })
-            if(IS_ROTATED) {
-                input_wrap.css({
-                    "-webkit-transform": "rotate(-90deg)",
-                    "-ms-transform": "rotate(-90deg)",
-                    "transform": "rotate(-90deg)",
-                    "top": "50%",
-                    "left": "50%",
-                    "margin-top": -1*height/2,
-                    "margin-left": -1*width/2,
-                })
+            if(focused == undefined && !ROTATE_WITH_KEYBOARD) {
+                $(".additional_text_area").remove();
             }
-            $("body").append(input_wrap);
-            focused.blur();
-            input.val(focused.val());
-            input.get(0).focus();
-            input.onEnterKey(function() {
-                focused.val(input.val());
-                focus_out();
-//                input_wrap.remove();
-            })
-            return;
-        }
+            ROTATE_WITH_KEYBOARD = false;
+            if(focused != undefined) {
+                var input_wrap = $("<div class=\"additional_text_area\"></div>")
+                var input = $("<input type=\"text\"></input>");
+                input_wrap.append(input);
+                input_wrap.css({
+                    "width" : width,
+                    "height" : height,
+                    "line-height" : height + "px",
+                    "background" : "#000",
+                    "position" : "fixed",
+                    "top": 0,
+                    "left": 0,
+                })
+                if(IS_ROTATED) {
+                    input_wrap.css({
+                        "-webkit-transform": "rotate(-90deg)",
+                        "-ms-transform": "rotate(-90deg)",
+                        "transform": "rotate(-90deg)",
+                        "top": "50%",
+                        "left": "50%",
+                        "margin-top": -1*height/2,
+                        "margin-left": -1*width/2,
+                    })
+                }
+                $("body").append(input_wrap);
+                focused.blur();
+                input.val(focused.val());
+                input.get(0).focus();
+                input.onEnterKey(function() {
+                    focused.val(input.val());
+                    focus_out();
+    //                input_wrap.remove();
+                })
+                return;
+            }
         } else{
-            test_count++;
+            ROTATE_WITH_KEYBOARD = true;
         }
         var input_wrap = $(".additional_text_area");
         if(input_wrap.length > 0){
