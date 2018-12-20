@@ -75,12 +75,14 @@ function check_device() {
     }
 }
 console.log("몇번째 ? 4");
+var test_count = -1;
 function resize_standard() {
     var need_rotate = IS_ROTATED;
     check_device();
     console.log("need rotate : " + need_rotate+", IS ROTATE : " + IS_ROTATED);
-    need_rotate = need_rotate == IS_ROTATED;
-    if(IS_MOBILE && need_rotate) {
+    need_rotate = need_rotate != IS_ROTATED;
+    if(IS_MOBILE) {
+        if(!need_rotate || test_count >=1) {
         var input = $('#wrap input');
         var textarea = $('#wrap textarea');
         var input_checked = focus_check(input);
@@ -97,21 +99,13 @@ function resize_standard() {
         var width = window.innerWidth;
         var height = window.innerHeight;
         
-//        console.log("need rotate" + need_rotate);
-//        if(!need_rotate && add_focused !=undefined) {
-//            return;
-//        }
-//        if(!(!need_rotate && add_focused !=undefined)) {
-//            focus_out();
-//            latest_focused = add_focused;
-//            return;
-//        }
         if(focused == undefined) {
             console.log("remove!");
             $(".additional_text_area").remove();
         }else {
             console.log("not remove!");
         }
+            test_count = -1;
         //집에가서 왜 안되는지 다시보자
         var input_wrap = $(".additional_text_area");
         if(input_wrap.length > 0){
@@ -171,6 +165,9 @@ function resize_standard() {
 //                input_wrap.remove();
             })
             return;
+        }
+        } else{
+            test_count++;
         }
     }
     
