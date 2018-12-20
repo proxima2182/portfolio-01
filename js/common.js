@@ -27,7 +27,6 @@ function focus_check(list){
     return undefined;
 }
 function focus_out() {
-    IS_FOCUSED_OUT = true;
     $('input').each(function() {
        if($(this).is(":focus")) {
            $(this).blur();
@@ -75,14 +74,13 @@ function check_device() {
         console.log("CASE 03");
     }
 }
-var IS_FOCUSED_OUT = false;
 console.log("몇번째 ? 4");
 function resize_standard() {
     var need_rotate = IS_ROTATED;
     check_device();
     console.log("need rotate : " + need_rotate+", IS ROTATE : " + IS_ROTATED);
     need_rotate = need_rotate == IS_ROTATED;
-    if(IS_MOBILE) {
+    if(IS_MOBILE && need_rotate) {
         var input = $('#wrap input');
         var textarea = $('#wrap textarea');
         var input_checked = focus_check(input);
@@ -103,7 +101,12 @@ function resize_standard() {
 //        if(!need_rotate && add_focused !=undefined) {
 //            return;
 //        }
-        if(focused == undefined && (need_rotate || add_focused==undefined)) {
+//        if(!(!need_rotate && add_focused !=undefined)) {
+//            focus_out();
+//            latest_focused = add_focused;
+//            return;
+//        }
+        if(focused == undefined) {
             console.log("remove!");
             $(".additional_text_area").remove();
         }else {
