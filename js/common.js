@@ -98,15 +98,15 @@ function resize_standard() {
 
         var width = window.innerWidth;
         var height = window.innerHeight;
+        
         if(add_focused != undefined && need_rotate == IS_ROTATED) {
             focus_out();
-            return;
         }
-        //집에가서 왜 안되는지 다시보자
         var input_wrap = $(".additional_text_area");
         if(focused == undefined) {
             $(".additional_text_area").remove();
         }
+        //집에가서 왜 안되는지 다시보자
         if(input_wrap.length > 0){
             input_wrap.css({
                 "width" : width,
