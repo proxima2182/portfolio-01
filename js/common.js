@@ -104,6 +104,9 @@ function resize_standard() {
         if(focused == undefined && (need_rotate || add_focused==undefined)) {
             $(".additional_text_area").remove();
         }
+        if(need_rotate){
+            return;
+        }
         //집에가서 왜 안되는지 다시보자
         if(input_wrap.length > 0){
             input_wrap.css({
