@@ -27,6 +27,7 @@ function focus_check(list){
     return undefined;
 }
 function focus_out() {
+    IS_FOCUSED_OUT = true;
     $('input').each(function() {
        if($(this).is(":focus")) {
            $(this).blur();
@@ -44,9 +45,6 @@ function check_device() {
     } else {
         IS_MOBILE = false;
     }
-    var need_rotate = IS_ROTATED;
-//    var previous_width = WINDOW_WIDTH;
-//    var previous_height = WINDOW_HEIGHT;
     
     console.log("resize");
     if(IS_MOBILE) {
@@ -59,7 +57,6 @@ function check_device() {
     } else {
         IS_ROTATED = false;
     }
-    need_rotate &= IS_ROTATED;
     
     WINDOW_WIDTH = window.innerWidth;
     WINDOW_HEIGHT = window.innerHeight;
@@ -82,7 +79,9 @@ function check_device() {
 }
 var IS_FOCUSED_OUT = false;
 function resize_standard() {
+    var need_rotate = IS_ROTATED;
     check_device();
+    need_rotate &= IS_ROTATED;
     if(IS_MOBILE) {
         var input = $('#wrap input');
         var textarea = $('#wrap textarea');
