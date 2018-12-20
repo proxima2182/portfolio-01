@@ -282,7 +282,7 @@ $(window).on("load",function() {
             },
         };
     make_fullpage(scroll_action_list, page_action_list);
-    $("#section_05 video").get(0).play();
+//    $("#section_05 video").get(0).play();
     
     $("#home").click(function(){
         page_move(0);
