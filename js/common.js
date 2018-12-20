@@ -64,8 +64,6 @@ function check_device() {
         WINDOW_WIDTH = window.innerHeight;
         WINDOW_HEIGHT = window.innerWidth;
     }
-    console.log("WINDOW_WIDTH: " + WINDOW_WIDTH + ", WINDOW_HEIGHT : " + WINDOW_HEIGHT + ", CONTENT_WIDTH : " + CONTENT_WIDTH)
-    console.log("WINDOW_WIDTH: " + window.outerWidth + ", WINDOW_HEIGHT : " +  window.outerHeight + ", CONTENT_WIDTH : " + CONTENT_WIDTH)
     if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
         CONTENT_WIDTH = 1000;
         console.log("CASE 01");
@@ -99,11 +97,11 @@ function resize_standard() {
         var width = window.innerWidth;
         var height = window.innerHeight;
         
-        if(add_focused != undefined && need_rotate == IS_ROTATED) {
+        if(add_focused != undefined && need_rotate) {
             focus_out();
         }
         var input_wrap = $(".additional_text_area");
-        if(focused == undefined && add_focused == undefined) {
+        if(focused == undefined) {
             $(".additional_text_area").remove();
         }
         //집에가서 왜 안되는지 다시보자

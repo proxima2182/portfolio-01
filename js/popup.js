@@ -151,7 +151,6 @@ function popup_resize(){
         });
     }
     var detail_view = $(".detail_view");
-    console.log(detail_view);
     if(detail_view.length>0) {
         detail_view.resize();
     }
