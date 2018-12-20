@@ -103,7 +103,7 @@ function resize_standard() {
             focus_out();
         }
         var input_wrap = $(".additional_text_area");
-        if(focused == undefined) {
+        if(focused == undefined && add_focused == undefined) {
             $(".additional_text_area").remove();
         }
         //집에가서 왜 안되는지 다시보자
