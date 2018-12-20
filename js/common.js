@@ -108,31 +108,7 @@ function resize_standard() {
         }
         test_count = -1;
         //집에가서 왜 안되는지 다시보자
-        var input_wrap = $(".additional_text_area");
-        if(input_wrap.length > 0){
-            input_wrap.css({
-                "width" : width,
-                "height" : height,
-                "line-height" : height + "px",
-                "background" : "#000",
-                "position" : "fixed",
-                "top": 0,
-                "left": 0,
-                "margin": 0,
-            })
-            if(IS_ROTATED) {
-                input_wrap.css({
-                    "-webkit-transform": "rotate(-90deg)",
-                    "-ms-transform": "rotate(-90deg)",
-                    "transform": "rotate(-90deg)",
-                    "top": "50%",
-                    "left": "50%",
-                    "margin-top": -1*height/2,
-                    "margin-left": -1*width/2,
-                })
-            }
-            return;
-        } else if(focused != undefined) {
+        if(focused != undefined) {
             var input_wrap = $("<div class=\"additional_text_area\"></div>")
             var input = $("<input type=\"text\"></input>");
             input_wrap.append(input);
@@ -169,6 +145,30 @@ function resize_standard() {
         }
         } else{
             test_count++;
+        }
+        var input_wrap = $(".additional_text_area");
+        if(input_wrap.length > 0){
+            input_wrap.css({
+                "width" : width,
+                "height" : height,
+                "line-height" : height + "px",
+                "background" : "#000",
+                "position" : "fixed",
+                "top": 0,
+                "left": 0,
+                "margin": 0,
+            })
+            if(IS_ROTATED) {
+                input_wrap.css({
+                    "-webkit-transform": "rotate(-90deg)",
+                    "-ms-transform": "rotate(-90deg)",
+                    "transform": "rotate(-90deg)",
+                    "top": "50%",
+                    "left": "50%",
+                    "margin-top": -1*height/2,
+                    "margin-left": -1*width/2,
+                })
+            }
         }
     }
     
