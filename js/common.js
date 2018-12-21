@@ -197,6 +197,7 @@ function resize_standard() {
         }
     }
     console.log("WIDTH : "+ window.outerWidth +", HEIGHT : "+ window.outerHeight);
+    console.log("offset : " + $("html").offset().top);
     console.log("WIDTH : "+ WINDOW_WIDTH +", HEIGHT : "+ WINDOW_HEIGHT);
     console.log("resize_not_returned");
     $("body").css({
