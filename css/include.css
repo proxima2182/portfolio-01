@@ -96,6 +96,12 @@ body{
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
+/* for IOS */
+textarea,
+input{
+     -webkit-appearance: none;
+     border-radius: 0;
+}
 .scaling{
     -webkit-animation: scaling 1.6s infinite linear;
             animation: scaling 1.6s infinite linear;
