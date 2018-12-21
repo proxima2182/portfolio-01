@@ -114,12 +114,13 @@ function make_extra_input(focused) {
         focused.val(input.val());
         focus_out();
     })
-//    if(IS_IOS) {
-//        input.on("focusout", function() {
-//            console.log("keyup");
-//            resize_standard();
-//        })
-//    }
+    if(IS_IOS) {
+        //when user press 'done'
+        input.on("focusout", function() {
+            console.log("keyup");
+            resize_standard();
+        })
+    }
 }
 console.log("몇번째 ? 13");
 var ROTATE_WITH_KEYBOARD = false;
