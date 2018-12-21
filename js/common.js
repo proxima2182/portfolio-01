@@ -144,12 +144,6 @@ function resize_standard() {
 
             if(focused == undefined && !ROTATE_WITH_KEYBOARD) {
                 $(".extra_input_area").remove();
-            } else if(IS_IOS){
-                var input = $(".extra_input_area input");
-                if(input.length>0) {
-                    console.log("INPUT IS AVAILABLE!");
-                    input.get(0).focus();
-                }
             }
             ROTATE_WITH_KEYBOARD = false;
             if(IS_ANDROID && focused != undefined) {
@@ -159,6 +153,14 @@ function resize_standard() {
         } else if(IS_ANDROID){
             //It will be triggerred when the device is android
             ROTATE_WITH_KEYBOARD = true;
+        } else if(IS_IOS){
+            var input = $(".extra_input_area input");
+            if(input.length>0) {
+                console.log("INPUT IS AVAILABLE!");
+                input.get(0).focus();
+            } else {
+                console.log("INPUT IS NOT AVAILABLE!");
+            }
         }
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
