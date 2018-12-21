@@ -128,6 +128,7 @@ function resize_standard() {
     console.log("resize_standard");
     var need_rotate = SCREEN_DEGREE;
     check_device();
+    console.log("previous : "+ need_rotate +", now : "+ SCREEN_DEGREE);
     need_rotate = need_rotate != SCREEN_DEGREE;
     if(IS_MOBILE) {
         var width = window.innerWidth;
