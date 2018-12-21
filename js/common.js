@@ -54,7 +54,7 @@ function check_device() {
 //    }
     if(IS_MOBILE) {
         SCREEN_DEGREE = screen.orientation!= undefined?screen.orientation.angle:window.orientation;
-        if(SCREEN_DEGREE == 0 || SCREEN_DEGREE == 180) {
+        if(SCREEN_DEGREE == 0 || SCREEN_DEGREE == 180 ) {
             IS_ROTATED = true;
         } else {
             IS_ROTATED = false;
@@ -188,6 +188,7 @@ function resize_standard() {
             }
         }
     }
+    console.log("WIDTH : "+ window.innerWidth +", HEIGHT : "+ window.innerHeight);
     console.log("WIDTH : "+ WINDOW_WIDTH +", HEIGHT : "+ WINDOW_HEIGHT);
     console.log("resize_not_returned");
     $("body").css({
