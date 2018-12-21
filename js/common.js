@@ -54,7 +54,6 @@ function check_device() {
 //    }
     if(IS_MOBILE) {
         SCREEN_DEGREE = screen.orientation!= undefined?screen.orientation.angle:window.orientation;
-        console.log("SCREEN_DEGREE : "+ SCREEN_DEGREE);
         if(SCREEN_DEGREE == 0 || SCREEN_DEGREE == 180) {
             IS_ROTATED = true;
         } else {
@@ -133,6 +132,7 @@ function resize_standard() {
     if(IS_MOBILE) {
         var width = window.innerWidth;
         var height = window.innerHeight;
+        console.log("ROTATE_WITH_KEYBOARD : " + ROTATE_WITH_KEYBOARD);
         if(!need_rotate && !ROTATE_WITH_KEYBOARD || ROTATE_WITH_KEYBOARD) {
             var input = $('#wrap input');
             var textarea = $('#wrap textarea');
@@ -140,14 +140,14 @@ function resize_standard() {
             var textarea_checked = focus_check(textarea);
             var focused = input_checked != undefined ? input_checked : textarea_checked;
             
+            console.log("focused");
             console.log(focused);
-            console.log("ROTATE_WITH_KEYBOARD : " + ROTATE_WITH_KEYBOARD);
 
             if(focused == undefined && !ROTATE_WITH_KEYBOARD) {
                 $(".additional_text_area").remove();
             }
             ROTATE_WITH_KEYBOARD = false;
-            if(focused != undefined) {
+            if(IS_ANDROID && focused != undefined) {
                 make_extra_input(focused);
                 return;
             }
