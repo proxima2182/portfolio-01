@@ -42,6 +42,7 @@ function focus_out() {
     })
 }
 function check_device() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
     IS_ANDROID = /android/i.test(userAgent);
     IS_IOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
     IS_MOBILE = IS_ANDROID || IS_IOS
@@ -80,7 +81,7 @@ function check_device() {
         console.log("CASE 03");
     }
 }
-console.log("몇번째 ? 6");
+console.log("몇번째 ? 7");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
     var need_rotate = SCREEN_DEGREE;
