@@ -81,6 +81,48 @@ function check_device() {
         console.log("CASE 03");
     }
 }
+function make_extra_input(focused) {
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    var input_wrap = $("<div class=\"additional_text_area\"></div>")
+    var input = $("<input type=\"text\"></input>");
+    input_wrap.append(input);
+    input_wrap.css({
+        "width" : width,
+        "height" : height,
+        "line-height" : height + "px",
+        "background" : "#000",
+        "position" : "fixed",
+        "top": 0,
+        "left": 0,
+    })
+    if(IS_ROTATED) {
+        input_wrap.css({
+            "-webkit-transform": "rotate(-90deg)",
+            "-ms-transform": "rotate(-90deg)",
+            "transform": "rotate(-90deg)",
+            "top": "50%",
+            "left": "50%",
+            "margin-top": -1*height/2,
+            "margin-left": -1*width/2,
+        })
+    }
+    $("body").append(input_wrap);
+    focused.blur();
+    input.val(focused.val());
+    input.get(0).focus();
+    input.onEnterKey(function() {
+        focused.val(input.val());
+        focus_out();
+//                input_wrap.remove();
+    })
+    if(IS_IOS) {
+        input.on("focusout", function() {
+            console.log("keyup");
+            resize_standard();
+        })
+    }
+}
 console.log("몇번째 ? 11");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
@@ -103,38 +145,7 @@ function resize_standard() {
             }
             ROTATE_WITH_KEYBOARD = false;
             if(focused != undefined) {
-                var input_wrap = $("<div class=\"additional_text_area\"></div>")
-                var input = $("<input type=\"text\"></input>");
-                input_wrap.append(input);
-                input_wrap.css({
-                    "width" : width,
-                    "height" : height,
-                    "line-height" : height + "px",
-                    "background" : "#000",
-                    "position" : "fixed",
-                    "top": 0,
-                    "left": 0,
-                })
-                if(IS_ROTATED) {
-                    input_wrap.css({
-                        "-webkit-transform": "rotate(-90deg)",
-                        "-ms-transform": "rotate(-90deg)",
-                        "transform": "rotate(-90deg)",
-                        "top": "50%",
-                        "left": "50%",
-                        "margin-top": -1*height/2,
-                        "margin-left": -1*width/2,
-                    })
-                }
-                $("body").append(input_wrap);
-                focused.blur();
-                input.val(focused.val());
-                input.get(0).focus();
-                input.onEnterKey(function() {
-                    focused.val(input.val());
-                    focus_out();
-    //                input_wrap.remove();
-                })
+                make_extra_input(focused);
                 return;
             }
         } else{

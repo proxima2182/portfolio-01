@@ -199,46 +199,7 @@ $(document).ready(function(){
     if(IS_IOS) {
         $("input[type=text],textarea").on("focusin", function() {
             console.log("focused");
-            var width = window.innerWidth;
-            var height = window.innerHeight;
-//            resize_standard();
-            ROTATE_WITH_KEYBOARD = false;
-                var input_wrap = $("<div class=\"additional_text_area\"></div>")
-                var input = $("<input type=\"text\"></input>");
-                input_wrap.append(input);
-                input_wrap.css({
-                    "width" : width,
-                    "height" : height,
-                    "line-height" : height + "px",
-                    "background" : "#000",
-                    "position" : "fixed",
-                    "top": 0,
-                    "left": 0,
-                })
-                if(IS_ROTATED) {
-                    input_wrap.css({
-                        "-webkit-transform": "rotate(-90deg)",
-                        "-ms-transform": "rotate(-90deg)",
-                        "transform": "rotate(-90deg)",
-                        "top": "50%",
-                        "left": "50%",
-                        "margin-top": -1*height/2,
-                        "margin-left": -1*width/2,
-                    })
-                }
-                $("body").append(input_wrap);
-                $(this).blur();
-                input.val(focused.val());
-                input.get(0).focus();
-                input.onEnterKey(function() {
-                    $(this).val(input.val());
-                    focus_out();
-    //                input_wrap.remove();
-                })
-                input.on("focusout", function() {
-                    console.log("keyup");
-                    resize_standard();
-                })
+            make_extra_input($(this));
         })
 //        $("input[type=text],textarea").on("focusout", function() {
 //            console.log("keyup");
