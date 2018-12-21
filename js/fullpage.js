@@ -44,6 +44,7 @@ function make_fullpage(sal, pal) {
                 if(event.type == "mousemove") {
                     //for web
                     y = IS_ROTATED? -1*event.pageX: event.pageY;
+                    event.preventDefault();
                 } else{
                     //for mobile
                     if(event.targetTouches.length>1) {

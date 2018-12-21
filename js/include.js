@@ -196,12 +196,16 @@ check_device();
 var RESIZE_ID;
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
-    $("input[type=text],textarea").on("focusin", function() {
-        console.log("focused");
-    })
-    $("input[type=text],textarea").on("focusout", function() {
-        console.log("keyup");
-    })
+    if(IS_IOS) {
+        $("input[type=text],textarea").on("focusin", function() {
+            console.log("focused");
+            resize_standard();
+        })
+        $("input[type=text],textarea").on("focusout", function() {
+            console.log("keyup");
+            resize_standard();
+        })
+    }
     window.addEventListener("resize", function() {
         resize_standard();
         fullpage_resize();
