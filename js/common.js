@@ -118,12 +118,11 @@ function make_extra_input(focused) {
     if(IS_IOS) {
         input.on("focusout", function() {
             console.log("keyup");
-            ROTATE_WITH_KEYBOARD = false;
             resize_standard();
         })
     }
 }
-console.log("몇번째 ? 12");
+console.log("몇번째 ? 13");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
     console.log("resize_standard");
@@ -148,7 +147,8 @@ function resize_standard() {
                 make_extra_input(focused);
                 return;
             }
-        } else{
+        } else if(IS_ANDROID){
+            //It will be triggerred when the device is android
             ROTATE_WITH_KEYBOARD = true;
         }
         var input_wrap = $(".additional_text_area");
