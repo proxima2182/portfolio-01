@@ -196,7 +196,7 @@ check_device();
 var RESIZE_ID;
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
-    if(IS_IOS) {
+    if(IS_MOBILE) {
         $("input[type=text],textarea").on("focusin", function() {
             console.log("focused");
             make_extra_input($(this));
