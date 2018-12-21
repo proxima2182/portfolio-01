@@ -90,6 +90,8 @@ function resize_standard() {
     console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + screen.width + ", HEIGHT : " + screen.height)
     console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + window.innerWidth + ", HEIGHT : " + window.innerHeight)
     console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + document.body.clientWidth + ", HEIGHT : " + document.body.clientHeight)
+    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + $(window).width() + ", HEIGHT : " + $(window).height())
+    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + $("body").innerWidth + ", HEIGHT : " + $("body").innerHeight)
     console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + document.documentElement.offsetWidth + ", HEIGHT : " + document.documentElement.offsetHeight)
     if(IS_MOBILE) {
         var width = window.innerWidth;
