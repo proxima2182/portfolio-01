@@ -235,11 +235,15 @@ $(document).ready(function(){
                     focus_out();
     //                input_wrap.remove();
                 })
+                input.on("focusout", function() {
+                    console.log("keyup");
+                    resize_standard();
+                })
         })
-        $("input[type=text],textarea").on("focusout", function() {
-            console.log("keyup");
-            resize_standard();
-        })
+//        $("input[type=text],textarea").on("focusout", function() {
+//            console.log("keyup");
+//            resize_standard();
+//        })
     }
     window.addEventListener("resize", function() {
         resize_standard();
