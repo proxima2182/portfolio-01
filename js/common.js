@@ -152,11 +152,18 @@ function resize_standard() {
             }
         } else if(IS_ANDROID){
             //It will be triggerred when the device is android
+            //Android call resize function twice with soft keyboard.
+            //so make it wait one time in that case
             ROTATE_WITH_KEYBOARD = true;
         } else if(IS_IOS){
+            //IOS don't call resize function twice when the device is rotated.
+            //because IOS don't call resize for soft keyboard is opened or closed.
+            //But the reason of calling that function twice is that device has 0 degree.
+            //Since safari browser in IOS always happens in vertical environment.
             var input = $(".extra_input_area input");
             if(input.length>0) {
                 console.log("INPUT IS AVAILABLE!");
+                input.get(0).blur();
                 input.get(0).focus();
             } else {
                 console.log("INPUT IS NOT AVAILABLE!");
