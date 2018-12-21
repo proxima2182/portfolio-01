@@ -128,12 +128,10 @@ function resize_standard() {
     console.log("resize_standard");
     var need_rotate = SCREEN_DEGREE;
     check_device();
-    console.log("previous : "+ need_rotate +", now : "+ SCREEN_DEGREE);
     need_rotate = need_rotate != SCREEN_DEGREE;
     if(IS_MOBILE) {
         var width = window.innerWidth;
         var height = window.innerHeight;
-        console.log("ROTATE_WITH_KEYBOARD : " + ROTATE_WITH_KEYBOARD);
         if(!need_rotate && !ROTATE_WITH_KEYBOARD || ROTATE_WITH_KEYBOARD) {
             var input = $('#wrap input');
             var textarea = $('#wrap textarea');
@@ -190,7 +188,7 @@ function resize_standard() {
             }
         }
     }
-    
+    console.log("WIDTH : "+ WINDOW_WIDTH +", HEIGHT : "+ WINDOW_HEIGHT);
     console.log("resize_not_returned");
     $("body").css({
         "width": WINDOW_WIDTH,
