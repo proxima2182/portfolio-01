@@ -122,7 +122,7 @@ function make_extra_input(focused) {
         })
     }
 }
-console.log("몇번째 ? 13");
+console.log("몇번째 ? 14");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
     console.log("resize_standard");
@@ -149,6 +149,7 @@ function resize_standard() {
             } else if(IS_IOS){
                 var input = $(".extra_input_area input");
                 if(input.length>0) {
+                    console.log("INPUT IS AVAILABLE!");
                     input.get(0).focus();
                 }
             }
