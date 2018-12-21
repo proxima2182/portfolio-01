@@ -81,13 +81,13 @@ function check_device() {
         console.log("CASE 03");
     }
 }
-console.log("몇번째 ? 7");
+console.log("몇번째 ? 8");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
     var need_rotate = SCREEN_DEGREE;
     check_device();
-    console.log("need rotate : " + need_rotate+", IS ROTATE : " + IS_ROTATED);
     need_rotate = need_rotate != SCREEN_DEGREE;
+    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + window.innerWidth + ", WIDTH : " + window.innerHeight)
     if(IS_MOBILE) {
         var width = window.innerWidth;
         var height = window.innerHeight;
