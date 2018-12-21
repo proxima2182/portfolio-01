@@ -199,6 +199,8 @@ $(document).ready(function(){
     if(IS_IOS) {
         $("input[type=text],textarea").on("focusin", function() {
             console.log("focused");
+            var width = window.innerWidth;
+            var height = window.innerHeight;
 //            resize_standard();
             ROTATE_WITH_KEYBOARD = false;
                 var input_wrap = $("<div class=\"additional_text_area\"></div>")
