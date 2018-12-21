@@ -122,7 +122,7 @@ function make_extra_input(focused) {
         })
     }
 }
-console.log("몇번째 ? 14");
+console.log("몇번째 ? 15");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
     console.log("resize_standard");
