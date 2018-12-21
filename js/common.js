@@ -88,8 +88,9 @@ function resize_standard() {
     check_device();
     need_rotate = need_rotate != SCREEN_DEGREE;
     console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + screen.width + ", HEIGHT : " + screen.height)
-    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + window.width + ", HEIGHT : " + window.height)
-    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + window.clientWidth + ", HEIGHT : " + window.clientHeight)
+    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + window.innerWidth + ", HEIGHT : " + window.innerHeight)
+    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + window.outerWidth + ", HEIGHT : " + window.outerHeight)
+    console.log(window);
     if(IS_MOBILE) {
         var width = window.innerWidth;
         var height = window.innerHeight;
