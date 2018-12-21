@@ -199,7 +199,6 @@ $(document).ready(function(){
     if(IS_IOS) {
         $("input[type=text],textarea").on("focusin", function() {
             console.log("focused");
-            ROTATE_WITH_KEYBOARD = false;
             make_extra_input($(this));
         })
     }

@@ -118,6 +118,7 @@ function make_extra_input(focused) {
     if(IS_IOS) {
         input.on("focusout", function() {
             console.log("keyup");
+            ROTATE_WITH_KEYBOARD = false;
             resize_standard();
         })
     }
