@@ -231,7 +231,7 @@ $(document).ready(function(){
                 input.val(focused.val());
                 input.get(0).focus();
                 input.onEnterKey(function() {
-                    focused.val(input.val());
+                    $(this).val(input.val());
                     focus_out();
     //                input_wrap.remove();
                 })
