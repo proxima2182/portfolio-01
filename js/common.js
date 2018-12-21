@@ -87,15 +87,7 @@ function resize_standard() {
     var need_rotate = SCREEN_DEGREE;
     check_device();
     need_rotate = need_rotate != SCREEN_DEGREE;
-    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + screen.width + ", HEIGHT : " + screen.height)
-    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + window.innerWidth + ", HEIGHT : " + window.innerHeight)
-    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + document.body.clientWidth + ", HEIGHT : " + document.body.clientHeight)
-    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + $(window).width() + ", HEIGHT : " + $(window).height())
-    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + $("body").width() + ", HEIGHT : " + $("body").height())
-    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + $("#wrap").width() + ", HEIGHT : " + $("#wrap").height())
-    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + document.documentElement.offsetWidth + ", HEIGHT : " + document.documentElement.offsetHeight)
-    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + document.documentElement.clientWidth + ", HEIGHT : " + document.documentElement.clientHeight)
-    console.log("IS_MOBILE : " + IS_MOBILE +", OFFSET_TOP : " + $("body").offset().top)
+    console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + screen.availWidth + ", HEIGHT : " + screen.availHeight)
     if(IS_MOBILE) {
         var width = window.innerWidth;
         var height = window.innerHeight;
