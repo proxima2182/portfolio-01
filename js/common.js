@@ -115,12 +115,12 @@ function make_extra_input(focused) {
         focused.val(input.val());
         focus_out();
     })
-    if(IS_IOS) {
-        input.on("focusout", function() {
-            console.log("keyup");
-            resize_standard();
-        })
-    }
+//    if(IS_IOS) {
+//        input.on("focusout", function() {
+//            console.log("keyup");
+//            resize_standard();
+//        })
+//    }
 }
 console.log("몇번째 ? 13");
 var ROTATE_WITH_KEYBOARD = false;
@@ -139,6 +139,9 @@ function resize_standard() {
             var input_checked = focus_check(input);
             var textarea_checked = focus_check(textarea);
             var focused = input_checked != undefined ? input_checked : textarea_checked;
+            
+            console.log(focused);
+            console.log("ROTATE_WITH_KEYBOARD : " + ROTATE_WITH_KEYBOARD);
 
             if(focused == undefined && !ROTATE_WITH_KEYBOARD) {
                 $(".additional_text_area").remove();
@@ -148,7 +151,7 @@ function resize_standard() {
                 make_extra_input(focused);
                 return;
             }
-        } else if(IS_ANDROID){
+        } else{
             //It will be triggerred when the device is android
             ROTATE_WITH_KEYBOARD = true;
         }
