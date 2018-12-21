@@ -279,13 +279,17 @@ function make_loading(target, is_fullscreen, width_ratio, border_ratio, backgrou
     container.append(text);
     container.on("resize",function(){
         var deg = IS_ROTATED && IS_DOCUMENT_LOADED?"-90deg":"0deg";
+        if(is_fullscreen) {
+            $(this).css({
+                "-webkit-transform": "rotate("+deg+")",
+                "-ms-transform": "rotate("+deg+")",
+                "transform": "rotate(-"+deg+")",
+            })
+        }
         $(this).css({
             "width": is_fullscreen? (IS_ROTATED && IS_DOCUMENT_LOADED?"100vh":"100vw") : $(target).width(),
             "height": is_fullscreen? (IS_ROTATED && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height(),
             "line-height": is_fullscreen? (IS_ROTATED && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height()+"px",
-            "-webkit-transform": "rotate("+deg+")",
-            "-ms-transform": "rotate("+deg+")",
-            "transform": "rotate(-"+deg+")",
             "margin-top": is_fullscreen? (IS_ROTATED && IS_DOCUMENT_LOADED?"-50vw":"-50vh"): -($(target).height()/2),
             "margin-left":  is_fullscreen? (IS_ROTATED && IS_DOCUMENT_LOADED?"-50vh":"-50vw"): -($(target).width()/2),
         });
