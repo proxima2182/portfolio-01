@@ -196,11 +196,11 @@ check_device();
 var RESIZE_ID;
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
-    $("input").on("focus", function() {
+    $("input[type=text],textarea").on("focusin", function() {
         console.log("focused");
     })
-    $("input").on("blur", function() {
-        console.log("blur");
+    $("input[type=text],textarea").on("focusout", function() {
+        console.log("keyup");
     })
     window.addEventListener("resize", function() {
         resize_standard();
