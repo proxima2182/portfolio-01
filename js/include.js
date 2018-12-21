@@ -196,17 +196,15 @@ check_device();
 var RESIZE_ID;
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
-    if(IS_MOBILE) {
+    if(IS_IOS) {
         $("input[type=text],textarea").on("focusin", function() {
             console.log("focused");
+            ROTATE_WITH_KEYBOARD = false;
             make_extra_input($(this));
         })
-//        $("input[type=text],textarea").on("focusout", function() {
-//            console.log("keyup");
-//            resize_standard();
-//        })
     }
     window.addEventListener("resize", function() {
+        console.log("resize");
         resize_standard();
         fullpage_resize();
         map_resize();

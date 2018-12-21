@@ -42,6 +42,7 @@ function focus_out() {
     })
 }
 function check_device() {
+    console.log("check_device");
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
     IS_ANDROID = /android/i.test(userAgent);
     IS_IOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
@@ -51,8 +52,6 @@ function check_device() {
 //    } else {
 //        IS_MOBILE = false;
 //    }
-    
-    console.log("resize");
     if(IS_MOBILE) {
         SCREEN_DEGREE = screen.orientation!= undefined?screen.orientation.angle:window.orientation;
         console.log("SCREEN_DEGREE : "+ SCREEN_DEGREE);
@@ -115,7 +114,6 @@ function make_extra_input(focused) {
     input.onEnterKey(function() {
         focused.val(input.val());
         focus_out();
-//                input_wrap.remove();
     })
     if(IS_IOS) {
         input.on("focusout", function() {
@@ -127,6 +125,7 @@ function make_extra_input(focused) {
 console.log("몇번째 ? 12");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
+    console.log("resize_standard");
     var need_rotate = SCREEN_DEGREE;
     check_device();
     need_rotate = need_rotate != SCREEN_DEGREE;
@@ -144,10 +143,10 @@ function resize_standard() {
                 $(".additional_text_area").remove();
             }
             ROTATE_WITH_KEYBOARD = false;
-//            if(focused != undefined) {
-//                make_extra_input(focused);
-//                return;
-//            }
+            if(focused != undefined) {
+                make_extra_input(focused);
+                return;
+            }
         } else{
             ROTATE_WITH_KEYBOARD = true;
         }
