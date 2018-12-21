@@ -81,7 +81,7 @@ function check_device() {
         console.log("CASE 03");
     }
 }
-console.log("몇번째 ? 8");
+console.log("몇번째 ? 9");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
     var need_rotate = SCREEN_DEGREE;
@@ -90,7 +90,6 @@ function resize_standard() {
     console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + screen.width + ", HEIGHT : " + screen.height)
     console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + window.innerWidth + ", HEIGHT : " + window.innerHeight)
     console.log("IS_MOBILE : " + IS_MOBILE +", WIDTH : " + document.documentElement.clientWidth + ", HEIGHT : " + document.documentElement.clientHeight)
-    console.log(window);
     if(IS_MOBILE) {
         var width = window.innerWidth;
         var height = window.innerHeight;
