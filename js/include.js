@@ -200,17 +200,7 @@ $(document).ready(function(){
         $("input[type=text],textarea").on("focusin", function() {
             console.log("focused");
 //            resize_standard();
-            var input = $('#wrap input');
-            var textarea = $('#wrap textarea');
-            var input_checked = focus_check(input);
-            var textarea_checked = focus_check(textarea);
-            var focused = input_checked != undefined ? input_checked : textarea_checked;
-
-            if(focused == undefined && !ROTATE_WITH_KEYBOARD) {
-                $(".additional_text_area").remove();
-            }
             ROTATE_WITH_KEYBOARD = false;
-            if(focused != undefined) {
                 var input_wrap = $("<div class=\"additional_text_area\"></div>")
                 var input = $("<input type=\"text\"></input>");
                 input_wrap.append(input);
@@ -235,7 +225,7 @@ $(document).ready(function(){
                     })
                 }
                 $("body").append(input_wrap);
-                focused.blur();
+                $(this).blur();
                 input.val(focused.val());
                 input.get(0).focus();
                 input.onEnterKey(function() {
@@ -243,7 +233,6 @@ $(document).ready(function(){
                     focus_out();
     //                input_wrap.remove();
                 })
-            }
         })
         $("input[type=text],textarea").on("focusout", function() {
             console.log("keyup");

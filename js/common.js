@@ -81,7 +81,7 @@ function check_device() {
         console.log("CASE 03");
     }
 }
-console.log("몇번째 ? 10");
+console.log("몇번째 ? 11");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
     var need_rotate = SCREEN_DEGREE;
