@@ -83,7 +83,7 @@ function check_device() {
 function make_extra_input(focused) {
     var width = window.innerWidth;
     var height = window.innerHeight;
-    var input_wrap = $("<div class=\"additional_text_area\"></div>")
+    var input_wrap = $("<div class=\"extra_input_area\"></div>")
     var input = $("<input type=\"text\"></input>");
     input_wrap.append(input);
     input_wrap.css({
@@ -145,18 +145,23 @@ function resize_standard() {
             console.log(focused);
 
             if(focused == undefined && !ROTATE_WITH_KEYBOARD) {
-                $(".additional_text_area").remove();
+                $(".extra_input_area").remove();
+            } else if(IS_IOS){
+                var input = $(".extra_input_area input");
+                if(input.length>0) {
+                    input.get(0).focus();
+                }
             }
             ROTATE_WITH_KEYBOARD = false;
             if(IS_ANDROID && focused != undefined) {
                 make_extra_input(focused);
                 return;
             }
-        } else{
+        } else if(IS_ANDROID){
             //It will be triggerred when the device is android
             ROTATE_WITH_KEYBOARD = true;
         }
-        var input_wrap = $(".additional_text_area");
+        var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
             input_wrap.css({
                 "width" : width,
