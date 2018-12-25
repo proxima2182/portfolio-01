@@ -88,33 +88,20 @@ function make_extra_input(focused) {
     var height = $(window).height();
     var input_wrap = $("<div class=\"extra_input_area\"></div>")
     var input = $("<input type=\"text\"></input>");
-//    var margin_top = -1*height/2;
-//    var margin_left = -1*width/2;
-//    if(IS_IOS) {
-//        margin_top -= window.innerHeight/2;
-//    }
+    input_wrap.append(input);
     input_wrap.append(input);
     input_wrap.css({
         "width" : "100%",
         "height" : "100%",
         "line-height" : height + "px",
         "background" : "#000",
-//        "position" : "fixed",
         "opacity":"0.5",
-        "z-index": 153,
-//        "top": "50%",
-//        "left": "50%",
-//        "margin-top": -1*height/2,
-//        "margin-left": -1*width/2,
     })
     $("body").append(input_wrap);
     input_wrap.click(function() {
         focus_out();
     });
     focused.blur();
-//    input.css({
-//        "margin-top": IS_IOS? -(window.innerHeight/2):0,
-//    })
     input.data("focused", focused);
     input.css({
         "width": "80%",
@@ -147,19 +134,9 @@ function make_extra_input(focused) {
         var offset = input.offset().top;
         console.log("input_offset_top : " + offset);
         $("body").css({
-            "height": height + offset,
+            "height": height + offset/2,
         })
-        document.body.scrollTop = offset;
-//        if(IS_ROTATED) {
-//            input_wrap.css({
-//                "margin-left": -1*width + CONTENT_WIDTH*0.08,
-//            });
-//        }else {
-//            input_wrap.css({
-//                "margin-top": -1*height + CONTENT_WIDTH*0.08,
-//            });
-//        }
-        
+        document.body.scrollTop = offset/2;
     }
 }
 
@@ -216,12 +193,6 @@ function resize_standard() {
         if(input_wrap.length > 0){
             input_wrap.css({
                 "line-height" : height + "px",
-                "background" : "#000",
-//                "position" : "fixed",
-//                "top": "50%",
-//                "left": "50%",
-//                "margin-top": -1*height/2,
-//                "margin-left": -1*width/2,
             })
             var input = input_wrap.find("input");
             input.css({
@@ -233,18 +204,9 @@ function resize_standard() {
                 var offset = input.offset().top;
                 console.log("input_offset_top : " + offset);
                 $("body").css({
-                    "height": height + offset,
+                    "height": height + offset/2,
                 })
-                document.body.scrollTop = offset;
-//                if(IS_ROTATED && !IS_PAD) {
-//                    input_wrap.css({
-//                        "margin-left": -1*width + CONTENT_WIDTH*0.08,
-//                    });
-//                }else {
-//                    input_wrap.css({
-//                        "margin-top": -1*height + CONTENT_WIDTH*0.08,
-//                    });
-//                }
+                document.body.scrollTop = offset/2;
             }
         }
     }
