@@ -192,9 +192,8 @@ function resize_standard() {
             console.log(focused);
 
             if(focused == undefined && !ROTATE_WITH_KEYBOARD) {
-//                $(".extra_input_area").remove();
-//                $("body").removeAttr("style");
-                focus_out();
+                $(".extra_input_area").remove();
+                $("body").removeAttr("style");
             }
             ROTATE_WITH_KEYBOARD = false;
             if(IS_ANDROID && focused != undefined) {
