@@ -115,6 +115,7 @@ function make_extra_input(focused) {
 //    input.css({
 //        "margin-top": IS_IOS? -(window.innerHeight/2):0,
 //    })
+    input.data("focused", focused);
     input.val(focused.val());
     input.get(0).focus();
     input.onEnterKey(function() {
@@ -182,7 +183,7 @@ function resize_standard() {
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
             if(IS_IOS) {
-                input_wrap.find("input").focus();
+                input_wrap.find("input").data("focused").focus();
             }
             input_wrap.css({
                 "width" : width,
