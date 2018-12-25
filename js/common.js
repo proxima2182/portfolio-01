@@ -94,7 +94,8 @@ function make_extra_input(focused) {
     input_wrap.css({
         "width" : width,
         "height" : height,
-        "line-height" : (IS_IOS? -(window.innerHeight):height) + "px",
+//        "line-height" : (IS_IOS? (window.innerHeight):height) + "px",
+        "line-height" : height + "px",
         "background" : "#000",
         "position" : "fixed",
         "top": "50%",
@@ -126,6 +127,10 @@ function make_extra_input(focused) {
             console.log("keyup");
             resize_standard();
         })
+        setTimeout(function() {
+            window.scrollTo(0, -1*height/2);
+            document.body.scrollTop = -1*height/2;
+        }, 50)
     }
 }
 console.log("몇번째 ? 15");

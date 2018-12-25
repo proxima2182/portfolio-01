@@ -198,10 +198,6 @@ $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
     if(IS_IOS) {
         $("input[type=text],textarea").on("focusin", function() {
-            setTimeout(function() {
-                window.scrollTo(0, 0);
-                document.body.scrollTop = 0;
-            }, 50)
             console.log("focused");
             make_extra_input($(this));
         })
