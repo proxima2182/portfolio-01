@@ -17,8 +17,6 @@ function make_fullpage(sal, pal) {
     $("#wrap").css({
         "overflow":"hidden",
         "position":"relative",
-//        "width" : "100%",
-//        "height" : "100%",
     })
     var pages = $(".fullpage");
     var mouse_in = false;
