@@ -126,11 +126,7 @@ function make_extra_input(focused) {
 //        window.scrollTo(0, height/2);
 //        document.body.scrollTop = height/2;
         
-        // get textarea's offset top position
-        var textareaTop = focused.offset().top;
-        console.log("textareaTop : " + focused.offset().top);
-        // scroll to the textarea
-//        $('html, body').scrollTop(textareaTop);
+        console.log("scrollHeight: " + document.body.scrollHeight);
         input.on("focusout", function() {
             console.log("keyup");
             resize_standard();
@@ -185,7 +181,6 @@ function resize_standard() {
         }
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
-            console.log("textareaTop : " + focused.offset().top);
             input_wrap.css({
                 "width" : width,
                 "height" : height,
@@ -213,6 +208,7 @@ function resize_standard() {
         }
     }
     
+    console.log("scrollHeight in Resize : " + document.body.scrollHeight);
     console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
     console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());
     
