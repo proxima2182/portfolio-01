@@ -196,11 +196,6 @@ function resize_standard() {
             }
         }
     }
-//    console.log("offset : " + $("html").offset().top);
-//    console.log("WIDTH : "+ window.outerWidth +", HEIGHT : "+ window.outerHeight);
-//    console.log("WIDTH : "+ WINDOW_WIDTH +", HEIGHT : "+ WINDOW_HEIGHT);
-//    console.log("WIDTH : "+ screen.width +", HEIGHT : "+ screen.height);
-//    console.log("WIDTH : "+ $(window).width() +", HEIGHT : "+ $(window).height());
     console.log("resize_not_returned");
     $("body").css({
         "width": WINDOW_WIDTH,
@@ -229,6 +224,10 @@ function resize_standard() {
         });
     }
 }
+$("*").scroll(function() {
+    console.log("scroll action");
+    console.log($(this));
+})
 
 //additional functions
 
