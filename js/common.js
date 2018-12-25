@@ -185,30 +185,24 @@ function resize_standard() {
             if(IS_IOS) {
                 setTimeout(function(){
                     input_wrap.find("input").data("focused").focus();
-                },50);
+                },100);
             }
             input_wrap.css({
                 "width" : width,
                 "height" : height,
                 "line-height" : height + "px",
-                "-webkit-transform": "rotate(0deg)",
-                "-ms-transform": "rotate(0deg)",
-                "transform": "rotate(0deg)",
                 "background" : "#000",
                 "position" : "fixed",
-                "top": 0,
-                "left": 0,
-                "margin": 0,
+                "top": "50%",
+                "left": "50%",
+                "margin-top": -1*height/2,
+                "margin-left": -1*width/2,
             })
             if(IS_ROTATED) {
                 input_wrap.css({
                     "-webkit-transform": "rotate(-90deg)",
                     "-ms-transform": "rotate(-90deg)",
                     "transform": "rotate(-90deg)",
-                    "top": "50%",
-                    "left": "50%",
-                    "margin-top": -1*height/2,
-                    "margin-left": -1*width/2,
                 })
             }
         }
