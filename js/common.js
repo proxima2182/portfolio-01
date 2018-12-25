@@ -95,8 +95,8 @@ function make_extra_input(focused) {
 //    }
     input_wrap.append(input);
     input_wrap.css({
-        "width" : width,
-        "height" : height,
+        "width" : "100%",
+        "height" : "100%",
         "line-height" : height + "px",
         "background" : "#000",
 //        "position" : "fixed",
@@ -215,8 +215,6 @@ function resize_standard() {
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
             input_wrap.css({
-                "width" : width,
-                "height" : height,
                 "line-height" : height + "px",
                 "background" : "#000",
 //                "position" : "fixed",
