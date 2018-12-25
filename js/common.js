@@ -2,9 +2,7 @@ var CONTENT_WIDTH;
 var WINDOW_WIDTH, WINDOW_HEIGHT;
 var SCREEN_DEGREE = 0;
 var IS_ROTATED = false;
-var IS_IOS = false;
-var IS_ANDROID = false;
-var IS_MOBILE = false;
+var IS_IOS = false, IS_ANDROID = false, IS_IPAD= false, IS_MOBILE = false;
 var IS_DOCUMENT_LOADED = false;
 
 var root = document.documentElement;
