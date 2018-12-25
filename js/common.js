@@ -94,10 +94,6 @@ function make_extra_input(focused) {
 //        margin_top -= window.innerHeight/2;
 //    }
     input_wrap.append(input);
-    var deg= "0deg";
-    if(IS_ROTATED) {
-        deg = "-90deg";
-    }
     input_wrap.css({
         "width" : width,
         "height" : height,
@@ -106,9 +102,6 @@ function make_extra_input(focused) {
         "position" : "fixed",
         "opacity":"0.5",
         "z-index": 153,
-        "-webkit-transform": "rotate("+deg+")",
-        "-ms-transform": "rotate("+deg+")",
-        "transform": "rotate("+deg+")",
         "top": "50%",
         "left": "50%",
         "margin-top": -1*height/2,
@@ -220,19 +213,12 @@ function resize_standard() {
         }
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
-            var deg= "0deg";
-            if(IS_ROTATED && !IS_PAD) {
-                deg = "-90deg";
-            }
             input_wrap.css({
                 "width" : width,
                 "height" : height,
                 "line-height" : height + "px",
                 "background" : "#000",
                 "position" : "fixed",
-                "-webkit-transform": "rotate("+deg+")",
-                "-ms-transform": "rotate("+deg+")",
-                "transform": "rotate("+deg+")",
                 "top": "50%",
                 "left": "50%",
                 "margin-top": -1*height/2,
