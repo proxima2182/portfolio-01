@@ -91,25 +91,24 @@ function make_extra_input(focused) {
 //        margin_top -= window.innerHeight/2;
 //    }
     input_wrap.append(input);
+    var deg= "0deg";
+    if(IS_ROTATED) {
+        deg = "-90deg";
+    }
     input_wrap.css({
-        "width" : WINDOW_WIDTH,
-        "height" : WINDOW_HEIGHT,
-//        "line-height" : (IS_IOS? (window.innerHeight):height) + "px",
+        "width" : width,
+        "height" : height,
         "line-height" : height + "px",
         "background" : "#000",
         "position" : "fixed",
+        "-webkit-transform": "rotate("+deg+")",
+        "-ms-transform": "rotate("+deg+")",
+        "transform": "rotate("+deg+")",
         "top": "50%",
         "left": "50%",
-        "margin-top": -1*WINDOW_HEIGHT/2,
-        "margin-left": -1*WINDOW_WIDTH/2,
+        "margin-top": -1*height/2,
+        "margin-left": -1*width/2,
     })
-    if(IS_ROTATED) {
-        input_wrap.css({
-            "-webkit-transform": "rotate(-90deg)",
-            "-ms-transform": "rotate(-90deg)",
-            "transform": "rotate(-90deg)",
-        })
-    }
     $("body").append(input_wrap);
     focused.blur();
 //    input.css({
@@ -182,22 +181,26 @@ function resize_standard() {
         }
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
+            var deg= "0deg";
+            if(IS_ROTATED) {
+                deg = "-90deg";
+            }
             input_wrap.css({
-                "width" : WINDOW_WIDTH,
-                "height" : WINDOW_HEIGHT,
-                "line-height" : WINDOW_HEIGHT + "px",
+                "width" : width,
+                "height" : height,
+                "line-height" : height + "px",
                 "background" : "#000",
                 "position" : "fixed",
+                "-webkit-transform": "rotate("+deg+")",
+                "-ms-transform": "rotate("+deg+")",
+                "transform": "rotate("+deg+")",
                 "top": "50%",
                 "left": "50%",
-                "margin-top": -1*WINDOW_HEIGHT/2,
-                "margin-left": -1*WINDOW_WIDTH/2,
+                "margin-top": -1*height/2,
+                "margin-left": -1*width/2,
             })
             if(IS_ROTATED) {
                 input_wrap.css({
-                    "-webkit-transform": "rotate(-90deg)",
-                    "-ms-transform": "rotate(-90deg)",
-                    "transform": "rotate(-90deg)",
                 })
             }
 //            if(IS_IOS) {
