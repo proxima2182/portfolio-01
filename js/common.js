@@ -182,11 +182,6 @@ function resize_standard() {
         }
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
-            if(IS_IOS) {
-                setTimeout(function(){
-                    input_wrap.find("input").data("focused").focus();
-                },500);
-            }
             input_wrap.css({
                 "width" : width,
                 "height" : height,
@@ -204,6 +199,11 @@ function resize_standard() {
                     "-ms-transform": "rotate(-90deg)",
                     "transform": "rotate(-90deg)",
                 })
+            }
+            if(IS_IOS) {
+                setTimeout(function(){
+                    input_wrap.find("input").data("focused").focus();
+                },100);
             }
         }
     }
