@@ -94,7 +94,7 @@ function make_extra_input(focused) {
     input_wrap.css({
         "width" : width,
         "height" : height,
-        "line-height" : height + "px",
+        "line-height" : (IS_IOS? -(window.innerHeight):height) + "px",
         "background" : "#000",
         "position" : "fixed",
         "top": "50%",
@@ -111,9 +111,9 @@ function make_extra_input(focused) {
     }
     $("body").append(input_wrap);
     focused.blur();
-    input.css({
-        "margin-top": IS_IOS? -(window.innerHeight/2):0,
-    })
+//    input.css({
+//        "margin-top": IS_IOS? -(window.innerHeight/2):0,
+//    })
     input.val(focused.val());
     input.get(0).focus();
     input.onEnterKey(function() {
