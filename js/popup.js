@@ -6,7 +6,7 @@ function show_detail_view(index) {
         var media = resource.find("media").text();
         var path = resource.find("path").text();
         var detail_view = $("<div class=\"detail_view\"></div>");
-        $("body").append(detail_view);
+        $("#wrap").append(detail_view);
         var notice_wrap = $("<div class\"notice_wrap\">Tap outside to close</div>");
 
         detail_view.css({
@@ -52,7 +52,7 @@ function show_detail_view(index) {
             content.off("load");
             $("body>.section_loading").remove();
             if(!content.complete) {
-                make_loading($("body"), false, 0.08, 0.012, "#1c2e5f", "#fff");
+                make_loading($("#wrap"), false, 0.08, 0.012, "#1c2e5f", "#fff");
             }
             content.on("load loadeddata" ,function() {
                 $("body>.section_loading").remove();
@@ -168,7 +168,7 @@ function popup(meta) {
 //        var resource_wrap = $("<div class=\"resource_wrap\"></div>")
         popup.append(popup_content_wrap);
         popup_content_wrap.append(resource_wrap);
-        $("body").append(popup);
+        $("#wrap").append(popup);
 
         popup.css({
             "width": CONTENT_WIDTH*0.6,
@@ -433,7 +433,7 @@ function popup(meta) {
                     "bottom":-1*popup.outerHeight(),
                 },400,function(){
                     $(".popup").remove();
-                    $("body").off("click");
+                    $("#wrap").off("click");
                     IS_FULLPAGE_SCROLLABLE = true;
                 })
             });
@@ -441,13 +441,13 @@ function popup(meta) {
             popup.click(function(e) {
                 e.stopPropagation();
             })
-            $("body").click(function(e) {
+            $("#wrap").click(function(e) {
                 var popup = $(".popup");
                 popup.animate({
                     "bottom":-1*popup.outerHeight(),
                 },400,function(){
                     $(".popup").remove();
-                    $("body").off("click");
+                    $("#wrap").off("click");
                     IS_FULLPAGE_SCROLLABLE = true;
                 })
             })

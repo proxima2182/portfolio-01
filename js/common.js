@@ -113,7 +113,7 @@ function make_extra_input(focused) {
         "margin-top": -1*height/2,
         "margin-left": -1*width/2,
     })
-    $("body").append(input_wrap);
+    $("#wrap").append(input_wrap);
     input_wrap.click(function() {
         focus_out();
     });
@@ -257,12 +257,12 @@ function resize_standard() {
     console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());
     
     console.log("resize_not_returned");
-    $("body").css({
+    $("#wrap").css({
         "width": WINDOW_WIDTH,
         "height": WINDOW_HEIGHT,
     })
     if(IS_MOBILE && IS_ROTATED) {
-        $("body").css({
+        $("#wrap").css({
             "-webkit-transform": "rotate(90deg)",
             "-ms-transform": "rotate(90deg)",
             "transform": "rotate(90deg)",
@@ -273,7 +273,7 @@ function resize_standard() {
             position:"absolute",
         });
     } else {
-        $("body").css({
+        $("#wrap").css({
             "-webkit-transform": "rotate(0deg)",
             "-ms-transform": "rotate(0deg)",
             "transform": "rotate(0deg)",

@@ -17,8 +17,8 @@ function make_fullpage(sal, pal) {
     $("#wrap").css({
         "overflow":"hidden",
         "position":"relative",
-        "width" : "100%",
-        "height" : "100%",
+//        "width" : "100%",
+//        "height" : "100%",
     })
     var pages = $(".fullpage");
     var mouse_in = false;
@@ -217,7 +217,7 @@ function make_fullpage(sal, pal) {
             });
         }
     }
-    $("body").bind('mousewheel', function(event){
+    $("#wrap").bind('mousewheel', function(event){
         if(event.originalEvent.wheelDelta /120 > 0) {
             if(!is_animating && IS_FULLPAGE_SCROLLABLE) {
                 move(-1);

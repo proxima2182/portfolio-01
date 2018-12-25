@@ -140,7 +140,7 @@ function make_enter() {
         "z-index": 150,
         "position": "fixed",
     });
-    $("body").append(container);
+    $("#wrap").append(container);
     var css_value = {
         "position": "absolute",
         "top": 0,
@@ -202,7 +202,7 @@ $(document).ready(function(){
 //            document.body.scrollTop = 0;
             console.log("focused");
             make_extra_input($(this));
-            $("body").scrollTop(0);
+            $("#wrap").scrollTop(0);
         })
     }
     window.addEventListener("resize", function() {
@@ -217,7 +217,7 @@ $(document).ready(function(){
             if(input_wrap.length > 0){
 //                var input = input_wrap.find("input");
 //                input.data("focused").focus();
-                $("body").scrollTop(0);
+                $("#wrap").scrollTop(0);
             }
         }
     });
