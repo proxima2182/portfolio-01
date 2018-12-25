@@ -63,11 +63,11 @@ function check_device() {
         IS_ROTATED = false;
     }
     
-    WINDOW_WIDTH = window.innerWidth;
-    WINDOW_HEIGHT = window.innerHeight;
+    WINDOW_WIDTH = $(window).width();
+    WINDOW_HEIGHT = $(window).height();
     if(IS_ROTATED) {
-        WINDOW_WIDTH = window.innerHeight;
-        WINDOW_HEIGHT = window.innerWidth;
+        WINDOW_WIDTH = $(window).height();
+        WINDOW_HEIGHT = $(window).width();
     }
     if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
         CONTENT_WIDTH = 1000;
@@ -81,8 +81,8 @@ function check_device() {
     }
 }
 function make_extra_input(focused) {
-    var width = window.innerWidth;
-    var height = window.innerHeight;
+    var width = $(window).width();
+    var height = $(window).height();
     var input_wrap = $("<div class=\"extra_input_area\"></div>")
     var input = $("<input type=\"text\"></input>");
     input_wrap.append(input);
@@ -130,8 +130,8 @@ function resize_standard() {
     check_device();
     need_rotate = need_rotate != SCREEN_DEGREE;
     if(IS_MOBILE) {
-        var width = window.innerWidth;
-        var height = window.innerHeight;
+        var width = $(window).width();
+        var height = $(window).height();
         if(!need_rotate && !ROTATE_WITH_KEYBOARD || ROTATE_WITH_KEYBOARD) {
             var input = $('#wrap input');
             var textarea = $('#wrap textarea');
@@ -196,11 +196,11 @@ function resize_standard() {
             }
         }
     }
-    console.log("offset : " + $("html").offset().top);
-    console.log("WIDTH : "+ window.outerWidth +", HEIGHT : "+ window.outerHeight);
-    console.log("WIDTH : "+ WINDOW_WIDTH +", HEIGHT : "+ WINDOW_HEIGHT);
-    console.log("WIDTH : "+ screen.width +", HEIGHT : "+ screen.height);
-    console.log("WIDTH : "+ $(window).width() +", HEIGHT : "+ $(window).height());
+//    console.log("offset : " + $("html").offset().top);
+//    console.log("WIDTH : "+ window.outerWidth +", HEIGHT : "+ window.outerHeight);
+//    console.log("WIDTH : "+ WINDOW_WIDTH +", HEIGHT : "+ WINDOW_HEIGHT);
+//    console.log("WIDTH : "+ screen.width +", HEIGHT : "+ screen.height);
+//    console.log("WIDTH : "+ $(window).width() +", HEIGHT : "+ $(window).height());
     console.log("resize_not_returned");
     $("body").css({
         "width": WINDOW_WIDTH,
