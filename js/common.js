@@ -123,15 +123,20 @@ function make_extra_input(focused) {
     })
     if(IS_IOS) {
         //when user press 'done'
-        window.scrollTo(0, height/2);
-        document.body.scrollTop = height/2;
+//        window.scrollTo(0, height/2);
+//        document.body.scrollTop = height/2;
+        
+        // get textarea's offset top position
+        var textareaTop = focused.offset().top;
+        // scroll to the textarea
+        $('html, body').scrollTop(textareaTop);
         input.on("focusout", function() {
             console.log("keyup");
             resize_standard();
         })
     }
 }
-console.log("몇번째 ? 16");
+console.log("몇번째 ? 17");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
     console.log("resize_standard");
@@ -206,7 +211,6 @@ function resize_standard() {
         }
     }
     
-    console.log("test : " + document.body.scrollTop);
     console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
     console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());
     
