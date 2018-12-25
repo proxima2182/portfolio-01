@@ -115,6 +115,14 @@ function make_extra_input(focused) {
 //        "margin-top": IS_IOS? -(window.innerHeight/2):0,
 //    })
     input.data("focused", focused);
+    input.css({
+        "width": "80%",
+        "font-size": CONTENT_WIDTH*0.02,
+        "height": CONTENT_WIDTH*0.04,
+        "line-height": CONTENT_WIDTH*0.04 + "px",
+//        "background":"#000",
+//        "color":"#fff",
+    })
     input.val(focused.val());
     input.get(0).focus();
     input.onEnterKey(function() {
@@ -199,14 +207,16 @@ function resize_standard() {
                 "margin-top": -1*height/2,
                 "margin-left": -1*width/2,
             })
-            if(IS_ROTATED) {
-                input_wrap.css({
-                })
-            }
+            var input = input_wrap.find("input");
+            input.css({
+                "font-size": CONTENT_WIDTH*0.02,
+                "height": CONTENT_WIDTH*0.04,
+                "line-height": CONTENT_WIDTH*0.04 + "px",
+            })
             if(IS_IOS) {
-//                setTimeout(function(){
-                    input_wrap.find("input").data("focused").focus();
-//                },250);
+                setTimeout(function(){
+                    input.data("focused").focus();
+                },250);
             }
         }
     }
