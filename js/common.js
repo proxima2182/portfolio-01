@@ -101,6 +101,7 @@ function make_extra_input(focused) {
         "line-height" : height + "px",
         "background" : "#000",
         "position" : "fixed",
+        "z-index": 153,
         "-webkit-transform": "rotate("+deg+")",
         "-ms-transform": "rotate("+deg+")",
         "transform": "rotate("+deg+")",
@@ -120,8 +121,11 @@ function make_extra_input(focused) {
         "font-size": CONTENT_WIDTH*0.02,
         "height": CONTENT_WIDTH*0.04,
         "line-height": CONTENT_WIDTH*0.04 + "px",
-//        "background":"#000",
-//        "color":"#fff",
+        "background":"#000",
+        "color":"#fff",
+        "border":0,
+        "caret-color":"#fff",
+        
     })
     input.val(focused.val());
     input.get(0).focus();
