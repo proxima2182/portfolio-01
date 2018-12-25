@@ -241,6 +241,14 @@ function resize_standard() {
     }
 }
 
+$("*").scroll(function(){
+    console.log("scroll");
+    console.log($(this));
+}).scrollTop(function() {
+    console.log("scrollTop");
+    console.log($(this));
+})
+
 //additional functions
 
 function make_loading(target, is_fullscreen, width_ratio, border_ratio, background_color, point_color, text) {
