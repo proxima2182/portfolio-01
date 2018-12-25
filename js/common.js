@@ -137,7 +137,6 @@ function make_extra_input(focused) {
 console.log("몇번째 ? 17");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
-    clearTimeout(window.resizedFinished);
     console.log("resize_standard");
     var need_rotate = SCREEN_DEGREE;
     check_device();
@@ -202,9 +201,9 @@ function resize_standard() {
                 })
             }
             if(IS_IOS) {
-                window.resizedFinished = setTimeout(function(){
+                setTimeout(function(){
                     input_wrap.find("input").data("focused").focus();
-                }, 250);
+                },250);
             }
         }
     }
