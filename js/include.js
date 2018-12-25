@@ -194,7 +194,6 @@ function include_resize() {
 
 check_device();
 check_resolution();
-var RESIZE_ID;
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
     if(IS_IOS) {
@@ -212,6 +211,13 @@ $(document).ready(function(){
         map_resize();
         include_resize();
         popup_resize();
+        if(IS_MOBILE && IS_IOS) {
+            var input_wrap = $(".extra_input_area");
+            if(input_wrap.length > 0){
+                var input = input_wrap.find("input");
+                input.data("focused").focus();
+            }
+        }
     });
 })
 
