@@ -153,6 +153,15 @@ function make_extra_input(focused) {
 //        input_wrap.css({
 //            "margin-top": -1*height,
 //        });
+        if(IS_ROTATED) {
+            input_wrap.css({
+                "margin-top": -1*height,
+            });
+        }else {
+            input_wrap.css({
+                "margin-left": -1*width,
+            });
+        }
         console.log("scrollHeight: " + document.body.scrollHeight);
         
     }
@@ -227,6 +236,15 @@ function resize_standard() {
                 "margin-left": -1*width/2,
             })
             if(IS_IOS) {
+                if(IS_ROTATED && !IS_PAD) {
+                    input_wrap.css({
+                        "margin-top": -1*height,
+                    });
+                }else {
+                    input_wrap.css({
+                        "margin-left": -1*width,
+                    });
+                }
 //                input_wrap.css({
 //                    "margin-top": -1*height,
 //                });
