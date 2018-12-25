@@ -82,6 +82,7 @@ function check_resolution() {
 }
 
 function make_extra_input(focused) {
+//    $("#wrap").css("display","none");
     var width = $(window).width();
     var height = $(window).height();
     var input_wrap = $("<div class=\"extra_input_area\"></div>")
@@ -102,6 +103,7 @@ function make_extra_input(focused) {
         "line-height" : height + "px",
         "background" : "#000",
         "position" : "fixed",
+        "opacity":"0.5",
         "z-index": 153,
         "-webkit-transform": "rotate("+deg+")",
         "-ms-transform": "rotate("+deg+")",
