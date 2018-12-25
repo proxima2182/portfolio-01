@@ -150,15 +150,15 @@ function make_extra_input(focused) {
             console.log("keyup");
             resize_standard();
         });
-        if(IS_ROTATED) {
-            input_wrap.css({
-                "margin-left": -1*width + CONTENT_WIDTH*0.04,
-            });
-        }else {
-            input_wrap.css({
-                "margin-top": -1*height + CONTENT_WIDTH*0.04,
-            });
-        }
+//        if(IS_ROTATED) {
+//            input_wrap.css({
+//                "margin-left": -1*width + CONTENT_WIDTH*0.04,
+//            });
+//        }else {
+//            input_wrap.css({
+//                "margin-top": -1*height + CONTENT_WIDTH*0.04,
+//            });
+//        }
         console.log("scrollHeight: " + document.body.scrollHeight);
         
     }
@@ -215,7 +215,7 @@ function resize_standard() {
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
             var deg= "0deg";
-            if(IS_ROTATED) {
+            if(IS_ROTATED && !IS_PAD) {
                 deg = "-90deg";
             }
             input_wrap.css({
@@ -233,18 +233,15 @@ function resize_standard() {
                 "margin-left": -1*width/2,
             })
             if(IS_IOS) {
-                if(IS_ROTATED && !IS_PAD) {
-                    input_wrap.css({
-                        "margin-left": -1*width + CONTENT_WIDTH*0.04,
-                    });
-                }else {
-                    input_wrap.css({
-                        "margin-top": -1*height + CONTENT_WIDTH*0.04,
-                    });
-                }
-//                input_wrap.css({
-//                    "margin-top": -1*height,
-//                });
+//                if(IS_ROTATED && !IS_PAD) {
+//                    input_wrap.css({
+//                        "margin-left": -1*width + CONTENT_WIDTH*0.04,
+//                    });
+//                }else {
+//                    input_wrap.css({
+//                        "margin-top": -1*height + CONTENT_WIDTH*0.04,
+//                    });
+//                }
             }
             var input = input_wrap.find("input");
             input.css({
