@@ -203,11 +203,11 @@ function resize_standard() {
                 input_wrap.css({
                 })
             }
-//            if(IS_IOS) {
-//                setTimeout(function(){
-//                    input_wrap.find("input").data("focused").focus();
-//                },250);
-//            }
+            if(IS_IOS) {
+                setTimeout(function(){
+                    input_wrap.find("input").data("focused").focus();
+                },250);
+            }
         }
     }
     
