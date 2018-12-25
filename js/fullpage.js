@@ -63,7 +63,6 @@ function make_fullpage(sal, pal) {
                 }
             }
         }).on("mousedown touchstart", function(event){
-            focus_out();
             if(event.type == "mousedown" && 
                    event.target.tagName != "INPUT" && event.target.tagName != "TEXTAREA") {
                     //for web

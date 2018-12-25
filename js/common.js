@@ -114,6 +114,9 @@ function make_extra_input(focused) {
         "margin-left": -1*width/2,
     })
     $("body").append(input_wrap);
+    input_wrap.click(function() {
+        focus_out();
+    })
     focused.blur();
 //    input.css({
 //        "margin-top": IS_IOS? -(window.innerHeight/2):0,
@@ -132,6 +135,9 @@ function make_extra_input(focused) {
     })
     input.val(focused.val());
     input.get(0).focus();
+    input.click(function(event) {
+        event.stopPropagation();
+    })
     input.onEnterKey(function() {
         focused.val(input.val());
         focus_out();
