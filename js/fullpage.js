@@ -44,7 +44,6 @@ function make_fullpage(sal, pal) {
                 if(event.type == "mousemove") {
                     //for web
                     y = IS_ROTATED? -1*event.pageX: event.pageY;
-                    event.stopPropagation();
                 } else{
                     //for mobile
                     if(event.targetTouches.length>1) {
@@ -52,6 +51,7 @@ function make_fullpage(sal, pal) {
                     }
                     y = IS_ROTATED? -1*event.targetTouches[0].pageX: event.targetTouches[0].pageY;
                 }
+                event.preventDefault();
                 if(mouse_in && !is_animating) {
                     if(starting_point == 0){
                         starting_point = y;
