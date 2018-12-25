@@ -52,20 +52,11 @@ function resize_enter() {
     var container = $("#section_enter");
     if(container.length>0) {
         map_clear(1);
-        var width = WINDOW_WIDTH;
-        var height = WINDOW_HEIGHT;
-        var deg = "0deg";
-        if(IS_ROTATED) {
-            width = WINDOW_HEIGHT;
-            height = WINDOW_WIDTH;
-            deg = "-90deg";
-        }
+        var width = $(window).width();
+        var height = $(window).height();
         container.css({
             "width": width,
             "height": height,
-            "-webkit-transform": "rotate("+deg+")",
-            "-ms-transform": "rotate("+deg+")",
-            "transform": "rotate("+deg+")",
             "margin-top": -1*height/2,
             "margin-left": -1*width/2,
         })
@@ -115,24 +106,18 @@ function make_enter() {
     IS_FULLPAGE_SCROLLABLE = true;
     map_clear(1);
     var container = $("<div id=\"section_enter\"></div>");
-    var width = WINDOW_WIDTH;
-    var height = WINDOW_HEIGHT;
-    var deg = "0deg";
-    if(IS_ROTATED) {
-        width = WINDOW_HEIGHT;
-        height = WINDOW_WIDTH;
-        deg = "-90deg";
-    }
-    console.log("width : "+ width);
-    console.log("height : "+ height);
-    console.log("content : "+ CONTENT_WIDTH);
+    var width = $(window).width();
+    var height = $(window).height();
+//    var deg = "0deg";
+//    if(IS_ROTATED) {
+//        width = WINDOW_HEIGHT;
+//        height = WINDOW_WIDTH;
+//        deg = "-90deg";
+//    }
     container.css({
         "width": width,
         "height": height,
         "background": "#1c2e5f",
-        "-webkit-transform": "rotate("+deg+")",
-        "-ms-transform": "rotate("+deg+")",
-        "transform": "rotate("+deg+")",
         "top": "50%",
         "left": "50%",
         "margin-top": -1*height/2,
@@ -140,7 +125,7 @@ function make_enter() {
         "z-index": 150,
         "position": "fixed",
     });
-    $("#wrap").append(container);
+    $("body").append(container);
     var css_value = {
         "position": "absolute",
         "top": 0,
