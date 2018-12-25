@@ -183,7 +183,9 @@ function resize_standard() {
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
             if(IS_IOS) {
-                input_wrap.find("input").data("focused").focus();
+                setTimeout(function(){
+                    input_wrap.find("input").data("focused").focus();
+                },50);
             }
             input_wrap.css({
                 "width" : width,
