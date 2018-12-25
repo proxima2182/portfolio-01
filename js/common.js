@@ -128,6 +128,7 @@ function make_extra_input(focused) {
         
         // get textarea's offset top position
         var textareaTop = focused.offset().top;
+        console.log("textareaTop : " + focused.offset().top);
         // scroll to the textarea
         $('html, body').scrollTop(textareaTop);
         input.on("focusout", function() {
