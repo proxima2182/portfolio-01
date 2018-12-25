@@ -212,6 +212,9 @@ $(document).ready(function(){
         include_resize();
         popup_resize();
     });
+    window.addEventListener("resizeFinished", function() {
+        console.log("resize_finished");
+    })
 })
 
 $(window).on("load",function() {
