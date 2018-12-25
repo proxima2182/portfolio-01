@@ -134,7 +134,7 @@ function make_extra_input(focused) {
         var offset = input.offset().top;
         console.log("input_offset_top : " + offset);
         $("body").css({
-            "height": height + offset/2,
+            "height": height + offset,
         })
         document.body.scrollTop = offset/2;
     }
@@ -204,7 +204,7 @@ function resize_standard() {
                 var offset = input.offset().top;
                 console.log("input_offset_top : " + offset);
                 $("body").css({
-                    "height": height + offset/2,
+                    "height": height + offset,
                 })
                 document.body.scrollTop = offset/2;
             }
