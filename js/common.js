@@ -181,6 +181,9 @@ function resize_standard() {
         }
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
+            if(IS_IOS) {
+                input_wrap.find("input").focus();
+            }
             input_wrap.css({
                 "width" : width,
                 "height" : height,
@@ -241,13 +244,6 @@ function resize_standard() {
     }
 }
 
-$("*").scroll(function(){
-    console.log("scroll");
-    console.log($(this));
-}).scrollTop(function() {
-    console.log("scrollTop");
-    console.log($(this));
-})
 
 //additional functions
 
