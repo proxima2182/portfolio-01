@@ -116,7 +116,11 @@ function make_extra_input(focused) {
     $("body").append(input_wrap);
     input_wrap.click(function() {
         focus_out();
-    })
+    }).on("touchmove", function(event){
+        event.stopPropagation();
+        event.preventDefault();
+    });
+    input_wrap.scrollTop(height/2);
     focused.blur();
 //    input.css({
 //        "margin-top": IS_IOS? -(window.innerHeight/2):0,
