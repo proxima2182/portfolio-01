@@ -205,7 +205,7 @@ function resize_standard() {
             }
             if(IS_IOS) {
 //                setTimeout(function(){
-                    input_wrap.find("input").focus();
+                    input_wrap.find("input").data("focused").focus();
 //                },250);
             }
         }
