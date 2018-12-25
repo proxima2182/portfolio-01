@@ -224,6 +224,12 @@ function resize_standard() {
                 "margin-top": -1*height/2,
                 "margin-left": -1*width/2,
             })
+            var input = input_wrap.find("input");
+            input.css({
+                "font-size": CONTENT_WIDTH*0.02,
+                "height": CONTENT_WIDTH*0.04,
+                "line-height": CONTENT_WIDTH*0.04 + "px",
+            })
             if(IS_IOS) {
                 var offset = input.offset().top;
                 $("body").css({
@@ -240,12 +246,6 @@ function resize_standard() {
 //                    });
 //                }
             }
-            var input = input_wrap.find("input");
-            input.css({
-                "font-size": CONTENT_WIDTH*0.02,
-                "height": CONTENT_WIDTH*0.04,
-                "line-height": CONTENT_WIDTH*0.04 + "px",
-            })
         }
     }
     IS_ROTATED = IS_ROTATED && !IS_PAD;
