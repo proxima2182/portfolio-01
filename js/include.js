@@ -211,12 +211,12 @@ $(document).ready(function(){
         map_resize();
         include_resize();
         popup_resize();
-        if(IS_MOBILE && IS_IOS) {
+        if(IS_IOS) {
             var input_wrap = $(".extra_input_area");
             if(input_wrap.length > 0){
-                var input = input_wrap.find("input");
-                input.data("focused").focus();
-//                $("body").scrollTop(0);
+//                var input = input_wrap.find("input");
+//                input.data("focused").focus();
+                $("body").scrollTop(0);
             }
         }
     });
