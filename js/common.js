@@ -116,12 +116,14 @@ function make_extra_input(focused) {
     $("body").append(input_wrap);
     input_wrap.click(function() {
         focus_out();
-    }).on("touchmove", function(event){
-        event.stopPropagation();
-        event.preventDefault();
     });
-    input_wrap.scrollTop(height/2);
-    $("body").scrollTop(height);
+    if(IS_IOS) {
+        input_wrap.on("touchmove", function(event){
+            event.stopPropagation();
+            event.preventDefault();
+        });
+        input_wrap.scrollTop(height/2);
+    }
     focused.blur();
 //    input.css({
 //        "margin-top": IS_IOS? -(window.innerHeight/2):0,
@@ -228,13 +230,15 @@ function resize_standard() {
                 "margin-top": -1*height/2,
                 "margin-left": -1*width/2,
             })
+            if(IS_IOS) {
+                input_wrap.scrollTop(height/2);
+            }
             var input = input_wrap.find("input");
             input.css({
                 "font-size": CONTENT_WIDTH*0.02,
                 "height": CONTENT_WIDTH*0.04,
                 "line-height": CONTENT_WIDTH*0.04 + "px",
             })
-        }
     }
     IS_ROTATED = IS_ROTATED && !IS_PAD;
     check_resolution();
