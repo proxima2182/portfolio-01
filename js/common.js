@@ -150,9 +150,9 @@ function make_extra_input(focused) {
             console.log("keyup");
             resize_standard();
         });
-        input_wrap.css({
-            "margin-top": -1*height,
-        });
+//        input_wrap.css({
+//            "margin-top": -1*height,
+//        });
         console.log("scrollHeight: " + document.body.scrollHeight);
         
     }
@@ -227,9 +227,9 @@ function resize_standard() {
                 "margin-left": -1*width/2,
             })
             if(IS_IOS) {
-                input_wrap.css({
-                    "margin-top": -1*height,
-                });
+//                input_wrap.css({
+//                    "margin-top": -1*height,
+//                });
             }
             var input = input_wrap.find("input");
             input.css({
