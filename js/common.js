@@ -131,12 +131,12 @@ function make_extra_input(focused) {
             console.log("keyup");
             resize_standard();
         });
-//        var offset = input.offset().top;
-//        console.log("input_offset_top : " + offset);
-//        $("body").css({
-//            "height": height + offset,
-//        })
-//        document.body.scrollTop = offset;
+        var offset = input.offset().top;
+        console.log("input_offset_top : " + offset);
+        $("body").css({
+            "height": height + offset - CONTENT_WIDTH*0.02,
+        })
+        document.body.scrollTop = offset + CONTENT_WIDTH*0.02;
     }
 }
 
@@ -204,9 +204,9 @@ function resize_standard() {
                 var offset = input.offset().top;
                 console.log("input_offset_top : " + offset);
                 $("body").css({
-                    "height": height + offset,
+                    "height": height + offset - CONTENT_WIDTH*0.02,
                 })
-                document.body.scrollTop = offset;
+                document.body.scrollTop = offset + CONTENT_WIDTH*0.02;
             }
         }
     }
