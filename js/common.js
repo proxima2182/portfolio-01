@@ -159,9 +159,6 @@ function make_extra_input(focused) {
 //                "margin-top": -1*height + CONTENT_WIDTH*0.08,
 //            });
 //        }
-        var vh = $('<div style="height:100vh"></div>"').appendTo('body').height();
-        $('body div:last-child').remove();
-        console.log("scrollHeight: " + vh);
         
     }
 }
@@ -244,10 +241,6 @@ function resize_standard() {
 //                        "margin-top": -1*height + CONTENT_WIDTH*0.08,
 //                    });
 //                }
-            var vh = $('<div style="height:100vh"></div>"').appendTo('body').height();
-            $('body div:last-child').remove();
-            console.log("scrollHeight: " + vh);
-            }
             var input = input_wrap.find("input");
             input.css({
                 "font-size": CONTENT_WIDTH*0.02,
