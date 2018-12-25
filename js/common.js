@@ -114,7 +114,7 @@ function make_extra_input(focused) {
         "margin-top": -1*height/2,
         "margin-left": -1*width/2,
     })
-    $("#wrap").append(input_wrap);
+    $("body").append(input_wrap);
     input_wrap.click(function() {
         focus_out();
     });
@@ -144,6 +144,11 @@ function make_extra_input(focused) {
         focus_out();
     })
     if(IS_IOS) {
+        var offset = input.offset().top;
+        $("body").css({
+            "height": height + offset,
+        })
+        document.body.scrollTop = offset;
         input_wrap.on("touchmove", function(event){
             event.stopPropagation();
             event.preventDefault();
@@ -151,11 +156,6 @@ function make_extra_input(focused) {
             console.log("keyup");
             resize_standard();
         });
-        console.log("input_offset_top : " + input.offset().top);
-        $("body").css({
-            "height": height + input.offset().top,
-        })
-        document.body.scrollTop = input.offset().top;
 //        if(IS_ROTATED) {
 //            input_wrap.css({
 //                "margin-left": -1*width + CONTENT_WIDTH*0.08,
@@ -239,11 +239,11 @@ function resize_standard() {
                 "margin-left": -1*width/2,
             })
             if(IS_IOS) {
-                console.log("input_offset_top : " + input.offset().top);
+                var offset = input.offset().top;
                 $("body").css({
-                    "height": height + input.offset().top,
+                    "height": height + offset,
                 })
-                document.body.scrollTop = input.offset().top;
+                document.body.scrollTop = offset;
 //                if(IS_ROTATED && !IS_PAD) {
 //                    input_wrap.css({
 //                        "margin-left": -1*width + CONTENT_WIDTH*0.08,
