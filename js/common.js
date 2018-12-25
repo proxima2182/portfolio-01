@@ -200,17 +200,16 @@ function resize_standard() {
                     "transform": "rotate(-90deg)",
                 })
             }
-            if(IS_IOS) {
-                setTimeout(function(){
-                    input_wrap.find("input").data("focused").focus();
-                },250);
-            }
+//            if(IS_IOS) {
+//                setTimeout(function(){
+//                    input_wrap.find("input").data("focused").focus();
+//                },250);
+//            }
         }
     }
     
-    console.log("scrollHeight in Resize : " + document.body.scrollHeight);
-    console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
-    console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());
+//    console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
+//    console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());
     
     console.log("resize_not_returned");
     $("body").css({
