@@ -18,6 +18,9 @@ input, textarea{
     font-weight: 400;
     font-style: italic;
 }
+input:focus, textarea:focus{
+    outline: none;
+}
 .content_wrap h1,.content_wrap h2,.content_wrap h3,.content_wrap h4,.content_wrap h5,.content_wrap h6,.content_wrap p,.content_wrap div,.content_wrap span{
     cursor: inherit;
 }

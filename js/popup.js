@@ -52,7 +52,7 @@ function show_detail_view(index) {
             content.off("load");
             $("body>.section_loading").remove();
             if(!content.complete) {
-                make_loading($("body"), true, 0.08, 0.012, "#1c2e5f", "#fff");
+                make_loading($("body"), false, 0.08, 0.012, "#1c2e5f", "#fff");
             }
             content.on("load loadeddata" ,function() {
                 $("body>.section_loading").remove();

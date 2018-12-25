@@ -349,9 +349,6 @@
 #section_05 form textarea{
     line-height: 4vw;
 }
-#section_05 form textarea:focus, #section_05 form input:focus{
-    outline: none;
-}
 #section_05 form input[type=submit] {
     width: 26vw;
     padding: 1.5vw;
