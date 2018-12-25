@@ -239,6 +239,7 @@ function resize_standard() {
                 "height": CONTENT_WIDTH*0.04,
                 "line-height": CONTENT_WIDTH*0.04 + "px",
             })
+        }
     }
     IS_ROTATED = IS_ROTATED && !IS_PAD;
     check_resolution();
