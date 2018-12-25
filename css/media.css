@@ -367,7 +367,7 @@
     }
 }
 
-@media screen and (orientation:portrait) and (pointer:coarse){
+@media screen and (max-width: 765px) and (orientation:portrait) and (pointer:coarse){
     #header{
         width: 10vh;
         height: 100vw;
@@ -584,7 +584,7 @@
     }
 }
 @media screen and (orientation:portrait) and (pointer:coarse)
-    and (max-width: 800px) and (max-aspect-ratio:8/10){
+    and (max-width: 765px) and (max-width: 800px) and (max-aspect-ratio:8/10){
     /*include.css*/
     #wrap .content_wrap{
         width: 100vw;
