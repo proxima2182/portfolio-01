@@ -85,6 +85,11 @@ function make_extra_input(focused) {
     var height = $(window).height();
     var input_wrap = $("<div class=\"extra_input_area\"></div>")
     var input = $("<input type=\"text\"></input>");
+//    var margin_top = -1*height/2;
+//    var margin_left = -1*width/2;
+//    if(IS_IOS) {
+//        margin_top -= window.innerHeight/2;
+//    }
     input_wrap.append(input);
     input_wrap.css({
         "width" : width,
@@ -92,22 +97,23 @@ function make_extra_input(focused) {
         "line-height" : height + "px",
         "background" : "#000",
         "position" : "fixed",
-        "top": 0,
-        "left": 0,
+        "top": "50%",
+        "left": "50%",
+        "margin-top": -1*height/2,
+        "margin-left": -1*width/2,
     })
     if(IS_ROTATED) {
         input_wrap.css({
             "-webkit-transform": "rotate(-90deg)",
             "-ms-transform": "rotate(-90deg)",
             "transform": "rotate(-90deg)",
-            "top": "50%",
-            "left": "50%",
-            "margin-top": -1*height/2,
-            "margin-left": -1*width/2,
         })
     }
     $("body").append(input_wrap);
     focused.blur();
+    input.css({
+        "margin-top": IS_IOS? -(window.innerHeight/2):0;
+    })
     input.val(focused.val());
     input.get(0).focus();
     input.onEnterKey(function() {
@@ -196,6 +202,10 @@ function resize_standard() {
             }
         }
     }
+    
+    console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
+    console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());
+    
     console.log("resize_not_returned");
     $("body").css({
         "width": WINDOW_WIDTH,
@@ -224,10 +234,6 @@ function resize_standard() {
         });
     }
 }
-$("*").scroll(function() {
-    console.log("scroll action");
-    console.log($(this));
-})
 
 //additional functions
 
