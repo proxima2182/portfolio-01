@@ -130,7 +130,7 @@ function make_extra_input(focused) {
         var textareaTop = focused.offset().top;
         console.log("textareaTop : " + focused.offset().top);
         // scroll to the textarea
-        $('html, body').scrollTop(textareaTop);
+//        $('html, body').scrollTop(textareaTop);
         input.on("focusout", function() {
             console.log("keyup");
             resize_standard();
@@ -184,6 +184,7 @@ function resize_standard() {
             }
         }
         var input_wrap = $(".extra_input_area");
+        console.log("textareaTop : " + focused.offset().top);
         if(input_wrap.length > 0){
             input_wrap.css({
                 "width" : width,
