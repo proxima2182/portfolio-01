@@ -171,13 +171,13 @@ function resize_standard() {
             //because IOS don't call resize for soft keyboard is opened or closed.
             //But the reason of calling that function twice is that device has 0 degree.
             //Since safari browser in IOS always happens in vertical environment.
-            var input = $(".extra_input_area input");
-            if(input.length>0) {
-                console.log("INPUT IS AVAILABLE!");
-                input.get(0).focus();
-            } else {
-                console.log("INPUT IS NOT AVAILABLE!");
-            }
+//            var input = $(".extra_input_area input");
+//            if(input.length>0) {
+//                console.log("INPUT IS AVAILABLE!");
+//                input.get(0).focus();
+//            } else {
+//                console.log("INPUT IS NOT AVAILABLE!");
+//            }
         }
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
