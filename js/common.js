@@ -62,7 +62,9 @@ function check_device() {
     } else {
         IS_ROTATED = false;
     }
-    
+}
+
+function check_resolution() {
     WINDOW_WIDTH = $(window).width();
     WINDOW_HEIGHT = $(window).height();
     if(IS_ROTATED) {
@@ -80,6 +82,7 @@ function check_device() {
         console.log("CASE 03");
     }
 }
+
 function make_extra_input(focused) {
     var width = $(window).width();
     var height = $(window).height();
@@ -145,6 +148,9 @@ function make_extra_input(focused) {
         })
     }
 }
+
+
+
 console.log("몇번째 ? 17");
 var ROTATE_WITH_KEYBOARD = false;
 function resize_standard() {
@@ -224,6 +230,8 @@ function resize_standard() {
             }
         }
     }
+    
+    check_resolution();
     
     console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
     console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());

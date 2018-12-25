@@ -193,6 +193,7 @@ function include_resize() {
 }
 
 check_device();
+check_resolution();
 var RESIZE_ID;
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
