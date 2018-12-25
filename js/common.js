@@ -184,8 +184,8 @@ function resize_standard() {
             }
         }
         var input_wrap = $(".extra_input_area");
-        console.log("textareaTop : " + focused.offset().top);
         if(input_wrap.length > 0){
+            console.log("textareaTop : " + focused.offset().top);
             input_wrap.css({
                 "width" : width,
                 "height" : height,
