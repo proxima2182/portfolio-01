@@ -150,15 +150,15 @@ function make_extra_input(focused) {
             console.log("keyup");
             resize_standard();
         });
-        if(IS_ROTATED) {
-            input_wrap.css({
-                "margin-left": -1*width + CONTENT_WIDTH*0.08,
-            });
-        }else {
-            input_wrap.css({
-                "margin-top": -1*height + CONTENT_WIDTH*0.08,
-            });
-        }
+//        if(IS_ROTATED) {
+//            input_wrap.css({
+//                "margin-left": -1*width + CONTENT_WIDTH*0.08,
+//            });
+//        }else {
+//            input_wrap.css({
+//                "margin-top": -1*height + CONTENT_WIDTH*0.08,
+//            });
+//        }
         
     }
 }
@@ -232,15 +232,15 @@ function resize_standard() {
                 "margin-left": -1*width/2,
             })
             if(IS_IOS) {
-                if(IS_ROTATED && !IS_PAD) {
-                    input_wrap.css({
-                        "margin-left": -1*width + CONTENT_WIDTH*0.08,
-                    });
-                }else {
-                    input_wrap.css({
-                        "margin-top": -1*height + CONTENT_WIDTH*0.08,
-                    });
-                }
+//                if(IS_ROTATED && !IS_PAD) {
+//                    input_wrap.css({
+//                        "margin-left": -1*width + CONTENT_WIDTH*0.08,
+//                    });
+//                }else {
+//                    input_wrap.css({
+//                        "margin-top": -1*height + CONTENT_WIDTH*0.08,
+//                    });
+//                }
             }
             var input = input_wrap.find("input");
             input.css({
