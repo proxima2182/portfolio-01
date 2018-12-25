@@ -216,7 +216,7 @@ $(document).ready(function(){
             if(input_wrap.length > 0){
                 var input = input_wrap.find("input");
                 input.data("focused").focus();
-                $("body").scrollTop(0);
+//                $("body").scrollTop(0);
             }
         }
     });
