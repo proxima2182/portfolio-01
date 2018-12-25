@@ -37,6 +37,7 @@ function focus_out() {
            $(this).blur();
        }
     })
+    $("body").removeAttr("style");
 }
 function check_device() {
     console.log("check_device");
@@ -155,7 +156,6 @@ function make_extra_input(focused) {
             "height": height + input.offset().top,
         })
         document.body.scrollTop = input.offset().top;
-        $("body").removeAttr("style");
 //        if(IS_ROTATED) {
 //            input_wrap.css({
 //                "margin-left": -1*width + CONTENT_WIDTH*0.08,
@@ -192,7 +192,9 @@ function resize_standard() {
             console.log(focused);
 
             if(focused == undefined && !ROTATE_WITH_KEYBOARD) {
-                $(".extra_input_area").remove();
+//                $(".extra_input_area").remove();
+//                $("body").removeAttr("style");
+                focus_out();
             }
             ROTATE_WITH_KEYBOARD = false;
             if(IS_ANDROID && focused != undefined) {
@@ -243,7 +245,6 @@ function resize_standard() {
                     "height": height + input.offset().top,
                 })
                 document.body.scrollTop = input.offset().top;
-                $("body").removeAttr("style");
 //                if(IS_ROTATED && !IS_PAD) {
 //                    input_wrap.css({
 //                        "margin-left": -1*width + CONTENT_WIDTH*0.08,
