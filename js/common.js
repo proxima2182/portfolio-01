@@ -241,6 +241,7 @@ function resize_standard() {
 //                        "margin-top": -1*height + CONTENT_WIDTH*0.08,
 //                    });
 //                }
+            }
             var input = input_wrap.find("input");
             input.css({
                 "font-size": CONTENT_WIDTH*0.02,
