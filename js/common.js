@@ -123,6 +123,7 @@ function make_extra_input(focused) {
     })
     if(IS_IOS) {
         //when user press 'done'
+        document.body.scrollTop = height/2;
         input.on("focusout", function() {
             console.log("keyup");
             resize_standard();
