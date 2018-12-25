@@ -112,7 +112,7 @@ function make_extra_input(focused) {
     $("body").append(input_wrap);
     focused.blur();
     input.css({
-        "margin-top": IS_IOS? -(window.innerHeight/2):0;
+        "margin-top": IS_IOS? -(window.innerHeight/2):0,
     })
     input.val(focused.val());
     input.get(0).focus();
