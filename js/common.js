@@ -118,6 +118,7 @@ function make_extra_input(focused) {
     input.data("focused", focused);
     input.css({
         "width": "80%",
+        "vertical-align":"middle",
         "font-size": CONTENT_WIDTH*0.02,
         "height": CONTENT_WIDTH*0.04,
         "line-height": CONTENT_WIDTH*0.04 + "px",
