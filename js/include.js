@@ -202,6 +202,7 @@ $(document).ready(function(){
 //            document.body.scrollTop = 0;
             console.log("focused");
             make_extra_input($(this));
+            $("body").scrollTop(0);
         })
     }
     window.addEventListener("resize", function() {
