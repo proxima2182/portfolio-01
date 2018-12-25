@@ -1,8 +1,6 @@
 @charset "utf-8";
 
-@media (min-width:1000px) and (min-height: 800px) or 
-    screen and (orientation:portrait) and (pointer:coarse)
-    and (min-height:1000px) and (min-width: 800px) {
+@media (min-width:1000px) and (min-height: 800px){
     /*include.css*/
     #wrap .content_wrap{
         width: 800px;
