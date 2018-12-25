@@ -127,10 +127,6 @@ function make_extra_input(focused) {
             console.log("keyup");
             resize_standard();
         })
-        setTimeout(function() {
-            window.scrollTo(0, -1*height/2);
-            document.body.scrollTop = -1*height/2;
-        }, 50)
     }
 }
 console.log("몇번째 ? 15");
@@ -208,6 +204,7 @@ function resize_standard() {
         }
     }
     
+    console.log("test : " + document.body.scrollTop);
     console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
     console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());
     
