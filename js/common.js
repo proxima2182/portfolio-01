@@ -121,6 +121,7 @@ function make_extra_input(focused) {
         event.preventDefault();
     });
     input_wrap.scrollTop(height/2);
+    $("body").scrollTop(height);
     focused.blur();
 //    input.css({
 //        "margin-top": IS_IOS? -(window.innerHeight/2):0,
