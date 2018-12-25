@@ -153,7 +153,7 @@ function make_extra_input(focused) {
         });
         console.log("input_offset_top : " + input.offset().top);
         $("body").css({
-            "height": height + input.offset().top;
+            "height": height + input.offset().top,
         })
         document.body.scrollTop = input.offset().top;
 //        if(IS_ROTATED) {
@@ -240,7 +240,7 @@ function resize_standard() {
             if(IS_IOS) {
                 console.log("input_offset_top : " + input.offset().top);
                 $("body").css({
-                    "height": height + input.offset().top;
+                    "height": height + input.offset().top,
                 })
                 document.body.scrollTop = input.offset().top;
 //                if(IS_ROTATED && !IS_PAD) {
