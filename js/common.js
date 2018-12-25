@@ -208,8 +208,8 @@ function resize_standard() {
         }
     }
     
-//    console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
-//    console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());
+    console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
+    console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());
     
     console.log("resize_not_returned");
     $("body").css({
