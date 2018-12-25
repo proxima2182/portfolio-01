@@ -187,7 +187,7 @@ $(document).ready(function(){
 //            document.body.scrollTop = 0;
             console.log("focused");
             make_extra_input($(this));
-            $("#wrap").scrollTop(0);
+            $("body").scrollTop(0);
         })
     }
     window.addEventListener("resize", function() {
@@ -202,7 +202,7 @@ $(document).ready(function(){
             if(input_wrap.length > 0){
 //                var input = input_wrap.find("input");
 //                input.data("focused").focus();
-                $("#wrap").scrollTop(0);
+                $("body").scrollTop(0);
             }
         }
     });
