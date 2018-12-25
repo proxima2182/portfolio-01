@@ -136,7 +136,7 @@ function make_extra_input(focused) {
         $("body").css({
             "height": height + offset,
         })
-        document.body.scrollTop = offset/2;
+        document.body.scrollTop = offset;
     }
 }
 
@@ -206,7 +206,7 @@ function resize_standard() {
                 $("body").css({
                     "height": height + offset,
                 })
-                document.body.scrollTop = offset/2;
+                document.body.scrollTop = offset;
             }
         }
     }
