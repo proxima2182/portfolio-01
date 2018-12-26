@@ -53,12 +53,12 @@ function show_detail_view(index) {
             content.off("load");
             $("body>.section_loading").remove();
             if(!content.complete) {
-                make_loading($("#wrap"), false, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
+                loading($("#wrap"), false, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
             } else {
                 content.css("opacity",1);
             }
             content.on("load loadeddata" ,function() {
-                $("#wrap>.section_loading").remove();
+                finish_loading($("#wrap"));
                 content.css("opacity",1);
             })
         }
@@ -101,6 +101,7 @@ function popup_resize(){
             "margin-left": -1*CONTENT_WIDTH*0.32,
         });
         popup.find(".popup_content_wrap").css({
+            "width":CONTENT_WIDTH*0.6,
             "max-height": WINDOW_HEIGHT*0.6,
         });
         popup.find(".button_close").css({
@@ -184,13 +185,15 @@ function popup(meta) {
             "background-color": "#002157",
             "border": "1px solid #fff",
             "color": "#fff",
+            "overflow":"hidden",
         });
         popup_content_wrap.css({
-            "width":"100%",
+            "width":CONTENT_WIDTH*0.6,
             "max-height": WINDOW_HEIGHT*0.6,
             "text-align":"left",
 //            "overflow-y":"scroll",
-            "overflow":"auto",
+            "overflow-x":"hidden",
+            "overflow-y":"scroll",
         });
         resource_wrap.css({
 //            "width": "100%",
@@ -336,7 +339,7 @@ function popup(meta) {
         var images = resource_wrap.find("img");
         var load_count = images.length;
 
-        make_loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
+        loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
         $(images).on("load", function() {
             load_count --;
             if(load_count == 0) {
@@ -377,10 +380,7 @@ function popup(meta) {
             }
         });
         function show_popup() {
-            var loading = $("body>.section_loading");
-            if(loading.length>0) {
-                loading.remove();
-            }
+            finish_loading($("body"));
             var url = $(meta).find("url");
             var name = $(meta).find("name");
             if(name.length>0) {

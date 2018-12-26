@@ -327,8 +327,5 @@ $(window).on("load",function() {
     })
     resize_standard();
     include_resize();
-    var loading = $("body>.section_loading");
-    if(loading.length>0) {
-        loading.remove();
-    }
+    finish_loading($("body"));
 })

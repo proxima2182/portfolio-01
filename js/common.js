@@ -287,7 +287,16 @@ function resize_standard() {
 
 //additional functions
 
-function make_loading(target, is_fullscreen, width_ratio, border_ratio, background_color, point_color, text) {
+function finish_loading(target) {
+    var container = target.find(">.section_loading");
+    if(container.length>0) {
+        console.log("interval_id : " + container.data("interval_id"));
+        clearInterval(container.data("interval_id"));
+        container.remove();
+    }
+}
+
+function loading(target, is_fullscreen, width_ratio, border_ratio, background_color, point_color, text) {
     if(target.length==0) return;
     var container = $("<div class=\"section_loading\"></div>");
     container.css({
@@ -321,6 +330,54 @@ function make_loading(target, is_fullscreen, width_ratio, border_ratio, backgrou
     });
     loading_wrap.append(outer_square);
     loading_wrap.append(inner_square);
+    loading_wrap.css({
+        "-webkit-transform": "rotate(0deg)",
+        "-ms-transform": "rotate(0deg)",
+        "transform": "rotate(0deg)",
+    })
+    function animate() {
+        loading_wrap.animate({ degree: 359 }, {
+            step: function(now, fx) {
+                $(this).css({
+                    "-webkit-transform": "rotate("+now+"deg)",
+                    "-ms-transform": "rotate("+now+"deg)",
+                    "transform": "rotate("+now+"deg)",
+                })
+            },
+            duration: 1800,
+            easing: "linear",
+            complete: function(){ $(this).css("degree",0)},
+        });
+        inner_square.animate({ scale: 1 }, {
+            step: function(now, fx) {
+                var scale = 1-now;
+                var transform = "scale("+scale+","+scale+")";
+                $(this).css({
+                    "-webkit-transform": transform,
+                    "-ms-transform": transform,
+                    "transform": transform,
+                })
+            },
+            duration: 900,
+            easing: "linear",
+            complete: function(){ $(this).css("scale",0)},
+        }).animate({ scale: 1 }, {
+            step: function(now, fx) {
+                var transform = "scale("+now+","+now+")";
+                $(this).css({
+                    "-webkit-transform": transform,
+                    "-ms-transform": transform,
+                    "transform": transform,
+                })
+            },
+            duration: 900,
+            easing: "linear",
+            complete: function(){ $(this).css("scale",0)},
+        });
+    }
+    animate();
+    container.data("interval_id", setInterval(animate,1800));
+    
     
     if(text!=undefined && text.length>0) {
         var text = $("<p class=\"loading_text\">"+text+"</p>");
@@ -341,7 +398,7 @@ function make_loading(target, is_fullscreen, width_ratio, border_ratio, backgrou
             $(this).css({
                 "-webkit-transform": "rotate("+deg+")",
                 "-ms-transform": "rotate("+deg+")",
-                "transform": "rotate(-"+deg+")",
+                "transform": "rotate("+deg+")",
             })
         }
         $(this).css({

@@ -674,7 +674,7 @@ function draw(filtered_key, callback) {
     if(container!=undefined) {
         var imgs = container.find("ul").find("img");
         imgs.off("load");
-        container.find(">.section_loading").remove();
+        finish_loading(container);
         var load_count = 0;
         imgs.each(function() {
             if($(this).get(0).complete){
@@ -685,12 +685,12 @@ function draw(filtered_key, callback) {
             page_update();
             return;
         } else {
-            make_loading(container,false, 0.08, 0.012, "#1c2e5f", "#fff", 0.08, 0.012);
+            loading(container,false, 0.08, 0.012, "#1c2e5f", "#fff", 0.08, 0.012);
         }
         imgs.on("load",function() {
             load_count++;
             if(load_count >= imgs.length) {
-                container.find(">.section_loading").remove();
+                finish_loading(container);
                 load_count = 0;
             }
         })

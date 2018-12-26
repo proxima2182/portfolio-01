@@ -112,6 +112,7 @@ input{
     border-radius: 0;
     overflow: auto;
 }
+/*
 .scaling{
     -webkit-animation: scaling 1.6s infinite linear;
             animation: scaling 1.6s infinite linear;
@@ -151,3 +152,4 @@ input{
     from {transform: rotate(0deg);}
     to   {transform: rotate(359deg);}
 }
+*/
