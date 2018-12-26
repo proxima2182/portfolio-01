@@ -52,10 +52,10 @@ function show_detail_view(index) {
             content.off("load");
             $("body>.section_loading").remove();
             if(!content.complete) {
-                make_loading($("#wrap"), false, 0.08, 0.012, "#1c2e5f", "#fff");
+                make_loading($("#wrap"), false, 0.08, 0.012, "rgba(0,0,0,0)", "#9d1f60");
             }
             content.on("load loadeddata" ,function() {
-                $("body>.section_loading").remove();
+                $("#wrap>.section_loading").remove();
             })
         }
         detail_view.click(function(e) {
@@ -331,7 +331,7 @@ function popup(meta) {
         var images = resource_wrap.find("img");
         var load_count = images.length;
 
-        make_loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
+        make_loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#9d1f60");
         $(images).on("load", function() {
             load_count --;
             if(load_count == 0) {
