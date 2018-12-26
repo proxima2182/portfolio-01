@@ -2,11 +2,12 @@
 <html lang="ko">
     <head>
         <meta charset="utf-8"/>
+        <meta property="og:title" content="안성희의 포트폴리오"/>
         <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, minimal-ui"/>
 <!--        <meta name="mobile-web-app-capable" content="yes">-->
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
+        
         <title>Portfolio</title>
         
         <link rel="shortcut icon" href="./images/favicon.ico">
@@ -21,17 +22,16 @@
             var IS_LWE_IE8 = false;
         </script>
         <!--[if lte IE 8]>
-
             <script type="text/javascript">
                 IS_LWE_IE8 = true;
-                var jq = document.createElement("script");
-                jq.type = "text/javascript";
-                jq.onreadystatechange= function () {
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.onreadystatechange= function () {
                     if (script.readyState == "loaded" || script.readyState == "complete"){
                     }
                 };
-                jq.src = "./js/warning.js";
-                document.getElementsByTagName("head")[0].appendChild(jq);
+                script.src = "./js/warning.js";
+                document.getElementsByTagName("head")[0].appendChild(script);
             </script>
         <![endif]-->
         <![if gt IE 8]>
