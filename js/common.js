@@ -131,6 +131,7 @@ function make_extra_input(focused) {
             resize_standard();
         });
         input.data("focused", focused);
+        console.log("scrollTop : " + document.body.scrollTop);
 //        var offset = document.body.scrollTop;
 //        console.log("input_offset_top : " + offset);
 //        $("body").css({
@@ -190,6 +191,7 @@ function resize_standard() {
             })
             if(IS_IOS) {
                 input.data("focused").focus();
+                console.log("scrollTop : " + document.body.scrollTop);
 //                var offset = document.body.scrollTop;
 //                console.log("input_offset_top : " + offset);
 //                $("body").css({
