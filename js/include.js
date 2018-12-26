@@ -315,7 +315,7 @@ $(window).on("load",function() {
     
     
     load_map(function() {
-        page_move(4);
+        page_move(0);
 //            var focused = $("textarea");
 //            make_extra_input(focused);
 //            console.log(focused);
