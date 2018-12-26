@@ -1,7 +1,7 @@
 var CONTENT_WIDTH;
 var WINDOW_WIDTH, WINDOW_HEIGHT;
 var SCREEN_DEGREE = 0;
-var IS_ROTATED = false;
+var IS_ROTATED = false, IS_SCREEN_ROTATED = false;
 var IS_IOS = false, IS_ANDROID = false, IS_PAD= false, IS_MOBILE = false;
 var IS_DOCUMENT_LOADED = false;
 
@@ -54,6 +54,7 @@ function check_device() {
     if(IS_MOBILE) {
         SCREEN_DEGREE = screen.orientation!= undefined?screen.orientation.angle:window.orientation;
         if(SCREEN_DEGREE == 0 || SCREEN_DEGREE == 180) {
+            //vertical
             IS_ROTATED = true;
         } else {
             IS_ROTATED = false;
@@ -149,7 +150,8 @@ function make_extra_input(focused) {
 //            }
 //        }, 50);
 //        var offset = document.body.scrollTop;
-                var offset = height/4;
+        height/2 - CONTENT_WIDTH*0.04 + 
+        var offset = IS_ROTATED ? (height/4 - CONTENT_WIDTH*0.04) : (height/3 - CONTENT_WIDTH*0.04) ;
         console.log("input_offset_top : " + offset);
         $("body").css({
             "height": height + offset,
@@ -210,7 +212,7 @@ function resize_standard() {
 //                input.data("focused").focus();
 //                console.log("scrollTop : " + document.body.scrollTop);
 //                var offset = document.body.scrollTop;
-                var offset = height/4;
+                var offset = height/4 - CONTENT_WIDTH*0.04;
                 console.log("input_offset_top : " + offset);
                 $("body").css({
                     "height": height + offset,
@@ -219,7 +221,7 @@ function resize_standard() {
             }
         }
     }
-    IS_ROTATED = IS_ROTATED && !IS_PAD;
+    IS_SCREEN_ROTATED = IS_ROTATED && !IS_PAD;
     check_resolution();
     
     console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
@@ -230,7 +232,7 @@ function resize_standard() {
         "width": WINDOW_WIDTH,
         "height": WINDOW_HEIGHT,
     })
-    if(IS_MOBILE && IS_ROTATED) {
+    if(IS_MOBILE && IS_SCREEN_ROTATED) {
         $("#wrap").css({
             "-webkit-transform": "rotate(90deg)",
             "-ms-transform": "rotate(90deg)",
@@ -305,7 +307,7 @@ function make_loading(target, is_fullscreen, width_ratio, border_ratio, backgrou
     container.append(loading_wrap);
     container.append(text);
     container.on("resize",function(){
-        var deg = IS_ROTATED && IS_DOCUMENT_LOADED?"-90deg":"0deg";
+        var deg = IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"-90deg":"0deg";
         if(is_fullscreen) {
             $(this).css({
                 "-webkit-transform": "rotate("+deg+")",
@@ -314,11 +316,11 @@ function make_loading(target, is_fullscreen, width_ratio, border_ratio, backgrou
             })
         }
         $(this).css({
-            "width": is_fullscreen? (IS_ROTATED && IS_DOCUMENT_LOADED?"100vh":"100vw") : $(target).width(),
-            "height": is_fullscreen? (IS_ROTATED && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height(),
-            "line-height": is_fullscreen? (IS_ROTATED && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height()+"px",
-            "margin-top": is_fullscreen? (IS_ROTATED && IS_DOCUMENT_LOADED?"-50vw":"-50vh"): -($(target).height()/2),
-            "margin-left":  is_fullscreen? (IS_ROTATED && IS_DOCUMENT_LOADED?"-50vh":"-50vw"): -($(target).width()/2),
+            "width": is_fullscreen? (IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"100vh":"100vw") : $(target).width(),
+            "height": is_fullscreen? (IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height(),
+            "line-height": is_fullscreen? (IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height()+"px",
+            "margin-top": is_fullscreen? (IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"-50vw":"-50vh"): -($(target).height()/2),
+            "margin-left":  is_fullscreen? (IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"-50vh":"-50vw"): -($(target).width()/2),
         });
         var width = parseInt(CONTENT_WIDTH*width_ratio);
         var border_width = parseInt(CONTENT_WIDTH*border_ratio);

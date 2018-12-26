@@ -109,7 +109,7 @@ function make_enter() {
     var width = $(window).width();
     var height = $(window).height();
 //    var deg = "0deg";
-//    if(IS_ROTATED) {
+//    if(IS_SCREEN_ROTATED) {
 //        width = WINDOW_HEIGHT;
 //        height = WINDOW_WIDTH;
 //        deg = "-90deg";

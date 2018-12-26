@@ -41,13 +41,13 @@ function make_fullpage(sal, pal) {
                 var y= 0;
                 if(event.type == "mousemove") {
                     //for web
-                    y = IS_ROTATED? -1*event.pageX: event.pageY;
+                    y = IS_SCREEN_ROTATED? -1*event.pageX: event.pageY;
                 } else{
                     //for mobile
                     if(event.targetTouches.length>1) {
                         return;
                     }
-                    y = IS_ROTATED? -1*event.targetTouches[0].pageX: event.targetTouches[0].pageY;
+                    y = IS_SCREEN_ROTATED? -1*event.targetTouches[0].pageX: event.targetTouches[0].pageY;
                 }
                 event.preventDefault();
                 if(mouse_in && !is_animating) {
