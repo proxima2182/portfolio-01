@@ -170,18 +170,20 @@ function popup(meta) {
         var popup_content_wrap = $("<div class=\"popup_content_wrap\"></div>");
         //this is for IE9 because -ms-overflow-style:none is not working for it.
         var inner_container = $("<div class=\"inner_container\"></div>")
+        var outer_container = $("<div class=\"outer_container\"></div>")
+        
         var button_close = $("<div class=\"button_close\"></div>");
         var resource_wrap = $("<ul class=\"resource_wrap\"></ul>")
-//        popup.append(popup_content_wrap);
         inner_container.append(popup_content_wrap);
-        popup.append(inner_container);
+        outer_container.append(inner_container);
+        popup.append(outer_container);
         popup_content_wrap.append(resource_wrap);
         $("#wrap").append(popup);
 
         popup.css({
             "opacity":0,
             "width": CONTENT_WIDTH*0.6,
-            "max-height": WINDOW_HEIGHT*0.8,
+            "height": WINDOW_HEIGHT*0.6,
             "padding": CONTENT_WIDTH*0.08 + "px " + CONTENT_WIDTH*0.04 + "px",
             "border-radius": CONTENT_WIDTH*0.03,
             "line-height":"normal",
@@ -193,14 +195,20 @@ function popup(meta) {
         inner_container.css({
             "overflow-x":"hidden",
             "overflow-y":"scroll",
+            "position":"absolute",
+        })
+        outer_container.css({
+            "width": CONTENT_WIDTH*0.6,
+            "height": WINDOW_HEIGHT*0.6,
+            "overflow":"hidden",
+            "position":"relative",
         })
         popup_content_wrap.css({
             "width":CONTENT_WIDTH*0.6,
-            "max-height": WINDOW_HEIGHT*0.6,
+            "height": WINDOW_HEIGHT*0.6,
             "text-align":"left",
         });
         resource_wrap.css({
-//            "width": "100%",
             "width": CONTENT_WIDTH*0.6,
 //            "max-height": CONTENT_WIDTH*0.2,
             "margin": "0 auto",

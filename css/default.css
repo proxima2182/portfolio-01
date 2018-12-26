@@ -19,9 +19,11 @@ a {
     display: block;
     clear: both;
 }
+/*
 ::-webkit-scrollbar { 
     display: none;
 }
+*/
 /*for IE 9/10*/
 img{
     border: 0;
