@@ -168,10 +168,13 @@ function popup(meta) {
         var elements = $(meta).find("element");
         var popup = $("<div class=\"popup\"></div>");
         var popup_content_wrap = $("<div class=\"popup_content_wrap\"></div>");
+        //this is for IE9 because -ms-overflow-style:none is not working for it.
+        var inner_container = $("<div class=\"inner_container\"></div>")
         var button_close = $("<div class=\"button_close\"></div>");
         var resource_wrap = $("<ul class=\"resource_wrap\"></ul>")
-//        var resource_wrap = $("<div class=\"resource_wrap\"></div>")
-        popup.append(popup_content_wrap);
+//        popup.append(popup_content_wrap);
+        inner_container.append(popup_content_wrap);
+        popup.append(inner_container);
         popup_content_wrap.append(resource_wrap);
         $("#wrap").append(popup);
 
@@ -187,13 +190,14 @@ function popup(meta) {
             "color": "#fff",
             "overflow":"hidden",
         });
+        inner_container.css({
+            "overflow-x":"hidden",
+            "overflow-y":"scroll",
+        })
         popup_content_wrap.css({
             "width":CONTENT_WIDTH*0.6,
             "max-height": WINDOW_HEIGHT*0.6,
             "text-align":"left",
-//            "overflow-y":"scroll",
-            "overflow-x":"hidden",
-            "overflow-y":"scroll",
         });
         resource_wrap.css({
 //            "width": "100%",
