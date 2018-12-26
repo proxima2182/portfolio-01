@@ -183,6 +183,7 @@ function popup(meta) {
             "line-height":"normal",
             "background-color": "#002157",
             "border": "1px solid #fff",
+            "overflow": "auto",
             "color": "#fff",
         });
         popup_content_wrap.css({

@@ -108,8 +108,8 @@ input:focus, textarea:focus{
 /* for IOS */
 textarea,
 input{
-     -webkit-appearance: none;
-     border-radius: 0;
+    -webkit-appearance: none;
+    border-radius: 0;
 }
 .scaling{
     -webkit-animation: scaling 1.6s infinite linear;
