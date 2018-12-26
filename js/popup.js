@@ -171,6 +171,7 @@ function popup(meta) {
         $("#wrap").append(popup);
 
         popup.css({
+            "display":"none",
             "width": CONTENT_WIDTH*0.6,
             "max-height": WINDOW_HEIGHT*0.8,
             "padding": CONTENT_WIDTH*0.08 + "px " + CONTENT_WIDTH*0.04 + "px",
@@ -331,6 +332,7 @@ function popup(meta) {
         var load_count = images.length;
 
         $(images).on("load", function() {
+            make_loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff";
             load_count --;
             if(load_count == 0) {
                 resource_wrap.make_slider({
@@ -452,6 +454,7 @@ function popup(meta) {
                 })
             })
             popup.css({
+                "display":"block",
                 "bottom":-1*popup.outerHeight(),
                 "left": "50%",
                 "margin-left": -1*CONTENT_WIDTH*0.32,
