@@ -27,6 +27,10 @@
     .gnb ul li a{
         font-size: 20px;
     }
+    #footer{
+        font-size: 20px;
+        line-height: 40px;
+    }
     
     /* width */
     ::-webkit-scrollbar {
@@ -36,6 +40,7 @@
     /*style.css*/
     #section_01 .section_title{
         line-height: 150px;
+        bottom: 40px;
         text-shadow: 10px 10px 10px rgba(0,0,0,0.5);
     }
     #section_01 .icon_rocket{
@@ -209,6 +214,10 @@
     .gnb ul li a{
         font-size: 2.5vh;
     }
+    #footer{
+        font-size: 2.5vh;
+        line-height: 5vh;
+    }
     
     /* width */
     ::-webkit-scrollbar {
@@ -219,6 +228,7 @@
     /*style.css*/
     #section_01 .section_title{
         line-height: 18.75vh;
+        bottom: 5vh;
         text-shadow: 1.25vh 1.25vh 1.25vh rgba(0,0,0,0.5);
     }
     #section_01 .icon_rocket{
@@ -388,17 +398,6 @@
         background: url(../images/icon_button_top.png) no-repeat;
         background-size: 100%;
     }
-    .gnb ul{
-        width: 10vh;
-        line-height: 10vh;
-    }
-    .gnb ul li{
-        margin-top: 2vh;
-    }
-    .gnb ul li a{
-        font-size: 2vh;
-    }
-
     /*include.css*/
     #wrap .content_wrap{
         width: 80vh;
@@ -428,6 +427,10 @@
     .gnb ul li a{
         font-size: 2vh;
     }
+    #footer{
+        font-size: 2vh;
+        line-height: 4vh;
+    }
 
     /* width */
     ::-webkit-scrollbar {
@@ -437,6 +440,7 @@
     /*style.css*/
     #section_01 .section_title{
         line-height: 15vh;
+        bottom: 4vh;
         text-shadow: 1vh 1vh 1vh rgba(0,0,0,0.5);
     }
     #section_01 .icon_rocket{
@@ -614,6 +618,10 @@
     .gnb ul li a{
         font-size: 2.5vw;
     }
+    #footer{
+        font-size: 2.5vw;
+        line-height: 5vw;
+    }
     
     /* width */
     ::-webkit-scrollbar {
@@ -624,6 +632,7 @@
     /*style.css*/
     #section_01 .section_title{
         line-height: 18.75vw;
+        bottom: 5vw;
         text-shadow: 1.25vw 1.25vw 1.25vw rgba(0,0,0,0.5);
     }
     #section_01 .icon_rocket{

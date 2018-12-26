@@ -177,10 +177,6 @@ map_value_init();
 
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
-    console.log("IS_LWE_IE8 : "+ IS_LWE_IE8);
-    if(IS_LWE_IE8){
-        $("#wrap").remove();
-    }
     if(IS_IOS) {
         $("input[type=text],textarea").on("focusin", function() {
 //            window.scrollTo(0, 0);
@@ -212,45 +208,11 @@ $(document).ready(function(){
 //                $("body").scrollTop(0);
             }
         }
-        if(IS_LWE_IE8) {
-            $(".warning_wrap").resize();
-        }
     });
 })
 
 $(window).on("load",function() {
     finish_loading($("body"));
-    
-    if(IS_LWE_IE8){
-        var container = $("<div class=\"warning_wrap\"></div>");
-        container.css({
-            "line-height": "normal",
-            "display": "inline-block",
-            "vertical-align": "middle",
-        })
-        container.append($("<img src=\"./images/icon_impossible.png\"/>"));
-        container.append($("<p class=\"title\">Sorry.</p>"));
-        container.append($("<p>This page don\'t support lower version than IE9.</p>"));
-        container.append($("<p>Please update this browser or try to access with another browser.</p>"));
-        container.find("p").css({
-            "color":"#fff",
-        })
-        container.on("resize", function() {
-            $(this).find("img").css({
-                "width":CONTENT_WIDTH*0.3,
-                "height":CONTENT_WIDTH*0.18,
-            })
-            $(this).find("p").css({
-                "font-size": CONTENT_WIDTH*0.025,
-            })
-            $(this).find(".title").css({
-                "font-size": CONTENT_WIDTH*0.04,
-            })
-        });
-        container.resize();
-        $("body").append(container);
-        return;
-    }
     
     //skill list load
     $.get("./meta/skill_list.xml", function(data) 

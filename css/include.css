@@ -86,6 +86,19 @@ input:focus, textarea:focus{
     border-left: 1px solid #fff;
 }
 
+#footer{
+    width: 100%;
+    font-size: 2vw;
+    line-height: 4vw;
+    font-weight: 200;
+    text-align: center;
+    display: block;
+    color: #fff;
+    position: absolute;
+    z-index: 100;
+    bottom: 0;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 1.5vw;
