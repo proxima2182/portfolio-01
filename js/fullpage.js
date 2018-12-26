@@ -16,7 +16,9 @@ function make_fullpage(sal, pal) {
     page_action_list = pal;
     $("#wrap").css({
         "overflow":"hidden",
-        "position":"relative",
+        "position":"absolute",
+        "bottom":0,
+        "margin":"0 auto",
     })
     var pages = $(".fullpage");
     var mouse_in = false;
