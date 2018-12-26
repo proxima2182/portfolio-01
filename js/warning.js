@@ -35,10 +35,10 @@ var callback = function(){
     document.body.appendChild(container);
 
     container.resize = function() {
-        img.style = "width: "+CONTENT_WIDTH*0.3+"px; height: "+CONTENT_WIDTH*0.18+";px";
-        title.style =  "font-size: "+CONTENT_WIDTH*0.04+"px;";
-        p1.style = "font-size: "+CONTENT_WIDTH*0.025+"px;";
-        p2.style = "font-size: "+CONTENT_WIDTH*0.025+"px;";
+        img.setAttribute("style","width: "+CONTENT_WIDTH*0.3+"px; height: "+CONTENT_WIDTH*0.18+";px");
+        title.setAttribute("style","font-size: "+CONTENT_WIDTH*0.04+"px;");
+        p1.setAttribute("style","font-size: "+CONTENT_WIDTH*0.025+"px;");
+        p2.setAttribute("style","font-size: "+CONTENT_WIDTH*0.025+"px;");
     };
     container.resize();
     if (window.attachEvent) {
