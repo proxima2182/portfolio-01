@@ -1,4 +1,3 @@
-var IS_LWE_IE8 = false;
 
 var CONTENT_WIDTH, WINDOW_WIDTH, WINDOW_HEIGHT;
 function check_resolution() {
@@ -14,7 +13,6 @@ function check_resolution() {
 }
 //var callback = function(){
 //  // Handler when the DOM is fully loaded
-(function(ready){
     check_resolution();
     console.log("IS_LWE_IE8 : "+ IS_LWE_IE8);
     document.getElementById("wrap").outerHTML = "";
@@ -61,7 +59,6 @@ function check_resolution() {
             container.resize();
         })
     }
-})
 //};
 //
 //if (
