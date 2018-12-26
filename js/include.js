@@ -198,9 +198,17 @@ $(document).ready(function(){
         map_resize();
         include_resize();
         popup_resize();
+        
+//    top: 50%;
+//    left: 50%;
+//    transform: translate(-50%,-50%);
+        var deg = IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"-90deg":"0deg";
         $("#section_05 video").css({
             "min-width": WINDOW_WIDTH,
             "min-height": WINDOW_HEIGHT,
+            "-webkit-transform": "translate(-50%,-50%) rotate("+deg+")",
+            "-ms-transform": "translate(-50%,-50%) rotate("+deg+")",
+            "transform": "translate(-50%,-50%) rotate(-"+deg+")",
         })
         if(IS_IOS) {
             var input_wrap = $(".extra_input_area");
