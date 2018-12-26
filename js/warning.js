@@ -1,4 +1,4 @@
-
+IS_LWE_IE8 = true;
 var CONTENT_WIDTH, WINDOW_WIDTH, WINDOW_HEIGHT;
 function check_resolution() {
     WINDOW_WIDTH = window.innerWidth;
