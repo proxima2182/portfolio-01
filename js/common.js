@@ -231,7 +231,7 @@ function resize_standard() {
         "width": WINDOW_WIDTH,
         "height": WINDOW_HEIGHT,
     })
-    if(IS_MOBILE && IS_SCREEN_ROTATED) {
+    if(IS_SCREEN_ROTATED) {
         $("#wrap").css({
             "-webkit-transform": "rotate(90deg)",
             "-ms-transform": "rotate(90deg)",
