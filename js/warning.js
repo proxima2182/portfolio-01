@@ -1,4 +1,3 @@
-IS_LWE_IE8 = true;
 var CONTENT_WIDTH, WINDOW_WIDTH, WINDOW_HEIGHT;
 function check_resolution() {
     WINDOW_WIDTH = window.innerWidth;
@@ -11,8 +10,8 @@ function check_resolution() {
         CONTENT_WIDTH = WINDOW_WIDTH;
     }
 }
-var callback = function(){
-  // Handler when the DOM is fully loaded
+//var callback = function(){
+//  // Handler when the DOM is fully loaded
 
     check_resolution();
     console.log("IS_LWE_IE8 : "+ IS_LWE_IE8);
@@ -46,18 +45,27 @@ var callback = function(){
         p2.style = "font-size: "+CONTENT_WIDTH*0.025+"px;";
     };
     container.resize();
-    window.addEventListener("resize", function() {
-        check_resolution();
-        console.log("resize called");
-        container.resize();
-    })
-};
-
-if (
-    document.readyState === "complete" ||
-    (document.readyState !== "loading" && !document.documentElement.doScroll)
-) {
-  callback();
-} else {
-  document.addEventListener("DOMContentLoaded", callback);
-}
+    if (window.attachEvent) {
+        window.attachEvent("onresize", function() {
+            check_resolution();
+            console.log("resize called");
+            container.resize();
+        })
+    }
+    else {
+        window.addEventListener("resize", function() {
+            check_resolution();
+            console.log("resize called");
+            container.resize();
+        })
+    }
+//};
+//
+//if (
+//    document.readyState === "complete" ||
+//    (document.readyState !== "loading" && !document.documentElement.doScroll)
+//) {
+//  callback();
+//} else {
+//  document.addEventListener("DOMContentLoaded", callback);
+//}
