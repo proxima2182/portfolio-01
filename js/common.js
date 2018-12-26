@@ -131,12 +131,12 @@ function make_extra_input(focused) {
             resize_standard();
         });
         input.data("focused", focused);
-        var offset = document.body.scrollTop;
-        console.log("input_offset_top : " + offset);
-        $("body").css({
-            "height": height + offset,
-        })
-        document.body.scrollTop = offset;
+//        var offset = document.body.scrollTop;
+//        console.log("input_offset_top : " + offset);
+//        $("body").css({
+//            "height": height + offset,
+//        })
+//        document.body.scrollTop = offset;
     }
 }
 
@@ -190,12 +190,12 @@ function resize_standard() {
             })
             if(IS_IOS) {
                 input.data("focused").focus();
-                var offset = document.body.scrollTop;
-                console.log("input_offset_top : " + offset);
-                $("body").css({
-                    "height": height + offset,
-                })
-                document.body.scrollTop = offset;
+//                var offset = document.body.scrollTop;
+//                console.log("input_offset_top : " + offset);
+//                $("body").css({
+//                    "height": height + offset,
+//                })
+//                document.body.scrollTop = offset;
             }
         }
     }
