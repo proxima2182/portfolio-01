@@ -89,7 +89,6 @@ function make_extra_input(focused) {
     var input_wrap = $("<div class=\"extra_input_area\"></div>")
     var input = $("<input type=\"text\"></input>");
     input_wrap.append(input);
-    input_wrap.append(input);
     input_wrap.css({
         "width" : "100%",
         "height" : "100%",
@@ -131,7 +130,9 @@ function make_extra_input(focused) {
             resize_standard();
         });
         input.data("focused", focused);
-        console.log("scrollTop : " + document.body.scrollTop);
+        setTimeout(function() {
+            console.log("scrollTop : " + document.body.scrollTop);
+        }, 50);
 //        var offset = document.body.scrollTop;
 //        console.log("input_offset_top : " + offset);
 //        $("body").css({
@@ -191,7 +192,7 @@ function resize_standard() {
             })
             if(IS_IOS) {
                 input.data("focused").focus();
-                console.log("scrollTop : " + document.body.scrollTop);
+//                console.log("scrollTop : " + document.body.scrollTop);
 //                var offset = document.body.scrollTop;
 //                console.log("input_offset_top : " + offset);
 //                $("body").css({
