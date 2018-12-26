@@ -4,6 +4,7 @@ var SCREEN_DEGREE = 0;
 var IS_ROTATED = false, IS_SCREEN_ROTATED = false;
 var IS_IOS = false, IS_ANDROID = false, IS_PAD= false, IS_MOBILE = false;
 var IS_DOCUMENT_LOADED = false;
+var IS_LWE_IE8 = false;
 
 $.fn.onEnterKey =
     function( closure ) {
@@ -435,9 +436,10 @@ function loading(target, is_fullscreen, width_ratio, border_ratio, background_co
         });
     });
     if(!is_fullscreen && cancel_action!=undefined) {
-        container.click(function() {
+        container.click(function(event) {
             cancel_action();
             finish_loading(target);
+            event.stopPropagation();
         })
     }
     container.resize();

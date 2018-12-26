@@ -358,7 +358,10 @@ function popup(meta) {
         var images = resource_wrap.find("img");
         var load_count = images.length;
 
-        loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
+        loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff", undefined, function() {
+            $(images).off("load");
+            popup.remove();
+        });
         $(images).on("load", function() {
             load_count --;
             if(load_count == 0) {
@@ -399,6 +402,7 @@ function popup(meta) {
             }
         });
         function show_popup() {
+            if(popup==undefined) return;
             finish_loading($("body"));
             var url = $(meta).find("url");
             var name = $(meta).find("name");
