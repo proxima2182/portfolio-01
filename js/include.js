@@ -188,7 +188,7 @@ $(document).ready(function(){
 //            document.body.scrollTop = 0;
             console.log("focused");
             make_extra_input($(this));
-//            $("body").scrollTop(0);
+            $("body").scrollTop(0);
         })
     }
     window.addEventListener("resize", function() {
@@ -199,10 +199,6 @@ $(document).ready(function(){
         include_resize();
         popup_resize();
         
-//    top: 50%;
-//    left: 50%;
-//    transform: translate(-50%,-50%);
-//        var deg = IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"90deg":"0deg";
         $("#section_05 video").css({
             "min-width": WINDOW_WIDTH,
             "min-height": WINDOW_HEIGHT,
@@ -215,7 +211,7 @@ $(document).ready(function(){
             if(input_wrap.length > 0){
 //                var input = input_wrap.find("input");
 //                input.data("focused").focus();
-//                $("body").scrollTop(0);
+                $("body").scrollTop(0);
             }
         }
     });

@@ -238,7 +238,6 @@ function resize_standard() {
 //                input.data("focused").focus();
 //                console.log("scrollTop : " + document.body.scrollTop);
 //                var offset = document.body.scrollTop;
-                input.focus();
                 var offset = IS_ROTATED ? (height/4 - CONTENT_WIDTH*0.04) : (height/3 - CONTENT_WIDTH*0.04);
                 console.log("input_offset_top : " + offset);
                 $("body").css({
