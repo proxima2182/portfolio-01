@@ -326,6 +326,7 @@ function make_loading(target, is_fullscreen, width_ratio, border_ratio, backgrou
         text.css({
             "width": "100%",
             "text-align": "center",
+            "font-family": "sans-serif",
             "color":"#fff",
             "top": 0,
             "position": "absolute",

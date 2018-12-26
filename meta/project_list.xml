@@ -536,7 +536,7 @@
             알려준다.\n
             회사에 서버개발자가 구현해 둔 API를 모바일기기에서 사용할 수 있도록 구현하였고 몇 가지 네이티브기능들도 추가하였다.\n
             사용자 선택에 따라 결제 후 지급된 미니 프린터로 프린트 요청을 보내도록 하였다.\n
-            이 기능은 장착된 모바일 포스 기기 SUNMI 에도 적용시켜 배포하였고 개발완료 후 전반적인 유지보수도 담당하였다.\n
+            이 기능은 장착된 모바일 포스 기기 SUNMI 에도 적용시켜 배포하였고 개발완료 후 전반적인 유지보수도 담당하였다.
         </description>
         <url>https://play.google.com/store/apps/details?id=yedpay.mobile.ash.yedpaypos.release</url>
         <resources>
