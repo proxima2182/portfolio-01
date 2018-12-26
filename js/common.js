@@ -210,7 +210,19 @@ function resize_standard() {
             //Android call resize function twice with soft keyboard.
             //so make it wait one time in that case
             ROTATE_WITH_KEYBOARD = true;
-        }
+        } 
+//        else if(IS_IOS){
+//            //IOS don't call resize function twice when the device is rotated.
+//            //because IOS don't call resize for soft keyboard is opened or closed.
+//            //But the reason of calling that function twice is that device has 0 degree.
+//            //Since safari browser in IOS always happens in vertical environment.
+//            var input = $(".extra_input_area input");
+//            if(input.length>0) {
+//                console.log("INPUT IS AVAILABLE!");
+//            } else {
+//                console.log("INPUT IS NOT AVAILABLE!");
+//            }
+//        }
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
             input_wrap.css({
@@ -226,6 +238,7 @@ function resize_standard() {
 //                input.data("focused").focus();
 //                console.log("scrollTop : " + document.body.scrollTop);
 //                var offset = document.body.scrollTop;
+                input.focus();
                 var offset = IS_ROTATED ? (height/4 - CONTENT_WIDTH*0.04) : (height/3 - CONTENT_WIDTH*0.04);
                 console.log("input_offset_top : " + offset);
                 $("body").css({

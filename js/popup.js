@@ -331,8 +331,8 @@ function popup(meta) {
         var images = resource_wrap.find("img");
         var load_count = images.length;
 
+        make_loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
         $(images).on("load", function() {
-            make_loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
             load_count --;
             if(load_count == 0) {
                 resource_wrap.make_slider({
@@ -372,6 +372,10 @@ function popup(meta) {
             }
         });
         function show_popup() {
+            var loading = $("body>.section_loading");
+            if(loading.length>0) {
+                loading.remove();
+            }
             var url = $(meta).find("url");
             var name = $(meta).find("name");
             if(name.length>0) {

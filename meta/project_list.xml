@@ -880,9 +880,36 @@
         </company>
         <description>
             짧은 시간에 출시하기 위해 상황별 중국어로 된 문장들을 따라 읽고, 중국어 단어카드를 보여주는 간단한 앱을 개발 했었다.\n
-            현재 플레이스토어에서는 유지보수를 위해 내려간 듯 하다.\n
-            이클립스로 개발했었는데, 현재 많은 시간이 흐른 뒤라 정책 변경 등에 맞추지 않고 업데이트를 하지 않아서 내려진듯 하다.
+            *이클립스로 개발했었는데, 현재 많은 시간이 흐른 뒤라 정책 변경 등에 맞추지 않고 업데이트를 하지 않아서 내려진듯 하다.\n
+            *기존 소스를 좀 변형해 기록용 영상을 찍어서 올릴 예정이다.
         </description>
+        <resources>
+            <page>3</page>
+            <resource>
+                <thumb>./projects/thumb/soosang_android_02_02.png</thumb>
+                <path>./projects/soosang_android_02_02.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_android_02_03.png</thumb>
+                <path>./projects/soosang_android_02_03.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_android_02_04.png</thumb>
+                <path>./projects/soosang_android_02_04.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_android_02_05.png</thumb>
+                <path>./projects/soosang_android_02_05.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+        </resources>
     </project>
     <project>
         <work>Affair</work>
@@ -902,8 +929,42 @@
             3D를 2D처럼 표현한 맵 탐색을 이용했고, 요소 리스트에서 캐릭터 기준 뒤에 그려질 물체와 앞에 그려질 물체를 커스텀한 sort 함수로 구분 하였다.\n
             여기서 ㄱ자형 처럼 정 사각형이 아닌 물체의 sort가 잘 이루어지지 않았었는데 졸업 시즌이고 해서 더 많은 에러를 수정하지 못하고 관두게 되어서 아쉽다고 생각한 프로젝트이다.\n
             많은 기획자들이 있었기 때문에 시나리오를 일일히 짜서 배당받은 단어로 문장을 만들어 스토리를 짰기 때문에 실험적이지만 의미있었던 프로젝트였다.\n
-            현재 플레이스토어에서는 유지보수를 위해 내려간 듯 하다.
+            *이클립스로 개발했었는데, 현재 많은 시간이 흐른 뒤라 정책 변경 등에 맞추지 않고 업데이트를 하지 않아서 내려진듯 하다.\n
+            *기존 소스를 좀 변형해 기록용 영상을 찍어서 올릴 예정이다.
         </description>
+        <resources>
+            <page>3</page>
+            <resource>
+                <thumb>./projects/thumb/soosang_android_01_02.png</thumb>
+                <path>./projects/soosang_android_01_02.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_android_01_03.png</thumb>
+                <path>./projects/soosang_android_01_03.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_android_01_04.png</thumb>
+                <path>./projects/soosang_android_01_04.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_android_01_05.png</thumb>
+                <path>./projects/soosang_android_01_05.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_android_01_06.png</thumb>
+                <path>./projects/soosang_android_01_06.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+        </resources>
     </project>
     <project>
         <work>Affair</work>
@@ -922,8 +983,35 @@
             처음 프로젝트가 끝난 뒤 잠시 휴식기가 있었는데, 게임을 만들어보라고 제시해서 만들게 된 2D 투척형 게임이다.\n
             사실 게임 난이도가 높지 않고 단순해서 게임성은 많이 떨어졌지만 전문 디자이너와 협업 해서 매우 예쁘게 만들어 졌다고 생각한다.\n
             Unity3D에서 Javascript보다 C#이 더 편할 듯 해서 다른 언어로 만들어 보았다.\n
-            현재 플레이스토어에서는 유지보수를 위해 내려간 듯 하다.
+            *이클립스로 개발했었는데, 현재 많은 시간이 흐른 뒤라 정책 변경 등에 맞추지 않고 업데이트를 하지 않아서 내려진듯 하다.
         </description>
+        <resources>
+            <page>3</page>
+            <resource>
+                <thumb>./projects/thumb/soosang_unity_02_01.png</thumb>
+                <path>./projects/soosang_unity_02_01.mp4</path>
+                <type>video</type>
+                <media>mp4</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_unity_02_02.png</thumb>
+                <path>./projects/soosang_unity_02_02.jpg</path>
+                <type>image</type>
+                <media>jpg</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_unity_02_03.png</thumb>
+                <path>./projects/soosang_unity_02_03.jpg</path>
+                <type>image</type>
+                <media>jpg</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_unity_02_04.png</thumb>
+                <path>./projects/soosang_unity_02_04.jpg</path>
+                <type>image</type>
+                <media>jpg</media>
+            </resource>
+        </resources>
     </project>
     <project>
         <work>Affair</work>
@@ -943,7 +1031,29 @@
             당시 처음 개발해 보는 플랫폼이었기 때문에 약 한달 정도의 자습시간을 가지고 했다.\n
             3D 모델들과 리소스가 모두 제공되었었으며 개발자가 1명인데다 초보라는 제약 때문에 행성을 돌아다닌다는 컨셉으로 제시 하여 원형 구 위에 캐릭터를 고정하고 행성만 돌리는 구조로 이동을 구현하였다.\n
             이 때 360% 컨트롤러를 라이브러리없이 만들었는데, 동서대 교수님께 매우 칭찬 받았던 기억이 난다.\n
-            현재 플레이스토어에서는 유지보수를 위해 내려간 듯 하다.
+            *이클립스로 개발했었는데, 현재 많은 시간이 흐른 뒤라 정책 변경 등에 맞추지 않고 업데이트를 하지 않아서 내려진듯 하다.\n
+            *기존 소스를 좀 변형해 기록용 영상을 찍어서 올릴 예정이다.
         </description>
+        <resources>
+            <page>3</page>
+            <resource>
+                <thumb>./projects/thumb/soosang_unity_01_01.png</thumb>
+                <path>./projects/soosang_unity_01_01.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_unity_01_02.png</thumb>
+                <path>./projects/soosang_unity_01_02.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <thumb>./projects/thumb/soosang_unity_01_03.png</thumb>
+                <path>./projects/soosang_unity_01_03.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+        </resources>
     </project>
 </projects>
