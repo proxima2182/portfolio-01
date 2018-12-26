@@ -11,8 +11,8 @@ function check_resolution() {
         CONTENT_WIDTH = WINDOW_WIDTH;
     }
 }
-//var callback = function(){
-//  // Handler when the DOM is fully loaded
+var callback = function(){
+  // Handler when the DOM is fully loaded
     check_resolution();
     console.log("IS_LWE_IE8 : "+ IS_LWE_IE8);
     document.getElementById("wrap").outerHTML = "";
@@ -59,13 +59,25 @@ function check_resolution() {
             container.resize();
         })
     }
-//};
-//
-//if (
-//    document.readyState === "complete" ||
-//    (document.readyState !== "loading" && !document.documentElement.doScroll)
-//) {
-//  callback();
-//} else {
-//  document.addEventListener("DOMContentLoaded", callback);
-//}
+};
+if (
+    document.readyState === "complete" ||
+    (document.readyState !== "loading" && !document.documentElement.doScroll)
+) {
+  callback();
+} else {
+    if (document.attachEvent) {
+        document.attachEvent("onreadystatechange", function(){
+          // check if the DOM is fully loaded
+          if(document.readyState === "complete"){
+            // remove the listener, to make sure it isn't fired in future
+            document.detachEvent("onreadystatechange", arguments.callee);
+            // The actual handler...
+            callback();
+          }
+        });
+    }
+    else {
+        document.addEventListener("DOMContentLoaded",callback);
+    }
+}
