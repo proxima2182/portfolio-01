@@ -16,10 +16,6 @@ var callback = function(){
     check_resolution();
     console.log("IS_LWE_IE8 : "+ IS_LWE_IE8);
     document.getElementById("wrap").outerHTML = "";
-//                        if(IS_LWE_IE8) {
-//                            $(".warning_wrap").resize();
-//                        }
-//                    if(IS_LWE_IE8){
     var container = document.createElement("div");
     container.setAttribute("class", "warning_wrap");
     container.setAttribute("style","line-height: normal; display: inline-block; vertical-align: middle; color: #fff;");
