@@ -183,14 +183,14 @@ function popup(meta) {
             "line-height":"normal",
             "background-color": "#002157",
             "border": "1px solid #fff",
-            "overflow": "auto",
             "color": "#fff",
         });
         popup_content_wrap.css({
             "width":"100%",
             "max-height": WINDOW_HEIGHT*0.6,
             "text-align":"left",
-            "overflow-y":"scroll",
+//            "overflow-y":"scroll",
+            "overflow":"auto",
         });
         resource_wrap.css({
 //            "width": "100%",

@@ -110,6 +110,7 @@ textarea,
 input{
     -webkit-appearance: none;
     border-radius: 0;
+    overflow: auto;
 }
 .scaling{
     -webkit-animation: scaling 1.6s infinite linear;
