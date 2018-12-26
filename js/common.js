@@ -150,8 +150,7 @@ function make_extra_input(focused) {
 //            }
 //        }, 50);
 //        var offset = document.body.scrollTop;
-        height/2 - CONTENT_WIDTH*0.04 + 
-        var offset = IS_ROTATED ? (height/4 - CONTENT_WIDTH*0.04) : (height/3 - CONTENT_WIDTH*0.04) ;
+        var offset = IS_ROTATED ? (height/4 - CONTENT_WIDTH*0.04) : (height/3 - CONTENT_WIDTH*0.04);
         console.log("input_offset_top : " + offset);
         $("body").css({
             "height": height + offset,
@@ -212,7 +211,7 @@ function resize_standard() {
 //                input.data("focused").focus();
 //                console.log("scrollTop : " + document.body.scrollTop);
 //                var offset = document.body.scrollTop;
-                var offset = height/4 - CONTENT_WIDTH*0.04;
+                var offset = IS_ROTATED ? (height/4 - CONTENT_WIDTH*0.04) : (height/3 - CONTENT_WIDTH*0.04);
                 console.log("input_offset_top : " + offset);
                 $("body").css({
                     "height": height + offset,
