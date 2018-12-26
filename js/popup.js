@@ -54,7 +54,9 @@ function show_detail_view(index) {
             content.off("load");
             $("body>.section_loading").remove();
             if(!content.complete) {
-                loading($("#wrap"), false, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
+                loading($("#wrap"), false, 0.08, 0.012, "rgba(0,0,0,0)", "#fff", undefined, function() {
+                    detail_view.remove();
+                });
             } else {
                 content.css("opacity",1);
                 notice_wrap.css("opacity",1);

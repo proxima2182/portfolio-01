@@ -292,7 +292,7 @@ function finish_loading(target) {
     }
 }
 
-function loading(target, is_fullscreen, width_ratio, border_ratio, background_color, point_color, text) {
+function loading(target, is_fullscreen, width_ratio, border_ratio, background_color, point_color, text, cancel_action) {
     if(target.length==0) return;
     var container = $("<div class=\"section_loading\"></div>");
     container.css({
@@ -434,6 +434,12 @@ function loading(target, is_fullscreen, width_ratio, border_ratio, background_co
             $(this).remove();
         });
     });
+    if(!is_fullscreen && cancel_action!=undefined) {
+        container.click(function() {
+            cancel_action();
+            finish_loading(target);
+        })
+    }
     container.resize();
     $(target).append(container);
 }
