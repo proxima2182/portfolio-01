@@ -22,7 +22,7 @@ var callback = function(){
 //                    if(IS_LWE_IE8){
     var container = document.createElement("div");
     container.setAttribute("class", "warning_wrap");
-    container.style = "line-height: normal; display: inline-block; vertical-align: middle; color: #fff;";
+    container.setAttribute("style","line-height: normal; display: inline-block; vertical-align: middle; color: #fff;");
     var img = document.createElement("img");
     img.setAttribute("src", "./images/icon_impossible.png");
     var title = document.createElement("p");
