@@ -134,7 +134,7 @@ function make_enter() {
         var colors=["#32004b", "#440e62", "#1c2e5f"];
         var count = 3;
         for(var i= 0; i< count; ++i ) {
-            let clone = background.clone();
+            var clone = background.clone();
             clone.css({
                 "width":0,
                 "height":0,
