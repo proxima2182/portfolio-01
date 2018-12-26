@@ -141,7 +141,7 @@ function make_enter() {
                 "border-radius": "50%",
                 "background-color": colors[i],
                 "z-index":i,
-            })
+            });
             container.append(clone);
             setTimeout(function() {
                 clone.animate({

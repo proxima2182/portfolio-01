@@ -32,6 +32,7 @@ function show_detail_view(index) {
             "display": "inline-block",
             "vertical-align": "middle",
             "cursor":"auto",
+            "opacity":0,
         }
         var content;
         if(type == "image"){
@@ -53,9 +54,12 @@ function show_detail_view(index) {
             $("body>.section_loading").remove();
             if(!content.complete) {
                 make_loading($("#wrap"), false, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
+            } else {
+                content.css("opacity",1);
             }
             content.on("load loadeddata" ,function() {
                 $("#wrap>.section_loading").remove();
+                content.css("opacity",1);
             })
         }
         detail_view.click(function(e) {
