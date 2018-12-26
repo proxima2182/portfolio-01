@@ -194,14 +194,7 @@ $(document).ready(function(){
         popup_resize();
         
         var deg = IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"90deg":"0deg";
-        $("#section_05 .video_wrap").css({
-            "width": WINDOW_WIDTH,
-            "height": WINDOW_HEIGHT,
-            "top":"50%",
-            "left":"50%",
-            "margin-top":-1*WINDOW_HEIGHT/2,
-            "margin-left":-1*WINDOW_WIDTH/2,
-            "position":"absolute",
+        $("#section_05 video").css({
             "-webkit-transform": "rotate("+deg+")",
             "-ms-transform": "rotate("+deg+")",
             "transform": "rotate("+deg+")",
