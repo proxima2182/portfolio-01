@@ -4,7 +4,6 @@ var SCREEN_DEGREE = 0;
 var IS_ROTATED = false, IS_SCREEN_ROTATED = false;
 var IS_IOS = false, IS_ANDROID = false, IS_PAD= false, IS_MOBILE = false;
 var IS_DOCUMENT_LOADED = false;
-var IS_LWE_IE8 = false;
 
 $.fn.onEnterKey =
     function( closure ) {
