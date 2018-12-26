@@ -38,6 +38,11 @@ function focus_out() {
        }
     })
     $("body").removeAttr("style");
+    $("body").css({
+        "width": $(window).width(),
+        "height": $(window).height(),
+        "line-height": $(window).height() + "px",
+    })
 }
 function check_device() {
     console.log("check_device");
@@ -67,6 +72,11 @@ function check_device() {
 function check_resolution() {
     WINDOW_WIDTH = $(window).width();
     WINDOW_HEIGHT = $(window).height();
+    $("body").css({
+        "width": $(window).width(),
+        "height": $(window).height(),
+        "line-height": $(window).height() + "px",
+    })
     if(IS_ROTATED) {
         WINDOW_WIDTH = $(window).height();
         WINDOW_HEIGHT = $(window).width();
@@ -184,6 +194,11 @@ function resize_standard() {
             if(focused == undefined && !ROTATE_WITH_KEYBOARD) {
                 $(".extra_input_area").remove();
                 $("body").removeAttr("style");
+                $("body").css({
+                    "width": $(window).width(),
+                    "height": $(window).height(),
+                    "line-height": $(window).height() + "px",
+                })
             }
             ROTATE_WITH_KEYBOARD = false;
             if(IS_ANDROID && focused != undefined) {

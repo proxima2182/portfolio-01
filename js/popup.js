@@ -171,7 +171,7 @@ function popup(meta) {
         $("#wrap").append(popup);
 
         popup.css({
-            "display":"none",
+            "opacity":0,
             "width": CONTENT_WIDTH*0.6,
             "max-height": WINDOW_HEIGHT*0.8,
             "padding": CONTENT_WIDTH*0.08 + "px " + CONTENT_WIDTH*0.04 + "px",
@@ -454,7 +454,7 @@ function popup(meta) {
                 })
             })
             popup.css({
-                "display":"block",
+                "opacity":1,
                 "bottom":-1*popup.outerHeight(),
                 "left": "50%",
                 "margin-left": -1*CONTENT_WIDTH*0.32,
