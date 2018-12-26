@@ -120,6 +120,7 @@ $.fn.make_slider = function(opt){
             "cursor": "pointer",
             "color": option["button_basic_color"]!=undefined?option["button_basic_color"]:"#fff",
             "font-size": "30px",
+            "z-index":"50",
             "opacity": "1",
             
             "top": "50%",

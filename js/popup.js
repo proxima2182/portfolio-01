@@ -20,6 +20,7 @@ function show_detail_view(index) {
         });
         notice_wrap.css({
             "width": "100%",
+            "opacity":"0",
             "text-align": "center",
             "color": "#fff",
             "left": 0,
@@ -56,10 +57,12 @@ function show_detail_view(index) {
                 loading($("#wrap"), false, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
             } else {
                 content.css("opacity",1);
+                notice_wrap.css("opacity",1);
             }
             content.on("load loadeddata" ,function() {
                 finish_loading($("#wrap"));
                 content.css("opacity",1);
+                notice_wrap.css("opacity",1);
             })
         }
         detail_view.click(function(e) {
@@ -313,34 +316,36 @@ function popup(meta) {
             })
             var li = $("<li></li>");
             li.css("position", "relative");
-            var hover = $("<div class=\"hover\"></div>")
-            hover.css({
-                "width" : "100%",
-                "height" : "100%",
-                "top" : 0,
-                "left" : 0,
-                "z-index" : 1,
-                "position": "absolute",
-            })
-            if(type == "image") {
-                hover.css({
-                    "background":"rgba(0, 0, 0, 0.5) url(./images/icon_open.png) no-repeat",
-                    "background-size": CONTENT_WIDTH*0.05,
-                    "background-position": "center",
-                    "pointer-events":"none",
-                })
-            } else if(type =="video"){
-                hover.css({
-                    "background":"rgba(0, 0, 0, 0.5) url(./images/icon_play.png) no-repeat",
-                    "background-size": CONTENT_WIDTH*0.05,
-                    "background-position": "center",
-                    "pointer-events":"none",
-                })
-            }
+            li.data("type",type);
             li.hover(function() {
+                var hover = $("<div class=\"hover\"></div>")
+                hover.css({
+                    "width" : "100%",
+                    "height" : "100%",
+                    "top" : 0,
+                    "left" : 0,
+                    "z-index" : 1,
+                    "position": "absolute",
+                })
+                var type = $(this).data("type");
+                if(type == "image") {
+                    hover.css({
+                        "background":"rgba(0, 0, 0, 0.5) url(./images/icon_open.png) no-repeat",
+                        "background-size": CONTENT_WIDTH*0.05,
+                        "background-position": "center",
+                        "pointer-events":"none",
+                    })
+                } else if(type =="video"){
+                    hover.css({
+                        "background":"rgba(0, 0, 0, 0.5) url(./images/icon_play.png) no-repeat",
+                        "background-size": CONTENT_WIDTH*0.05,
+                        "background-position": "center",
+                        "pointer-events":"none",
+                    })
+                }
                 $(this).append(hover);
             }, function() {
-                hover.remove();
+                $(this).find(".hover").remove();
             })
             li.append(img);
             li.click(function() {

@@ -85,13 +85,10 @@ function check_resolution() {
     }
     if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
         CONTENT_WIDTH = 1000;
-        console.log("CASE 01");
     }else if(WINDOW_HEIGHT<800 && WINDOW_WIDTH/WINDOW_HEIGHT>1.25) {
         CONTENT_WIDTH = WINDOW_HEIGHT* 1.25;
-        console.log("CASE 02");
     }else{
         CONTENT_WIDTH = WINDOW_WIDTH;
-        console.log("CASE 03");
     }
 }
 
@@ -290,7 +287,6 @@ function resize_standard() {
 function finish_loading(target) {
     var container = target.find(">.section_loading");
     if(container.length>0) {
-        console.log("interval_id : " + container.data("interval_id"));
         clearInterval(container.data("interval_id"));
         container.remove();
     }
