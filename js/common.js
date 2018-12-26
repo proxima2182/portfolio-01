@@ -134,21 +134,27 @@ function make_extra_input(focused) {
             var offset = document.body.scrollTop;
             console.log("scrollTop : " + offset);
             if(offset != 0) {
+                var offset = document.body.scrollTop;
+                console.log("input_offset_top : " + offset);
+                $("body").css({
+                    "height": height + offset,
+                })
                 return false;
             }
             return true;
         };
-        var timer_id = setInterval(function() {
-            if(!timer()) {
-                clearInterval(timer_id);
-            }
-        }, 50);
+//        var timer_id = setInterval(function() {
+//            if(!timer()) {
+//                clearInterval(timer_id);
+//            }
+//        }, 50);
 //        var offset = document.body.scrollTop;
-//        console.log("input_offset_top : " + offset);
-//        $("body").css({
-//            "height": height + offset,
-//        })
-//        document.body.scrollTop = offset;
+        var offset = height/2;
+        console.log("input_offset_top : " + offset);
+        $("body").css({
+            "height": height + offset,
+        })
+        document.body.scrollTop = offset;
     }
 }
 
@@ -201,14 +207,15 @@ function resize_standard() {
                 "line-height": CONTENT_WIDTH*0.04 + "px",
             })
             if(IS_IOS) {
-                input.data("focused").focus();
+//                input.data("focused").focus();
 //                console.log("scrollTop : " + document.body.scrollTop);
 //                var offset = document.body.scrollTop;
-//                console.log("input_offset_top : " + offset);
-//                $("body").css({
-//                    "height": height + offset,
-//                })
-//                document.body.scrollTop = offset;
+                var offset = height/2;
+                console.log("input_offset_top : " + offset);
+                $("body").css({
+                    "height": height + offset,
+                })
+                document.body.scrollTop = offset;
             }
         }
     }
