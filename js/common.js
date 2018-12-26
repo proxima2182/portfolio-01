@@ -130,8 +130,18 @@ function make_extra_input(focused) {
             resize_standard();
         });
         input.data("focused", focused);
-        setTimeout(function() {
-            console.log("scrollTop : " + document.body.scrollTop);
+        var timer = function() {
+            var offset = document.body.scrollTop;
+            console.log("scrollTop : " + offset);
+            if(offset != 0) {
+                return false;
+            }
+            return true;
+        };
+        var timer_id = setInterval(function() {
+            if(!timer()) {
+                clearInterval(timer_id);
+            }
         }, 50);
 //        var offset = document.body.scrollTop;
 //        console.log("input_offset_top : " + offset);
