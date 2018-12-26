@@ -108,12 +108,6 @@ function make_enter() {
     var container = $("<div id=\"section_enter\"></div>");
     var width = $(window).width();
     var height = $(window).height();
-//    var deg = "0deg";
-//    if(IS_SCREEN_ROTATED) {
-//        width = WINDOW_HEIGHT;
-//        height = WINDOW_WIDTH;
-//        deg = "-90deg";
-//    }
     container.css({
         "width": width,
         "height": height,
@@ -199,12 +193,18 @@ $(document).ready(function(){
         include_resize();
         popup_resize();
         
-        $("#section_05 video").css({
-            "min-width": WINDOW_WIDTH,
-            "min-height": WINDOW_HEIGHT,
-            "-webkit-transform": "translate(-50%,-50%) rotate(0deg)",
-            "-ms-transform": "translate(-50%,-50%) rotate(0deg)",
-            "transform": "translate(-50%,-50%) rotate(0deg)",
+        var deg = IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"90deg":"0deg";
+        $("#section_05 .video_wrap").css({
+            "width": WINDOW_WIDTH,
+            "height": WINDOW_HEIGHT,
+            "top":"50%",
+            "left":"50%",
+            "margin-top":-1*WINDOW_HEIGHT/2,
+            "margin-left":-1*WINDOW_WIDTH/2,
+            "position":"absolute",
+            "-webkit-transform": "rotate("+deg+")",
+            "-ms-transform": "rotate("+deg+")",
+            "transform": "rotate("+deg+")",
         })
         if(IS_IOS) {
             var input_wrap = $(".extra_input_area");
