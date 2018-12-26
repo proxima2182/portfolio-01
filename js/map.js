@@ -807,6 +807,7 @@ function map_resize() {
 //    }
     //sizing
     map_value_init();
+    X_LINE = container.height()/2-AREA_HEIGHT;
     if(container.parents(".fullpage_active").length>0) {
         quit_drawing = true;
     //    if(container!=undefined && container.parents("."))
@@ -819,7 +820,6 @@ function map_value_init() {
     GROUND_HEIGHT = CONTENT_WIDTH*0.05;
     BOX_SIZE = CONTENT_WIDTH*0.12;
     BOX_MARGIN = (AREA_WIDTH - BOX_SIZE)/2;
-    X_LINE = container.height()/2-AREA_HEIGHT;
 }
 $(document).ready(function() {
     //map first load
@@ -827,6 +827,7 @@ $(document).ready(function() {
     container = $(container_value);
     
     map_value_init();
+    X_LINE = container.height()/2-AREA_HEIGHT;
 })
 
 function load_map(callback){

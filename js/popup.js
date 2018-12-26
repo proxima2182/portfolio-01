@@ -332,7 +332,7 @@ function popup(meta) {
         var load_count = images.length;
 
         $(images).on("load", function() {
-            make_loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff";
+            make_loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff");
             load_count --;
             if(load_count == 0) {
                 resource_wrap.make_slider({

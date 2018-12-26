@@ -179,6 +179,7 @@ function include_resize() {
 
 check_device();
 check_resolution();
+map_value_init();
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
     if(IS_IOS) {
