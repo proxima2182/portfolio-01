@@ -72,11 +72,13 @@ function check_device() {
 function check_resolution() {
     WINDOW_WIDTH = $(window).width();
     WINDOW_HEIGHT = $(window).height();
-    $("body").css({
-        "width": $(window).width(),
-        "height": $(window).height(),
-        "line-height": $(window).height() + "px",
-    })
+    if($(".extra_input_area").length == 0){
+        $("body").css({
+            "width": $(window).width(),
+            "height": $(window).height(),
+            "line-height": $(window).height() + "px",
+        })
+    }
     if(IS_ROTATED) {
         WINDOW_WIDTH = $(window).height();
         WINDOW_HEIGHT = $(window).width();
@@ -141,19 +143,19 @@ function make_extra_input(focused) {
             resize_standard();
         });
         input.data("focused", focused);
-        var timer = function() {
-            var offset = document.body.scrollTop;
-            console.log("scrollTop : " + offset);
-            if(offset != 0) {
-                var offset = document.body.scrollTop;
-                console.log("input_offset_top : " + offset);
-                $("body").css({
-                    "height": height + offset,
-                })
-                return false;
-            }
-            return true;
-        };
+//        var timer = function() {
+//            var offset = document.body.scrollTop;
+//            console.log("scrollTop : " + offset);
+//            if(offset != 0) {
+//                var offset = document.body.scrollTop;
+//                console.log("input_offset_top : " + offset);
+//                $("body").css({
+//                    "height": height + offset,
+//                })
+//                return false;
+//            }
+//            return true;
+//        };
 //        var timer_id = setInterval(function() {
 //            if(!timer()) {
 //                clearInterval(timer_id);
