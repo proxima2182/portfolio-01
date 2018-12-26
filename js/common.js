@@ -102,7 +102,6 @@ function make_extra_input(focused) {
         focus_out();
     });
     focused.blur();
-    input.data("focused", focused);
     input.css({
         "width": "80%",
         "font-size": CONTENT_WIDTH*0.02,
@@ -131,12 +130,13 @@ function make_extra_input(focused) {
             console.log("keyup");
             resize_standard();
         });
-        var offset = input.offset().top;
+        input.data("focused", focused);
+        var offset = focused.offset().top;
         console.log("input_offset_top : " + offset);
         $("body").css({
-            "height": height + offset - CONTENT_WIDTH*0.02,
+            "height": height + offset,
         })
-        document.body.scrollTop = offset + CONTENT_WIDTH*0.02;
+        document.body.scrollTop = offset;
     }
 }
 
@@ -176,18 +176,6 @@ function resize_standard() {
             //Android call resize function twice with soft keyboard.
             //so make it wait one time in that case
             ROTATE_WITH_KEYBOARD = true;
-        } else if(IS_IOS){
-            //IOS don't call resize function twice when the device is rotated.
-            //because IOS don't call resize for soft keyboard is opened or closed.
-            //But the reason of calling that function twice is that device has 0 degree.
-            //Since safari browser in IOS always happens in vertical environment.
-//            var input = $(".extra_input_area input");
-//            if(input.length>0) {
-//                console.log("INPUT IS AVAILABLE!");
-//                input.get(0).focus();
-//            } else {
-//                console.log("INPUT IS NOT AVAILABLE!");
-//            }
         }
         var input_wrap = $(".extra_input_area");
         if(input_wrap.length > 0){
@@ -201,12 +189,13 @@ function resize_standard() {
                 "line-height": CONTENT_WIDTH*0.04 + "px",
             })
             if(IS_IOS) {
-                var offset = input.offset().top;
+                input.data("focused").focus();
+                var offset = focused.offset().top;
                 console.log("input_offset_top : " + offset);
                 $("body").css({
-                    "height": height + offset - CONTENT_WIDTH*0.02,
+                    "height": height + offset,
                 })
-                document.body.scrollTop = offset + CONTENT_WIDTH*0.02;
+                document.body.scrollTop = offset;
             }
         }
     }
