@@ -149,7 +149,7 @@ function make_extra_input(focused) {
 //            }
 //        }, 50);
 //        var offset = document.body.scrollTop;
-        var offset = height/2;
+        var offset = width>height? width-height : height - width;
         console.log("input_offset_top : " + offset);
         $("body").css({
             "height": height + offset,
@@ -210,7 +210,7 @@ function resize_standard() {
 //                input.data("focused").focus();
 //                console.log("scrollTop : " + document.body.scrollTop);
 //                var offset = document.body.scrollTop;
-                var offset = height/2;
+                var offset = width>height? width-height : height - width;
                 console.log("input_offset_top : " + offset);
                 $("body").css({
                     "height": height + offset,
