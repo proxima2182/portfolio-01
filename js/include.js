@@ -213,6 +213,7 @@ $(document).ready(function(){
 })
 
 $(window).on("load",function() {
+    $("#wrap").css("opacity",1);
     finish_loading($("body"));
     
     //skill list load
