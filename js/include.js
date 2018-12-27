@@ -203,12 +203,12 @@ $(document).ready(function(){
 //                $("body").scrollTop(0);
             }
         }else if(IS_ANDROID) {
-            var deg = IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"90deg":"0deg";
-            $("#section_05 video").css({
-                "-webkit-transform": "rotate("+deg+") translate(-50%,-50%)",
-                "-ms-transform": "rotate("+deg+") translate(-50%,-50%)",
-                "transform": "rotate("+deg+") translate(-50%,-50%)",
-            })
+//            var deg = IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"90deg":"0deg";
+//            $("#section_05 video").css({
+//                "-webkit-transform": "rotate("+deg+") translate(-50%,-50%)",
+//                "-ms-transform": "rotate("+deg+") translate(-50%,-50%)",
+//                "transform": "rotate("+deg+") translate(-50%,-50%)",
+//            })
         }
     });
 })

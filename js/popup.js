@@ -52,7 +52,7 @@ function show_detail_view(index) {
                 e.stopPropagation();
             })
             content.off("load");
-            $("body>.section_loading").remove();
+            finish_loading($("#wrap"));
             if(!content.complete) {
                 loading($("#wrap"), false, 0.08, 0.012, "rgba(0,0,0,0)", "#fff", undefined, function() {
                     detail_view.remove();
@@ -194,6 +194,9 @@ function popup(meta) {
             "line-height":"normal",
             "background-color": "#002157",
             "border": "1px solid #fff",
+            "-webkit-transform": "rotate(0deg)",
+            "-ms-transform": "rotate(0deg)",
+            "transform": "rotate(0deg)",
             "color": "#fff",
             "overflow":"hidden",
         });
@@ -490,7 +493,7 @@ function popup(meta) {
                 "bottom":-1*popup.outerHeight(),
                 "left": "50%",
                 "margin-left": -1*CONTENT_WIDTH*0.32,
-                "z-index": "100",
+                "z-index": "50",
                 "position": "fixed",
             });
             popup.animate({
