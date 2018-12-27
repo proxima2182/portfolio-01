@@ -1,8 +1,8 @@
 IS_LWE_IE8 = true;
 var CONTENT_WIDTH, WINDOW_WIDTH, WINDOW_HEIGHT;
 function check_resolution() {
-    WINDOW_WIDTH = document.body.clientWidth;
-    WINDOW_HEIGHT = document.body.clientHeight;
+    WINDOW_WIDTH = document.documentElement.clientWidth;
+    WINDOW_HEIGHT = document.documentElement.clientHeight;
     console.log("width : " + WINDOW_WIDTH +", height: "+ WINDOW_HEIGHT);
     document.body.setAttribute("style", "line-height: "+ WINDOW_HEIGHT +"px;");
     if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
