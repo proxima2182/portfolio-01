@@ -193,6 +193,7 @@ $(document).ready(function(){
         map_resize();
         include_resize();
         popup_resize();
+        //need to add gnb resize & fullscreen resize
         
         if(IS_IOS) {
             var input_wrap = $(".extra_input_area");
@@ -204,9 +205,9 @@ $(document).ready(function(){
         }else if(IS_ANDROID) {
             var deg = IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"90deg":"0deg";
             $("#section_05 video").css({
-                "-webkit-transform": "rotate("+deg+")",
-                "-ms-transform": "rotate("+deg+")",
-                "transform": "rotate("+deg+")",
+                "-webkit-transform": "rotate("+deg+") translate(-50%,-50%)",
+                "-ms-transform": "rotate("+deg+") translate(-50%,-50%)",
+                "transform": "rotate("+deg+") translate(-50%,-50%)",
             })
         }
     });

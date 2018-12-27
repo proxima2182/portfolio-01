@@ -100,7 +100,7 @@ function make_extra_input(focused) {
     var input = $("<input type=\"text\"></input>");
     input_wrap.append(input);
     input_wrap.css({
-        "width" : "100%",
+        "width" : width,
         "height" : "100%",
         "line-height" : height + "px",
         "background" : "#000",
