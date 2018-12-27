@@ -194,12 +194,6 @@ $(document).ready(function(){
         include_resize();
         popup_resize();
         
-        var deg = IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"90deg":"0deg";
-        $("#section_05 video").css({
-            "-webkit-transform": "rotate("+deg+")",
-            "-ms-transform": "rotate("+deg+")",
-            "transform": "rotate("+deg+")",
-        })
         if(IS_IOS) {
             var input_wrap = $(".extra_input_area");
             if(input_wrap.length > 0){
@@ -207,6 +201,13 @@ $(document).ready(function(){
 //                input.data("focused").focus();
 //                $("body").scrollTop(0);
             }
+        }else if(IS_ANDROID) {
+            var deg = IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"90deg":"0deg";
+            $("#section_05 video").css({
+                "-webkit-transform": "rotate("+deg+")",
+                "-ms-transform": "rotate("+deg+")",
+                "transform": "rotate("+deg+")",
+            })
         }
     });
 })

@@ -160,7 +160,7 @@
     }
     #section_05 .text_wrap{
         width: 700px;
-        height: 600px;
+        padding-bottom: 120px;
         border-radius: 30px;
     }
     #section_05 form {
@@ -349,7 +349,7 @@
     }
     #section_05 .text_wrap{
         width: 87.5vh;
-        height: 75vh;
+        padding-bottom: 15vh;
         border-radius: 3.75vh;
     }
     #section_05 form {
@@ -560,7 +560,7 @@
     }
     #section_05 .text_wrap{
         width: 70vh;
-        height: 60vh;
+        padding-bottom: 12vh;
         border-radius: 3vh;
     }
     #section_05 form {
@@ -753,7 +753,7 @@
     }
     #section_05 .text_wrap{
         width: 87.5vw;
-        height: 75vw;
+        padding-bottom: 15vw;
         border-radius: 3.75vw;
     }
     #section_05 form {

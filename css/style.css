@@ -311,7 +311,7 @@
 }
 #section_05 .text_wrap{
     width: 70vw;
-    height: 60vw;
+    padding-bottom: 12vw;
     line-height: normal;
     display: inline-block;
     vertical-align: middle;
