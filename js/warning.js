@@ -3,6 +3,8 @@ var CONTENT_WIDTH, WINDOW_WIDTH, WINDOW_HEIGHT;
 function check_resolution() {
     WINDOW_WIDTH = document.body.clientWidth;
     WINDOW_HEIGHT = document.body.clientHeight;
+    console.log("width : " + WINDOW_WIDTH +", height: "+ WINDOW_HEIGHT);
+    document.body.setAttribute("style", "line-height: "+ WINDOW_HEIGHT +"px;");
     if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
         CONTENT_WIDTH = 1000;
     }else if(WINDOW_HEIGHT<800 && WINDOW_WIDTH/WINDOW_HEIGHT>1.25) {
@@ -44,14 +46,12 @@ var callback = function(){
     if (window.attachEvent) {
         window.attachEvent("onresize", function() {
             check_resolution();
-            console.log("resize called");
             container.resize();
         })
     }
     else {
         window.addEventListener("resize", function() {
             check_resolution();
-            console.log("resize called");
             container.resize();
         })
     }
