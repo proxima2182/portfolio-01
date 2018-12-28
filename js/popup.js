@@ -493,7 +493,7 @@ function popup(meta) {
                 "bottom":-1*popup.outerHeight(),
                 "left": "50%",
                 "margin-left": -1*CONTENT_WIDTH*0.32,
-                "z-index": "50",
+                "z-index": "100",
                 "position": "fixed",
             });
             popup.animate({

@@ -245,13 +245,16 @@
     border-radius: 0;
 }
 
-#section_04{}
+#section_04{
+    text-align: center;
+}
 #section_04 .work_wrap{
     width: 100%;
     height: 60vw;
 }
 #section_04 .button_wrap{
-    width: 100%;
+    width: 90%;
+    display: inline-block;
     height: 4vw;
     line-height: 4vw;
     text-align: right;

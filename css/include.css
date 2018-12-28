@@ -27,14 +27,14 @@ input:focus, textarea:focus{
 }
 
 .content_wrap{
-    width: 80vw;
+    width: 90vw;
     height: 70vw;
     line-height: normal;
     cursor: default;
     top: 50%;
     margin-top: -35vw;
     left: 50%;
-    margin-left: -40vw;
+    margin-left: -45vw;
     z-index: 1;
     position: absolute;
     
@@ -95,7 +95,7 @@ input:focus, textarea:focus{
     display: block;
     color: #fff;
     position: absolute;
-    z-index: 100;
+    z-index: 50;
     bottom: 0;
 }
 

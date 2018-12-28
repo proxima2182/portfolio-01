@@ -383,7 +383,7 @@ var deco_02_ul;
 var project_ul;
 var project_info_ul;
 
-var PAGE_COUNT = 7;
+var PAGE_COUNT = 8;
 var PAGE_LENGTH = 0;
 var page = 0;
 var PROJECT_LENGTH = 0;
@@ -800,14 +800,12 @@ function page_update(){
 }
 
 function map_resize() {
-//    if(window.innerWidth>=1000) {
-//        CONTENT_WIDTH = 1000;
-//    } else {
-//        CONTENT_WIDTH = window.innerWidth;
-//    }
-    //sizing
     map_value_init();
     X_LINE = container.height()/2-AREA_HEIGHT;
+    
+    deco_02_ul.css({
+        "left":AREA_WIDTH/2,
+    })
     if(container.parents(".fullpage_active").length>0) {
         quit_drawing = true;
     //    if(container!=undefined && container.parents("."))
