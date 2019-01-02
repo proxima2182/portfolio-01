@@ -6,7 +6,8 @@ body{
     overflow: hidden;
     line-height: 100vh;
     text-align: center;
-    position: relative;
+    position: fixed;
+    bottom: 0;
     
     font-family: "NotoSans",sans-serif;
     font-weight: 400;

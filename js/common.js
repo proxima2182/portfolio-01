@@ -38,11 +38,6 @@ function focus_out() {
        }
     })
     $("body").removeAttr("style");
-    $("body").css({
-        "width": $(window).width(),
-        "height": $(window).height(),
-        "line-height": $(window).height() + "px",
-    })
 }
 function check_device() {
     console.log("check_device");
@@ -79,8 +74,9 @@ function check_resolution() {
 //        WINDOW_HEIGHT = screen.height;
 //    }
     $("body").css({
-        "width": WINDOW_WIDTH,
-        "height": WINDOW_HEIGHT,
+        "width": $(window).width(),
+        "height": $(window).height(),
+        "line-height": $(window).height() + "px",
     })
     if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
         CONTENT_WIDTH = 1000;
