@@ -97,12 +97,12 @@ $(document).ready(function(){
             })
             $(this).find("form p").css({
                 "font-size": WINDOW_WIDTH*0.04,
-                "line-height": WINDOW_WIDTH*0.06,
+                "line-height": WINDOW_WIDTH*0.06 + "px",
                 "margin": WINDOW_WIDTH*0.03 +"px 0 0 0",
             })
             $(this).find("form textarea, form input").css({
                 "font-size": WINDOW_WIDTH*0.03,
-                "line-height": WINDOW_WIDTH*0.06,
+                "line-height": WINDOW_WIDTH*0.06 + "px",
             })
             $(this).find("form input[type=submit]").css({
                 "width": WINDOW_WIDTH*0.4,
