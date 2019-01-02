@@ -63,11 +63,26 @@ $(document).ready(function(){
 //            $("body").scrollTop(0);
         })
     }
+    $("#wrap").click(function() {
+        focus_out();
+    })
     window.addEventListener("resize", function() {
         console.log("resize");
 //        resize_standard();
+        
+        var input = $('#wrap input');
+        var textarea = $('#wrap textarea');
+        var input_checked = focus_check(input);
+        var textarea_checked = focus_check(textarea);
+        var focused = input_checked != undefined ? input_checked : textarea_checked;
+        
+        if(focused!=undefined) {
+            return;
+        }
+        
         check_device();
         check_resolution();
+        
         var list_names = ["language_list", "platform_list", "tool_list"];
         var slide_pages = [5, 3, 2];
         if(IS_PORTRAIT) {
@@ -285,7 +300,7 @@ $(window).on("load",function() {
     
     
     load_map(function() {
-        page_move(1);
+        page_move(0);
 //            var focused = $("textarea");
 //            make_extra_input(focused);
 //            console.log(focused);

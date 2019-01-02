@@ -70,8 +70,8 @@ function check_device() {
 }
 
 function check_resolution() {
-    WINDOW_WIDTH = $(window).width();
-    WINDOW_HEIGHT = $(window).height();
+    WINDOW_WIDTH = $(window).innerWidth();
+    WINDOW_HEIGHT = $(window).innerHeight();
     if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
         CONTENT_WIDTH = 1000;
     }else if(WINDOW_HEIGHT<800 && WINDOW_WIDTH/WINDOW_HEIGHT>1.25) {
@@ -265,6 +265,10 @@ function finish_loading(target) {
 function loading(target, is_fullscreen, width_ratio, border_ratio, background_color, point_color, text, cancel_action) {
     if(target.length==0) return;
     var container = $("<div class=\"section_loading\"></div>");
+    if(IS_PORTRAIT) {
+        width_ratio*=1.2;
+        border_ratio*=1.2;
+    }
     container.css({
         "background": background_color,
         "top": "50%",
@@ -394,7 +398,7 @@ function loading(target, is_fullscreen, width_ratio, border_ratio, background_co
         })
         $(this).find(".loading_text").css({
             "margin-top": width,
-            "font-size": CONTENT_WIDTH*0.03,
+            "font-size": IS_PORTRAIT?CONTENT_WIDTH*0.04:CONTENT_WIDTH*0.03,
         })
     });
     container.on("remove",function(){
