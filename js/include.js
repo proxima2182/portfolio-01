@@ -53,15 +53,15 @@ check_resolution();
 var ORIGINAL_WIDTH = WINDOW_WIDTH;
 var ORIGINAL_HEIGHT = WINDOW_HEIGHT
 
-var section_05_values= {
-    "#section_05 .text_wrap": ["width", "padding", "border-radius"],
-    "#section_05 form": ["padding"],
-    "#section_05 form p": ["font-size", "line-height", "margin"],
-    "#section_05 form textarea": ["font-size", "line-height"],
-    "#section_05 form input": ["font-size", "line-height"],
-    "#section_05 form textarea": ["line-height"],
-    "#section_05 form input[type=submit]": ["width", "padding", "font-size", "bottom", "margin"],
-}
+//var section_05_values= {
+//    "#section_05 .text_wrap": ["width", "padding", "border-radius"],
+//    "#section_05 form": ["padding"],
+//    "#section_05 form p": ["font-size", "line-height", "margin"],
+//    "#section_05 form textarea": ["font-size", "line-height"],
+//    "#section_05 form input": ["font-size", "line-height"],
+//    "#section_05 form textarea": ["line-height"],
+//    "#section_05 form input[type=submit]": ["width", "padding", "font-size", "bottom", "margin"],
+//}
 
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
@@ -85,6 +85,34 @@ $(document).ready(function(){
         $("#button_gnb").css({
             "bottom": -1 * WINDOW_HEIGHT*0.24,
         });
+        
+        $("#section_05").on("resize",function() {
+            $(this).find(".text_wrap").css({
+                "width": WINDOW_WIDTH*0.9,
+                "padding-bottom": WINDOW_WIDTH*0.24,
+                "border-radius": WINDOW_WIDTH*0.03,
+            })
+            $(this).find("form").css({
+                "padding": "0 " + WINDOW_WIDTH*0.05 +"px",
+            })
+            $(this).find("form p").css({
+                "font-size": WINDOW_WIDTH*0.04,
+                "line-height": WINDOW_WIDTH*0.06,
+                "margin": WINDOW_WIDTH*0.03 +"px 0 0 0",
+            })
+            $(this).find("form textarea, form input").css({
+                "font-size": WINDOW_WIDTH*0.03,
+                "line-height": WINDOW_WIDTH*0.06,
+            })
+            $(this).find("form input[type=submit]").css({
+                "width": WINDOW_WIDTH*0.4,
+                "padding": WINDOW_WIDTH*0.02,
+                "font-size": WINDOW_WIDTH*0.04,
+                "bottom": WINDOW_WIDTH*0.05,
+                "margin-left": -1*WINDOW_WIDTH*0.2,
+            })
+        })
+        $("#section_05").resize();
     }
     
     window.addEventListener("resize", function() {
@@ -103,18 +131,6 @@ $(document).ready(function(){
             }
         }
         
-        
-        if(keyboard_opened){
-            var keys = Object.keys(section_05_values);
-            for(var i= 0; i< keys.length; ++i) {
-                var key = keys[i];
-                var values = section_05_values[key];
-                for(var j= 0; j< values.length; ++j) {
-                    var css_value = $(key).css(values[i]);
-                    $(key).css(key, css_value);
-                }
-            }
-        }
         check_device();
         check_resolution();
         
@@ -129,6 +145,7 @@ $(document).ready(function(){
                 return;
             }
         }
+        $("#section_05").resize();
         $("body").css({
             "width": WINDOW_WIDTH,
             "height": WINDOW_HEIGHT,
