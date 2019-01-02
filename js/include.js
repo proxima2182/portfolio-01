@@ -53,6 +53,16 @@ check_resolution();
 var ORIGINAL_WIDTH = WINDOW_WIDTH;
 var ORIGINAL_HEIGHT = WINDOW_HEIGHT
 
+var section_05_values= {
+    "#section_05 .text_wrap": ["width", "padding", "border-radius"],
+    "#section_05 form": ["padding"],
+    "#section_05 form p": ["font-size", "line-height", "margin"],
+    "#section_05 form textarea": ["font-size", "line-height"],
+    "#section_05 form input": ["font-size", "line-height"],
+    "#section_05 form textarea": ["line-height"],
+    "#section_05 form input[type=submit]": ["width", "padding", "font-size", "bottom", "margin"],
+}
+
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
     $("body").css({
@@ -76,10 +86,12 @@ $(document).ready(function(){
             "bottom": -1 * WINDOW_HEIGHT*0.24,
         });
     }
+    
     window.addEventListener("resize", function() {
         console.log("resize");
 //        resize_standard();
         
+        var screen_degree = SCREEN_DEGREE;
         var keyboard_opened = false;
         if(IS_ANDROID) {
             if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
@@ -100,7 +112,16 @@ $(document).ready(function(){
                 if(keyboard_opened) {
                     focus_out();
                 }
-            } else {
+            } else if(screen_degree!=SCREEN_DEGREE){
+                var keys = Object.keys(section_05_values);
+                for(var i= 0; i< keys.length; ++i) {
+                    var key = keys[i];
+                    var values = section_05_values[key];
+                    for(var j= 0; j< values.length; ++j) {
+                        var css_value = $(key).css(values[i]);
+                        $(key).css(key, css_value);
+                    }
+                }
                 return;
             }
         }

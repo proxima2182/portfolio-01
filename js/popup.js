@@ -422,7 +422,7 @@ function popup(meta) {
         var images = resource_wrap.find("img");
         var load_count = images.length;
 
-        loading($("body"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff", undefined, function() {
+        loading($("#wrap"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff", undefined, function() {
             $(images).off("load");
             popup.remove();
         });
@@ -473,7 +473,7 @@ function popup(meta) {
             }
             outer_container.css(css_value);
             inner_container.css(css_value);
-            finish_loading($("body"));
+            finish_loading($("#wrap"));
             
             popup.click(function(e) {
                 e.stopPropagation();

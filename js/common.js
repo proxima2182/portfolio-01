@@ -234,7 +234,8 @@ function loading(target, is_fullscreen, width_ratio, border_ratio, background_co
     if(!is_fullscreen && cancel_action!=undefined) {
         container.click(function(event) {
             cancel_action();
-            finish_loading(target);
+            console.log($(target));
+            finish_loading($(target));
             event.stopPropagation();
         })
     }
