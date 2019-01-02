@@ -461,7 +461,6 @@ function popup(meta) {
         });
         function set_popup_position() {
             if(popup==undefined) return;
-            console.log(popup.outerHeight());
             popup.css({
                 "bottom": (WINDOW_HEIGHT-$(this).outerHeight())/2 + "px",
             });

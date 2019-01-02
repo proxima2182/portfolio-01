@@ -53,15 +53,6 @@ $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
     check_device();
     check_resolution();
-//    if(IS_IOS) {
-//        $("input[type=text],textarea").on("focusin", function() {
-////            window.scrollTo(0, 0);
-////            document.body.scrollTop = 0;
-//            console.log("focused");
-//            make_extra_input($(this));
-////            $("body").scrollTop(0);
-//        })
-//    }
     $("#wrap").click(function(event) {
         if(!$(event.target).is("input[type=text]") && !$(event.target).is("textarea")) {
             focus_out();
@@ -93,9 +84,6 @@ $(document).ready(function(){
         for(var i= 0; i< list_names.length; ++i) {
             var slider = $("."+list_names[i]);
             slider.data("page_size", slide_pages[i]);
-//            $("."+list_names[i]).change_page_number(slide_pages[i]);
-//            console.log("changed");
-//            PAGE_SIZE = number;
             slider.resize();
         }
 

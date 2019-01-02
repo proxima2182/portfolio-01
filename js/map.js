@@ -449,8 +449,6 @@ function initialize_map() {
     BOX_MARGIN = (AREA_WIDTH - BOX_SIZE)/2;
     FONT_SIZE = AREA_WIDTH*0.1;
     X_LINE = container.height()/2 - AREA_HEIGHT;
-    console.log("container height: " + container.height());
-    console.log("area height: " + AREA_HEIGHT);
     
     
     TOTAL_PAGE_COUNT = PAGE_COUNT*MAX_LINE_COUNT;
