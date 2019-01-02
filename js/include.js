@@ -51,7 +51,7 @@ function mail_fail(){
 check_device();
 check_resolution();
 var ORIGINAL_WIDTH = WINDOW_WIDTH;
-var ORIGINAL_HEIGHT = WINDOW_HEIGHT
+var ORIGINAL_HEIGHT = WINDOW_HEIGHT;
 
 //var section_05_values= {
 //    "#section_05 .text_wrap": ["width", "padding", "border-radius"],
@@ -133,6 +133,10 @@ $(document).ready(function(){
         
         check_device();
         check_resolution();
+        if(screen_degree != SCREEN_DEGREE) {
+            ORIGINAL_WIDTH = WINDOW_WIDTH;
+            ORIGINAL_HEIGHT = WINDOW_HEIGHT;
+        }
         
         if(IS_ANDROID) {
             if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
