@@ -50,9 +50,12 @@ function mail_fail(){
 
 check_device();
 check_resolution();
+var ORIGINAL_WIDTH = WINDOW_WIDTH;
+var ORIGINAL_HEIGHT = WINDOW_HEIGHT
 
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
+    check_resolution();
     $("#wrap").click(function(event) {
         if(!$(event.target).is("input[type=text]") && !$(event.target).is("textarea")) {
             focus_out();
@@ -62,18 +65,30 @@ $(document).ready(function(){
         console.log("resize");
 //        resize_standard();
         
-        var input = $('#wrap input');
-        var textarea = $('#wrap textarea');
-        var input_checked = focus_check(input);
-        var textarea_checked = focus_check(textarea);
-        var focused = input_checked != undefined ? input_checked : textarea_checked;
-        
-        if(focused!=undefined) {
-            return;
+        var keyboard_opened = false;
+        if(IS_ANDROID) {
+            if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
+               ORIGINAL_WIDTH == WINDOW_HEIGHT && ORIGINAL_HEIGHT == WINDOW_WIDTH)) {
+                console.log("1keyboard not")
+            } else {
+                keyboard_opened = true;
+                console.log("1keyboard yes")
+            }
         }
-        
         check_device();
         check_resolution();
+        
+        if(IS_ANDROID) {
+            if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
+               ORIGINAL_WIDTH == WINDOW_HEIGHT && ORIGINAL_HEIGHT == WINDOW_WIDTH)) {
+                console.log("2keyboard not")
+                if(keyboard_opened) {
+                    focus_out();
+                }
+            } else {
+                console.log("2keyboard yes")
+            }
+        }
         
         var list_names = ["language_list", "platform_list", "tool_list"];
         var slide_pages = [5, 3, 2];
