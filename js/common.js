@@ -72,6 +72,10 @@ function check_device() {
 function check_resolution() {
     WINDOW_WIDTH = $(window).innerWidth();
     WINDOW_HEIGHT = $(window).innerHeight();
+    if(IS_IOS) {
+        WINDOW_WIDTH = screen.width;
+        WINDOW_HEIGHT = screen.height;
+    }
     $("body").css({
         "width": WINDOW_WIDTH,
         "height": WINDOW_HEIGHT,
