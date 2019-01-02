@@ -49,11 +49,10 @@ function mail_fail(){
 }
 
 
-check_device();
-check_resolution();
-
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
+    check_device();
+    check_resolution();
 //    if(IS_IOS) {
 //        $("input[type=text],textarea").on("focusin", function() {
 ////            window.scrollTo(0, 0);
@@ -63,8 +62,10 @@ $(document).ready(function(){
 ////            $("body").scrollTop(0);
 //        })
 //    }
-    $("#wrap").click(function() {
-        focus_out();
+    $("#wrap").click(function(event) {
+        if(!$(event.target).is("input[type=text]") && !$(event.target).is("textarea")) {
+            focus_out();
+        }
     })
     window.addEventListener("resize", function() {
         console.log("resize");
@@ -300,6 +301,11 @@ $(window).on("load",function() {
     
     
     load_map(function() {
+        if(IS_PORTRAIT) {
+            $("#button_gnb").css({
+                "bottom": -1 * WINDOW_HEIGHT*0.24,
+            });
+        }
         page_move(0);
 //            var focused = $("textarea");
 //            make_extra_input(focused);
