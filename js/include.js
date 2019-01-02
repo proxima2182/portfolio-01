@@ -104,7 +104,7 @@ $(document).ready(function(){
         }
         
         
-        if(keyboard_opened && screen_degree!=SCREEN_DEGREE){
+        if(keyboard_opened){
             var keys = Object.keys(section_05_values);
             for(var i= 0; i< keys.length; ++i) {
                 var key = keys[i];
@@ -129,13 +129,11 @@ $(document).ready(function(){
                 return;
             }
         }
-        if(!keyboard_opened) {
-            $("body").css({
-                "width": WINDOW_WIDTH,
-                "height": WINDOW_HEIGHT,
-                "line-height": WINDOW_HEIGHT + "px",
-            })
-        }
+        $("body").css({
+            "width": WINDOW_WIDTH,
+            "height": WINDOW_HEIGHT,
+            "line-height": WINDOW_HEIGHT + "px",
+        })
         
         var list_names = ["language_list", "platform_list", "tool_list"];
         var slide_pages = [5, 3, 2];
