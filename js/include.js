@@ -65,6 +65,17 @@ $(document).ready(function(){
             focus_out();
         }
     })
+    $("input[type=text], textarea").focusin(function() {
+        IS_FULLPAGE_SCROLLABLE = false;
+    })
+    $("input[type=text], textarea").focusout(function() {
+        IS_FULLPAGE_SCROLLABLE = true;
+    })
+    if(IS_PORTRAIT) {
+        $("#button_gnb").css({
+            "bottom": -1 * WINDOW_HEIGHT*0.24,
+        });
+    }
     window.addEventListener("resize", function() {
         console.log("resize");
 //        resize_standard();
@@ -90,8 +101,7 @@ $(document).ready(function(){
                     focus_out();
                 }
             } else {
-                keyboard_opened = true;
-                console.log("2keyboard yes")
+                return;
             }
         }
         if(!keyboard_opened) {
@@ -316,16 +326,7 @@ $(window).on("load",function() {
     
     
     load_map(function() {
-        if(IS_PORTRAIT) {
-            $("#button_gnb").css({
-                "bottom": -1 * WINDOW_HEIGHT*0.24,
-            });
-        }
         page_move(0);
-//            var focused = $("textarea");
-//            make_extra_input(focused);
-//            console.log(focused);
-//            console.log($(".extra_input_area input"));
     });
 
     $(".button_profile").click(function() {
