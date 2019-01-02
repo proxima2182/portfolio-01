@@ -87,6 +87,10 @@ $(document).ready(function(){
         });
         
         $("#section_05").on("resize",function() {
+            $(this).find(".section_title").css({
+                "font-size": WINDOW_WIDTH*0.06,
+                "line-height": WINDOW_WIDTH*0.12 + "px",
+            })
             $(this).find(".text_wrap").css({
                 "width": WINDOW_WIDTH*0.9,
                 "padding-bottom": WINDOW_WIDTH*0.24,
@@ -133,6 +137,7 @@ $(document).ready(function(){
         
         check_device();
         check_resolution();
+        
         if(screen_degree != SCREEN_DEGREE) {
             ORIGINAL_WIDTH = WINDOW_WIDTH;
             ORIGINAL_HEIGHT = WINDOW_HEIGHT;
