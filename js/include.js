@@ -91,7 +91,6 @@ $(document).ready(function(){
         console.log("resize");
 //        resize_standard();
         
-        var screen_degree = SCREEN_DEGREE;
         var keyboard_opened = false;
         if(IS_ANDROID) {
             if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
@@ -99,6 +98,16 @@ $(document).ready(function(){
                 console.log("1keyboard not")
             } else {
                 keyboard_opened = true;
+                if(screen_degree!=SCREEN_DEGREE){
+                var keys = Object.keys(section_05_values);
+                for(var i= 0; i< keys.length; ++i) {
+                    var key = keys[i];
+                    var values = section_05_values[key];
+                    for(var j= 0; j< values.length; ++j) {
+                        var css_value = $(key).css(values[i]);
+                        $(key).css(key, css_value);
+                    }
+                }
                 console.log("1keyboard yes")
             }
         }
@@ -112,16 +121,7 @@ $(document).ready(function(){
                 if(keyboard_opened) {
                     focus_out();
                 }
-            } else if(screen_degree!=SCREEN_DEGREE){
-                var keys = Object.keys(section_05_values);
-                for(var i= 0; i< keys.length; ++i) {
-                    var key = keys[i];
-                    var values = section_05_values[key];
-                    for(var j= 0; j< values.length; ++j) {
-                        var css_value = $(key).css(values[i]);
-                        $(key).css(key, css_value);
-                    }
-                }
+            } else {
                 return;
             }
         }
