@@ -55,7 +55,11 @@ var ORIGINAL_HEIGHT = WINDOW_HEIGHT
 
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
-    check_resolution();
+    $("body").css({
+        "width": WINDOW_WIDTH,
+        "height": WINDOW_HEIGHT,
+        "line-height": WINDOW_HEIGHT + "px",
+    })
     $("#wrap").click(function(event) {
         if(!$(event.target).is("input[type=text]") && !$(event.target).is("textarea")) {
             focus_out();
@@ -86,8 +90,16 @@ $(document).ready(function(){
                     focus_out();
                 }
             } else {
+                keyboard_opened = true;
                 console.log("2keyboard yes")
             }
+        }
+        if(!keyboard_opened) {
+            $("body").css({
+                "width": WINDOW_WIDTH,
+                "height": WINDOW_HEIGHT,
+                "line-height": WINDOW_HEIGHT + "px",
+            })
         }
         
         var list_names = ["language_list", "platform_list", "tool_list"];

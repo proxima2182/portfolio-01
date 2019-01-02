@@ -37,7 +37,6 @@ function focus_out() {
            $(this).blur();
        }
     })
-    $("body").removeAttr("style");
 }
 function check_device() {
     console.log("check_device");
@@ -67,17 +66,6 @@ function check_device() {
 function check_resolution() {
     WINDOW_WIDTH = $(window).innerWidth();
     WINDOW_HEIGHT = $(window).innerHeight();
-    console.log("[screen] width : " + screen.width +", height : " + screen.height);
-    console.log("[window] width : " + $(window).innerWidth() +", height : " + $(window).innerHeight());
-//    if(IS_IOS) {
-//        WINDOW_WIDTH = screen.width;
-//        WINDOW_HEIGHT = screen.height;
-//    }
-    $("body").css({
-        "width": $(window).width(),
-        "height": $(window).height(),
-        "line-height": $(window).height() + "px",
-    })
     if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
         CONTENT_WIDTH = 1000;
     }else if(WINDOW_HEIGHT<800 && WINDOW_WIDTH/WINDOW_HEIGHT>1.25) {
