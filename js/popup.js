@@ -79,10 +79,11 @@ function show_detail_view(index) {
                 "margin-top": -1*WINDOW_HEIGHT/2,
                 "margin-left": -1*WINDOW_WIDTH/2,
             });
+            var title_font_size = IS_PORTRAIT? CONTENT_WIDTH* 0.04: CONTENT_WIDTH*0.025;
             notice_wrap.css({
-                "height": IS_MOBILE ? WINDOW_HEIGHT*0.1 : WINDOW_HEIGHT*0.1,
-                "font-size": IS_MOBILE ? WINDOW_HEIGHT*0.05:WINDOW_HEIGHT*0.03,
-                "line-height": (IS_MOBILE ? WINDOW_HEIGHT*0.1:WINDOW_HEIGHT*0.1) +"px",
+                "height": WINDOW_HEIGHT*0.1,
+                "font-size": IS_PORTRAIT ? WINDOW_HEIGHT*0.02:WINDOW_HEIGHT*0.03,
+                "line-height": WINDOW_HEIGHT*0.1 +"px",
             })
 
             var content_css_value ={
@@ -92,76 +93,6 @@ function show_detail_view(index) {
             }
             content.css(content_css_value);
         });
-        detail_view.resize();
-    }
-}
-function popup_resize(){
-    var popup = $(".popup");
-    if(popup.length>0){
-        popup.css({
-            "width": CONTENT_WIDTH*0.6,
-            "max-height": WINDOW_HEIGHT*0.8,
-            "padding": CONTENT_WIDTH*0.08 + "px " + CONTENT_WIDTH*0.04 + "px",
-            "border-radius": CONTENT_WIDTH*0.03,
-            "margin-left": -1*CONTENT_WIDTH*0.32,
-        });
-        popup.find(".popup_content_wrap").css({
-            "width":CONTENT_WIDTH*0.6,
-            "max-height": WINDOW_HEIGHT*0.6,
-        });
-        popup.find(".button_close").css({
-            "width": CONTENT_WIDTH*0.04,
-            "height": CONTENT_WIDTH*0.04,
-            "top": CONTENT_WIDTH*0.02,
-            "right": CONTENT_WIDTH*0.02,
-        })
-        popup.find(".button_url").css({
-            "width": CONTENT_WIDTH*0.15,
-            "font-size": CONTENT_WIDTH*0.02,
-            "bottom": CONTENT_WIDTH*0.02,
-        })
-        popup.find(".project_title").css({
-            "width": CONTENT_WIDTH*0.56,
-            "font-size": CONTENT_WIDTH*0.025,
-            "height": CONTENT_WIDTH*0.04,
-            "line-height": CONTENT_WIDTH*0.04+"px",
-            "top": CONTENT_WIDTH*0.02,
-            "left": CONTENT_WIDTH*0.04,
-        })
-        
-        popup.find(".half_plain").css({
-            "width":CONTENT_WIDTH*0.3,
-        })
-        popup.find(".title").css({
-            "font-size": CONTENT_WIDTH*0.025,
-            "line-height": CONTENT_WIDTH*0.03 + "px",
-            "margin-top": CONTENT_WIDTH*0.015,
-        })
-        popup.find("content").css({
-            "font-size": CONTENT_WIDTH*0.02,
-            "padding":CONTENT_WIDTH*0.005,
-        })
-        var icon_width = CONTENT_WIDTH*0.04;
-        var text_width = popup.find(".popup_content_wrap").width() - icon_width*6/4 - CONTENT_WIDTH*0.01;
-        popup.find(".content .icon").css({
-            "width" : icon_width,
-            "height" : icon_width,
-            "margin" : "0 " + icon_width/4 + "px",
-        })
-        popup.find(".content .text").css({
-            "width": text_width,
-            "font-size": CONTENT_WIDTH*0.02,
-        })
-        popup.find("ul.content li").css({
-            "padding":0,
-            "margin-top": CONTENT_WIDTH*0.01,
-        })
-        popup.css({
-            "bottom": (WINDOW_HEIGHT-popup.outerHeight())/2 + "px",
-        });
-    }
-    var detail_view = $(".detail_view");
-    if(detail_view.length>0) {
         detail_view.resize();
     }
 }
@@ -177,28 +108,21 @@ function popup(meta) {
         var inner_container = $("<div class=\"inner_container\"></div>")
         var outer_container = $("<div class=\"outer_container\"></div>")
         
-        var button_close = $("<div class=\"button_close\"></div>");
         var resource_wrap = $("<ul class=\"resource_wrap\"></ul>")
         inner_container.append(popup_content_wrap);
         outer_container.append(inner_container);
         popup.append(outer_container);
         popup_content_wrap.append(resource_wrap);
         $("#wrap").append(popup);
-
+        
         popup.css({
             "opacity":0,
-            "width": CONTENT_WIDTH*0.6,
-            "height": WINDOW_HEIGHT*0.6,
-            "padding": CONTENT_WIDTH*0.08 + "px " + CONTENT_WIDTH*0.04 + "px",
-            "border-radius": CONTENT_WIDTH*0.03,
             "line-height":"normal",
             "background-color": "#002157",
             "border": "1px solid #fff",
-            "-webkit-transform": "rotate(0deg)",
-            "-ms-transform": "rotate(0deg)",
-            "transform": "rotate(0deg)",
             "color": "#fff",
             "overflow":"hidden",
+            "left": "50%",
         });
         inner_container.css({
             "overflow-x":"hidden",
@@ -206,19 +130,14 @@ function popup(meta) {
             "position":"absolute",
         })
         outer_container.css({
-            "width": CONTENT_WIDTH*0.6,
             "height": WINDOW_HEIGHT*0.6,
             "overflow":"hidden",
             "position":"relative",
         })
         popup_content_wrap.css({
-            "width":CONTENT_WIDTH*0.6,
-            "height": WINDOW_HEIGHT*0.6,
             "text-align":"left",
         });
         resource_wrap.css({
-            "width": CONTENT_WIDTH*0.6,
-//            "max-height": CONTENT_WIDTH*0.2,
             "margin": "0 auto",
             "overflow":"hidden",
             "text-align":"center",
@@ -236,23 +155,15 @@ function popup(meta) {
             if(type_value == "half_plain") {
                 row.attr("class","half_plain");
                 row.css({
-                    "width":CONTENT_WIDTH*0.3,
                     "display":"inline-block",
                     "vertical-align":"top",
                 })
             }
             var title = $("<p class=\"title\"></p>");
             title.html(title_value);
-            title.css({
-                "font-size": CONTENT_WIDTH*0.025,
-                "line-height": CONTENT_WIDTH*0.03 + "px",
-                "margin-top": CONTENT_WIDTH*0.015,
-            });
             row.append(title);
 
             var content_css_value = {
-                "font-size": CONTENT_WIDTH*0.02,
-                "padding":CONTENT_WIDTH*0.005,
                 "line-height": "normal",
                 "word-wrap":"break-word",
                 "font-weight": 200,
@@ -274,12 +185,7 @@ function popup(meta) {
                     var text = $("<p class=\"text\"></p>");
                     text_value = text_value.replace(/\\n/gi,"<br/>");
                     var li = $("<li></li>");
-                    var icon_width = CONTENT_WIDTH*0.04;
-                    var text_width = popup_content_wrap.width() - icon_width*6/4 - CONTENT_WIDTH*0.01;
                     icon.css({
-                        "width" : icon_width,
-                        "height" : icon_width,
-                        "margin" : "0 " + icon_width/4 + "px",
                         "background" : "url("+icon_value+") no-repeat",
                         "background-size" : "100%",
                         "display":"inline-block",
@@ -287,16 +193,10 @@ function popup(meta) {
                     });
                     text.html(text_value);
                     text.css({
-                        "width": text_width,
-                        "font-size": CONTENT_WIDTH*0.02,
                         "display":"inline-block",
                         "vertical-align":"top",
                     });
                     li.css(content_css_value);
-                    li.css({
-                        "padding":0,
-                        "margin-top": CONTENT_WIDTH*0.01,
-                    });
                     li.append(icon);
                     li.append(text);
                     content.append(li);
@@ -305,6 +205,167 @@ function popup(meta) {
             }
             popup_content_wrap.append(row);
         }
+        var url = $(meta).find("url");
+        var name = $(meta).find("name");
+        var project_title, button_url, button_close;
+        if(name.length>0) {
+            project_title = $("<p class=\"project_title\">"+name.text()+"</p>")
+            project_title.css({
+                "font-weight": 700,
+                "text-align": "left",
+                "overflow": "hidden",
+                "text-overflow": "ellipsis",
+                "white-space": "nowrap",
+                "position": "absolute",
+            })
+            popup.append(project_title);
+        }
+        if(url.length>0) {
+            button_url = $("<div class=\"button_url\"><p>Go to link!<p></div>")
+            button_url.find("p").css({
+                "display":"inline-block",
+                "vertical-align":"middle",
+            })
+            button_url.css({
+                "text-align":"center",
+                "cursor": "pointer",
+                "left": 0,
+                "right": 0,
+                "bottom": 0,
+                "margin": "0 auto",
+                "position": "absolute",
+            }).hover(function(){
+                $(this).find("p").css({
+                    "margin-bottom": "-1px",
+                    "border-bottom": "1px solid #fff",
+                });
+            }, function(){
+                $(this).find("p").css({
+                    "margin-bottom": 0,
+                    "border": 0,
+                });
+            }).click(function() {
+                window.open(url.text());
+            });
+            popup.append(button_url);
+        }
+        button_close = $("<div class=\"button_close\"></div>");
+        popup.append(button_close);
+        button_close.css({
+            "width": CONTENT_WIDTH*0.04,
+            "height": CONTENT_WIDTH*0.04,
+            "cursor": "pointer",
+            "background": "url(./images/icon_close.png) no-repeat center",
+            "background-size": "100%",
+            "top": CONTENT_WIDTH*0.02,
+            "right": CONTENT_WIDTH*0.02,
+            "position": "absolute",
+        }).click(function() {
+            var popup = $(".popup");
+            popup.animate({
+                "bottom":-1*popup.outerHeight(),
+            },400,function(){
+                $(".popup").remove();
+                $("#wrap").off("click");
+                IS_FULLPAGE_SCROLLABLE = true;
+            })
+        });
+        popup.resize(function() {
+            var popup_width = IS_PORTRAIT? CONTENT_WIDTH*0.8: CONTENT_WIDTH*0.6;
+            var popup_padding = CONTENT_WIDTH*0.04;
+            var title_font_size = IS_PORTRAIT? CONTENT_WIDTH* 0.04: CONTENT_WIDTH*0.025;
+            var title_line_height = IS_PORTRAIT? CONTENT_WIDTH* 0.06: CONTENT_WIDTH*0.03;
+            var content_font_size = IS_PORTRAIT? CONTENT_WIDTH* 0.03: CONTENT_WIDTH*0.02;
+            var content_line_height = IS_PORTRAIT? CONTENT_WIDTH* 0.08: CONTENT_WIDTH*0.06;
+            var icon_width = IS_PORTRAIT? CONTENT_WIDTH* 0.06: CONTENT_WIDTH*0.04;
+            var button_width = IS_PORTRAIT? CONTENT_WIDTH*0.06:CONTENT_WIDTH*0.04;
+            $(this).css({
+                "width": popup_width,
+                "max-height": WINDOW_HEIGHT*0.8,
+                "padding": popup_padding + "px",
+                "padding-top" : button_width*2,
+                "padding-bottom": content_line_height,
+                "border-radius": CONTENT_WIDTH*0.03,
+                "margin-left": -1*(popup_width/2 + popup_padding),
+            });
+            popup_content_wrap.css({
+                "width":popup_width,
+            });
+            resource_wrap.css({
+                "width": popup_width,
+            })
+            button_close.css({
+                "width": button_width,
+                "height": button_width,
+                "top": button_width/2,
+                "right": button_width/2,
+            })
+            if(button_url) {
+                button_url.css({
+                    "height":content_line_height,
+                    "line-height":content_line_height +"px",
+                    "font-size": content_font_size,
+                })
+            }
+            if(project_title){
+                project_title.css({
+                    "width": popup_width - button_width*2,
+                    "font-size": title_font_size,
+                    "height": button_width,
+                    "line-height": button_width+"px",
+                    "top": button_width/2,
+                    "left": popup_padding,
+                })
+            }
+
+            var content_padding = IS_PORTRAIT? CONTENT_WIDTH*0.008: CONTENT_WIDTH*0.005;
+            var list_margin = IS_PORTRAIT? CONTENT_WIDTH*0.015: CONTENT_WIDTH*0.01;
+            //normal contents
+            $(this).find(".half_plain").css({
+                "width":popup_width/2,
+            })
+            $(this).find(".title").css({
+                "font-size": title_font_size,
+                "line-height": title_line_height + "px",
+                "margin-top": list_margin,
+            })
+            $(this).find(".content").css({
+                "font-size": content_font_size,
+                "padding": content_padding,
+            })
+            var text_width = popup_content_wrap.width() - icon_width*6/4 - content_padding*2;
+            $(this).find(".content .icon").css({
+                "width" : icon_width,
+                "height" : icon_width,
+                "margin" : "0 " + icon_width/4 + "px",
+            })
+            $(this).find(".content .text").css({
+                "width": text_width,
+                "font-size": content_font_size,
+            })
+            $(this).find("ul.content li").css({
+                "padding":0,
+                "margin-top": list_margin,
+            })
+            var css_value = {"height": WINDOW_HEIGHT*0.6};
+            if(popup_content_wrap.height()<WINDOW_HEIGHT*0.6) {
+                css_value = {"height": popup_content_wrap.height()};
+            }
+            outer_container.css(css_value);
+            inner_container.css(css_value);
+            
+            if(popup.css("opacity") == 1) {
+                popup.animate({
+                    "bottom": (WINDOW_HEIGHT-popup.outerHeight())/2 + "px",
+                },0);
+            }
+            //also resize when detail view exist.
+            var detail_view = $(".detail_view");
+            if(detail_view.length>0) {
+                detail_view.resize();
+            }
+        });
+        popup.resize();
         resources = $(meta).find("resources resource");
         var page = $(meta).find("resources page").text();
         if(resources.length == 0) {
@@ -368,7 +429,7 @@ function popup(meta) {
         $(images).on("load", function() {
             load_count --;
             if(load_count == 0) {
-                resource_wrap.make_slider({
+                resource_wrap.slider_initialize({
                     page: page,
 
                     buttons: true,
@@ -376,104 +437,44 @@ function popup(meta) {
                     button_image_right: "./images/icon_button_right_small.png",
                     button_background:"rgba(155,155,155,0)",
                     button_flexible_width: function() {
-                        if(IS_MOBILE) {
-                            return CONTENT_WIDTH* 0.04;
-                        }
-                        return CONTENT_WIDTH* 0.03;
+                        return IS_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH*0.03;
                     },
                     button_flexible_height: function() {
-                        if(IS_MOBILE) {
-                            return CONTENT_WIDTH* 0.04;
-                        }
-                        return CONTENT_WIDTH* 0.03;
+                        return IS_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH*0.03;
                     },
                     button_dispersion: "0",
                     button_basic_color:"#000",
 
-                    scrollable:false,
+                    scrollable:true,
 
                     navigator: false,
 
                     slider_flexible_margin: function() {
-                        return CONTENT_WIDTH* 0.015;
+                        return IS_PORTRAIT? CONTENT_WIDTH*0.025: CONTENT_WIDTH*0.015;
                     },
                     slider_flexible_width:function() {
-                        return CONTENT_WIDTH* 0.6;
+                        return IS_PORTRAIT? CONTENT_WIDTH*0.8: CONTENT_WIDTH*0.6;
                     }
                 });
                 show_popup();
             }
         });
+        function set_popup_position() {
+            if(popup==undefined) return;
+            console.log(popup.outerHeight());
+            popup.css({
+                "bottom": (WINDOW_HEIGHT-$(this).outerHeight())/2 + "px",
+            });
+        }
         function show_popup() {
             if(popup==undefined) return;
+            var css_value = {"height": WINDOW_HEIGHT*0.6};
+            if(popup_content_wrap.height()<WINDOW_HEIGHT*0.6) {
+                css_value = {"height": popup_content_wrap.height()};
+            }
+            outer_container.css(css_value);
+            inner_container.css(css_value);
             finish_loading($("body"));
-            var url = $(meta).find("url");
-            var name = $(meta).find("name");
-            if(name.length>0) {
-                var title = $("<p class=\"project_title\">"+name.text()+"</p>")
-                title.css({
-                    "width": CONTENT_WIDTH*0.56,
-                    "font-size": CONTENT_WIDTH*0.025,
-                    "height": CONTENT_WIDTH*0.04,
-                    "line-height": CONTENT_WIDTH*0.04+"px",
-                    "font-weight": 700,
-                    "text-align": "left",
-                    "overflow": "hidden",
-                    "text-overflow": "ellipsis",
-                    "white-space": "nowrap",
-                    "top": CONTENT_WIDTH*0.02,
-                    "left": CONTENT_WIDTH*0.04,
-                    "position": "absolute",
-                })
-                popup.append(title);
-            }
-            if(url.length>0) {
-                var button_url = $("<div class=\"button_url\">Go to link!</div>")
-                button_url.css({
-                    "width": CONTENT_WIDTH*0.15,
-                    "font-size": CONTENT_WIDTH*0.02,
-                    "text-align":"center",
-                    "cursor": "pointer",
-                    "bottom": CONTENT_WIDTH*0.02,
-                    "left": 0,
-                    "right": 0,
-                    "margin": "0 auto",
-                    "position": "absolute",
-                }).hover(function(){
-                    $(this).css({
-                        "margin-bottom": "-1px",
-                        "border-bottom": "1px solid #fff",
-                    });
-                }, function(){
-                    $(this).css({
-                        "margin-bottom": 0,
-                        "border": 0,
-                    });
-                }).click(function() {
-                    window.open(url.text());
-                });
-                popup.append(button_url);
-            }
-            popup.append(button_close);
-            button_close.css({
-                "width": CONTENT_WIDTH*0.04,
-                "height": CONTENT_WIDTH*0.04,
-                "cursor": "pointer",
-                "background": "url(./images/icon_close.png) no-repeat center",
-                "background-size": "100%",
-                "top": CONTENT_WIDTH*0.02,
-                "right": CONTENT_WIDTH*0.02,
-                "position": "absolute",
-            }).click(function() {
-                var popup = $(".popup");
-                popup.animate({
-                    "bottom":-1*popup.outerHeight(),
-                },400,function(){
-                    $(".popup").remove();
-                    $("#wrap").off("click");
-                    IS_FULLPAGE_SCROLLABLE = true;
-                })
-            });
             
             popup.click(function(e) {
                 e.stopPropagation();
@@ -491,8 +492,6 @@ function popup(meta) {
             popup.css({
                 "opacity":1,
                 "bottom":-1*popup.outerHeight(),
-                "left": "50%",
-                "margin-left": -1*CONTENT_WIDTH*0.32,
                 "z-index": "100",
                 "position": "fixed",
             });

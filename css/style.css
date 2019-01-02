@@ -22,8 +22,8 @@
 }
 #section_01 .section_title{
     width: 100%;
-    line-height: 15vw;
-    bottom: 4vw;
+    line-height: 10vw;
+    bottom: 8vw;
     left: 0;
     position: absolute;
     text-shadow: 1vw 1vw 1vw rgba(0,0,0,0.5);
@@ -73,6 +73,14 @@
     margin-left: -23vw;
     z-index: 2;
     position: absolute;
+}
+#section_01 .icon_down{
+    width: 4vw;
+    height: 4vw;
+    position: absolute;
+    bottom: 4vw;
+    left: 50%;
+    margin-left: -2vw;
 }
 
 #section_02{

@@ -39,18 +39,11 @@
     
     /*style.css*/
     #section_01 .section_title{
-        line-height: 150px;
-        bottom: 40px;
+        line-height: 100px;
+        bottom: 80px;
         text-shadow: 10px 10px 10px rgba(0,0,0,0.5);
     }
-    #section_01 .icon_rocket{
-        width: 360px;
-        height: 750px;
-
-        bottom: 150px;
-        margin-left: -180px;
-    }
-    #section_01 .icon_rocekt_place{
+    #section_01 .icon_rocket, #section_01 .icon_rocekt_place{
         width: 360px;
         height: 750px;
 
@@ -64,6 +57,13 @@
         bottom: 150px;
         margin-left: -230px;
     }
+    #section_01 .icon_down{
+        width: 40px;
+        height: 40px;
+        bottom: 40px;
+        margin-left: -20xp;
+    }
+    
     #section_02 .tag_list{
         width: 250px;
     }
@@ -227,18 +227,11 @@
     
     /*style.css*/
     #section_01 .section_title{
-        line-height: 18.75vh;
-        bottom: 5vh;
+        line-height: 12.5vh;
+        bottom: 10vh;
         text-shadow: 1.25vh 1.25vh 1.25vh rgba(0,0,0,0.5);
     }
-    #section_01 .icon_rocket{
-        width: 45vh;
-        height: 93.75vh;
-
-        bottom: 18.75vh;
-        margin-left: -22.5vh;
-    }
-    #section_01 .icon_rocekt_place{
+    #section_01 .icon_rocket, #section_01 .icon_rocekt_place{
         width: 45vh;
         height: 93.75vh;
 
@@ -251,6 +244,12 @@
 
         bottom: 18.75vh;
         margin-left: -28.75vh;
+    }
+    #section_01 .icon_down{
+        width: 5vh;
+        height: 5vh;
+        bottom: 5vh;
+        margin-left: -2.5vh;
     }
 
     #section_02 .tag_list{
@@ -439,18 +438,11 @@
 
     /*style.css*/
     #section_01 .section_title{
-        line-height: 15vh;
-        bottom: 4vh;
+        line-height: 10vh;
+        bottom: 8vh;
         text-shadow: 1vh 1vh 1vh rgba(0,0,0,0.5);
     }
-    #section_01 .icon_rocket{
-        width: 36vh;
-        height: 75vh;
-
-        bottom: 15vh;
-        margin-left: -18vh;
-    }
-    #section_01 .icon_rocekt_place{
+    #section_01 .icon_rocket, #section_01 .icon_rocekt_place{
         width: 36vh;
         height: 75vh;
 
@@ -464,6 +456,13 @@
         bottom: 15vh;
         margin-left: -23vh;
     }
+    #section_01 .icon_down{
+        width: 4vh;
+        height: 4vh;
+        bottom: 4vh;
+        margin-left: -2vh;
+    }
+    
     #section_02 .tag_list{
         width: 25vh;
     }
@@ -587,40 +586,57 @@
         margin-left: -13vh;
     }
 }
-@media screen and (orientation:portrait) and (pointer:coarse)
-    and (max-width: 765px) and (max-width: 800px) and (max-aspect-ratio:8/10){
+@media screen and (orientation:portrait) and (pointer:coarse) and (max-width: 765px) and (max-width: 800px) and (max-aspect-ratio:8/10){
     /*include.css*/
     #wrap .content_wrap{
-        width: 112.5vw;
-        height: 87.5vw;
-        top: 50%;
-        margin-top: -43.75vw;
+        width: 90vw;
+        height: 126vw;
         left: 50%;
-        margin-left: -56.25vw;
+        margin-left: -45vw;
+        top: 50%;
+        margin-top: -73vw;
         position: absolute;
     }
     .section_title{
         color: #fff;
-        font-size: 5vw;
-        line-height: 7.5vw;
+        font-size: 6vw;
+        line-height: 12vw;
+    }
+    #wrap .is_landscape{
+        display: none;
+    }
+    #wrap .is_portrait{
+        display: inline-block;
+    }
+    #header{
+        width: 100%;
+        height: 100%;
+        line-height: 100vh;
+        background: rgba(0,0,0,0.7);
     }
     .gnb #home{
-        width: 12.5vw;
-        height: 12.5vw;
+        width: 20vw;
+        height: 20vw;
     }
     .gnb ul{
-        width: 12.5vw;
-        line-height: 12.5vw;
+        width: 100%;
+        line-height: 18vw;
     }
     .gnb ul li{
         margin-top: 5vw;
     }
     .gnb ul li a{
-        font-size: 2.5vw;
+        font-size: 5vw;
+        writing-mode: horizontal-tb;
+        -ms-writing-mode:horizontal-tb;
+    }
+    .gnb ul li.fullpage_selected a{
+        border: 0;
+        border-bottom: 1px solid #fff;
     }
     #footer{
-        font-size: 2.5vw;
-        line-height: 5vw;
+        font-size: 3vw;
+        line-height: 6vw;
     }
     
     /* width */
@@ -631,152 +647,157 @@
     
     /*style.css*/
     #section_01 .section_title{
-        line-height: 18.75vw;
-        bottom: 5vw;
-        text-shadow: 1.25vw 1.25vw 1.25vw rgba(0,0,0,0.5);
+        font-size: 4.5vw;
+        line-height: 12vw;
+        bottom: 10vw;
+        text-shadow: 1vw 1vw 1vw rgba(0,0,0,0.5);
     }
-    #section_01 .icon_rocket{
-        width: 45vw;
-        height: 93.75vw;
+    #section_01 .icon_rocket, #section_01 .icon_rocekt_place{
+        width: 36vw;
+        height: 75vw;
 
-        bottom: 18.75vw;
-        margin-left: -22.5vw;
-    }
-    #section_01 .icon_rocekt_place{
-        width: 45vw;
-        height: 93.75vw;
-
-        bottom: 18.75vw;
-        margin-left: -22.5vw;
+        bottom: 20vw;
+        margin-left: -18vw;
     }
     #section_01 .icon_effect{
-        width: 57.5vw;
-        height: 25vw;
+        width: 46vw;
+        height: 20vw;
 
-        bottom: 18.75vw;
-        margin-left: -28.75vw;
+        bottom: 20vw;
+        margin-left: -23vw;
+    }
+    #section_01 .icon_down{
+        width: 5vw;
+        height: 5vw;
+        bottom: 5vw;
+        margin-left: -2.5vw;
     }
 
     #section_02 .tag_list{
-        width: 31.25vw;
+        width: 100%;
+        margin: 6vw 0 4vw 0;
     }
     #section_02 .tag_list li{
-        margin: 2.5vw 0;
+        margin: 1vw;
+        display: inline-block;
     }
     #section_02 .tag_list li div{
-        padding: 1.25vw;
-        font-size: 3.125vw;
+        padding: 2vw;
+        font-size: 4vw;
     }
     #section_02 .button{
-        width: 68.75vw;
+        width: 80vw;
+        height: 80vw;
     }
     #section_02 .button .background,
     #section_02 .button .background:after{
-        width: 50vw;
-        height: 50vw;
+        width: 60vw;
+        height: 60vw;
     }
     #section_02 .button .background:after{
-        width: 37.5vw;
-        height: 37.5vw;
+        width: 45vw;
+        height: 45vw;
     }
     #section_02 .button .button_profile{
-        width: 37.5vw;
-        height: 56.25vw;
+        width: 50vw;
+        height: 75vw;
     }
 
     #section_03{
     }
     #section_03 .subject_wrap{
-        margin: 5vw 2.5vw;
+        margin: 2vw 3vw 4vw 3vw;
     }
     #section_03 .subject_wrap div{
-        width: 3.75vw;
-        height: 3.75vw;
-        margin: 0 2.5vw;
+        width: 4vw;
+        height: 4vw;
+        margin: 0 2vw;
+        margin-left: 4vw;
+    }
+    #section_03 .subject_wrap p{
+        font-size: 3vw;
     }
     #section_03 ul{
-        height: 22.5vw;
+        height: 30vw;
     }
     #section_03 ul li{
         width: 15vw;
         height: 20vw;
     }
-    #section_03 .subject_wrap p{
-        font-size: 2.5vw;
-    }
     #section_03 ul li div{
-        width: 13.75vw;
-        height: 13.75vw;
-        padding: 1.25vw;
-        line-height: 13.75vw;
-        font-size: 2.5vw;
+        width: 16vw;
+        height: 16vw;
+        padding: 2vw;
+        line-height: 16vw;
+        font-size: 3.2vw;
     }
     #section_03 .level_list{
-        margin: 2.5vw 0 1.25vw 0;
+        margin: 3vw 0 1vw 0;
     }
     #section_03 .level_list li{
-        width: 2.5vw;
-        height: 2.5vw;
-        margin: 0 1.25vw;
+        width: 3vw;
+        height: 3vw;
+        margin: 0 1.5vw;
     }
     #section_03 .language_list{
-        width: 100vw;
+        width: 75vw;
     }
     #section_03 .platform_list{
-        width: 60vw;
+        width: 75vw;
     }
     #section_03 .tool_list{
-        width: 40vw;
+        width: 75vw;
     }
     
     
     #section_04 .work_wrap{
-        height: 75vw;
+        width: 75vw;
+        display: inline-block;
+        height: 102vw;
     }
     #section_04 .button_wrap{
-        height: 5vw;
-        line-height: 5vw;
+        height: 12vw;
+        line-height: 6vw;
     }
     #section_04 .button_wrap li, #section_04 .button_wrap span{
-        font-size: 2.5vw;
-        margin: 0 1.25vw;
+        font-size: 3.5vw;
+        margin: 0 1vw;
     }
     #section_04 .button_wrap li div{
-        width: 1.25vw;
-        height: 1.25vw;
-        margin: 0 0.625vw;
+        width: 2.5vw;
+        height: 2.5vw;
+        margin: 0 2vw;
     }
 
     
     #section_05 .content_wrap{
-        line-height: 87.5vw;
     }
     #section_05 .text_wrap{
-        width: 87.5vw;
-        padding-bottom: 15vw;
-        border-radius: 3.75vw;
+        width: 90vw;
+        padding-bottom: 24vw;
+        border-radius: 3vw;
     }
     #section_05 form {
         padding: 0 5vw;
     }
     #section_05 form p{
-        font-size: 3.125vw;
-        line-height: 5vw;
-        margin: 2.5vw 0 0 0;
+        font-size: 4vw;
+        line-height: 6vw;
+        margin: 3vw 0 0 0;
     }
     #section_05 form textarea, #section_05 form input{
-        font-size: 2.5vw;
-        line-height: 5.625vw;
+        font-size: 3vw;
+        line-height: 6vw;
     }
     #section_05 form textarea{
-        line-height: 4.5vw;
+        line-height: 6vw;
     }
     #section_05 form input[type=submit] {
-        width: 32.5vw;
-        padding: 1.875vw;
-        font-size: 3.125vw;
+        width: 40vw;
+        padding: 2vw;
+        font-size: 4vw;
 
-        bottom: 2.5vw;
-        margin-left: -16.25vw;
+        bottom: 5vw;
+        margin-left: -20vw;
     }
 }

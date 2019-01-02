@@ -1,4 +1,4 @@
-$.fn.make_slider = function(opt){
+$.fn.slider_initialize = function(opt){
     var slider = $(this);
     var button_wrap;
     var option = opt;
@@ -279,34 +279,75 @@ $.fn.make_slider = function(opt){
     
     if(option["scrollable"]) {
         touch_area
-        .mousemove(function(event){
+        .on("mousemove touchmove", function(event){
+            var x= 0;
+            if(event.type == "mousemove") {
+                //for web
+//                    y = IS_SCREEN_ROTATED? -1*event.pageX: event.pageY;
+                x = event.pageX;
+            } else{
+                //for mobile
+                if(event.targetTouches.length>1) {
+                    return;
+                }
+//                    y = IS_SCREEN_ROTATED? -1*event.targetTouches[0].pageX: event.targetTouches[0].pageY;
+                x = event.targetTouches[0].pageX;
+            }
+            event.preventDefault();
             if(mouse_in && !is_animating) {
                 if(starting_point == 0){
-                    starting_point = event.pageX;
+                    starting_point = x;
                 } else {
-                    range = parseInt((starting_point - event.pageX)/10);
+                    range = parseInt((starting_point - x)/10);
                     move(now_pos_x - range);
                 }
             }
-        })
-        .mousedown(function(){
+        }).on("mousedown touchstart", function(event){
             if(!mouse_in && !is_animating) {
                 mouse_in = true;
                 starting_point = 0;
             }
-        }).mouseup(function(){
+        }).on("mouseup touchend", function(event){
             if(mouse_in && !is_animating) {
                 mouse_in = false;
                 finalize();
             }
-        }).mouseleave(function(){
+        }).on("mouseleave touchleave", function(event){
             if(mouse_in && !is_animating) {
                 mouse_in = false;
                 finalize();
             }
         });
+//        .mousemove(function(event){
+//            if(mouse_in && !is_animating) {
+//                if(starting_point == 0){
+//                    starting_point = event.pageX;
+//                } else {
+//                    range = parseInt((starting_point - event.pageX)/10);
+//                    move(now_pos_x - range);
+//                }
+//            }
+//        })
+//        .mousedown(function(){
+//            if(!mouse_in && !is_animating) {
+//                mouse_in = true;
+//                starting_point = 0;
+//            }
+//        }).mouseup(function(){
+//            if(mouse_in && !is_animating) {
+//                mouse_in = false;
+//                finalize();
+//            }
+//        }).mouseleave(function(){
+//            if(mouse_in && !is_animating) {
+//                mouse_in = false;
+//                finalize();
+//            }
+//        });
     }
-    function slider_resize() {
+    slider.on("resize", function() {
+        var is_page_changed = slider.data("page_size")!=undefined;
+        PAGE_SIZE = is_page_changed? slider.data("page_size"): PAGE_SIZE;
         width= 0;
         slider_height= has_slider_flexible_width? 0 : $(slider).height();
 
@@ -365,7 +406,8 @@ $.fn.make_slider = function(opt){
         
         MIN_POS_X= elem_width*(list.length - PAGE_SIZE)*-1;
         MAX_POS_X= 0;
-    }
-    
-    window.addEventListener('resize', slider_resize);
+        if(is_page_changed) {
+            move_smoothly(0,0);
+        }
+    })
 }

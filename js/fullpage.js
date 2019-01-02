@@ -40,13 +40,15 @@ function make_fullpage(sal, pal) {
                 var y= 0;
                 if(event.type == "mousemove") {
                     //for web
-                    y = IS_SCREEN_ROTATED? -1*event.pageX: event.pageY;
+//                    y = IS_SCREEN_ROTATED? -1*event.pageX: event.pageY;
+                    y = event.pageY;
                 } else{
                     //for mobile
                     if(event.targetTouches.length>1) {
                         return;
                     }
-                    y = IS_SCREEN_ROTATED? -1*event.targetTouches[0].pageX: event.targetTouches[0].pageY;
+//                    y = IS_SCREEN_ROTATED? -1*event.targetTouches[0].pageX: event.targetTouches[0].pageY;
+                    y = event.targetTouches[0].pageY;
                 }
                 event.preventDefault();
                 if(mouse_in && !is_animating) {
@@ -201,14 +203,14 @@ function make_fullpage(sal, pal) {
             if(direction>0) {
                 bottom = scroll_wrap.height()-scroll.height();
             }
+            if(callback!=undefined) {
+                callback();
+            }
             scroll.animate({
                 "bottom" : bottom,
             },SCROLL_ANIMATE_DELAY, function(){
                 if(is_animating) {
                     is_animating = false;
-                }
-                if(callback!=undefined) {
-                    callback();
                 }
                 scroll.clearQueue()
             });

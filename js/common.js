@@ -1,7 +1,7 @@
 var CONTENT_WIDTH;
 var WINDOW_WIDTH, WINDOW_HEIGHT;
 var SCREEN_DEGREE = 0;
-var IS_ROTATED = false, IS_SCREEN_ROTATED = false;
+var IS_PORTRAIT = false, IS_SCREEN_ROTATED = false;
 var IS_IOS = false, IS_ANDROID = false, IS_PAD= false, IS_MOBILE = false;
 var IS_DOCUMENT_LOADED = false;
 
@@ -56,33 +56,22 @@ function check_device() {
 //    } else {
 //        IS_MOBILE = false;
 //    }
-    if(IS_MOBILE) {
+    if(IS_MOBILE && ! IS_PAD) {
         SCREEN_DEGREE = screen.orientation!= undefined?screen.orientation.angle:window.orientation;
         if(SCREEN_DEGREE == 0 || SCREEN_DEGREE == 180) {
             //vertical
-            IS_ROTATED = true;
+            IS_PORTRAIT = true;
         } else {
-            IS_ROTATED = false;
+            IS_PORTRAIT = false;
         }
     } else {
-        IS_ROTATED = false;
+        IS_PORTRAIT = false;
     }
 }
 
 function check_resolution() {
     WINDOW_WIDTH = $(window).width();
     WINDOW_HEIGHT = $(window).height();
-    if($(".extra_input_area").length == 0){
-        $("body").css({
-            "width": $(window).width(),
-            "height": $(window).height(),
-            "line-height": $(window).height() + "px",
-        })
-    }
-    if(IS_ROTATED) {
-        WINDOW_WIDTH = $(window).height();
-        WINDOW_HEIGHT = $(window).width();
-    }
     if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
         CONTENT_WIDTH = 1000;
     }else if(WINDOW_HEIGHT<800 && WINDOW_WIDTH/WINDOW_HEIGHT>1.25) {
@@ -92,194 +81,175 @@ function check_resolution() {
     }
 }
 
-function make_extra_input(focused) {
-//    $("#wrap").css("display","none");
-    var width = $(window).width();
-    var height = $(window).height();
-    var input_wrap = $("<div class=\"extra_input_area\"></div>")
-    var input = $("<input type=\"text\"></input>");
-    input_wrap.append(input);
-    input_wrap.css({
-        "width" : width,
-        "height" : "100%",
-        "line-height" : height + "px",
-        "background" : "#000",
-        "opacity":"0.5",
-    })
-    $("body").append(input_wrap);
-    input_wrap.click(function() {
-        focus_out();
-    });
-    focused.blur();
-    input.css({
-        "width": "80%",
-        "font-size": CONTENT_WIDTH*0.02,
-        "height": CONTENT_WIDTH*0.04,
-        "line-height": CONTENT_WIDTH*0.04 + "px",
-        "background":"#000",
-        "color":"#fff",
-        "border":0,
-        "caret-color":"#fff",
-        
-    })
-    input.val(focused.val());
-    input.get(0).focus();
-    input.click(function(event) {
-        event.stopPropagation();
-    })
-    input.onEnterKey(function() {
-        focused.val(input.val());
-        focus_out();
-    })
-    if(IS_IOS) {
-        input_wrap.on("touchmove", function(event){
-            event.stopPropagation();
-            event.preventDefault();
-        }).on("focusout", function() {
-            console.log("keyup");
-            resize_standard();
-        });
-        input.data("focused", focused);
-//        var timer = function() {
-//            var offset = document.body.scrollTop;
-//            console.log("scrollTop : " + offset);
-//            if(offset != 0) {
-//                var offset = document.body.scrollTop;
+//function make_extra_input(focused) {
+////    $("#wrap").css("display","none");
+//    var width = $(window).width();
+//    var height = $(window).height();
+//    var input_wrap = $("<div class=\"extra_input_area\"></div>")
+//    var input = $("<input type=\"text\"></input>");
+//    input_wrap.append(input);
+//    input_wrap.css({
+//        "width" : width,
+//        "height" : "100%",
+//        "line-height" : height + "px",
+//        "background" : "#000",
+//        "opacity":"0.5",
+//    })
+//    $("body").append(input_wrap);
+//    input_wrap.click(function() {
+//        focus_out();
+//    });
+//    focused.blur();
+//    input.css({
+//        "width": "80%",
+//        "font-size": CONTENT_WIDTH*0.02,
+//        "height": CONTENT_WIDTH*0.04,
+//        "line-height": CONTENT_WIDTH*0.04 + "px",
+//        "background":"#000",
+//        "color":"#fff",
+//        "border":0,
+//        "caret-color":"#fff",
+//        
+//    })
+//    input.val(focused.val());
+//    input.get(0).focus();
+//    input.click(function(event) {
+//        event.stopPropagation();
+//    })
+//    input.onEnterKey(function() {
+//        focused.val(input.val());
+//        focus_out();
+//    })
+//    if(IS_IOS) {
+//        input_wrap.on("touchmove", function(event){
+//            event.stopPropagation();
+//            event.preventDefault();
+//        }).on("focusout", function() {
+//            console.log("keyup");
+//            resize_standard();
+//        });
+//        input.data("focused", focused);
+//        var offset = IS_PORTRAIT ? (height/4 - CONTENT_WIDTH*0.04) : (height/3 - CONTENT_WIDTH*0.04);
+//        console.log("input_offset_top : " + offset);
+//        $("body").css({
+//            "height": height + offset,
+//        })
+//        document.body.scrollTop = offset;
+//    }
+//}
+
+
+
+//console.log("몇번째 ? 17");
+//var ROTATE_WITH_KEYBOARD = false;
+//function resize_standard() {
+//    console.log("resize_standard");
+//    var need_rotate = SCREEN_DEGREE;
+//    check_device();
+//    need_rotate = need_rotate != SCREEN_DEGREE;
+//    if(IS_MOBILE) {
+//        var width = $(window).width();
+//        var height = $(window).height();
+//        if(!need_rotate && !ROTATE_WITH_KEYBOARD || ROTATE_WITH_KEYBOARD) {
+//            var input = $('#wrap input');
+//            var textarea = $('#wrap textarea');
+//            var input_checked = focus_check(input);
+//            var textarea_checked = focus_check(textarea);
+//            var focused = input_checked != undefined ? input_checked : textarea_checked;
+//            
+//            console.log("focused");
+//            console.log(focused);
+//
+//            if(focused == undefined && !ROTATE_WITH_KEYBOARD) {
+//                $(".extra_input_area").remove();
+//                $("body").removeAttr("style");
+//                $("body").css({
+//                    "width": $(window).width(),
+//                    "height": $(window).height(),
+//                    "line-height": $(window).height() + "px",
+//                })
+//            }
+//            ROTATE_WITH_KEYBOARD = false;
+//            if(IS_ANDROID && focused != undefined) {
+//                make_extra_input(focused);
+//                return;
+//            }
+//        } else if(IS_ANDROID){
+//            //It will be triggerred when the device is android
+//            //Android call resize function twice with soft keyboard.
+//            //so make it wait one time in that case
+//            ROTATE_WITH_KEYBOARD = true;
+//        } 
+////        else if(IS_IOS){
+////            //IOS don't call resize function twice when the device is rotated.
+////            //because IOS don't call resize for soft keyboard is opened or closed.
+////            //But the reason of calling that function twice is that device has 0 degree.
+////            //Since safari browser in IOS always happens in vertical environment.
+////            var input = $(".extra_input_area input");
+////            if(input.length>0) {
+////                console.log("INPUT IS AVAILABLE!");
+////            } else {
+////                console.log("INPUT IS NOT AVAILABLE!");
+////            }
+////        }
+//        var input_wrap = $(".extra_input_area");
+//        if(input_wrap.length > 0){
+//            input_wrap.css({
+//                "line-height" : height + "px",
+//            })
+//            var input = input_wrap.find("input");
+//            input.css({
+//                "font-size": CONTENT_WIDTH*0.02,
+//                "height": CONTENT_WIDTH*0.04,
+//                "line-height": CONTENT_WIDTH*0.04 + "px",
+//            })
+//            if(IS_IOS) {
+////                input.data("focused").focus();
+////                console.log("scrollTop : " + document.body.scrollTop);
+////                var offset = document.body.scrollTop;
+//                var offset = IS_PORTRAIT ? (height/4 - CONTENT_WIDTH*0.04) : (height/3 - CONTENT_WIDTH*0.04);
 //                console.log("input_offset_top : " + offset);
 //                $("body").css({
 //                    "height": height + offset,
 //                })
-//                return false;
-//            }
-//            return true;
-//        };
-//        var timer_id = setInterval(function() {
-//            if(!timer()) {
-//                clearInterval(timer_id);
-//            }
-//        }, 50);
-//        var offset = document.body.scrollTop;
-        var offset = IS_ROTATED ? (height/4 - CONTENT_WIDTH*0.04) : (height/3 - CONTENT_WIDTH*0.04);
-        console.log("input_offset_top : " + offset);
-        $("body").css({
-            "height": height + offset,
-        })
-        document.body.scrollTop = offset;
-    }
-}
-
-
-
-console.log("몇번째 ? 17");
-var ROTATE_WITH_KEYBOARD = false;
-function resize_standard() {
-    console.log("resize_standard");
-    var need_rotate = SCREEN_DEGREE;
-    check_device();
-    need_rotate = need_rotate != SCREEN_DEGREE;
-    if(IS_MOBILE) {
-        var width = $(window).width();
-        var height = $(window).height();
-        if(!need_rotate && !ROTATE_WITH_KEYBOARD || ROTATE_WITH_KEYBOARD) {
-            var input = $('#wrap input');
-            var textarea = $('#wrap textarea');
-            var input_checked = focus_check(input);
-            var textarea_checked = focus_check(textarea);
-            var focused = input_checked != undefined ? input_checked : textarea_checked;
-            
-            console.log("focused");
-            console.log(focused);
-
-            if(focused == undefined && !ROTATE_WITH_KEYBOARD) {
-                $(".extra_input_area").remove();
-                $("body").removeAttr("style");
-                $("body").css({
-                    "width": $(window).width(),
-                    "height": $(window).height(),
-                    "line-height": $(window).height() + "px",
-                })
-            }
-            ROTATE_WITH_KEYBOARD = false;
-            if(IS_ANDROID && focused != undefined) {
-                make_extra_input(focused);
-                return;
-            }
-        } else if(IS_ANDROID){
-            //It will be triggerred when the device is android
-            //Android call resize function twice with soft keyboard.
-            //so make it wait one time in that case
-            ROTATE_WITH_KEYBOARD = true;
-        } 
-//        else if(IS_IOS){
-//            //IOS don't call resize function twice when the device is rotated.
-//            //because IOS don't call resize for soft keyboard is opened or closed.
-//            //But the reason of calling that function twice is that device has 0 degree.
-//            //Since safari browser in IOS always happens in vertical environment.
-//            var input = $(".extra_input_area input");
-//            if(input.length>0) {
-//                console.log("INPUT IS AVAILABLE!");
-//            } else {
-//                console.log("INPUT IS NOT AVAILABLE!");
+//                document.body.scrollTop = offset;
 //            }
 //        }
-        var input_wrap = $(".extra_input_area");
-        if(input_wrap.length > 0){
-            input_wrap.css({
-                "line-height" : height + "px",
-            })
-            var input = input_wrap.find("input");
-            input.css({
-                "font-size": CONTENT_WIDTH*0.02,
-                "height": CONTENT_WIDTH*0.04,
-                "line-height": CONTENT_WIDTH*0.04 + "px",
-            })
-            if(IS_IOS) {
-//                input.data("focused").focus();
-//                console.log("scrollTop : " + document.body.scrollTop);
-//                var offset = document.body.scrollTop;
-                var offset = IS_ROTATED ? (height/4 - CONTENT_WIDTH*0.04) : (height/3 - CONTENT_WIDTH*0.04);
-                console.log("input_offset_top : " + offset);
-                $("body").css({
-                    "height": height + offset,
-                })
-                document.body.scrollTop = offset;
-            }
-        }
-    }
-    IS_SCREEN_ROTATED = IS_ROTATED && !IS_PAD;
-    check_resolution();
-    
-    console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
-    console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());
-    
-    console.log("resize_not_returned");
-    $("#wrap").css({
-        "width": WINDOW_WIDTH,
-        "height": WINDOW_HEIGHT,
-    })
-    if(IS_SCREEN_ROTATED) {
-        $("#wrap").css({
-            "-webkit-transform": "rotate(90deg)",
-            "-ms-transform": "rotate(90deg)",
-            "transform": "rotate(90deg)",
-            "top": "50%",
-            "left": "50%",
-            "margin-top": -1*WINDOW_HEIGHT/2,
-            "margin-left": -1*WINDOW_WIDTH/2,
-            position:"absolute",
-        });
-    } else {
-        $("#wrap").css({
-            "-webkit-transform": "rotate(0deg)",
-            "-ms-transform": "rotate(0deg)",
-            "transform": "rotate(0deg)",
-            "top": "0",
-            "left": "0",
-            "margin": 0,
-            position:"absolute",
-        });
-    }
-}
+//    }
+//    IS_SCREEN_ROTATED = IS_PORTRAIT && !IS_PAD;
+//    check_resolution();
+//    
+//    console.log("WIDTH : " + window.innerWidth + ", HEIGHT : "+ window.innerHeight);
+//    console.log("WIDTH : " + $(window).width() + ", HEIGHT : "+ $(window).height());
+//    
+//    console.log("resize_not_returned");
+////    $("#wrap").css({
+////        "width": WINDOW_WIDTH,
+////        "height": WINDOW_HEIGHT,
+////    })
+////    if(IS_SCREEN_ROTATED) {
+////        $("#wrap").css({
+////            "-webkit-transform": "rotate(90deg)",
+////            "-ms-transform": "rotate(90deg)",
+////            "transform": "rotate(90deg)",
+////            "top": "50%",
+////            "left": "50%",
+////            "margin-top": -1*WINDOW_HEIGHT/2,
+////            "margin-left": -1*WINDOW_WIDTH/2,
+////            position:"absolute",
+////        });
+////    } else {
+////        $("#wrap").css({
+////            "-webkit-transform": "rotate(0deg)",
+////            "-ms-transform": "rotate(0deg)",
+////            "transform": "rotate(0deg)",
+////            "top": "0",
+////            "left": "0",
+////            "margin": 0,
+////            position:"absolute",
+////        });
+////    }
+//}
 
 
 //additional functions
