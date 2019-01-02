@@ -48,11 +48,11 @@ function mail_fail(){
     alert("The email address is not valid!");
 }
 
+check_device();
+check_resolution();
 
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
-    check_device();
-    check_resolution();
     $("#wrap").click(function(event) {
         if(!$(event.target).is("input[type=text]") && !$(event.target).is("textarea")) {
             focus_out();
