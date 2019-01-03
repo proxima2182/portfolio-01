@@ -100,8 +100,8 @@ $(document).ready(function(){
             $(this).find(".content_wrap").css({
                 "width": WINDOW_WIDTH*0.9,
                 "height": WINDOW_WIDTH*1.26,
-                "margin-top": -1*WINDOW_WIDTH*0.45,
-                "margin-left": -1*WINDOW_WIDTH*0.73,
+                "margin-left": -1*WINDOW_WIDTH*0.45,
+                "margin-top": -1*WINDOW_WIDTH*0.73,
             })
             $(this).find(".section_title").css({
                 "font-size": WINDOW_WIDTH*0.06,
@@ -135,7 +135,7 @@ $(document).ready(function(){
             $(this).find(".content_wrap").css({
                 "width": CONTENT_WIDTH*0.9,
                 "height": CONTENT_WIDTH*0.9,
-                "margin-top": -1*CONTENT_WIDTH*0.35,
+                "margin-top": -1*CONTENT_WIDTH*0.45,
                 "margin-left": -1*CONTENT_WIDTH*0.45,
             })
             $(this).find(".section_title").css({
