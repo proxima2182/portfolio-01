@@ -82,8 +82,18 @@ $(document).ready(function(){
     })
     $("input[type=text], textarea").focusin(function() {
         IS_FULLPAGE_SCROLLABLE = false;
-        var offset = $(this).offset().top;
+        var parent_offset = $("#wrap").offset().top;
+        var offset = $(this).offset().top - parent_offset;
         console.log("input offset : " + offset);
+        
+        if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
+           ORIGINAL_WIDTH == WINDOW_HEIGHT && ORIGINAL_HEIGHT == WINDOW_WIDTH)) {
+        } else{
+            offset -= $(window).innerHeight();
+        }
+        if(offset<0) {
+            offset = 0;
+        }
         $("#wrap").offset({top: -1*offset});
     })
     $("input[type=text], textarea").focusout(function() {
