@@ -6,7 +6,7 @@ var page_action_list;
 
 var HEIGHT;
 
-var page_num= 0;
+var FULLPAGE_INDEX= 0;
 var is_animating = false;
 var IS_FULLPAGE_SCROLLABLE = true;
 var SCROLL_ANIMATE_DELAY = 800;
@@ -116,15 +116,15 @@ function make_fullpage(sal, pal) {
     }
     page_wraps = $(".fullpage_wrap");
     MAX_PAGE = page_wraps.length;
-    page_num= 0;
+    FULLPAGE_INDEX= 0;
     navigation = $(".fullpage_navigation");
 
     function move(direction){
-        var scroll_wrap = page_wraps.eq(page_num).find(".fullpage_scroll_wrap");
+        var scroll_wrap = page_wraps.eq(FULLPAGE_INDEX).find(".fullpage_scroll_wrap");
         var scroll = scroll_wrap.find(".fullpage_scroll");
 //        var scroll = scroll_wrap.find("img");
         var has_scroll = scroll_wrap.length>0 && scroll.length>0;
-        var is_available= page_num + direction < MAX_PAGE && page_num + direction>=0;
+        var is_available= FULLPAGE_INDEX + direction < MAX_PAGE && FULLPAGE_INDEX + direction>=0;
         var is_scrollable_up = false;
         var is_scrollable_down = false;
 
@@ -137,13 +137,13 @@ function make_fullpage(sal, pal) {
         if((!has_scroll || has_scroll && !is_scrollable_up && !is_scrollable_down) && is_available) {
             //page moving action.
             //so need to check 'is_available' before
-            page_num +=direction;
+            FULLPAGE_INDEX +=direction;
             is_animating = true;
             if(navigation.length>0) {
                 var lists = $(navigation).find("li");
                 
                 for(var i= 0; i< lists.length; ++i) {
-                    if(i == page_num) {
+                    if(i == FULLPAGE_INDEX) {
                         lists.eq(i).addClass("fullpage_selected");
                     } else {
                         lists.eq(i).removeClass("fullpage_selected");
@@ -151,17 +151,17 @@ function make_fullpage(sal, pal) {
                 }
             }
             for(var i= 0; i< MAX_PAGE; ++i) {
-                if(page_num == i) {
+                if(FULLPAGE_INDEX == i) {
                     page_wraps.eq(i).addClass("fullpage_active");
                 } else {
                     page_wraps.eq(i).removeClass("fullpage_active");
                 }
                 page_wraps.eq(i).animate({
-                    "top": (i-page_num)*WINDOW_HEIGHT,
+                    "top": (i-FULLPAGE_INDEX)*WINDOW_HEIGHT,
                 },SCROLL_ANIMATE_DELAY, function(){
                     if(is_animating) {
                         is_animating = false;
-                        var previous_index = page_num - direction;
+                        var previous_index = FULLPAGE_INDEX - direction;
                         var previous_scroll = page_wraps.eq(previous_index).find(".fullpage_scroll_wrap .fullpage_scroll");
                         if(previous_scroll!=undefined && previous_scroll.length>0) {
                             //need to put callback action.
@@ -175,12 +175,12 @@ function make_fullpage(sal, pal) {
                     page_wraps.eq(i).clearQueue();
                 });
             }
-            var page_action = page_action_list[page_num];
+            var page_action = page_action_list[FULLPAGE_INDEX];
             if(page_action !=undefined) {
                 page_action["action"]();
             }
         } else if(is_scrollable_down || is_scrollable_up){
-            var action = scroll_action_list[page_num];
+            var action = scroll_action_list[FULLPAGE_INDEX];
             if(action !=undefined && action["direction"] == direction) {
                 is_animating = true;
                 action["action"]();
@@ -241,7 +241,7 @@ function fullpage_resize() {
 //            "height" : WINDOW_HEIGHT,
 //        })
         page.parent().css({
-            "top": (i-page_num)*WINDOW_HEIGHT+ "px",
+            "top": (i-FULLPAGE_INDEX)*WINDOW_HEIGHT+ "px",
         })
         var scroll_wrap = page.find(".fullpage_scroll_wrap");
         if(scroll_wrap.length>0) {
@@ -265,16 +265,16 @@ function fullpage_resize() {
 
 function page_move(index){
     if(!is_animating) {
-        var previous_index = page_num;
+        var previous_index = FULLPAGE_INDEX;
         var is_available= index < MAX_PAGE && index>=0;
         if(is_available) {
-            page_num = index;
+            FULLPAGE_INDEX = index;
             is_animating = true;
             if(navigation.length>0) {
                 var lists = $(navigation).find("li");
 
                 for(var i= 0; i< lists.length; ++i) {
-                    if(i == page_num) {
+                    if(i == FULLPAGE_INDEX) {
                         lists.eq(i).addClass("fullpage_selected");
                     } else {
                         lists.eq(i).removeClass("fullpage_selected");
@@ -282,13 +282,13 @@ function page_move(index){
                 }
             }
             for(var i= 0; i< MAX_PAGE; ++i) {
-                if(page_num == i) {
+                if(FULLPAGE_INDEX == i) {
                     page_wraps.eq(i).addClass("fullpage_active");
                 } else {
                     page_wraps.eq(i).removeClass("fullpage_active");
                 }
                 page_wraps.eq(i).stop().animate({
-                    "top": (i-page_num)*WINDOW_HEIGHT,
+                    "top": (i-FULLPAGE_INDEX)*WINDOW_HEIGHT,
                 },SCROLL_ANIMATE_DELAY, function(){
                     if(is_animating) {
                         is_animating = false;
@@ -305,7 +305,7 @@ function page_move(index){
                     page_wraps.eq(i).clearQueue();
                 });
             }
-            var page_action = page_action_list[page_num];
+            var page_action = page_action_list[FULLPAGE_INDEX];
             if(page_action !=undefined) {
                 page_action["action"]();
             }

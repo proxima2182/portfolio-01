@@ -120,6 +120,7 @@ $(document).ready(function(){
             $(this).find(".content_wrap").css({
                 "width": WINDOW_WIDTH*0.9,
                 "height": WINDOW_WIDTH*1.26,
+                "line-height": WINDOW_WIDTH*1.26+"px",
                 "margin-left": -1*WINDOW_WIDTH*0.45,
                 "margin-top": -1*WINDOW_WIDTH*0.73,
             })
@@ -155,6 +156,7 @@ $(document).ready(function(){
             $(this).find(".content_wrap").css({
                 "width": CONTENT_WIDTH*0.9,
                 "height": CONTENT_WIDTH*0.9,
+                "line-height": CONTENT_WIDTH*0.9+"px",
                 "margin-top": -1*CONTENT_WIDTH*0.45,
                 "margin-left": -1*CONTENT_WIDTH*0.45,
             })
@@ -242,16 +244,27 @@ $(document).ready(function(){
         })
         $("#section_05").resize();
         
-        var list_names = ["language_list", "platform_list", "tool_list"];
-        var slide_pages = [5, 3, 2];
-        if(IS_PORTRAIT) {
-            slide_pages = [3, 3, 3];
+        
+        if(FULLPAGE_INDEX == 0) {
+            if(IS_PORTRAIT) {
+                $("#button_gnb").css({
+                    "bottom": -1 * WINDOW_HEIGHT*0.24,
+                });
+            }
         }
+        
+        if(screen_degree != SCREEN_DEGREE) {
+            var list_names = ["language_list", "platform_list", "tool_list"];
+            var slide_pages = [5, 3, 2];
+            if(IS_PORTRAIT) {
+                slide_pages = [3, 3, 3];
+            }
 
-        for(var i= 0; i< list_names.length; ++i) {
-            var slider = $("."+list_names[i]);
-            slider.data("page_size", slide_pages[i]);
-            slider.resize();
+            for(var i= 0; i< list_names.length; ++i) {
+                var slider = $("."+list_names[i]);
+                slider.data("page_size", slide_pages[i]);
+                slider.resize();
+            }
         }
 
         fullpage_resize();
@@ -269,13 +282,6 @@ $(document).ready(function(){
             })
         }
         //need to add gnb resize & fullscreen resize
-        
-        if(IS_IOS) {
-            var input_wrap = $(".extra_input_area");
-            if(input_wrap.length > 0){
-            }
-        }else if(IS_ANDROID) {
-        }
     });
 })
 
