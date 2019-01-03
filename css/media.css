@@ -374,7 +374,6 @@
     #header{
         width: 10vh;
         height: 100vw;
-        line-height: 100vw;
         bottom: -100vw;
         right: 0;
         z-index: 100;
@@ -589,12 +588,6 @@
     .section_title{
         font-size: 6vw;
         line-height: 12vw;
-    }
-    #wrap .is_landscape{
-        display: none;
-    }
-    #wrap .is_portrait{
-        display: inline-block;
     }
     #header{
         width: 100%;

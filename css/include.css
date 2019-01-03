@@ -45,12 +45,8 @@ input:focus, textarea:focus{
     font-size: 4vw;
     line-height: 8vw;
 }
-#wrap .is_portrait{
-    display: none;
-}
 #header{
     height: 100%;
-    line-height: 100vh;
     text-align: center;
     bottom: -100vh;
     right: 0;

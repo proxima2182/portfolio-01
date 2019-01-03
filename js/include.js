@@ -87,6 +87,7 @@ function check_keyboard_open() {
 
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
+    check_device();
     $("body").css({
         "width": WINDOW_WIDTH,
         "height": WINDOW_HEIGHT,
@@ -254,18 +255,16 @@ $(document).ready(function(){
         })
         $("#section_05").resize();
         
-        if(screen_degree != SCREEN_DEGREE) {
-            var list_names = ["language_list", "platform_list", "tool_list"];
-            var slide_pages = [5, 3, 2];
-            if(IS_PORTRAIT) {
-                slide_pages = [3, 3, 3];
-            }
+        var list_names = ["language_list", "platform_list", "tool_list"];
+        var slide_pages = [5, 3, 2];
+        if(IS_PORTRAIT) {
+            slide_pages = [3, 3, 3];
+        }
 
-            for(var i= 0; i< list_names.length; ++i) {
-                var slider = $("."+list_names[i]);
-                slider.data("page_size", slide_pages[i]);
-                slider.resize();
-            }
+        for(var i= 0; i< list_names.length; ++i) {
+            var slider = $("."+list_names[i]);
+            slider.data("page_size", slide_pages[i]);
+            slider.resize();
         }
 
         fullpage_resize();

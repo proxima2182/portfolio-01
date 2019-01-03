@@ -61,6 +61,13 @@ function check_device() {
     } else {
         IS_PORTRAIT = false;
     }
+    if(IS_PORTRAIT) {
+        $("#wrap .is_portrait").css("display","inline-block");
+        $("#wrap .is_landscape").css("display","none");
+    } else {
+        $("#wrap .is_portrait").css("display","none");
+        $("#wrap .is_landscape").css("display","inline-block");
+    }
 }
 
 function check_resolution() {
