@@ -90,18 +90,20 @@ $(document).ready(function(){
     })
     $("input[type=text], textarea").focusin(function() {
         IS_FULLPAGE_SCROLLABLE = false;
-        var parent_offset = $("#wrap").offset().top;
-        var offset = $(this).offset().top - parent_offset;
-        console.log("input offset : " + offset);
-        
-        if(check_keyboard_open()){
-            offset -= $(window).innerHeight()/2;
-            if(offset<0) {
-                offset = 0;
+        if(IS_ANDROID) {
+            var parent_offset = $("#wrap").offset().top;
+            var offset = $(this).offset().top - parent_offset;
+            console.log("input offset : " + offset);
+
+            if(check_keyboard_open()){
+                offset -= $(window).innerHeight()/2;
+                if(offset<0) {
+                    offset = 0;
+                }
+                $("#wrap").offset({top: -1*offset});
+            } else {
+                $("#wrap").data("offset", offset);
             }
-            $("#wrap").offset({top: -1*offset});
-        } else {
-            $("#wrap").data("offset", offset);
         }
     })
     $("input[type=text], textarea").focusout(function() {
@@ -209,13 +211,13 @@ $(document).ready(function(){
         if(IS_ANDROID) {
             if(check_keyboard_open()) {
                 if($("#wrap").data("offset")!=undefined) {
-                    var offset = -($("#wrap").data("offset"));
+                    var offset = $("#wrap").data("offset");
                     console.log("input offset : " + offset);
-                    offset += $(window).innerHeight()/2;
+                    offset -= $(window).innerHeight()/2;
                     if(offset<0) {
                         offset = 0;
                     }
-                    $("#wrap").offset({top: offset});
+                    $("#wrap").offset({top: -1*offset});
                     $("#wrap").data("offset", undefined);
                 }
                 return;
