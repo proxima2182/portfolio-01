@@ -53,15 +53,29 @@ check_resolution();
 var ORIGINAL_WIDTH = WINDOW_WIDTH;
 var ORIGINAL_HEIGHT = WINDOW_HEIGHT;
 
-//var section_05_values= {
-//    "#section_05 .text_wrap": ["width", "padding", "border-radius"],
-//    "#section_05 form": ["padding"],
-//    "#section_05 form p": ["font-size", "line-height", "margin"],
-//    "#section_05 form textarea": ["font-size", "line-height"],
-//    "#section_05 form input": ["font-size", "line-height"],
-//    "#section_05 form textarea": ["line-height"],
-//    "#section_05 form input[type=submit]": ["width", "padding", "font-size", "bottom", "margin"],
-//}
+function gnb_init() {
+    if(IS_PORTRAIT) {
+        if(FULLPAGE_INDEX == 0) {
+            $("#button_gnb").css({
+                "bottom": -1 * WINDOW_HEIGHT*0.24,
+            });
+        } else{
+            $("#button_gnb").css({
+                "bottom": WINDOW_WIDTH*0.08,
+            });
+        }
+    } else{
+        if(FULLPAGE_INDEX == 0) {
+            $("#header").css({
+                "bottom": -1 * WINDOW_HEIGHT,
+            });
+        } else{
+            $("#header").css({
+                "bottom": 0,
+            });
+        }
+    }
+}
 
 function check_keyboard_open() {
     if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
@@ -109,11 +123,7 @@ $(document).ready(function(){
     $("input[type=text], textarea").focusout(function() {
         IS_FULLPAGE_SCROLLABLE = true;
     })
-    if(IS_PORTRAIT) {
-        $("#button_gnb").css({
-            "bottom": -1 * WINDOW_HEIGHT*0.24,
-        });
-    }
+    gnb_init();
     
     $("#section_05").on("resize",function() {
         if(IS_PORTRAIT) {
@@ -183,7 +193,7 @@ $(document).ready(function(){
             })
             $(this).find("form input[type=submit]").css({
                 "width": CONTENT_WIDTH*0.26,
-                "padding": CONTENT_WIDTH*0.015,
+                "padding": CONTENT_WIDTH*0.01,
                 "font-size": CONTENT_WIDTH*0.025,
                 "bottom": CONTENT_WIDTH*0.02,
                 "margin-left": -1*CONTENT_WIDTH*0.13,
@@ -245,28 +255,29 @@ $(document).ready(function(){
         $("#section_05").resize();
         
         
-        if(FULLPAGE_INDEX == 0) {
-            if(IS_PORTRAIT) {
+        if(IS_PORTRAIT) {
+            if(FULLPAGE_INDEX == 0) {
                 $("#button_gnb").css({
                     "bottom": -1 * WINDOW_HEIGHT*0.24,
+                });
+            } else{
+                $("#button_gnb").css({
+                    "bottom": WINDOW_WIDTH*0.08,
+                });
+            }
+        } else{
+            if(FULLPAGE_INDEX == 0) {
+                $("#header").css({
+                    "bottom": -1 * WINDOW_HEIGHT,
+                });
+            } else{
+                $("#header").css({
+                    "bottom": 0,
                 });
             }
         }
         
-        if(screen_degree != SCREEN_DEGREE) {
-            var list_names = ["language_list", "platform_list", "tool_list"];
-            var slide_pages = [5, 3, 2];
-            if(IS_PORTRAIT) {
-                slide_pages = [3, 3, 3];
-            }
-
-            for(var i= 0; i< list_names.length; ++i) {
-                var slider = $("."+list_names[i]);
-                slider.data("page_size", slide_pages[i]);
-                slider.resize();
-            }
-        }
-
+        gnb_init();
         fullpage_resize();
         map_resize();
         

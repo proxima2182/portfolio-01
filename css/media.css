@@ -177,7 +177,7 @@
     }
     #section_05 form input[type=submit] {
         width: 260px;
-        padding: 15px;
+        padding: 10px;
         font-size: 25px;
 
         bottom: 20px;
@@ -362,7 +362,7 @@
     }
     #section_05 form input[type=submit] {
         width: 32.5vh;
-        padding: 1.875vh;
+        padding: 1.25vh;
         font-size: 3.125vh;
 
         bottom: 2.5vh;
