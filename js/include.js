@@ -205,6 +205,11 @@ $(document).ready(function(){
             "height": WINDOW_HEIGHT,
             "line-height": WINDOW_HEIGHT + "px",
         })
+        $("body").css({
+            "width": WINDOW_WIDTH,
+            "height": WINDOW_HEIGHT,
+            "line-height": WINDOW_HEIGHT + "px",
+        })
         
         var list_names = ["language_list", "platform_list", "tool_list"];
         var slide_pages = [5, 3, 2];
