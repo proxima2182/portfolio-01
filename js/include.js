@@ -254,30 +254,20 @@ $(document).ready(function(){
         })
         $("#section_05").resize();
         
-        
-        if(IS_PORTRAIT) {
-            if(FULLPAGE_INDEX == 0) {
-                $("#button_gnb").css({
-                    "bottom": -1 * WINDOW_HEIGHT*0.24,
-                });
-            } else{
-                $("#button_gnb").css({
-                    "bottom": WINDOW_WIDTH*0.08,
-                });
+        if(screen_degree != SCREEN_DEGREE) {
+            var list_names = ["language_list", "platform_list", "tool_list"];
+            var slide_pages = [5, 3, 2];
+            if(IS_PORTRAIT) {
+                slide_pages = [3, 3, 3];
             }
-        } else{
-            if(FULLPAGE_INDEX == 0) {
-                $("#header").css({
-                    "bottom": -1 * WINDOW_HEIGHT,
-                });
-            } else{
-                $("#header").css({
-                    "bottom": 0,
-                });
+
+            for(var i= 0; i< list_names.length; ++i) {
+                var slider = $("."+list_names[i]);
+                slider.data("page_size", slide_pages[i]);
+                slider.resize();
             }
         }
-        
-        gnb_init();
+
         fullpage_resize();
         map_resize();
         
