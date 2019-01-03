@@ -79,7 +79,7 @@ $(document).ready(function(){
         IS_FULLPAGE_SCROLLABLE = false;
         var offset = $(this).offset().top;
         console.log("input offset : " + offset);
-        $("#wrap").scrollTop = offset;
+        $("#wrap").offset({top: offset});
     })
     $("input[type=text], textarea").focusout(function() {
         IS_FULLPAGE_SCROLLABLE = true;
@@ -186,9 +186,6 @@ $(document).ready(function(){
                     focus_out();
                 }
             } else {
-                $("#wrap").css({
-                    "height": WINDOW_HEIGHT*3/2,
-                })
                 return;
             }
         }
