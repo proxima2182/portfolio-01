@@ -79,7 +79,7 @@ $(document).ready(function(){
         IS_FULLPAGE_SCROLLABLE = false;
         var offset = $(this).offset().top;
         console.log("input offset : " + offset);
-        $("#wrap").offset({top: offset});
+        $("#wrap").offset({top: -1*offset});
     })
     $("input[type=text], textarea").focusout(function() {
         IS_FULLPAGE_SCROLLABLE = true;
@@ -190,11 +190,7 @@ $(document).ready(function(){
             }
         }
         $("#section_05").resize();
-//        $("body").css({
-//            "width": WINDOW_WIDTH,
-//            "height": WINDOW_HEIGHT,
-//            "line-height": WINDOW_HEIGHT + "px",
-//        })
+        
         $("#wrap").scrollTop = 0;
         $("body").removeAttr("style");
         $("#wrap").css({
