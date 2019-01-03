@@ -96,11 +96,13 @@ $(document).ready(function(){
         
         if(check_keyboard_open()){
             offset -= $(window).innerHeight()/2;
+            if(offset<0) {
+                offset = 0;
+            }
+            $("#wrap").offset({top: -1*offset});
+        } else {
+            $("#wrap").data("offset", offset);
         }
-        if(offset<0) {
-            offset = 0;
-        }
-        $("#wrap").offset({top: -1*offset});
     })
     $("input[type=text], textarea").focusout(function() {
         IS_FULLPAGE_SCROLLABLE = true;
@@ -206,10 +208,16 @@ $(document).ready(function(){
         
         if(IS_ANDROID) {
             if(check_keyboard_open()) {
-                var offset = $("#wrap").offset().top;
-                console.log("input offset : " + offset);
-                offset += $(window).innerHeight()/2;
-                $("#wrap").offset({top: offset});
+                if($("#wrap").data("offset")!=undefined) {
+                    var offset = -($("#wrap").data("offset"));
+                    console.log("input offset : " + offset);
+                    offset += $(window).innerHeight()/2;
+                    if(offset<0) {
+                        offset = 0;
+                    }
+                    $("#wrap").offset({top: offset});
+                    $("#wrap").data("offset", undefined);
+                }
                 return;
             } else {
                 if(is_keyboard_opened){
