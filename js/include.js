@@ -192,7 +192,12 @@ $(document).ready(function(){
             }
         }
         $("#section_05").resize();
-        $("body").css({
+//        $("body").css({
+//            "width": WINDOW_WIDTH,
+//            "height": WINDOW_HEIGHT,
+//            "line-height": WINDOW_HEIGHT + "px",
+//        })
+        $("#wrap").css({
             "width": WINDOW_WIDTH,
             "height": WINDOW_HEIGHT,
             "line-height": WINDOW_HEIGHT + "px",
