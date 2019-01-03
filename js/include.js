@@ -86,7 +86,7 @@ $(document).ready(function(){
         console.log("input offset : " + offset);
         if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
            ORIGINAL_WIDTH == WINDOW_HEIGHT && ORIGINAL_HEIGHT == WINDOW_WIDTH)) {
-            offset/=2;
+            offset -= $(window).innerHeight()/2;
         }
         $("#wrap").offset({top: -1*offset});
     })
