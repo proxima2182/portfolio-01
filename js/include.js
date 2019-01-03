@@ -186,7 +186,7 @@ $(document).ready(function(){
                     focus_out();
                 }
             } else {
-                $("body").css({
+                $("#wrap").css({
                     "height": WINDOW_HEIGHT*3/2,
                 })
                 return;
