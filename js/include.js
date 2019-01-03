@@ -94,7 +94,7 @@ $(document).ready(function(){
         var offset = $(this).offset().top - parent_offset;
         console.log("input offset : " + offset);
         
-        if(check_keyboard_open())
+        if(check_keyboard_open()){
             offset -= $(window).innerHeight()/2;
         }
         if(offset<0) {
