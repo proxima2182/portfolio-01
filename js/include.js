@@ -77,6 +77,8 @@ $(document).ready(function(){
     })
     $("input[type=text], textarea").focusin(function() {
         IS_FULLPAGE_SCROLLABLE = false;
+        var offset = $(this).offset().top;
+        document.body.scrollTop = offset;
     })
     $("input[type=text], textarea").focusout(function() {
         IS_FULLPAGE_SCROLLABLE = true;
@@ -85,8 +87,11 @@ $(document).ready(function(){
         $("#button_gnb").css({
             "bottom": -1 * WINDOW_HEIGHT*0.24,
         });
+    }
         
-        $("#section_05").on("resize",function() {
+    $("#section_05").on("resize",function() {
+        if(IS_PORTRAIT) {
+            $(this).find(".content_wrap").removeAttr("style");
             $(this).find(".section_title").css({
                 "font-size": WINDOW_WIDTH*0.06,
                 "line-height": WINDOW_WIDTH*0.12 + "px",
@@ -115,9 +120,41 @@ $(document).ready(function(){
                 "bottom": WINDOW_WIDTH*0.05,
                 "margin-left": -1*WINDOW_WIDTH*0.2,
             })
-        })
-        $("#section_05").resize();
-    }
+        } else {
+            $(this).find(".content_wrap").css({
+                "line-height": CONTENT_WIDTH*0.7 + "px",
+            })
+            $(this).find(".section_title").css({
+                "font-size": CONTENT_WIDTH*0.06,
+                "line-height": CONTENT_WIDTH*0.12 + "px",
+            })
+            $(this).find(".text_wrap").css({
+                "width": WINDOW_WIDTH*0.7,
+                "padding-bottom": WINDOW_WIDTH*0.12,
+                "border-radius": WINDOW_WIDTH*0.03,
+            })
+            $(this).find("form").css({
+                "padding": "0 " + WINDOW_WIDTH*0.04 +"px",
+            })
+            $(this).find("form p").css({
+                "font-size": WINDOW_WIDTH*0.025,
+                "line-height": WINDOW_WIDTH*0.04 + "px",
+                "margin": WINDOW_WIDTH*0.02 +"px 0 0 0",
+            })
+            $(this).find("form textarea, form input").css({
+                "font-size": WINDOW_WIDTH*0.02,
+                "line-height": WINDOW_WIDTH*0.06 + "px",
+            })
+            $(this).find("form input[type=submit]").css({
+                "width": WINDOW_WIDTH*0.26,
+                "padding": WINDOW_WIDTH*0.015,
+                "font-size": WINDOW_WIDTH*0.025,
+                "bottom": WINDOW_WIDTH*0.02,
+                "margin-left": -1*WINDOW_WIDTH*0.13,
+            })
+        }
+    })
+    $("#section_05").resize();
     
     window.addEventListener("resize", function() {
         console.log("resize");
@@ -128,10 +165,8 @@ $(document).ready(function(){
         if(IS_ANDROID) {
             if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
                ORIGINAL_WIDTH == WINDOW_HEIGHT && ORIGINAL_HEIGHT == WINDOW_WIDTH)) {
-                console.log("1keyboard not")
             } else {
                 keyboard_opened = true;
-                console.log("1keyboard yes")
             }
         }
         
@@ -146,11 +181,13 @@ $(document).ready(function(){
         if(IS_ANDROID) {
             if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
                ORIGINAL_WIDTH == WINDOW_HEIGHT && ORIGINAL_HEIGHT == WINDOW_WIDTH)) {
-                console.log("2keyboard not")
                 if(keyboard_opened) {
                     focus_out();
                 }
             } else {
+                $("body").css({
+                    "height": WINDOW_HEIGHT*3/2,
+                })
                 return;
             }
         }

@@ -175,9 +175,6 @@
         font-size: 20px;
         line-height: 60px;
     }
-    #section_05 form textarea{
-        line-height: 40px;
-    }
     #section_05 form input[type=submit] {
         width: 260px;
         padding: 15px;
@@ -362,9 +359,6 @@
     #section_05 form textarea, #section_05 form input{
         font-size: 2.5vh;
         line-height: 5.625vh;
-    }
-    #section_05 form textarea{
-        line-height: 4.5vh;
     }
     #section_05 form input[type=submit] {
         width: 32.5vh;
@@ -573,9 +567,6 @@
     #section_05 form textarea, #section_05 form input{
         font-size: 2vh;
         line-height: 5vh;
-    }
-    #section_05 form textarea{
-        line-height: 4vh;
     }
     #section_05 form input[type=submit] {
         width: 26vh;
