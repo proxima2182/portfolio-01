@@ -63,6 +63,14 @@ var ORIGINAL_HEIGHT = WINDOW_HEIGHT;
 //    "#section_05 form input[type=submit]": ["width", "padding", "font-size", "bottom", "margin"],
 //}
 
+function check_keyboard_open() {
+    if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
+       ORIGINAL_WIDTH == WINDOW_HEIGHT && ORIGINAL_HEIGHT == WINDOW_WIDTH)) {
+        return false;
+    }
+    return true;
+}
+
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
     $("body").css({
@@ -86,10 +94,8 @@ $(document).ready(function(){
         var offset = $(this).offset().top - parent_offset;
         console.log("input offset : " + offset);
         
-        if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
-           ORIGINAL_WIDTH == WINDOW_HEIGHT && ORIGINAL_HEIGHT == WINDOW_WIDTH)) {
-        } else{
-            offset -= $(window).innerHeight();
+        if(check_keyboard_open())
+            offset -= $(window).innerHeight()/2;
         }
         if(offset<0) {
             offset = 0;
@@ -185,13 +191,9 @@ $(document).ready(function(){
 //        resize_standard();
         
         var screen_degree = SCREEN_DEGREE;
-        var keyboard_opened = false;
+        var is_keyboard_opened = false;
         if(IS_ANDROID) {
-            if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
-               ORIGINAL_WIDTH == WINDOW_HEIGHT && ORIGINAL_HEIGHT == WINDOW_WIDTH)) {
-            } else {
-                keyboard_opened = true;
-            }
+            is_keyboard_opened = check_keyboard_open();
         }
         
         check_device();
@@ -203,17 +205,16 @@ $(document).ready(function(){
         }
         
         if(IS_ANDROID) {
-            if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
-               ORIGINAL_WIDTH == WINDOW_HEIGHT && ORIGINAL_HEIGHT == WINDOW_WIDTH)) {
-                if(keyboard_opened) {
-                    focus_out();
-                }
-            } else {
+            if(check_keyboard_open()) {
                 var offset = $("#wrap").offset().top;
                 console.log("input offset : " + offset);
                 offset += $(window).innerHeight()/2;
                 $("#wrap").offset({top: offset});
                 return;
+            } else {
+                if(is_keyboard_opened){
+                    focus_out();
+                }
             }
         }
         
