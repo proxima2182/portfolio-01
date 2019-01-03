@@ -94,10 +94,15 @@ $(document).ready(function(){
             "bottom": -1 * WINDOW_HEIGHT*0.24,
         });
     }
-        
+    
     $("#section_05").on("resize",function() {
         if(IS_PORTRAIT) {
-            $(this).find(".content_wrap").removeAttr("style");
+            $(this).find(".content_wrap").css({
+                "width": WINDOW_WIDTH*0.9,
+                "height": WINDOW_WIDTH*1.26,
+                "margin-top": -1*WINDOW_WIDTH*0.45,
+                "margin-left": -1*WINDOW_WIDTH*0.73,
+            })
             $(this).find(".section_title").css({
                 "font-size": WINDOW_WIDTH*0.06,
                 "line-height": WINDOW_WIDTH*0.12 + "px",
@@ -128,7 +133,10 @@ $(document).ready(function(){
             })
         } else {
             $(this).find(".content_wrap").css({
-                "line-height": CONTENT_WIDTH*0.7 + "px",
+                "width": CONTENT_WIDTH*0.9,
+                "height": CONTENT_WIDTH*0.9,
+                "margin-top": -1*CONTENT_WIDTH*0.35,
+                "margin-left": -1*CONTENT_WIDTH*0.45,
             })
             $(this).find(".section_title").css({
                 "font-size": CONTENT_WIDTH*0.04,

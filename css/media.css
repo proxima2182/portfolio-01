@@ -582,9 +582,7 @@
     #wrap .content_wrap{
         width: 90vw;
         height: 126vw;
-        left: 50%;
         margin-left: -45vw;
-        top: 50%;
         margin-top: -73vw;
         position: absolute;
     }
