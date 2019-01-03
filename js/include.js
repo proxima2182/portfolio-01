@@ -78,7 +78,8 @@ $(document).ready(function(){
     $("input[type=text], textarea").focusin(function() {
         IS_FULLPAGE_SCROLLABLE = false;
         var offset = $(this).offset().top;
-        document.body.scrollTop = offset;
+        console.log("input offset : " + offset);
+        $("#wrap").scrollTop = offset;
     })
     $("input[type=text], textarea").focusout(function() {
         IS_FULLPAGE_SCROLLABLE = true;
@@ -197,6 +198,8 @@ $(document).ready(function(){
 //            "height": WINDOW_HEIGHT,
 //            "line-height": WINDOW_HEIGHT + "px",
 //        })
+        $("#wrap").scrollTop = 0;
+        $("body").removeAttr("style");
         $("#wrap").css({
             "width": WINDOW_WIDTH,
             "height": WINDOW_HEIGHT,
