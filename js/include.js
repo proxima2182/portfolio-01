@@ -70,6 +70,11 @@ $(document).ready(function(){
         "height": WINDOW_HEIGHT,
         "line-height": WINDOW_HEIGHT + "px",
     })
+    $("#wrap").css({
+        "width": WINDOW_WIDTH,
+        "height": WINDOW_HEIGHT,
+        "line-height": WINDOW_HEIGHT + "px",
+    })
     $("#wrap").click(function(event) {
         if(!$(event.target).is("input[type=text]") && !$(event.target).is("textarea")) {
             focus_out();
@@ -126,32 +131,32 @@ $(document).ready(function(){
                 "line-height": CONTENT_WIDTH*0.7 + "px",
             })
             $(this).find(".section_title").css({
-                "font-size": CONTENT_WIDTH*0.06,
-                "line-height": CONTENT_WIDTH*0.12 + "px",
+                "font-size": CONTENT_WIDTH*0.04,
+                "line-height": CONTENT_WIDTH*0.06 + "px",
             })
             $(this).find(".text_wrap").css({
-                "width": WINDOW_WIDTH*0.7,
-                "padding-bottom": WINDOW_WIDTH*0.12,
-                "border-radius": WINDOW_WIDTH*0.03,
+                "width": CONTENT_WIDTH*0.7,
+                "padding-bottom": CONTENT_WIDTH*0.12,
+                "border-radius": CONTENT_WIDTH*0.03,
             })
             $(this).find("form").css({
-                "padding": "0 " + WINDOW_WIDTH*0.04 +"px",
+                "padding": "0 " + CONTENT_WIDTH*0.04 +"px",
             })
             $(this).find("form p").css({
-                "font-size": WINDOW_WIDTH*0.025,
-                "line-height": WINDOW_WIDTH*0.04 + "px",
-                "margin": WINDOW_WIDTH*0.02 +"px 0 0 0",
+                "font-size": CONTENT_WIDTH*0.025,
+                "line-height": CONTENT_WIDTH*0.04 + "px",
+                "margin": CONTENT_WIDTH*0.02 +"px 0 0 0",
             })
             $(this).find("form textarea, form input").css({
-                "font-size": WINDOW_WIDTH*0.02,
-                "line-height": WINDOW_WIDTH*0.06 + "px",
+                "font-size": CONTENT_WIDTH*0.02,
+                "line-height": CONTENT_WIDTH*0.06 + "px",
             })
             $(this).find("form input[type=submit]").css({
-                "width": WINDOW_WIDTH*0.26,
-                "padding": WINDOW_WIDTH*0.015,
-                "font-size": WINDOW_WIDTH*0.025,
-                "bottom": WINDOW_WIDTH*0.02,
-                "margin-left": -1*WINDOW_WIDTH*0.13,
+                "width": CONTENT_WIDTH*0.26,
+                "padding": CONTENT_WIDTH*0.015,
+                "font-size": CONTENT_WIDTH*0.025,
+                "bottom": CONTENT_WIDTH*0.02,
+                "margin-left": -1*CONTENT_WIDTH*0.13,
             })
         }
     })
@@ -189,7 +194,6 @@ $(document).ready(function(){
                 return;
             }
         }
-        $("#section_05").resize();
         
         $("#wrap").offset({top: 0});
         $("body").removeAttr("style");
@@ -203,6 +207,7 @@ $(document).ready(function(){
             "height": WINDOW_HEIGHT,
             "line-height": WINDOW_HEIGHT + "px",
         })
+        $("#section_05").resize();
         
         var list_names = ["language_list", "platform_list", "tool_list"];
         var slide_pages = [5, 3, 2];
