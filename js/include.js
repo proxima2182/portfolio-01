@@ -191,7 +191,7 @@ $(document).ready(function(){
         }
         $("#section_05").resize();
         
-        $("#wrap").scrollTop = 0;
+        $("#wrap").offset({top: 0});
         $("body").removeAttr("style");
         $("#wrap").css({
             "width": WINDOW_WIDTH,
