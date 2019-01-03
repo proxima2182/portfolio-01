@@ -84,6 +84,10 @@ $(document).ready(function(){
         IS_FULLPAGE_SCROLLABLE = false;
         var offset = $(this).offset().top;
         console.log("input offset : " + offset);
+        if((ORIGINAL_WIDTH == WINDOW_WIDTH && ORIGINAL_HEIGHT == WINDOW_HEIGHT ||
+           ORIGINAL_WIDTH == WINDOW_HEIGHT && ORIGINAL_HEIGHT == WINDOW_WIDTH)) {
+            offset/=2;
+        }
         $("#wrap").offset({top: -1*offset});
     })
     $("input[type=text], textarea").focusout(function() {
