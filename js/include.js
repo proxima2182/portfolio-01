@@ -127,6 +127,7 @@ $(document).ready(function(){
     gnb_init();
     
     $("#section_05").on("resize",function() {
+        if(!IS_MOBILE) return;
         if(IS_PORTRAIT) {
             $(this).find(".content_wrap").css({
                 "width": WINDOW_WIDTH*0.9,

@@ -212,6 +212,7 @@ function popup(meta) {
             project_title = $("<p class=\"project_title\">"+name.text()+"</p>")
             project_title.css({
                 "font-weight": 700,
+                "opacity":"inherit",
                 "text-align": "left",
                 "overflow": "hidden",
                 "text-overflow": "ellipsis",
@@ -224,6 +225,7 @@ function popup(meta) {
             button_url = $("<div class=\"button_url\"><p>Go to link!<p></div>")
             button_url.find("p").css({
                 "display":"inline-block",
+                "opacity":"inherit",
                 "vertical-align":"middle",
             })
             button_url.css({
@@ -254,6 +256,7 @@ function popup(meta) {
         button_close.css({
             "width": CONTENT_WIDTH*0.04,
             "height": CONTENT_WIDTH*0.04,
+            "opacity":"inherit",
             "cursor": "pointer",
             "background": "url(./images/icon_close.png) no-repeat center",
             "background-size": "100%",
