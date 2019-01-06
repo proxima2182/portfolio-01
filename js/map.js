@@ -175,14 +175,13 @@ function info_li(css_value, project){
     for(var i= 0; i< content_value.length; ++i) {
         content.append($("<p>"+content_value[i]+"</p>"));
     }
-    
     info_box.css({
         "width":BOX_SIZE,
         "height":BOX_SIZE,
         "padding":BOX_SIZE*0.1,
         "cursor":"pointer",
         "display":"inline-block",
-        "opacity":0.7,
+        "opacity":0.6,
         "background-color":"#000",
         "border":"1px solid #fff",
         "position":"relative",
@@ -213,7 +212,7 @@ function info_li(css_value, project){
     title.css({
         "font-size": AREA_WIDTH*0.1,
         "line-height": AREA_WIDTH*0.125 + "px",
-        "max-height": AREA_WIDTH*0.3,
+        "max-height": AREA_WIDTH*0.25,
         "display": "-webkit-box",
         "-webkit-line-clamp": "2",
         "-webkit-box-orient": "vertical",

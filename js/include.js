@@ -99,8 +99,6 @@ $(document).ready(function(){
         "line-height": WINDOW_HEIGHT + "px",
     })
     $("#wrap").click(function(event) {
-        console.log("wrap click!");
-        console.log(event.target);
         if(!$(event.target).is("input[type=text]") && !$(event.target).is("textarea")) {
             focus_out();
         }
