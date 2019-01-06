@@ -99,11 +99,14 @@ $(document).ready(function(){
         "line-height": WINDOW_HEIGHT + "px",
     })
     $("#wrap").click(function(event) {
+        console.log("wrap click!");
+        console.log(event.target);
         if(!$(event.target).is("input[type=text]") && !$(event.target).is("textarea")) {
             focus_out();
         }
     })
     $("input[type=text], textarea").focusin(function() {
+        if(!IS_MOBILE) return;
         IS_FULLPAGE_SCROLLABLE = false;
         if(IS_ANDROID) {
             var parent_offset = $("#wrap").offset().top;
@@ -122,6 +125,7 @@ $(document).ready(function(){
         }
     })
     $("input[type=text], textarea").focusout(function() {
+        if(!IS_MOBILE) return;
         IS_FULLPAGE_SCROLLABLE = true;
     })
     gnb_init();
@@ -154,10 +158,15 @@ $(document).ready(function(){
                 "margin": WINDOW_WIDTH*0.03 +"px 0 0 0",
             })
             $(this).find("form textarea, form input").css({
+                "height": WINDOW_WIDTH*0.06,
                 "font-size": WINDOW_WIDTH*0.03,
                 "line-height": WINDOW_WIDTH*0.06 + "px",
             })
+            $(this).find("form textarea").css({
+                "height": WINDOW_WIDTH*0.12,
+            })
             $(this).find("form input[type=submit]").css({
+                "height": "auto",
                 "width": WINDOW_WIDTH*0.4,
                 "padding": WINDOW_WIDTH*0.02,
                 "font-size": WINDOW_WIDTH*0.04,
@@ -190,10 +199,15 @@ $(document).ready(function(){
                 "margin": CONTENT_WIDTH*0.02 +"px 0 0 0",
             })
             $(this).find("form textarea, form input").css({
+                "height": CONTENT_WIDTH*0.06,
                 "font-size": CONTENT_WIDTH*0.02,
                 "line-height": CONTENT_WIDTH*0.06 + "px",
             })
+            $(this).find("form textarea").css({
+                "height": CONTENT_WIDTH*0.12,
+            })
             $(this).find("form input[type=submit]").css({
+                "height": "auto",
                 "width": CONTENT_WIDTH*0.26,
                 "padding": CONTENT_WIDTH*0.01,
                 "font-size": CONTENT_WIDTH*0.025,
@@ -256,6 +270,7 @@ $(document).ready(function(){
         })
         $("#section_05").resize();
         
+        /*---- skill list update start ----*/
         var list_names = ["language_list", "platform_list", "tool_list"];
         var slide_pages = [5, 3, 2];
         if(IS_PORTRAIT) {
@@ -267,7 +282,9 @@ $(document).ready(function(){
             slider.data("page_size", slide_pages[i]);
             slider.resize();
         }
-
+        /*---- skill list update end ----*/
+        
+        gnb_init();
         fullpage_resize();
         map_resize();
         

@@ -172,8 +172,13 @@
         margin: 20px 0 0 0;
     }
     #section_05 form textarea, #section_05 form input{
+        height: 50px;
         font-size: 20px;
-        line-height: 60px;
+        line-height: 50px;
+    }
+    #section_05 form textarea{
+        height: 100px;
+        
     }
     #section_05 form input[type=submit] {
         width: 260px;
@@ -357,8 +362,12 @@
         margin: 2.5vh 0 0 0;
     }
     #section_05 form textarea, #section_05 form input{
+        height: 6.25vh;
         font-size: 2.5vh;
-        line-height: 5.625vh;
+        line-height: 6.25vh;
+    }
+    #section_05 form textarea{
+        height: 12.5vh;
     }
     #section_05 form input[type=submit] {
         width: 32.5vh;
@@ -370,213 +379,7 @@
     }
 }
 
-@media screen and (max-width: 765px) and (orientation:portrait) and (pointer:coarse){
-    #header{
-        width: 10vh;
-        height: 100vw;
-        bottom: -100vw;
-        right: 0;
-        z-index: 100;
-        position: fixed;
-    }
-    .gnb{
-        display: inline-block;
-        vertical-align: middle;
-    }
-    .gnb h1{
-        width: 10vh;
-        height: 10vh;
-        cursor: pointer;
-        background: url(../images/icon_button_top.png) no-repeat;
-        background-size: 100%;
-    }
-    /*include.css*/
-    #wrap .content_wrap{
-        width: 90vh;
-        height: 70vh;
-        top: 50%;
-        margin-top: -35vh;
-        left: 50%;
-        margin-left: -45vh;
-        position: absolute;
-    }
-    .section_title{
-        color: #fff;
-        font-size: 4vh;
-        line-height: 6vh;
-    }
-    .gnb #home{
-        width: 10vh;
-        height: 10vh;
-    }
-    .gnb ul{
-        width: 10vh;
-        line-height: 10vh;
-    }
-    .gnb ul li{
-        margin-top: 2vh;
-    }
-    .gnb ul li a{
-        font-size: 2vh;
-    }
-    #footer{
-        font-size: 2vh;
-        line-height: 4vh;
-    }
-
-    /* width */
-    ::-webkit-scrollbar {
-        width: 1vh;
-    }
-
-    /*style.css*/
-    #section_01 .section_title{
-        line-height: 10vh;
-        bottom: 8vh;
-        text-shadow: 1vh 1vh 1vh rgba(0,0,0,0.5);
-    }
-    #section_01 .icon_rocket, #section_01 .icon_rocekt_place{
-        width: 36vh;
-        height: 75vh;
-
-        bottom: 15vh;
-        margin-left: -18vh;
-    }
-    #section_01 .icon_effect{
-        width: 46vh;
-        height: 20vh;
-
-        bottom: 15vh;
-        margin-left: -23vh;
-    }
-    #section_01 .icon_down{
-        width: 4vh;
-        height: 4vh;
-        bottom: 4vh;
-        margin-left: -2vh;
-    }
-    
-    #section_02 .tag_list{
-        width: 25vh;
-    }
-    #section_02 .tag_list li{
-        margin: 2vh 0;
-    }
-    #section_02 .tag_list li div{
-        padding: 1vh;
-        font-size: 2vh;
-    }
-    #section_02 .button{
-        width: 55vh;
-    }
-    #section_02 .button .background,
-    #section_02 .button .background:after{
-        width: 40vh;
-        height: 40vh;
-    }
-    #section_02 .button .background:after{
-        width: 30vh;
-        height: 30vh;
-    }
-    #section_02 .button .button_profile{
-        width: 30vh;
-        height: 45vh;
-    }
-
-    #section_03{
-    }
-    #section_03 .subject_wrap{
-        margin: 4vh 2vh;
-    }
-    #section_03 .subject_wrap div{
-        width: 3vh;
-        height: 3vh;
-        margin: 0 2vh;
-    }
-    #section_03 ul{
-        height: 18vh;
-    }
-    #section_03 ul li{
-        width: 12vh;
-        height: 16vh;
-    }
-    #section_03 .subject_wrap p{
-        font-size: 2vh;
-    }
-    #section_03 ul li div{
-        width: 11vh;
-        height: 11vh;
-        padding: 1vh;
-        line-height: 11vh;
-        font-size: 2vh;
-    }
-    #section_03 .level_list{
-        margin: 2vh 0 1vh 0;
-    }
-    #section_03 .level_list li{
-        width: 2vh;
-        height: 2vh;
-        margin: 0 1vh;
-    }
-    #section_03 .language_list{
-        width: 80vh;
-    }
-    #section_03 .platform_list{
-        width: 48vh;
-    }
-    #section_03 .tool_list{
-        width: 32vh;
-    }
-
-
-    #section_04 .work_wrap{
-        height: 60vh;
-    }
-    #section_04 .button_wrap{
-        height: 4vh;
-        line-height: 4vh;
-    }
-    #section_04 .button_wrap li, #section_04 .button_wrap span{
-        font-size: 2vh;
-        margin: 0 1vh;
-    }
-    #section_04 .button_wrap li div{
-        width: 1vh;
-        height: 1vh;
-        margin: 0 0.5vh;
-    }
-
-
-    #section_05 .content_wrap{
-        line-height: 70vh;
-    }
-    #section_05 .text_wrap{
-        width: 70vh;
-        padding-bottom: 12vh;
-        border-radius: 3vh;
-    }
-    #section_05 form {
-        padding: 0 4vh;
-    }
-    #section_05 form p{
-        font-size: 2vh;
-        line-height: 4vh;
-        margin: 2vh 0 0 0;
-    }
-    #section_05 form textarea, #section_05 form input{
-        font-size: 2vh;
-        line-height: 5vh;
-    }
-    #section_05 form input[type=submit] {
-        width: 26vh;
-        padding: 1vh;
-        font-size: 2vh;
-
-        bottom: 2vh;
-        margin-left: -13vh;
-    }
-}
-@media screen and (orientation:portrait) and (pointer:coarse) and (max-width: 765px) and (max-width: 800px) and (max-aspect-ratio:8/10){
+@media screen and (orientation:portrait) and (pointer:coarse) and (max-width: 765px){
     /*include.css*/
     #wrap .content_wrap{
         width: 90vw;
@@ -767,8 +570,12 @@
         margin: 3vw 0 0 0;
     }
     #section_05 form textarea, #section_05 form input{
+        height: 6vw;
         font-size: 3vw;
         line-height: 6vw;
+    }
+    #section_05 form textarea{
+        line-height: 12vw;
     }
     #section_05 form input[type=submit] {
         width: 40vw;

@@ -347,6 +347,7 @@
 }
 */
 #section_05 form textarea, #section_05 form input{
+    height: 5vw;
     font-size: 2vw;
     line-height: 5vw;
     font-family: "NotoSans", sans-serif;
@@ -357,8 +358,12 @@
     border: 0;
     border-bottom: 1px solid #fff;
 }
+#section_05 form textarea{
+    height: 10vw;
+}
 #section_05 form input[type=submit] {
     width: 26vw;
+    height: auto;
     padding: 1.5vw;
     font-size: 2.5vw;
     font-weight: 600;
