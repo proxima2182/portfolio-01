@@ -79,10 +79,10 @@ function show_detail_view(index) {
                 "margin-top": -1*WINDOW_HEIGHT/2,
                 "margin-left": -1*WINDOW_WIDTH/2,
             });
-            var title_font_size = IS_PORTRAIT? CONTENT_WIDTH* 0.04: CONTENT_WIDTH*0.025;
+            var title_font_size = IS_SCREEN_PORTRAIT? CONTENT_WIDTH* 0.04: CONTENT_WIDTH*0.025;
             notice_wrap.css({
                 "height": WINDOW_HEIGHT*0.1,
-                "font-size": IS_PORTRAIT ? WINDOW_HEIGHT*0.02:WINDOW_HEIGHT*0.03,
+                "font-size": IS_SCREEN_PORTRAIT ? WINDOW_HEIGHT*0.02:WINDOW_HEIGHT*0.03,
                 "line-height": WINDOW_HEIGHT*0.1 +"px",
             })
 
@@ -274,14 +274,14 @@ function popup(meta) {
             })
         });
         popup.resize(function() {
-            var popup_width = IS_PORTRAIT? CONTENT_WIDTH*0.8: CONTENT_WIDTH*0.6;
+            var popup_width = IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.8: CONTENT_WIDTH*0.6;
             var popup_padding = CONTENT_WIDTH*0.04;
-            var title_font_size = IS_PORTRAIT? CONTENT_WIDTH* 0.04: CONTENT_WIDTH*0.025;
-            var title_line_height = IS_PORTRAIT? CONTENT_WIDTH* 0.06: CONTENT_WIDTH*0.03;
-            var content_font_size = IS_PORTRAIT? CONTENT_WIDTH* 0.03: CONTENT_WIDTH*0.02;
-            var content_line_height = IS_PORTRAIT? CONTENT_WIDTH* 0.08: CONTENT_WIDTH*0.06;
-            var icon_width = IS_PORTRAIT? CONTENT_WIDTH* 0.06: CONTENT_WIDTH*0.04;
-            var button_width = IS_PORTRAIT? CONTENT_WIDTH*0.06:CONTENT_WIDTH*0.04;
+            var title_font_size = IS_SCREEN_PORTRAIT? CONTENT_WIDTH* 0.04: CONTENT_WIDTH*0.025;
+            var title_line_height = IS_SCREEN_PORTRAIT? CONTENT_WIDTH* 0.06: CONTENT_WIDTH*0.03;
+            var content_font_size = IS_SCREEN_PORTRAIT? CONTENT_WIDTH* 0.03: CONTENT_WIDTH*0.02;
+            var content_line_height = IS_SCREEN_PORTRAIT? CONTENT_WIDTH* 0.08: CONTENT_WIDTH*0.06;
+            var icon_width = IS_SCREEN_PORTRAIT? CONTENT_WIDTH* 0.06: CONTENT_WIDTH*0.04;
+            var button_width = IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.06:CONTENT_WIDTH*0.04;
             $(this).css({
                 "width": popup_width,
                 "max-height": WINDOW_HEIGHT*0.8,
@@ -321,8 +321,8 @@ function popup(meta) {
                 })
             }
 
-            var content_padding = IS_PORTRAIT? CONTENT_WIDTH*0.008: CONTENT_WIDTH*0.005;
-            var list_margin = IS_PORTRAIT? CONTENT_WIDTH*0.015: CONTENT_WIDTH*0.01;
+            var content_padding = IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.008: CONTENT_WIDTH*0.005;
+            var list_margin = IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.015: CONTENT_WIDTH*0.01;
             //normal contents
             $(this).find(".half_plain").css({
                 "width":popup_width/2,
@@ -386,36 +386,38 @@ function popup(meta) {
             var li = $("<li></li>");
             li.css("position", "relative");
             li.data("type",type);
-            li.hover(function() {
-                var hover = $("<div class=\"hover\"></div>")
-                hover.css({
-                    "width" : "100%",
-                    "height" : "100%",
-                    "top" : 0,
-                    "left" : 0,
-                    "z-index" : 1,
-                    "position": "absolute",
+            if(!IS_MOBILE) {
+                li.hover(function() {
+                    var hover = $("<div class=\"hover\"></div>")
+                    hover.css({
+                        "width" : "100%",
+                        "height" : "100%",
+                        "top" : 0,
+                        "left" : 0,
+                        "z-index" : 1,
+                        "position": "absolute",
+                    })
+                    var type = $(this).data("type");
+                    if(type == "image") {
+                        hover.css({
+                            "background":"rgba(0, 0, 0, 0.5) url(./images/icon_open.png) no-repeat",
+                            "background-size": CONTENT_WIDTH*0.05,
+                            "background-position": "center",
+                            "pointer-events":"none",
+                        })
+                    } else if(type =="video"){
+                        hover.css({
+                            "background":"rgba(0, 0, 0, 0.5) url(./images/icon_play.png) no-repeat",
+                            "background-size": CONTENT_WIDTH*0.05,
+                            "background-position": "center",
+                            "pointer-events":"none",
+                        })
+                    }
+                    $(this).append(hover);
+                }, function() {
+                    $(this).find(".hover").remove();
                 })
-                var type = $(this).data("type");
-                if(type == "image") {
-                    hover.css({
-                        "background":"rgba(0, 0, 0, 0.5) url(./images/icon_open.png) no-repeat",
-                        "background-size": CONTENT_WIDTH*0.05,
-                        "background-position": "center",
-                        "pointer-events":"none",
-                    })
-                } else if(type =="video"){
-                    hover.css({
-                        "background":"rgba(0, 0, 0, 0.5) url(./images/icon_play.png) no-repeat",
-                        "background-size": CONTENT_WIDTH*0.05,
-                        "background-position": "center",
-                        "pointer-events":"none",
-                    })
-                }
-                $(this).append(hover);
-            }, function() {
-                $(this).find(".hover").remove();
-            })
+            }
             li.append(img);
             li.click(function() {
                 show_detail_view($(this).index());
@@ -440,10 +442,10 @@ function popup(meta) {
                     button_image_right: "./images/icon_button_right_small.png",
                     button_background:"rgba(155,155,155,0)",
                     button_flexible_width: function() {
-                        return IS_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH*0.03;
+                        return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH*0.03;
                     },
                     button_flexible_height: function() {
-                        return IS_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH*0.03;
+                        return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH*0.03;
                     },
                     button_dispersion: "0",
                     button_basic_color:"#000",
@@ -453,10 +455,10 @@ function popup(meta) {
                     navigator: false,
 
                     slider_flexible_margin: function() {
-                        return IS_PORTRAIT? CONTENT_WIDTH*0.025: CONTENT_WIDTH*0.015;
+                        return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.025: CONTENT_WIDTH*0.015;
                     },
                     slider_flexible_width:function() {
-                        return IS_PORTRAIT? CONTENT_WIDTH*0.8: CONTENT_WIDTH*0.6;
+                        return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.8: CONTENT_WIDTH*0.6;
                     }
                 });
                 show_popup();

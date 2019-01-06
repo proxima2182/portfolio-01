@@ -283,14 +283,14 @@ $.fn.slider_initialize = function(opt){
             var x= 0;
             if(event.type == "mousemove") {
                 //for web
-//                    y = IS_SCREEN_ROTATED? -1*event.pageX: event.pageY;
+//                    y = IS_SCREEN_PORTRAIT? -1*event.pageX: event.pageY;
                 x = event.pageX;
             } else{
                 //for mobile
                 if(event.targetTouches.length>1) {
                     return;
                 }
-//                    y = IS_SCREEN_ROTATED? -1*event.targetTouches[0].pageX: event.targetTouches[0].pageY;
+//                    y = IS_SCREEN_PORTRAIT? -1*event.targetTouches[0].pageX: event.targetTouches[0].pageY;
                 x = event.targetTouches[0].pageX;
             }
             event.preventDefault();

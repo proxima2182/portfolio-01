@@ -203,6 +203,7 @@ function info_li(css_value, project){
         popup(data);
     });
     var css_value = {
+        "pointer-events": "none",
         "text-align": "left",
         "color": "#fff",
         "overflow": "hidden",
@@ -314,6 +315,7 @@ function nodata_info_li(left, bottom, text){
     })
     
     p.css({
+        "pointer-events": "none",
         "font-size": AREA_WIDTH*0.1,
         "line-height":"normal",
         "display":"inline-block",
@@ -362,7 +364,7 @@ function initialize_map() {
     MAX_LINE_LENGTH= 0;
     container.find("ul").remove();
 
-    if(IS_PORTRAIT) {
+    if(IS_SCREEN_PORTRAIT) {
         PAGE_COUNT = 2;
         map = [
             {
@@ -819,7 +821,7 @@ function page_init() {
     button_wrap.on("resize", function() {
         var area_size = CONTENT_WIDTH*0.05;
         var font_size = CONTENT_WIDTH*0.04;
-        if(IS_PORTRAIT) {
+        if(IS_SCREEN_PORTRAIT) {
             var area_size = CONTENT_WIDTH*0.06;
             var font_size = CONTENT_WIDTH*0.05;
         }

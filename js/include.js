@@ -26,10 +26,10 @@ function load_skills(data, list_name, background_color, slide_page) {
 //        "button_width":"25px",
 //        "button_height": "25px",
         button_flexible_width: function() {
-            return IS_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH* 0.03;
+            return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH* 0.03;
         },
         button_flexible_height: function() {
-            return IS_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH* 0.03;
+            return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH* 0.03;
         },
         
         "button_dispersion": "0",
@@ -54,7 +54,7 @@ var ORIGINAL_WIDTH = WINDOW_WIDTH;
 var ORIGINAL_HEIGHT = WINDOW_HEIGHT;
 
 function gnb_init() {
-    if(IS_PORTRAIT) {
+    if(IS_SCREEN_PORTRAIT) {
         if(FULLPAGE_INDEX == 0) {
             $("#button_gnb").css({
                 "bottom": -1 * WINDOW_HEIGHT*0.24,
@@ -130,7 +130,7 @@ $(document).ready(function(){
     
     $("#section_05").on("resize",function() {
         if(!IS_MOBILE) return;
-        if(IS_PORTRAIT) {
+        if(IS_SCREEN_PORTRAIT) {
             $(this).find(".content_wrap").css({
                 "width": WINDOW_WIDTH*0.9,
                 "height": WINDOW_WIDTH*1.26,
@@ -271,7 +271,7 @@ $(document).ready(function(){
         /*---- skill list update start ----*/
         var list_names = ["language_list", "platform_list", "tool_list"];
         var slide_pages = [5, 3, 2];
-        if(IS_PORTRAIT) {
+        if(IS_SCREEN_PORTRAIT) {
             slide_pages = [3, 3, 3];
         }
 
@@ -311,7 +311,7 @@ $(window).on("load",function() {
         var list_names = ["language_list", "platform_list", "tool_list"];
         var background_colors = ["#440e62", "#0d004c", "#003663"];
         var slide_pages = [5, 3, 2];
-        if(IS_PORTRAIT) {
+        if(IS_SCREEN_PORTRAIT) {
             slide_pages = [3, 3, 3];
         }
         for(var i= 0; i< list_names.length; ++i) {
@@ -370,7 +370,7 @@ $(window).on("load",function() {
         },
     };
     function click_navigation(index) {
-        if(IS_PORTRAIT) {
+        if(IS_SCREEN_PORTRAIT) {
             if(index != 0) {
                 $("#button_gnb").animate({
                     "bottom": WINDOW_WIDTH*0.08,
@@ -396,7 +396,7 @@ $(window).on("load",function() {
     })
     $("#header").click(function(event) {
         if(event.target!=this) return;
-        if(IS_PORTRAIT) {
+        if(IS_SCREEN_PORTRAIT) {
             $("#button_gnb").animate({
                 "bottom": WINDOW_WIDTH*0.08,
             },600);
@@ -407,7 +407,7 @@ $(window).on("load",function() {
         }
     })
     function close_navigation(){
-        if(IS_PORTRAIT) {
+        if(IS_SCREEN_PORTRAIT) {
             $("#button_gnb").animate({
                 "bottom": -1 * WINDOW_WIDTH*0.24,
             },600);
@@ -418,7 +418,7 @@ $(window).on("load",function() {
         }
     }
     function open_navigation(){
-        if(IS_PORTRAIT) {
+        if(IS_SCREEN_PORTRAIT) {
             $("#button_gnb").animate({
                 "bottom": WINDOW_WIDTH*0.08,
             },600);

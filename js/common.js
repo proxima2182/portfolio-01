@@ -1,7 +1,7 @@
 var CONTENT_WIDTH;
 var WINDOW_WIDTH, WINDOW_HEIGHT;
 var SCREEN_DEGREE = 0;
-var IS_PORTRAIT = false, IS_SCREEN_ROTATED = false;
+var IS_PORTRAIT = false, IS_SCREEN_PORTRAIT = false;
 var IS_IOS = false, IS_ANDROID = false, IS_PAD= false, IS_MOBILE = false;
 var IS_DOCUMENT_LOADED = false;
 
@@ -50,7 +50,7 @@ function check_device() {
 //    } else {
 //        IS_MOBILE = false;
 //    }
-    if(IS_MOBILE && ! IS_PAD) {
+    if(IS_MOBILE) {
         SCREEN_DEGREE = screen.orientation!= undefined?screen.orientation.angle:window.orientation;
         if(SCREEN_DEGREE == 0 || SCREEN_DEGREE == 180) {
             //vertical
@@ -61,7 +61,10 @@ function check_device() {
     } else {
         IS_PORTRAIT = false;
     }
-    if(IS_PORTRAIT) {
+    if(IS_PORTRAIT && IS_PAD) {
+        IS_SCREEN_PORTRAIT = false;
+    }
+    if(IS_SCREEN_PORTRAIT) {
         $("#wrap .is_portrait").css("display","inline-block");
         $("#wrap .is_landscape").css("display","none");
     } else {
@@ -95,7 +98,7 @@ function finish_loading(target) {
 function loading(target, is_fullscreen, width_ratio, border_ratio, background_color, point_color, text, cancel_action) {
     if(target.length==0) return;
     var container = $("<div class=\"section_loading\"></div>");
-    if(IS_PORTRAIT) {
+    if(IS_SCREEN_PORTRAIT) {
         width_ratio*=1.2;
         border_ratio*=1.2;
     }
@@ -193,7 +196,7 @@ function loading(target, is_fullscreen, width_ratio, border_ratio, background_co
     container.append(loading_wrap);
     container.append(text);
     container.on("resize",function(){
-        var deg = IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"-90deg":"0deg";
+        var deg = IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"-90deg":"0deg";
         if(is_fullscreen) {
             $(this).css({
                 "-webkit-transform": "rotate("+deg+")",
@@ -202,11 +205,11 @@ function loading(target, is_fullscreen, width_ratio, border_ratio, background_co
             })
         }
         $(this).css({
-            "width": is_fullscreen? (IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"100vh":"100vw") : $(target).width(),
-            "height": is_fullscreen? (IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height(),
-            "line-height": is_fullscreen? (IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height()+"px",
-            "margin-top": is_fullscreen? (IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"-50vw":"-50vh"): -($(target).height()/2),
-            "margin-left":  is_fullscreen? (IS_SCREEN_ROTATED && IS_DOCUMENT_LOADED?"-50vh":"-50vw"): -($(target).width()/2),
+            "width": is_fullscreen? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"100vh":"100vw") : $(target).width(),
+            "height": is_fullscreen? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height(),
+            "line-height": is_fullscreen? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height()+"px",
+            "margin-top": is_fullscreen? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"-50vw":"-50vh"): -($(target).height()/2),
+            "margin-left":  is_fullscreen? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"-50vh":"-50vw"): -($(target).width()/2),
         });
         var width = parseInt(CONTENT_WIDTH*width_ratio);
         var border_width = parseInt(CONTENT_WIDTH*border_ratio);
@@ -228,7 +231,7 @@ function loading(target, is_fullscreen, width_ratio, border_ratio, background_co
         })
         $(this).find(".loading_text").css({
             "margin-top": width,
-            "font-size": IS_PORTRAIT?CONTENT_WIDTH*0.04:CONTENT_WIDTH*0.03,
+            "font-size": IS_SCREEN_PORTRAIT?CONTENT_WIDTH*0.04:CONTENT_WIDTH*0.03,
         })
     });
     container.on("remove",function(){
