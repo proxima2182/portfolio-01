@@ -424,7 +424,7 @@ function popup(meta) {
             })
             resource_wrap.append(li);
         }
-        var images = resource_wrap.find("img");
+        var images = popup.find("img");
         var load_count = images.length;
 
         loading($("#wrap"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff", undefined, function() {
