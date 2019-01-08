@@ -189,7 +189,8 @@
         margin-left: -130px;
     }
 }
-@media (max-height: 800px) and (min-aspect-ratio:10/8) {
+
+@media (max-height: 800px) and (min-aspect-ratio:10/10) {
     /*include.css*/
     #wrap .content_wrap{
         width: 112.5vh;
@@ -362,12 +363,8 @@
         margin: 2.5vh 0 0 0;
     }
     #section_05 form textarea, #section_05 form input{
-        height: 6.25vh;
         font-size: 2.5vh;
-        line-height: 6.25vh;
-    }
-    #section_05 form textarea{
-        height: 12.5vh;
+        line-height: 5.625vh;
     }
     #section_05 form input[type=submit] {
         width: 32.5vh;
@@ -379,7 +376,7 @@
     }
 }
 
-@media screen and (orientation:portrait) and (pointer:coarse) and (max-width: 765px){
+@media screen and (orientation:portrait) and (pointer:coarse) and (max-width: 800px){
     /*include.css*/
     #wrap .content_wrap{
         width: 90vw;
