@@ -98,11 +98,6 @@ $(document).ready(function(){
         "height": WINDOW_HEIGHT,
         "line-height": WINDOW_HEIGHT + "px",
     })
-    $("#wrap").click(function(event) {
-        if(!$(event.target).is("input[type=text]") && !$(event.target).is("textarea")) {
-            focus_out();
-        }
-    })
     $("input[type=text], textarea").focusin(function() {
         if(!IS_MOBILE) return;
         IS_FULLPAGE_SCROLLABLE = false;
@@ -304,6 +299,13 @@ $(document).ready(function(){
 $(window).on("load",function() {
     $("#wrap").css("opacity",1);
     finish_loading($("body"));
+    
+    //move this calling function from $(document).ready() scince it don't call sometimes.
+    $("#wrap").click(function(event) {
+        if(!$(event.target).is("input[type=text]") && !$(event.target).is("textarea")) {
+            focus_out();
+        }
+    })
     
     //skill list load
     $.get("./meta/skill_list.xml", function(data) 
