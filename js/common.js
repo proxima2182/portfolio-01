@@ -55,11 +55,11 @@ function check_device() {
             //vertical
             IS_PORTRAIT = true;
             IS_SCREEN_PORTRAIT = true;
-            IS_PAD = $(window).width() > 800;
+            IS_PAD = $(window).width() > 768;
         } else {
             IS_PORTRAIT = false;
             IS_SCREEN_PORTRAIT = false;
-            IS_PAD = $(window).height() > 800;
+            IS_PAD = $(window).height() > 768;
         }
     } else {
         IS_PORTRAIT = false;

@@ -190,7 +190,7 @@
     }
 }
 
-@media (max-height: 800px) and (min-aspect-ratio:10/10) {
+@media (min-aspect-ratio:10/10) {
     /*include.css*/
     #wrap .content_wrap{
         width: 112.5vh;
@@ -376,7 +376,7 @@
     }
 }
 
-@media screen and (orientation:portrait) and (pointer:coarse) and (max-width: 800px){
+@media screen and (orientation:portrait) and (pointer:coarse) and (max-width: 768px){
     /*include.css*/
     #wrap .content_wrap{
         width: 90vw;
