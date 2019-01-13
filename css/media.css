@@ -376,7 +376,7 @@
     }
 }
 
-@media screen and (orientation:portrait) and (pointer:coarse) and (max-width: 768px){
+@media screen and (orientation:portrait) and (pointer:coarse) and (max-width: 767px){
     /*include.css*/
     #wrap .content_wrap{
         width: 90vw;
