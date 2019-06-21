@@ -49,6 +49,10 @@
                 <icon>./images/icon_list_license.png</icon>
                 <text>GTQ 1급</text>
             </content>
+            <content>
+                <icon>./images/icon_list_license.png</icon>
+                <text>웹디자인기능사</text>
+            </content>
         </contents>
     </element>
 </elements>
