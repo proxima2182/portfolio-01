@@ -10,7 +10,7 @@
             <level>2</level>
         </element>
         <element>
-            <name>JAVA SCRIPT</name>
+            <name>JAVASCRIPT</name>
             <level>2</level>
         </element>
         <element>
@@ -33,12 +33,16 @@
         </element>
         <element>
             <name>IOS</name>
-            <level>1</level>
+            <level>2</level>
+        </element>
+        <element>
+            <name>Codeigniter</name>
+            <level>2</level>
         </element>
     </list>
     <list name="tool_list">
         <element>
-            <name>Photo Shop</name>
+            <name>Photoshop</name>
             <level>2</level>
         </element>
         <element>
