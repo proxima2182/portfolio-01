@@ -85,6 +85,10 @@ function check_keyboard_open() {
     return true;
 }
 
+function page_down() {
+    page_move(1);
+}
+
 $(document).ready(function(){
     IS_DOCUMENT_LOADED = true;
     check_device();
