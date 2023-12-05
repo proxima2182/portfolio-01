@@ -20,11 +20,11 @@
             </content>
             <content>
                 <icon>./images/icon_list_job.png</icon>
-                <text>soosangST (Busan, KOR)\n(2013.9-2015.6) 1년8개월</text>
+                <text>수상ST (Busan, KOR)\n(2013.9-2015.6) 1년8개월</text>
             </content>
             <content>
                 <icon>./images/icon_list_job.png</icon>
-                <text>yedpay (HK)\n(2016.8-2018.4) 1년8개월</text>
+                <text>Yedpay (HK)\n(2016.8-2018.4) 1년8개월</text>
             </content>
             <content>
                 <icon>./images/icon_list_edu.png</icon>
@@ -33,7 +33,11 @@
             </content>
             <content>
                 <icon>./images/icon_list_job.png</icon>
-                <text>IOLAB (Busan, KOR)\n(2019.7-2019.10) 4개월</text>
+                <text>아이오랩 (Busan, KOR)\n(2019.7-2019.10) 4개월</text>
+            </content>
+            <content>
+                <icon>./images/icon_list_job.png</icon>
+                <text>오래 (Busan, KOR)\n(2019.12-2023.03) 3년4개월</text>
             </content>
         </contents>
     </element>

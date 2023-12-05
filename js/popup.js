@@ -378,7 +378,9 @@ function popup(meta) {
         for(var i= 0; i< resources.length; ++i) {
             var resource = resources.eq(i);
             var type = resource.find("type").text();
-            var path = resource.find("path").text();
+            var path = resource.find("thumb");
+            if(path) path = path.text();
+            else path = resource.find("path").text();
             var div = $(`<div></div>`);
             div.css({
                 "cursor" : "pointer",

@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projects>
     <project>
+        <work>Affair</work>
+        <type>Development</type>
+        <name>자사 모바일 앱 디자인 및 개발</name>
+        <platform>Mobile</platform>
+        <position>
+            Design 100% Developement 100%
+        </position>
+        <keyword>HTML, CSS, Javascript, fullpage.js, slick.js, Web</keyword>
+        <year>2018</year>
+        <description>
+            오픈소스 라이브러리 사용 연습 중 각자 디자인하고 페이지를 만들어 보라고 해서 2일의 짧은 시간으로 만들게 되었다.\n
+            주제는 내가 지금 통신비 할인을 위해서 참여하고 있는 이벤트 홍보용 페이지인데 풀페이지형식은 많은 정보를 나타내는것 보단 이벤트 등 화려한 효과가 필요하지만 적은 페이지수가 들어갈 때 적합하다고 생각했기 때문이다.\n
+            이미지 파일이 많이 안 나와있어서 유투브에서 캡쳐하고 오려붙이는데 더 많은 시간을 썼던 것 같다.
+        </description>
+        <resources>
+            <page>2</page>
+            <resource>
+                <path>./projects/iolab_mobile/01_01.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <path>./projects/iolab_mobile/01_02.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <path>./projects/iolab_mobile/01_03.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <path>./projects/iolab_mobile/01_04.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <path>./projects/iolab_mobile/01_05.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <path>./projects/iolab_mobile/01_06.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <path>./projects/iolab_mobile/01_07.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+            <resource>
+                <path>./projects/iolab_mobile/01_08.png</path>
+                <type>image</type>
+                <media>png</media>
+            </resource>
+        </resources>
+    </project>
+    <project>
         <work>Practice</work>
         <type>Development</type>
         <name>AIA Vitality Event Page</name>
@@ -15,30 +74,26 @@
             주제는 내가 지금 통신비 할인을 위해서 참여하고 있는 이벤트 홍보용 페이지인데 풀페이지형식은 많은 정보를 나타내는것 보단 이벤트 등 화려한 효과가 필요하지만 적은 페이지수가 들어갈 때 적합하다고 생각했기 때문이다.\n
             이미지 파일이 많이 안 나와있어서 유투브에서 캡쳐하고 오려붙이는데 더 많은 시간을 썼던 것 같다.
         </description>
-        <url>https://hongkong-pig.github.io/practice-aia_vitality/</url>
+        <url>https://proxima2182-backup.github.io/practice-Web-02/</url>
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/practice_web_03_01.png</thumb>
-                <path>./projects/practice_web_03_01.png</path>
+                <path>./projects/practice_web/03_01.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_03_02.png</thumb>
-                <path>./projects/practice_web_03_02.png</path>
+                <path>./projects/practice_web/03_02.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_03_03.png</thumb>
-                <path>./projects/practice_web_03_03.png</path>
+                <path>./projects/practice_web/03_03.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_03_04.png</thumb>
-                <path>./projects/practice_web_03_04.png</path>
+                <path>./projects/practice_web/03_04.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -74,8 +129,7 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/contest_art_02.png</thumb>
-                <path>./projects/contest_art_02.jpg</path>
+                <path>./projects/contest_art/02.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
@@ -100,78 +154,69 @@
             몇몇 포인트 컬러는 더 추가해 주었고 전체적으로 책자 느낌이 나도록 만들었다.\n
             세로형 헤더, 푸터를 사용하다보니 컨텐츠 영역 너비를 고정해야 할 필요가 있었고 대신 높이는 늘어날 수 있도록 만들었다.
         </description>
-        <url>https://hongkong-pig.github.io/practice-seoul_museum/</url>
+        <url>https://proxima2182-backup.github.io/practice-Web-03/</url>
         <resources>
-            <page>3</page>
+            <page>2</page>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_01.png</thumb>
-                <path>./projects/practice_web_02_01.png</path>
+                <path>./projects/practice_web/02_01.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_02.png</thumb>
-                <path>./projects/practice_web_02_02.png</path>
+                <path>./projects/practice_web/02_02.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_03.png</thumb>
-                <path>./projects/practice_web_02_03.png</path>
+                <path>./projects/practice_web/02_03.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_04.png</thumb>
-                <path>./projects/practice_web_02_04.png</path>
+                <path>./projects/practice_web/02_04.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_05.png</thumb>
-                <path>./projects/practice_web_02_05.png</path>
+                <path>./projects/practice_web/02_05.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_06.png</thumb>
-                <path>./projects/practice_web_02_06.png</path>
+                <path>./projects/practice_web/02_06.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_07.png</thumb>
-                <path>./projects/practice_web_02_07.png</path>
+                <path>./projects/practice_web/02_07.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_08.png</thumb>
-                <path>./projects/practice_web_02_08.png</path>
+                <path>./projects/practice_web/02_08.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_09.png</thumb>
-                <path>./projects/practice_web_02_09.png</path>
+                <path>./projects/practice_web/02_09.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_10.png</thumb>
-                <path>./projects/practice_web_02_10.png</path>
+                <thumb>./projects/thumb/practice_web/02_10.png</thumb>
+                <path>./projects/practice_web/02_10.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_11.png</thumb>
-                <path>./projects/practice_web_02_11.png</path>
+                <thumb>./projects/thumb/practice_web/02_11.png</thumb>
+                <path>./projects/practice_web/02_11.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_02_12.png</thumb>
-                <path>./projects/practice_web_02_12.png</path>
+                <thumb>./projects/thumb/practice_web/02_12.png</thumb>
+                <path>./projects/practice_web/02_12.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -194,50 +239,50 @@
         <resources>
             <page>4</page>
             <resource>
-                <thumb>./projects/practice_icon_01_01.png</thumb>
-                <path>./projects/practice_icon_01_01.png</path>
+                <thumb>./projects/practice_icon/01_01.png</thumb>
+                <path>./projects/practice_icon/01_01.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/practice_icon_01_02.png</thumb>
-                <path>./projects/practice_icon_01_02.png</path>
+                <thumb>./projects/practice_icon/01_02.png</thumb>
+                <path>./projects/practice_icon/01_02.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/practice_icon_01_03.png</thumb>
-                <path>./projects/practice_icon_01_03.png</path>
+                <thumb>./projects/practice_icon/01_03.png</thumb>
+                <path>./projects/practice_icon/01_03.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/practice_icon_01_04.png</thumb>
-                <path>./projects/practice_icon_01_04.png</path>
+                <thumb>./projects/practice_icon/01_04.png</thumb>
+                <path>./projects/practice_icon/01_04.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/practice_icon_01_05.png</thumb>
-                <path>./projects/practice_icon_01_05.png</path>
+                <thumb>./projects/practice_icon/01_05.png</thumb>
+                <path>./projects/practice_icon/01_05.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/practice_icon_01_06.png</thumb>
-                <path>./projects/practice_icon_01_06.png</path>
+                <thumb>./projects/practice_icon/01_06.png</thumb>
+                <path>./projects/practice_icon/01_06.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/practice_icon_01_07.png</thumb>
-                <path>./projects/practice_icon_01_07.png</path>
+                <thumb>./projects/practice_icon/01_07.png</thumb>
+                <path>./projects/practice_icon/01_07.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/practice_icon_01_08.png</thumb>
-                <path>./projects/practice_icon_01_08.png</path>
+                <thumb>./projects/practice_icon/01_08.png</thumb>
+                <path>./projects/practice_icon/01_08.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -262,8 +307,8 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/practice_poster_02.png</thumb>
-                <path>./projects/practice_poster_02.png</path>
+                <thumb>./projects/thumb/practice_poster/02.png</thumb>
+                <path>./projects/practice_poster/02.png</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
@@ -287,8 +332,8 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/practice_poster_01.png</thumb>
-                <path>./projects/practice_poster_01.png</path>
+                <thumb>./projects/thumb/practice_poster/01.png</thumb>
+                <path>./projects/practice_poster/01.png</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
@@ -310,48 +355,48 @@
             헤더 부분은 기존에 있던 로고를 차용하여 만들어 보았고, 메인에서의 그라데이션은 탄산음료같은 느낌을 주기 위해서 로고의 두 컬러를 이용해 넣어보았다.\n
             화려한 포인트가 많기 때문에 배경은 흰색으로 하였고 모든 포인트 컬러는 로고에서 가져왔다.
         </description>
-        <url>https://hongkong-pig.github.io/practice-jejubeer/</url>
+        <url>https://proxima2182-backup.github.io/practice-Web-01/</url>
         <resources>
             <page>3</page>
             <resource>
-                <thumb>./projects/thumb/practice_web_01_01.png</thumb>
-                <path>./projects/practice_web_01_01.png</path>
+                <thumb>./projects/thumb/practice_web/01_01.png</thumb>
+                <path>./projects/practice_web/01_01.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_01_02.png</thumb>
-                <path>./projects/practice_web_01_02.png</path>
+                <thumb>./projects/thumb/practice_web/01_02.png</thumb>
+                <path>./projects/practice_web/01_02.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_01_03.png</thumb>
-                <path>./projects/practice_web_01_03.png</path>
+                <thumb>./projects/thumb/practice_web/01_03.png</thumb>
+                <path>./projects/practice_web/01_03.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_01_04.png</thumb>
-                <path>./projects/practice_web_01_04.png</path>
+                <thumb>./projects/thumb/practice_web/01_04.png</thumb>
+                <path>./projects/practice_web/01_04.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_01_05.png</thumb>
-                <path>./projects/practice_web_01_05.png</path>
+                <thumb>./projects/thumb/practice_web/01_05.png</thumb>
+                <path>./projects/practice_web/01_05.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_01_06.png</thumb>
-                <path>./projects/practice_web_01_06.png</path>
+                <thumb>./projects/thumb/practice_web/01_06.png</thumb>
+                <path>./projects/practice_web/01_06.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/practice_web_01_07.png</thumb>
-                <path>./projects/practice_web_01_07.png</path>
+                <thumb>./projects/thumb/practice_web/01_07.png</thumb>
+                <path>./projects/practice_web/01_07.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -375,14 +420,14 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/contest_art_01_01.png</thumb>
-                <path>./projects/contest_art_01_01.jpg</path>
+                <thumb>./projects/thumb/contest_art/01_01.png</thumb>
+                <path>./projects/contest_art/01_01.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/contest_art_01_02.png</thumb>
-                <path>./projects/contest_art_01_02.jpg</path>
+                <thumb>./projects/thumb/contest_art/01_02.png</thumb>
+                <path>./projects/contest_art/01_02.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
@@ -404,8 +449,8 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/practice_art_01.png</thumb>
-                <path>./projects/practice_art_01.png</path>
+                <thumb>./projects/thumb/practice_art/01.png</thumb>
+                <path>./projects/practice_art/01.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -431,8 +476,8 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/yedpay_video_02.png</thumb>
-                <path>./projects/yedpay_video_02.mp4</path>
+                <thumb>./projects/yedpay_video/02.png</thumb>
+                <path>./projects/yedpay_video/02.mp4</path>
                 <type>video</type>
                 <media>mp4</media>
             </resource>
@@ -450,8 +495,8 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/yedpay_poster_05.png</thumb>
-                <path>./projects/yedpay_poster_05.png</path>
+                <thumb>./projects/thumb/yedpay_poster/05.png</thumb>
+                <path>./projects/yedpay_poster/05.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -479,38 +524,38 @@
         <resources>
             <page>3</page>
             <resource>
-                <thumb>./projects/yedpay_ios_01_01.png</thumb>
-                <path>./projects/yedpay_ios_01_01.png</path>
+                <thumb>./projects/yedpay_mobile/02_01.png</thumb>
+                <path>./projects/yedpay_mobile/02_01.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/yedpay_ios_01_02.png</thumb>
-                <path>./projects/yedpay_ios_01_02.png</path>
+                <thumb>./projects/yedpay_mobile/02_02.png</thumb>
+                <path>./projects/yedpay_mobile/02_02.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/yedpay_ios_01_03.png</thumb>
-                <path>./projects/yedpay_ios_01_03.png</path>
+                <thumb>./projects/yedpay_mobile/02_03.png</thumb>
+                <path>./projects/yedpay_mobile/02_03.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/yedpay_ios_01_04.png</thumb>
-                <path>./projects/yedpay_ios_01_04.png</path>
+                <thumb>./projects/yedpay_mobile/02_04.png</thumb>
+                <path>./projects/yedpay_mobile/02_04.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/yedpay_ios_01_05.png</thumb>
-                <path>./projects/yedpay_ios_01_05.png</path>
+                <thumb>./projects/yedpay_mobile/02_05.png</thumb>
+                <path>./projects/yedpay_mobile/02_05.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/yedpay_ios_01_06.png</thumb>
-                <path>./projects/yedpay_ios_01_06.png</path>
+                <thumb>./projects/yedpay_mobile/02_06.png</thumb>
+                <path>./projects/yedpay_mobile/02_06.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -542,26 +587,26 @@
         <resources>
             <page>3</page>
             <resource>
-                <thumb>./projects/yedpay_android_01_01.png</thumb>
-                <path>./projects/yedpay_android_01_01.png</path>
+                <thumb>./projects/yedpay_mobile/01_01.png</thumb>
+                <path>./projects/yedpay_mobile/01_01.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/yedpay_android_01_02.png</thumb>
-                <path>./projects/yedpay_android_01_02.png</path>
+                <thumb>./projects/yedpay_mobile/01_02.png</thumb>
+                <path>./projects/yedpay_mobile/01_02.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/yedpay_android_01_03.png</thumb>
-                <path>./projects/yedpay_android_01_03.png</path>
+                <thumb>./projects/yedpay_mobile/01_03.png</thumb>
+                <path>./projects/yedpay_mobile/01_03.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/yedpay_android_01_04.png</thumb>
-                <path>./projects/yedpay_android_01_04.png</path>
+                <thumb>./projects/yedpay_mobile/01_04.png</thumb>
+                <path>./projects/yedpay_mobile/01_04.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -587,8 +632,8 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/yedpay_poster_04.png</thumb>
-                <path>./projects/yedpay_poster_04.jpg</path>
+                <thumb>./projects/thumb/yedpay_poster/04.png</thumb>
+                <path>./projects/yedpay_poster/04.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
@@ -614,8 +659,8 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/yedpay_art_03.png</thumb>
-                <path>./projects/yedpay_art_03.png</path>
+                <thumb>./projects/thumb/yedpay_art/03.png</thumb>
+                <path>./projects/yedpay_art/03.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -643,26 +688,26 @@
         <resources>
             <page>3</page>
             <resource>
-                <thumb>./projects/thumb/yedpay_icon_01_01.png</thumb>
-                <path>./projects/yedpay_icon_01_01.png</path>
+                <thumb>./projects/thumb/yedpay_icon/01_01.png</thumb>
+                <path>./projects/yedpay_icon/01_01.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_icon_01_02.png</thumb>
-                <path>./projects/yedpay_icon_01_02.png</path>
+                <thumb>./projects/thumb/yedpay_icon/01_02.png</thumb>
+                <path>./projects/yedpay_icon/01_02.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_icon_01_03.png</thumb>
-                <path>./projects/yedpay_icon_01_03.jpg</path>
+                <thumb>./projects/thumb/yedpay_icon/01_03.png</thumb>
+                <path>./projects/yedpay_icon/01_03.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_icon_01_04.png</thumb>
-                <path>./projects/yedpay_icon_01_04.jpg</path>
+                <thumb>./projects/thumb/yedpay_icon/01_04.png</thumb>
+                <path>./projects/yedpay_icon/01_04.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
@@ -691,56 +736,56 @@
         <resources>
             <page>3</page>
             <resource>
-                <thumb>./projects/thumb/yedpay_art_02_01.png</thumb>
-                <path>./projects/yedpay_art_02_01.jpg</path>
+                <thumb>./projects/thumb/yedpay_art/02_01.png</thumb>
+                <path>./projects/yedpay_art/02_01.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_art_02_02.png</thumb>
-                <path>./projects/yedpay_art_02_02.jpg</path>
+                <thumb>./projects/thumb/yedpay_art/02_02.png</thumb>
+                <path>./projects/yedpay_art/02_02.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_art_02_03.png</thumb>
-                <path>./projects/yedpay_art_02_03.jpg</path>
+                <thumb>./projects/thumb/yedpay_art/02_03.png</thumb>
+                <path>./projects/yedpay_art/02_03.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_art_02_04.png</thumb>
-                <path>./projects/yedpay_art_02_04.jpg</path>
+                <thumb>./projects/thumb/yedpay_art/02_04.png</thumb>
+                <path>./projects/yedpay_art/02_04.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_art_02_05.png</thumb>
-                <path>./projects/yedpay_art_02_05.jpg</path>
+                <thumb>./projects/thumb/yedpay_art/02_05.png</thumb>
+                <path>./projects/yedpay_art/02_05.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_art_02_06.png</thumb>
-                <path>./projects/yedpay_art_02_06.jpg</path>
+                <thumb>./projects/thumb/yedpay_art/02_06.png</thumb>
+                <path>./projects/yedpay_art/02_06.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_art_02_07.png</thumb>
-                <path>./projects/yedpay_art_02_07.jpg</path>
+                <thumb>./projects/thumb/yedpay_art/02_07.png</thumb>
+                <path>./projects/yedpay_art/02_07.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_art_02_08.png</thumb>
-                <path>./projects/yedpay_art_02_08.jpg</path>
+                <thumb>./projects/thumb/yedpay_art/02_08.png</thumb>
+                <path>./projects/yedpay_art/02_08.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_art_02_09.png</thumb>
-                <path>./projects/yedpay_art_02_09.jpg</path>
+                <thumb>./projects/thumb/yedpay_art/02_09.png</thumb>
+                <path>./projects/yedpay_art/02_09.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
@@ -765,14 +810,14 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/yedpay_poster_03_01.png</thumb>
-                <path>./projects/yedpay_poster_03_01.png</path>
+                <thumb>./projects/thumb/yedpay_poster/03_01.png</thumb>
+                <path>./projects/yedpay_poster/03_01.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_poster_03_02.png</thumb>
-                <path>./projects/yedpay_poster_03_02.jpg</path>
+                <thumb>./projects/thumb/yedpay_poster/03_02.png</thumb>
+                <path>./projects/yedpay_poster/03_02.jpg</path>
                 <type>image</type>
                 <media>jpg</media>
             </resource>
@@ -798,8 +843,8 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/yedpay_video_01.png</thumb>
-                <path>./projects/yedpay_video_01.mp4</path>
+                <thumb>./projects/yedpay_video/01.png</thumb>
+                <path>./projects/yedpay_video/01.mp4</path>
                 <type>video</type>
                 <media>mp4</media>
             </resource>
@@ -826,14 +871,14 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/yedpay_poster_01.png</thumb>
-                <path>./projects/yedpay_poster_01.png</path>
+                <thumb>./projects/thumb/yedpay_poster/01.png</thumb>
+                <path>./projects/yedpay_poster/01.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/yedpay_poster_02.png</thumb>
-                <path>./projects/yedpay_poster_02.png</path>
+                <thumb>./projects/thumb/yedpay_poster/02.png</thumb>
+                <path>./projects/yedpay_poster/02.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -860,8 +905,8 @@
         <resources>
             <page>2</page>
             <resource>
-                <thumb>./projects/thumb/yedpay_art_01.png</thumb>
-                <path>./projects/yedpay_art_01.png</path>
+                <thumb>./projects/thumb/yedpay_art/01.png</thumb>
+                <path>./projects/yedpay_art/01.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -888,26 +933,26 @@
         <resources>
             <page>3</page>
             <resource>
-                <thumb>./projects/thumb/soosang_android_02_02.png</thumb>
-                <path>./projects/soosang_android_02_02.png</path>
+                <thumb>./projects/thumb/soosang_mobile/02_02.png</thumb>
+                <path>./projects/soosang_mobile/02_02.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/soosang_android_02_03.png</thumb>
-                <path>./projects/soosang_android_02_03.png</path>
+                <thumb>./projects/thumb/soosang_mobile/02_03.png</thumb>
+                <path>./projects/soosang_mobile/02_03.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/soosang_android_02_04.png</thumb>
-                <path>./projects/soosang_android_02_04.png</path>
+                <thumb>./projects/thumb/soosang_mobile/02_04.png</thumb>
+                <path>./projects/soosang_mobile/02_04.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/soosang_android_02_05.png</thumb>
-                <path>./projects/soosang_android_02_05.png</path>
+                <thumb>./projects/thumb/soosang_mobile/02_05.png</thumb>
+                <path>./projects/soosang_mobile/02_05.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
@@ -937,32 +982,32 @@
         <resources>
             <page>3</page>
             <resource>
-                <thumb>./projects/thumb/soosang_android_01_02.png</thumb>
-                <path>./projects/soosang_android_01_02.png</path>
+                <thumb>./projects/thumb/soosang_mobile/01_02.png</thumb>
+                <path>./projects/soosang_mobile/01_02.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/soosang_android_01_03.png</thumb>
-                <path>./projects/soosang_android_01_03.png</path>
+                <thumb>./projects/thumb/soosang_mobile/01_03.png</thumb>
+                <path>./projects/soosang_mobile/01_03.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/soosang_android_01_04.png</thumb>
-                <path>./projects/soosang_android_01_04.png</path>
+                <thumb>./projects/thumb/soosang_mobile/01_04.png</thumb>
+                <path>./projects/soosang_mobile/01_04.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/soosang_android_01_05.png</thumb>
-                <path>./projects/soosang_android_01_05.png</path>
+                <thumb>./projects/thumb/soosang_mobile/01_05.png</thumb>
+                <path>./projects/soosang_mobile/01_05.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
             <resource>
-                <thumb>./projects/thumb/soosang_android_01_06.png</thumb>
-                <path>./projects/soosang_android_01_06.png</path>
+                <thumb>./projects/thumb/soosang_mobile/01_06.png</thumb>
+                <path>./projects/soosang_mobile/01_06.png</path>
                 <type>image</type>
                 <media>png</media>
             </resource>
