@@ -108,7 +108,6 @@ $(document).ready(function(){
         if(IS_ANDROID) {
             var parent_offset = $("#wrap").offset().top;
             var offset = $(this).offset().top - parent_offset;
-            console.log("input offset : " + offset);
 
             if(check_keyboard_open()){
                 offset -= $(window).innerHeight()/2;
@@ -216,7 +215,6 @@ $(document).ready(function(){
     $("#section_05").resize();
     
     window.addEventListener("resize", function() {
-        console.log("resize");
 //        resize_standard();
         
         var screen_degree = SCREEN_DEGREE;
@@ -237,7 +235,6 @@ $(document).ready(function(){
             if(check_keyboard_open()) {
                 if($("#wrap").data("offset")!=undefined) {
                     var offset = $("#wrap").data("offset");
-                    console.log("input offset : " + offset);
                     offset -= $(window).innerHeight()/2;
                     if(offset<0) {
                         offset = 0;
@@ -329,7 +326,6 @@ $(window).on("load",function() {
     var scroll_action_list={
         0:{
             action:function(){
-                console.log("action");
                 var effect = $("#section_01 .icon_effect");
                 var rocket = $("#section_01 .icon_rocket img");
                 var rocket_off = $("#section_01 .icon_rocket img.off");
@@ -348,7 +344,6 @@ $(window).on("load",function() {
                 },300);
                 if(IS_PORTRAIT){
                     var height = WINDOW_HEIGHT - rocket_on.height();
-                    console.log("height : "+height);
                     setTimeout(function(){
                         $("#section_01 .icon_rocket").animate({
                             bottom: height,
@@ -362,7 +357,6 @@ $(window).on("load",function() {
                     $("#section_01 .icon_rocket img.on").css("display","none");
                 },600);
                 var rocket = $("#section_01 .icon_rocket");
-                console.log(rocket.attr("style"));
                 if(rocket.attr("style")!=undefined) {
                     rocket.animate({
                         bottom: (WINDOW_WIDTH*0.18),

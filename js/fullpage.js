@@ -101,9 +101,6 @@ function make_fullpage(sal, pal) {
                 "width": "100%",
                 "draggable": false,
             })
-            console.log("fullpage height : " + WINDOW_HEIGHT);
-            console.log("fullpage img height : " + img.height());
-            console.log(img);
             scroll.css({
                 "width":"100%",
                 //height will be set when img loaded

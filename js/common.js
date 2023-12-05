@@ -39,7 +39,6 @@ function focus_out() {
     })
 }
 function check_device() {
-    console.log("check_device");
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
     IS_ANDROID = /android/i.test(userAgent);
     IS_IOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
@@ -247,7 +246,6 @@ function loading(target, is_fullscreen, width_ratio, border_ratio, background_co
     if(!is_fullscreen && cancel_action!=undefined) {
         container.click(function(event) {
             cancel_action();
-            console.log($(target));
             finish_loading($(target));
             event.stopPropagation();
         })
