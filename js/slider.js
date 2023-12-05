@@ -54,17 +54,30 @@ $.fn.slider_initialize = function(opt){
         });
         var elem_height = li.height();
         var image = li.find('img');
-        if(image !=undefined && image.length>0) {
-            if(option["scrollable"] != undefined && option["scrollable"] == true) {
-                image.attr("draggable","false");
+        if(image ==undefined || image.length == 0) {
+            image = li.find('div');
+            if(image !=undefined && image.length>0) {
+                image.css({
+                    "width": elem_width - 2 * margin,
+                    "height": elem_width - 2 * margin,
+                    "display": "inline-block",
+                    "vertical-align": "middle",
+                })
+                slider_height = elem_width
             }
-            elem_height = image.height()/image.width() * elem_width;
-            image.css({
-                "width": elem_width - 2*margin,
-                "height": elem_height - 2*margin,
-                "display": "inline-block",
-                "vertical-align": "middle",
-            })
+        } else {
+            if(image !=undefined && image.length>0) {
+                if(option["scrollable"] != undefined && option["scrollable"] == true) {
+                    image.attr("draggable","false");
+                }
+                elem_height = image.height()/image.width() * elem_width;
+                image.css({
+                    "width": elem_width - 2*margin,
+                    "height": elem_height - 2*margin,
+                    "display": "inline-block",
+                    "vertical-align": "middle",
+                })
+            }
         }
         var elem = list.get(i);
         slider_height = slider_height>elem_height? slider_height: elem_height;
@@ -367,12 +380,22 @@ $.fn.slider_initialize = function(opt){
             });
             var elem_height = li.height();
             var image = li.find('img');
-            if(image !=undefined && image.length>0) {
-                elem_height = (image.height() + margin*2)/(image.width() + margin*2) * elem_width;
-                image.css({
-                    "width": elem_width - 2*margin,
-                    "height": elem_height - 2*margin,
-                })
+            if(image ==undefined || image.length == 0) {
+                image = li.find('div');
+                if(image !=undefined && image.length>0) {
+                    image.css({
+                        "width": elem_width - 2 * margin,
+                        "height": elem_width - 2 * margin,
+                    })
+                }
+            } else {
+                if(image !=undefined && image.length>0) {
+                    elem_height = (image.height() + margin*2)/(image.width() + margin*2) * elem_width;
+                    image.css({
+                        "width": elem_width - 2*margin,
+                        "height": elem_height - 2*margin,
+                    })
+                }
             }
             var elem = list.get(i);
             slider_height = slider_height>elem_height? slider_height: elem_height;

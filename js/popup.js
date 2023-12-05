@@ -378,12 +378,19 @@ function popup(meta) {
         for(var i= 0; i< resources.length; ++i) {
             var resource = resources.eq(i);
             var type = resource.find("type").text();
-            var thumb = resource.find("thumb").text();
-            var img = $("<img src=\""+thumb+"\"/>");
-            img.css({
+            var path = resource.find("path").text();
+            var div = $(`<div></div>`);
+            div.css({
                 "cursor" : "pointer",
+                "background" : `url('`+path+`') no-repeat center`,
+                "background-size" : "cover",
+                "height" : "100%",
             })
             var li = $("<li></li>");
+            li.css({
+                "position" : "relative",
+            })
+            li.append(div)
             li.css("position", "relative");
             li.data("type",type);
             if(!IS_MOBILE) {
@@ -418,52 +425,46 @@ function popup(meta) {
                     $(this).find(".hover").remove();
                 })
             }
-            li.append(img);
             li.click(function() {
                 show_detail_view($(this).index());
             })
             resource_wrap.append(li);
         }
-        var images = popup.find("img");
-        var load_count = images.length;
 
         loading($("#wrap"), true, 0.08, 0.012, "rgba(0,0,0,0)", "#fff", undefined, function() {
-            $(images).off("load");
             popup.remove();
         });
-        $(images).on("load", function() {
-            load_count --;
-            if(load_count == 0) {
-                resource_wrap.slider_initialize({
-                    page: page,
+        // todo need to find "why popup disappear directly without setTimeout"
+        let timeout_id = setTimeout(() => {
+            resource_wrap.slider_initialize({
+                page: page,
 
-                    buttons: true,
-                    button_image_left: "./images/icon_button_left_small.png",
-                    button_image_right: "./images/icon_button_right_small.png",
-                    button_background:"rgba(155,155,155,0)",
-                    button_flexible_width: function() {
-                        return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH*0.03;
-                    },
-                    button_flexible_height: function() {
-                        return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH*0.03;
-                    },
-                    button_dispersion: "0",
-                    button_basic_color:"#000",
+                buttons: true,
+                button_image_left: "./images/icon_button_left_small.png",
+                button_image_right: "./images/icon_button_right_small.png",
+                button_background:"rgba(155,155,155,0)",
+                button_flexible_width: function() {
+                    return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH*0.03;
+                },
+                button_flexible_height: function() {
+                    return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.05: CONTENT_WIDTH*0.03;
+                },
+                button_dispersion: "0",
+                button_basic_color:"#000",
 
-                    scrollable:true,
+                scrollable:true,
 
-                    navigator: false,
-
-                    slider_flexible_margin: function() {
-                        return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.025: CONTENT_WIDTH*0.015;
-                    },
-                    slider_flexible_width:function() {
-                        return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.8: CONTENT_WIDTH*0.6;
-                    }
-                });
-                show_popup();
-            }
-        });
+                navigator: false,
+                slider_flexible_margin: function() {
+                    return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.025: CONTENT_WIDTH*0.015;
+                },
+                slider_flexible_width:function() {
+                    return IS_SCREEN_PORTRAIT? CONTENT_WIDTH*0.8: CONTENT_WIDTH*0.6;
+                }
+            });
+            show_popup();
+            clearTimeout(timeout_id)
+        },1);
         function set_popup_position() {
             if(popup==undefined) return;
             popup.css({
