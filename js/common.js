@@ -2,42 +2,44 @@ var CONTENT_WIDTH;
 var WINDOW_WIDTH, WINDOW_HEIGHT;
 var SCREEN_DEGREE = 0;
 var IS_PORTRAIT = false, IS_SCREEN_PORTRAIT = false;
-var IS_IOS = false, IS_ANDROID = false, IS_PAD= false, IS_MOBILE = false;
+var IS_IOS = false, IS_ANDROID = false, IS_PAD = false, IS_MOBILE = false;
 var IS_DOCUMENT_LOADED = false;
 
 $.fn.onEnterKey =
-    function( closure ) {
+    function (closure) {
         $(this).keypress(
-            function( event ) {
+            function (event) {
                 var code = event.keyCode ? event.keyCode : event.which;
 
                 if (code == 13) {
                     closure();
                     return false;
                 }
-            } );
+            });
     }
 
-function focus_check(list){
-    for(var i= 0; i< list.length; ++i) {
-        if(list.eq(i).is(":focus")){
+function focus_check(list) {
+    for (var i = 0; i < list.length; ++i) {
+        if (list.eq(i).is(":focus")) {
             return list.eq(i);
         }
     }
     return undefined;
 }
+
 function focus_out() {
-    $('input').each(function() {
-       if($(this).is(":focus")) {
-           $(this).blur();
-       }
+    $('input').each(function () {
+        if ($(this).is(":focus")) {
+            $(this).blur();
+        }
     })
-    $('textarea').each(function() {
-       if($(this).is(":focus")) {
-           $(this).blur();
-       }
+    $('textarea').each(function () {
+        if ($(this).is(":focus")) {
+            $(this).blur();
+        }
     })
 }
+
 function check_device() {
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
     IS_ANDROID = /android/i.test(userAgent);
@@ -48,9 +50,9 @@ function check_device() {
 //    } else {
 //        IS_MOBILE = false;
 //    }
-    if(IS_MOBILE) {
-        SCREEN_DEGREE = screen.orientation!= undefined?screen.orientation.angle:window.orientation;
-        if(SCREEN_DEGREE == 0 || SCREEN_DEGREE == 180) {
+    if (IS_MOBILE) {
+        SCREEN_DEGREE = screen.orientation != undefined ? screen.orientation.angle : window.orientation;
+        if (SCREEN_DEGREE == 0 || SCREEN_DEGREE == 180) {
             //vertical
             IS_PORTRAIT = true;
             IS_SCREEN_PORTRAIT = true;
@@ -63,26 +65,26 @@ function check_device() {
     } else {
         IS_PORTRAIT = false;
     }
-    if(IS_PORTRAIT && IS_PAD) {
+    if (IS_PORTRAIT && IS_PAD) {
         IS_SCREEN_PORTRAIT = false;
     }
-    if(IS_SCREEN_PORTRAIT) {
-        $("#wrap .is_portrait").css("display","inline-block");
-        $("#wrap .is_landscape").css("display","none");
+    if (IS_SCREEN_PORTRAIT) {
+        $("#wrap .is_portrait").css("display", "inline-block");
+        $("#wrap .is_landscape").css("display", "none");
     } else {
-        $("#wrap .is_portrait").css("display","none");
-        $("#wrap .is_landscape").css("display","inline-block");
+        $("#wrap .is_portrait").css("display", "none");
+        $("#wrap .is_landscape").css("display", "inline-block");
     }
 }
 
 function check_resolution() {
     WINDOW_WIDTH = $(window).innerWidth();
     WINDOW_HEIGHT = $(window).innerHeight();
-    if(WINDOW_WIDTH>=1000 && WINDOW_HEIGHT>=800) {
+    if (WINDOW_WIDTH >= 1000 && WINDOW_HEIGHT >= 800) {
         CONTENT_WIDTH = 1000;
-    }else if(WINDOW_HEIGHT<800 && WINDOW_WIDTH/WINDOW_HEIGHT>1.25) {
-        CONTENT_WIDTH = WINDOW_HEIGHT* 1.25;
-    }else{
+    } else if (WINDOW_HEIGHT < 800 && WINDOW_WIDTH / WINDOW_HEIGHT > 1.25) {
+        CONTENT_WIDTH = WINDOW_HEIGHT * 1.25;
+    } else {
         CONTENT_WIDTH = WINDOW_WIDTH;
     }
 }
@@ -91,41 +93,41 @@ function check_resolution() {
 
 function finish_loading(target) {
     var container = target.find(">.section_loading");
-    if(container.length>0) {
+    if (container.length > 0) {
         clearInterval(container.data("interval_id"));
         container.remove();
     }
 }
 
 function loading(target, is_fullscreen, width_ratio, border_ratio, background_color, point_color, text, cancel_action) {
-    if(target.length==0) return;
+    if (target.length == 0) return;
     var container = $("<div class=\"section_loading\"></div>");
-    if(IS_SCREEN_PORTRAIT) {
-        width_ratio*=1.2;
-        border_ratio*=1.2;
+    if (IS_SCREEN_PORTRAIT) {
+        width_ratio *= 1.2;
+        border_ratio *= 1.2;
     }
     container.css({
         "background": background_color,
         "top": "50%",
         "left": "50%",
         "z-index": 153,
-        "position": is_fullscreen? "fixed": "absolute",
+        "position": is_fullscreen ? "fixed" : "absolute",
     });
-    var common_css ={
+    var common_css = {
         "top": 0,
         "right": 0,
         "bottom": 0,
         "left": 0,
-        "margin" : "auto",
-        "position" : "absolute",
+        "margin": "auto",
+        "position": "absolute",
     };
     var loading_wrap = $("<div class=\"loading_wrap rotate\"></div>");
     loading_wrap.css({
         "display": "inline-block",
         "vertical-align": "middle",
-        "position":"relative",
+        "position": "relative",
     });
-    
+
     var outer_square = $("<div class=\"outer_square\"></div>");
     var inner_square = $("<div class=\"inner_square scaling\"></div>");
     outer_square.css(common_css);
@@ -140,23 +142,26 @@ function loading(target, is_fullscreen, width_ratio, border_ratio, background_co
         "-ms-transform": "rotate(0deg)",
         "transform": "rotate(0deg)",
     })
+
     function animate() {
-        loading_wrap.animate({ degree: 359 }, {
-            step: function(now, fx) {
+        loading_wrap.animate({degree: 359}, {
+            step: function (now, fx) {
                 $(this).css({
-                    "-webkit-transform": "rotate("+now+"deg)",
-                    "-ms-transform": "rotate("+now+"deg)",
-                    "transform": "rotate("+now+"deg)",
+                    "-webkit-transform": "rotate(" + now + "deg)",
+                    "-ms-transform": "rotate(" + now + "deg)",
+                    "transform": "rotate(" + now + "deg)",
                 })
             },
             duration: 1800,
             easing: "linear",
-            complete: function(){ $(this).css("degree",0)},
+            complete: function () {
+                $(this).css("degree", 0)
+            },
         });
-        inner_square.animate({ scale: 1 }, {
-            step: function(now, fx) {
-                var scale = 1-now;
-                var transform = "scale("+scale+","+scale+")";
+        inner_square.animate({scale: 1}, {
+            step: function (now, fx) {
+                var scale = 1 - now;
+                var transform = "scale(" + scale + "," + scale + ")";
                 $(this).css({
                     "-webkit-transform": transform,
                     "-ms-transform": transform,
@@ -165,10 +170,12 @@ function loading(target, is_fullscreen, width_ratio, border_ratio, background_co
             },
             duration: 900,
             easing: "linear",
-            complete: function(){ $(this).css("scale",0)},
-        }).animate({ scale: 1 }, {
-            step: function(now, fx) {
-                var transform = "scale("+now+","+now+")";
+            complete: function () {
+                $(this).css("scale", 0)
+            },
+        }).animate({scale: 1}, {
+            step: function (now, fx) {
+                var transform = "scale(" + now + "," + now + ")";
                 $(this).css({
                     "-webkit-transform": transform,
                     "-ms-transform": transform,
@@ -177,74 +184,77 @@ function loading(target, is_fullscreen, width_ratio, border_ratio, background_co
             },
             duration: 900,
             easing: "linear",
-            complete: function(){ $(this).css("scale",0)},
+            complete: function () {
+                $(this).css("scale", 0)
+            },
         });
     }
+
     animate();
-    container.data("interval_id", setInterval(animate,1800));
-    
-    
-    if(text!=undefined && text.length>0) {
-        var text = $("<p class=\"loading_text\">"+text+"</p>");
+    container.data("interval_id", setInterval(animate, 1800));
+
+
+    if (text != undefined && text.length > 0) {
+        var text = $("<p class=\"loading_text\">" + text + "</p>");
         text.css({
             "width": "100%",
             "text-align": "center",
             "font-family": "sans-serif",
-            "color":"#fff",
+            "color": "#fff",
             "top": 0,
             "position": "absolute",
         })
     }
     container.append(loading_wrap);
     container.append(text);
-    container.on("resize",function(){
-        var deg = IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"-90deg":"0deg";
-        if(is_fullscreen) {
+    container.on("resize", function () {
+        var deg = IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED ? "-90deg" : "0deg";
+        if (is_fullscreen) {
             $(this).css({
-                "-webkit-transform": "rotate("+deg+")",
-                "-ms-transform": "rotate("+deg+")",
-                "transform": "rotate("+deg+")",
+                "-webkit-transform": "rotate(" + deg + ")",
+                "-ms-transform": "rotate(" + deg + ")",
+                "transform": "rotate(" + deg + ")",
             })
         }
         $(this).css({
-            "width": is_fullscreen? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"100vh":"100vw") : $(target).width(),
-            "height": is_fullscreen? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height(),
-            "line-height": is_fullscreen? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"100vw":"100vh") : $(target).height()+"px",
-            "margin-top": is_fullscreen? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"-50vw":"-50vh"): -($(target).height()/2),
-            "margin-left":  is_fullscreen? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED?"-50vh":"-50vw"): -($(target).width()/2),
+            "width": is_fullscreen ? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED ? "100vh" : "100vw") : $(target).width(),
+            "height": is_fullscreen ? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED ? "100vw" : "100vh") : $(target).height(),
+            "line-height": is_fullscreen ? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED ? "100vw" : "100vh") : $(target).height() + "px",
+            "margin-top": is_fullscreen ? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED ? "-50vw" : "-50vh") : -($(target).height() / 2),
+            "margin-left": is_fullscreen ? (IS_SCREEN_PORTRAIT && IS_DOCUMENT_LOADED ? "-50vh" : "-50vw") : -($(target).width() / 2),
         });
-        var width = parseInt(CONTENT_WIDTH*width_ratio);
-        var border_width = parseInt(CONTENT_WIDTH*border_ratio);
+        var width = parseInt(CONTENT_WIDTH * width_ratio);
+        var border_width = parseInt(CONTENT_WIDTH * border_ratio);
         $(this).find(".loading_wrap").css({
             "width": width,
             "height": width,
         });
 
-        var this_width = width - 2*border_width;
+        var this_width = width - 2 * border_width;
         $(this).find(".outer_square").css({
             "width": this_width,
             "height": this_width,
-            "border": border_width+"px solid "+point_color,
+            "border": border_width + "px solid " + point_color,
         })
         $(this).find(".inner_square").css({
-            "width": this_width - 2*border_width,
-            "height": this_width - 2*border_width,
-            
+            "width": this_width - 2 * border_width,
+            "height": this_width - 2 * border_width,
+
         })
         $(this).find(".loading_text").css({
             "margin-top": width,
-            "font-size": IS_SCREEN_PORTRAIT?CONTENT_WIDTH*0.04:CONTENT_WIDTH*0.03,
+            "font-size": IS_SCREEN_PORTRAIT ? CONTENT_WIDTH * 0.04 : CONTENT_WIDTH * 0.03,
         })
     });
-    container.on("remove",function(){
+    container.on("remove", function () {
         $(this).animate({
             opacity: 0,
-        }, 500, function() {
+        }, 500, function () {
             $(this).remove();
         });
     });
-    if(!is_fullscreen && cancel_action!=undefined) {
-        container.click(function(event) {
+    if (!is_fullscreen && cancel_action != undefined) {
+        container.click(function (event) {
             cancel_action();
             finish_loading($(target));
             event.stopPropagation();

@@ -1,6 +1,6 @@
 @charset "utf-8";
-body{
-/*    min-height: 1000px;*/
+body {
+    /*    min-height: 1000px;*/
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -8,26 +8,29 @@ body{
     text-align: center;
     position: fixed;
     top: 0;
-    
-    font-family: "NotoSans",sans-serif;
+
+    font-family: "NotoSans", sans-serif;
     font-weight: 400;
     font-style: italic;
     font-size: 0;
     background-color: #1c2e5f;
 }
-input, textarea{
-    font-family: "NotoSans",sans-serif;
+
+input, textarea {
+    font-family: "NotoSans", sans-serif;
     font-weight: 400;
     font-style: italic;
 }
-input:focus, textarea:focus{
+
+input:focus, textarea:focus {
     outline: none;
 }
-.content_wrap h1,.content_wrap h2,.content_wrap h3,.content_wrap h4,.content_wrap h5,.content_wrap h6,.content_wrap p,.content_wrap div,.content_wrap span{
+
+.content_wrap h1, .content_wrap h2, .content_wrap h3, .content_wrap h4, .content_wrap h5, .content_wrap h6, .content_wrap p, .content_wrap div, .content_wrap span {
     cursor: inherit;
 }
 
-.content_wrap{
+.content_wrap {
     width: 90vw;
     height: 70vw;
     line-height: normal;
@@ -38,14 +41,16 @@ input:focus, textarea:focus{
     margin-left: -45vw;
     z-index: 1;
     position: absolute;
-    
+
 }
-.section_title{
+
+.section_title {
     color: #fff;
     font-size: 4vw;
     line-height: 8vw;
 }
-#header{
+
+#header {
     height: 100%;
     text-align: center;
     bottom: -100vh;
@@ -53,12 +58,14 @@ input:focus, textarea:focus{
     z-index: 49;
     position: fixed;
 }
-.gnb{
+
+.gnb {
     display: inline-block;
     line-height: normal;
     vertical-align: middle;
 }
-.gnb h1{
+
+.gnb h1 {
     width: 10vw;
     height: 10vw;
     cursor: pointer;
@@ -66,35 +73,39 @@ input:focus, textarea:focus{
     background: url(../images/icon_button_top.png) no-repeat;
     background-size: 100%;
 }
-.gnb ul{
+
+.gnb ul {
     width: 10vw;
     line-height: 10vw;
 }
-.gnb ul li{
+
+.gnb ul li {
     margin-top: 2vw;
 }
-.gnb ul li a{
+
+.gnb ul li a {
     font-size: 2vw;
     line-height: normal;
     display: inline-block;
     vertical-align: middle;
     color: #fff;
-    
+
     writing-mode: vertical-rl;
-    -ms-writing-mode:tb-rl;
+    -ms-writing-mode: tb-rl;
 }
-.gnb ul li.fullpage_selected a{
+
+.gnb ul li.fullpage_selected a {
     border-left: 1px solid #fff;
 }
 
-#button_gnb{
+#button_gnb {
     width: 8vh;
     height: 8vh;
-    
+
     cursor: pointer;
     background: url(../images/icon_button_top.png) no-repeat;
     background-size: 100%;
-    
+
     position: absolute;
     bottom: 8vw;
     right: 50%;
@@ -102,7 +113,7 @@ input:focus, textarea:focus{
     z-index: 49;
 }
 
-#footer{
+#footer {
     width: 100%;
     font-size: 2vw;
     line-height: 4vw;
@@ -113,7 +124,7 @@ input:focus, textarea:focus{
     position: absolute;
     z-index: 50;
     bottom: 0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 /* width */
@@ -123,25 +134,27 @@ input:focus, textarea:focus{
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: none; 
+    background: none;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #555;
 }
+
 /* for IOS */
 textarea,
-input{
+input {
     -webkit-appearance: none;
     border-radius: 0;
     overflow: auto;
 }
+
 /*
 .scaling{
     -webkit-animation: scaling 1.6s infinite linear;
