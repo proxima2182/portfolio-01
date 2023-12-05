@@ -55,7 +55,7 @@ $.fn.slider_initialize = function (opt) {
         var elem_height = li.height();
         var image = li.find('img');
         if (image == undefined || image.length == 0) {
-            image = li.find('div');
+            image = li.find('.image');
             if (image != undefined && image.length > 0) {
                 image.css({
                     "width": elem_width - 2 * margin,
@@ -381,7 +381,7 @@ $.fn.slider_initialize = function (opt) {
             var elem_height = li.height();
             var image = li.find('img');
             if (image == undefined || image.length == 0) {
-                image = li.find('div');
+                image = li.find('.image');
                 if (image != undefined && image.length > 0) {
                     image.css({
                         "width": elem_width - 2 * margin,
