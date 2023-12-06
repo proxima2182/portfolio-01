@@ -374,14 +374,16 @@ function popup(meta) {
         resources = $(meta).find("resources resource");
         var page = $(meta).find("resources page").text();
         if (resources.length == 0) {
-            show_popup();
+            let timeout_id = setTimeout(() => {
+                show_popup();
+                clearTimeout(timeout_id)
+            }, 1);
             return;
         }
         for (var i = 0; i < resources.length; ++i) {
             var resource = resources.eq(i);
             var type = resource.find("type").text();
             var path = resource.find("thumb").text();
-            console.log(path)
             if (path) path = path.text();
             else path = resource.find("path").text();
             var div = $(`<div class="image"></div>`);

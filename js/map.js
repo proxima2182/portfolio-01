@@ -19,6 +19,7 @@ var platform_images = [
     "./images/icon_platform_05.png",
     "./images/icon_platform_06.png",
     "./images/icon_platform_07.png",
+    "./images/icon_platform_08.png",
 ];
 var deco_images = [
     "./images/icon_deco_00.png",
@@ -100,6 +101,8 @@ function platform_selector(platform) {
             return 6;
         case "Unity3D":
             return 7;
+        case "Server":
+            return 8;
         default:
             return 0;
     }
